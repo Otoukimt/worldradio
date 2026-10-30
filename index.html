@@ -17,6 +17,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- ===== Google Analytics 4 =====
+     Put your Measurement ID (G-XXXXXXXXXX) in GA_ID below, in the main script.
+     Leave it empty and nothing loads and no cookie is set. -->
+
 <style>
 :root{
   --bg:#0b0f1a; --card:#161d31; --card2:#1c2440; --line:#232c45;
@@ -43,7 +48,7 @@ button{font-family:inherit}
 header{position:sticky;top:0;z-index:30;background:var(--bg);
   border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
 .hrow{display:flex;align-items:center;gap:7px;padding:12px 16px;max-width:1200px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;letter-spacing:-.5px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;letter-spacing:-.5px;cursor:pointer}
 .logo-dot{width:12px;height:12px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgba(34,211,166,.18);animation:pulse 2s infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 9px rgba(34,211,166,0)}}
 .logo span{color:var(--acc)}
@@ -134,6 +139,52 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 16px;text-a
 footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:14px}
 footer nav a:hover{color:var(--acc)}
 
+/* ===== injected pages (articles, about, privacy, contact) ===== */
+#page{display:none;max-width:760px;margin:0 auto;padding:22px 18px 30px}
+#page.on{display:block}
+#page .crumb{font-size:13px;color:var(--mut);margin-bottom:14px}
+#page .crumb a{color:var(--acc)}
+#page .tagx{display:inline-block;font-size:12px;color:var(--acc);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+#page h1{font-size:clamp(25px,6vw,36px);line-height:1.24;margin:10px 0 12px;font-weight:800}
+#page .meta{color:var(--mut);font-size:14px;margin-bottom:22px}
+#page .hero{height:170px;border-radius:18px;margin:0 0 26px;padding:0;max-width:none;position:relative;
+  overflow:hidden;background:linear-gradient(135deg,#0f766e,#4338ca 60%,#be123c);display:grid;place-items:center}
+#page .hero .wav{display:flex;gap:6px;align-items:flex-end;height:68px}
+#page .hero .wav i{width:8px;background:rgba(255,255,255,.85);border-radius:4px;display:block;animation:w 1.4s ease-in-out infinite}
+#page .hero .wav i:nth-child(1){height:24px;animation-delay:0s}
+#page .hero .wav i:nth-child(2){height:48px;animation-delay:.15s}
+#page .hero .wav i:nth-child(3){height:68px;animation-delay:.3s}
+#page .hero .wav i:nth-child(4){height:40px;animation-delay:.45s}
+#page .hero .wav i:nth-child(5){height:58px;animation-delay:.6s}
+#page .hero .wav i:nth-child(6){height:28px;animation-delay:.75s}
+#page .hero .wav i:nth-child(7){height:46px;animation-delay:.9s}
+@keyframes w{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+#page h2{font-size:21px;margin:34px 0 11px;font-weight:800;line-height:1.3}
+#page h3{font-size:18px;margin:26px 0 8px;font-weight:700}
+#page p{line-height:1.85;color:var(--txt);opacity:.92;margin:0 0 16px;font-size:16.5px}
+#page ul,#page ol{line-height:1.85;color:var(--txt);opacity:.92;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
+#page li{margin-bottom:9px}
+#page table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
+#page th,#page td{border:1px solid var(--line);padding:10px 12px;text-align:start}
+#page th{background:var(--card);font-weight:700}
+#page code{background:var(--card);border:1px solid var(--line);padding:2px 7px;border-radius:6px;
+  font-size:14px;font-family:ui-monospace,monospace;direction:ltr;display:inline-block}
+#page blockquote{border-inline-start:3px solid var(--acc);margin:24px 0;padding-inline-start:16px;
+  color:var(--mut);font-style:italic;line-height:1.8}
+#page .box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:28px 0}
+#page .box h2,#page .box h3{margin-top:0}
+#page .cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
+  color:#fff;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px}
+#page .mail{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:20px;margin:22px 0;text-align:center}
+#page .mail .lbl{font-size:13px;color:var(--mut);font-weight:600;margin-bottom:8px}
+#page .mail .ad{font-size:18px;font-weight:800;color:var(--acc);direction:ltr;word-break:break-all}
+#page .lead{color:var(--mut);font-size:16px;line-height:1.7;margin:0 0 26px;max-width:620px}
+#page .arts{margin-top:4px}
+#page .art h2{margin:8px 0 6px;font-size:17px;font-weight:700;line-height:1.35}
+#page .chips{margin-bottom:18px}
+#pLoad{text-align:center;color:var(--mut);padding:60px 0;font-size:15px}
+
 .player{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--bg);
   border-top:1px solid var(--line);box-shadow:0 -8px 28px var(--shadow);
   padding-bottom:env(safe-area-inset-bottom,0px);
@@ -185,13 +236,11 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
   padding:13px;border-radius:12px;font-weight:700;cursor:pointer;font-size:15px}
 .danger{color:var(--red);background:none;margin-bottom:10px}
 
-/* station info sheet */
 .ihead{display:flex;gap:14px;align-items:center;margin-bottom:16px}
 #iArt{width:66px;height:66px;border-radius:50%;object-fit:cover;background:var(--card);flex:none}
 .ihead .n{font-size:18px;font-weight:800;line-height:1.3}
 .ihead .c{font-size:13px;color:var(--mut);margin-top:3px}
 .kv{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
-.kv:last-of-type{border-bottom:none}
 .kv .k{color:var(--mut);font-weight:600}
 .kv .v{font-weight:600;text-align:end;word-break:break-word}
 .itags{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 18px}
@@ -216,63 +265,67 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 
 <header>
   <div class="hrow">
-    <div class="logo"><span class="logo-dot"></span>Live<span>Radio</span></div>
+    <div class="logo" id="homeBtn"><span class="logo-dot"></span>Live<span>Radio</span></div>
     <div class="spacer"></div>
     <button class="btn ibtn" id="themeBtn" title="Theme">&#9789;</button>
     <button class="btn ibtn" id="randBtn" title="Random">&#127922;</button>
     <button class="btn ibtn" id="setBtn" title="Settings">&#9881;</button>
     <button class="btn" id="langBtn">العربية</button>
   </div>
-  <div class="searchbar"><input id="search" type="search" placeholder="Search stations..."></div>
+  <div class="searchbar" id="searchWrap"><input id="search" type="search" placeholder="Search stations..."></div>
 </header>
 
-<section class="hero">
-  <h1 data-i="h1">Listen to the world, <em>live</em>.</h1>
-  <p data-i="sub">Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.</p>
-</section>
+<div id="page"></div>
 
-<div class="tabs">
-  <button class="tab on" data-tab="all" data-i="tAll">Browse</button>
-  <button class="tab" data-tab="fav" data-i="tFav">Favourites</button>
-</div>
+<div id="home">
+  <section class="hero">
+    <h1 data-i="h1">Listen to the world, <em>live</em>.</h1>
+    <p data-i="sub">Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.</p>
+  </section>
 
-<div class="filters" id="filters">
-  <div class="chips" id="genres"></div>
-  <select class="ctry" id="country"></select>
-</div>
-
-<section class="sec" id="localSec" style="display:none">
-  <div class="sechead"><h2 id="localTitle">Stations near you</h2></div>
-  <div class="row" id="local"></div>
-</section>
-
-<section class="sec" id="recentSec" style="display:none">
-  <div class="sechead"><h2 data-i="recent">Recently played</h2></div>
-  <div class="row" id="recent"></div>
-</section>
-
-<section class="sec">
-  <div class="sechead">
-    <h2 id="secTitle">Popular stations</h2>
-    <span class="cnt" id="cnt"></span>
+  <div class="tabs">
+    <button class="tab on" data-tab="all" data-i="tAll">Browse</button>
+    <button class="tab" data-tab="fav" data-i="tFav">Favourites</button>
   </div>
-  <div class="grid" id="grid"></div>
-  <div class="load" id="status" style="display:none"></div>
-  <button class="btn more" id="moreBtn" style="display:none" data-i="more">Show more</button>
-</section>
 
-<section class="sec" id="articles">
-  <div class="sechead">
-    <h2 data-i="guides">Radio guides &amp; articles</h2>
-    <a class="lnk" href="./articles.html" data-i="allArts">See all &rarr;</a>
+  <div class="filters" id="filters">
+    <div class="chips" id="genres"></div>
+    <select class="ctry" id="country"></select>
   </div>
-  <div class="arts" id="artList"></div>
-</section>
 
-<div class="stats">
-  <div class="stat"><div class="v" id="sVisits">—</div><div class="k" data-i="kVisits">Visits</div></div>
-  <div class="stat"><div class="v" id="sPlays">—</div><div class="k" data-i="kPlays">Stations played</div></div>
-  <div class="stat"><div class="v" id="sMine">0</div><div class="k" data-i="kMine">Your listening</div></div>
+  <section class="sec" id="localSec" style="display:none">
+    <div class="sechead"><h2 id="localTitle">Stations near you</h2></div>
+    <div class="row" id="local"></div>
+  </section>
+
+  <section class="sec" id="recentSec" style="display:none">
+    <div class="sechead"><h2 data-i="recent">Recently played</h2></div>
+    <div class="row" id="recent"></div>
+  </section>
+
+  <section class="sec">
+    <div class="sechead">
+      <h2 id="secTitle">Popular stations</h2>
+      <span class="cnt" id="cnt"></span>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="load" id="status" style="display:none"></div>
+    <button class="btn more" id="moreBtn" style="display:none" data-i="more">Show more</button>
+  </section>
+
+  <section class="sec" id="articles">
+    <div class="sechead">
+      <h2 data-i="guides">Radio guides &amp; articles</h2>
+      <a class="lnk" href="./articles.html" data-i="allArts">See all &rarr;</a>
+    </div>
+    <div class="arts" id="artList"></div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="v" id="sVisits">—</div><div class="k" data-i="kVisits">Visits</div></div>
+    <div class="stat"><div class="v" id="sPlays">—</div><div class="k" data-i="kPlays">Stations played</div></div>
+    <div class="stat"><div class="v" id="sMine">0</div><div class="k" data-i="kMine">Your listening</div></div>
+  </div>
 </div>
 
 <footer>
@@ -288,12 +341,10 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 <button id="top" title="Top">&#8593;</button>
 <div id="toast"></div>
 
-<!-- settings -->
 <div class="sheet" id="sheet">
   <div class="sheetin">
     <h3 data-i="settings">Settings</h3>
     <p class="sh-sub" data-i="setSub">Saved on this device only.</p>
-
     <div class="grp">
       <div class="lab" data-i="quality">Audio quality &amp; data use</div>
       <div class="opts" id="qOpts">
@@ -303,7 +354,6 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
       </div>
       <div class="sh-sub" style="margin:10px 0 0" id="qNote"></div>
     </div>
-
     <div class="grp">
       <div class="lab" data-i="myStats">Your listening stats</div>
       <div class="opts">
@@ -312,13 +362,11 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
         <div class="opt"><b id="stData">0</b><small data-i="kData">MB used</small></div>
       </div>
     </div>
-
     <button class="close danger" id="resetBtn" data-i="reset">Clear my saved data</button>
     <button class="close" id="closeSheet" data-i="done">Done</button>
   </div>
 </div>
 
-<!-- station info -->
 <div class="sheet" id="iSheet">
   <div class="sheetin">
     <div class="ihead">
@@ -372,6 +420,26 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 <audio id="audio" preload="none"></audio>
 
 <script>
+/* ============ Google Analytics 4 ============
+   Paste your Measurement ID between the quotes, e.g. 'G-ABCD123XYZ'.
+   Leave empty = analytics off, no cookies.                       */
+var GA_ID='';
+(function(){
+  if(!GA_ID)return;
+  var s=document.createElement('script');s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments);};
+  gtag('js',new Date());
+  gtag('config',GA_ID);
+})();
+function gaView(path,title){
+  if(!GA_ID||!window.gtag)return;
+  gtag('event','page_view',{page_path:path,page_title:title});
+}
+function gaEvent(name,params){ if(GA_ID&&window.gtag)gtag('event',name,params||{}); }
+
 /* ================= i18n ================= */
 var I={
  en:{h1:'Listen to the world, <em>live</em>.',
@@ -399,7 +467,7 @@ var I={
   usage:'Playing at <b>{b} kbps</b> · about <b>{m} MB</b> per hour',
   usage2:'Quality setting: {q}',hrs:'h',
   retry:'Connection lost — reconnecting ({n}/3)…',skipped:'Station failed, moving to the next one',
-  unknown:'Unknown'},
+  unknown:'Unknown',loading:'Loading…',pageErr:'Could not load that page.'},
  ar:{h1:'استمع إلى العالم، <em>مباشرةً</em>.',
   sub:'مئات المحطات الإذاعية المجانية من كل دول العالم. اختر محطة وتابع التصفح — الصوت لا يتوقف.',
   popular:'المحطات الأكثر استماعاً',favs:'محطاتك المفضلة',recent:'استمعت مؤخراً',near:'محطات من {c}',
@@ -425,7 +493,7 @@ var I={
   usage:'يعمل بـ <b>{b} kbps</b> · نحو <b>{m} م.ب</b> في الساعة',
   usage2:'إعداد الجودة: {q}',hrs:'س',
   retry:'انقطع الاتصال — إعادة المحاولة ({n}/3)…',skipped:'تعذّرت المحطة، الانتقال إلى التالية',
-  unknown:'غير معروف'}
+  unknown:'غير معروف',loading:'جارٍ التحميل…',pageErr:'تعذّر تحميل الصفحة.'}
 };
 var lang=localStorage.getItem('lr_lang')||'en';
 function T(k){return I[lang][k];}
@@ -435,7 +503,6 @@ var search=$('search'),langBtn=$('langBtn'),country=$('country'),genresEl=$('gen
     grid=$('grid'),statusEl=$('status'),moreBtn=$('moreBtn'),cntEl=$('cnt');
 $('yr').textContent=new Date().getFullYear();
 
-/* ================= storage ================= */
 var LS={get:function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v===null?d:v}catch(e){return d}},
         set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 var favs=LS.get('lr_favs',[]),recent=LS.get('lr_recent',[]);
@@ -443,7 +510,6 @@ var quality=LS.get('lr_quality','mid');
 var mine=LS.get('lr_mine',{sec:0,mb:0,stations:[]});
 var theme=LS.get('lr_theme','dark');
 
-/* ================= theme (FEATURE 1) ================= */
 function applyTheme(){
   document.documentElement.setAttribute('data-theme',theme);
   $('themeBtn').innerHTML=theme==='dark'?'&#9728;':'&#9789;';
@@ -453,7 +519,6 @@ function applyTheme(){
 }
 $('themeBtn').onclick=function(){theme=theme==='dark'?'light':'dark';applyTheme();};
 
-/* ================= toast ================= */
 var tt;
 function toast(m){var t=$('toast');t.innerHTML=m;t.classList.add('show');
   clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2400);}
@@ -462,7 +527,6 @@ function isFav(u){for(var i=0;i<favs.length;i++)if(favs[i].stationuuid===u)retur
 function slim(s){return{stationuuid:s.stationuuid,name:s.name,country:s.country,countrycode:s.countrycode,
   favicon:s.favicon,tags:s.tags,bitrate:s.bitrate||0,codec:s.codec,language:s.language,votes:s.votes,
   homepage:s.homepage,url_resolved:s.url_resolved||s.url};}
-
 function toggleFav(s){
   if(isFav(s.stationuuid)){favs=favs.filter(function(f){return f.stationuuid!==s.stationuuid});toast(T('removed'));}
   else{favs.unshift(slim(s));toast(T('added'));}
@@ -479,7 +543,6 @@ function pushRecent(s){
   LS.set('lr_recent',recent);renderRecent();
 }
 
-/* ================= data ================= */
 var MIRRORS=['https://de2.api.radio-browser.info','https://nl1.api.radio-browser.info','https://at1.api.radio-browser.info'];
 var GENRES=[{k:'',en:'All',ar:'الكل'},{k:'pop',en:'Pop',ar:'بوب'},{k:'news',en:'News',ar:'أخبار'},
  {k:'rock',en:'Rock',ar:'روك'},{k:'jazz',en:'Jazz',ar:'جاز'},{k:'classical',en:'Classical',ar:'كلاسيكي'},
@@ -507,14 +570,11 @@ function clean(d){
 }
 function ini(n){return (n||'?').trim().charAt(0).toUpperCase();}
 function mbPerHour(br){return Math.round((br||128)*3600/8/1024);}
-
-/* FEATURE 2: country flags */
 function flag(cc){
   if(!cc||cc.length!==2)return '';
   var c=cc.toUpperCase();
   try{return String.fromCodePoint(0x1F1E6+c.charCodeAt(0)-65,0x1F1E6+c.charCodeAt(1)-65);}catch(e){return '';}
 }
-
 function buildGenres(){
   genresEl.innerHTML='';
   GENRES.forEach(function(g){
@@ -539,7 +599,6 @@ function applyQuality(){
   all=raw.filter(function(s){return !cap||!s.bitrate||s.bitrate<=cap;});
   if(cap)all.sort(function(a,b){return (b.bitrate||0)-(a.bitrate||0);});
 }
-
 function card(s){
   var b=document.createElement('button');b.className='st';b.dataset.uuid=s.stationuuid;
   var ring=document.createElement('div');ring.className='ring';
@@ -564,9 +623,7 @@ function card(s){
 function skeletons(n){grid.innerHTML='';for(var i=0;i<n;i++){
   var d=document.createElement('div');d.className='sk';
   d.innerHTML='<div class="c"></div><div class="l"></div>';grid.appendChild(d);}}
-
 function updateTitle(){$('secTitle').textContent=tab==='fav'?T('favs'):T('popular');}
-
 function render(reset){
   if(reset){grid.innerHTML='';shown=0;}
   var list=tab==='fav'?favs:all;
@@ -580,10 +637,9 @@ function render(reset){
   markPlaying();
 }
 moreBtn.onclick=function(){render(false);};
-
 function load(){
   buildGenres();updateTitle();
-  if(tab==='fav'){render(true);return;}
+  if(tab==='fav'){render(true);return Promise.resolve();}
   statusEl.style.display='none';skeletons(12);cntEl.textContent='';moreBtn.style.display='none';
   var p='/json/stations/search?hidebroken=true&limit=700&order=clickcount&reverse=true';
   if(fGenre)p+='&tag='+encodeURIComponent(fGenre);
@@ -593,6 +649,7 @@ function load(){
 }
 var tmr;
 search.oninput=function(e){clearTimeout(tmr);fText=e.target.value.trim();
+  if(!isHome())goHome();
   if(tab!=='all'){tab='all';syncTabs();}tmr=setTimeout(load,500);};
 
 function syncTabs(){
@@ -610,27 +667,43 @@ function renderRecent(){
   markPlaying();
 }
 
-/* FEATURE 2b: stations from the visitor's own region */
+/* ====== country detection by IP, with locale fallback ====== */
 var localList=[],localName='';
+function detectCountry(){
+  return fetch('https://api.country.is/')
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(d){return (d&&d.country)?d.country.toUpperCase():null;})
+    .catch(function(){return null;})
+    .then(function(cc){
+      if(cc)return cc;
+      return fetch('https://ipapi.co/country/')
+        .then(function(r){return r.ok?r.text():null;})
+        .then(function(t){t=(t||'').trim().toUpperCase();return t.length===2?t:null;})
+        .catch(function(){return null;});
+    })
+    .then(function(cc){
+      if(cc)return cc;
+      try{
+        var ls=[navigator.language].concat(navigator.languages||[]);
+        for(var i=0;i<ls.length;i++){
+          var p=(ls[i]||'').split('-');
+          if(p.length>1&&p[p.length-1].length===2)return p[p.length-1].toUpperCase();
+        }
+      }catch(e){}
+      return null;
+    });
+}
 function loadLocal(){
-  var reg='';
-  try{
-    var l=navigator.language||'';
-    var parts=l.split('-');
-    if(parts.length>1)reg=parts[parts.length-1].toUpperCase();
-    if(!reg&&navigator.languages)for(var i=0;i<navigator.languages.length;i++){
-      var p=navigator.languages[i].split('-');
-      if(p.length>1){reg=p[p.length-1].toUpperCase();break;}
-    }
-  }catch(e){}
-  if(!reg||reg.length!==2)return;
-  api('/json/stations/search?hidebroken=true&limit=40&order=clickcount&reverse=true&countrycode='+reg)
-    .then(function(d){
-      localList=clean(d).slice(0,20);
-      if(!localList.length)return;
-      localName=localList[0].country||reg;
-      drawLocal();
-    }).catch(function(){});
+  detectCountry().then(function(cc){
+    if(!cc)return;
+    api('/json/stations/search?hidebroken=true&limit=40&order=clickcount&reverse=true&countrycode='+cc)
+      .then(function(d){
+        localList=clean(d).slice(0,20);
+        if(!localList.length)return;
+        localName=localList[0].country||cc;
+        drawLocal();
+      }).catch(function(){});
+  });
 }
 function drawLocal(){
   if(!localList.length)return;
@@ -641,7 +714,7 @@ function drawLocal(){
   markPlaying();
 }
 
-/* ================= articles ================= */
+/* ================= articles list ================= */
 var posts=[];
 function drawArticles(){
   var l=$('artList');if(!l)return;l.innerHTML='';
@@ -685,7 +758,7 @@ function drawStats(){
   counter('plays',false).then(function(n){if(n!==null)$('sPlays').textContent=fmtNum(n);});
 })();
 
-/* ================= station info sheet (FEATURE 3) ================= */
+/* ================= station info ================= */
 var iStation=null;
 function showInfo(s){
   iStation=s;
@@ -698,7 +771,6 @@ function showInfo(s){
   }else{nu=document.createElement('div');nu.className='pfb';nu.textContent=ini(s.name);
     nu.style.cssText='width:66px;height:66px;border-radius:50%;background:var(--card)';}
   nu.id='iArt';old.replaceWith(nu);
-
   $('iName').textContent=s.name.trim();
   $('iCountry').textContent=(flag(s.countrycode)+' '+(s.country||T('unknown'))).trim();
   $('iBitrate').textContent=s.bitrate?s.bitrate+' kbps':T('unknown');
@@ -722,10 +794,8 @@ $('iPlay').onclick=function(){if(iStation){play(iStation);$('iSheet').classList.
 $('iFav').onclick=function(){if(iStation){toggleFav(iStation);
   $('iFav').style.borderColor=isFav(iStation.stationuuid)?'var(--red)':'var(--line)';}};
 $('iShare').onclick=function(){if(iStation)shareStation(iStation);};
-
-/* FEATURE 3b: per-station share link */
 function shareStation(s){
-  var u=location.href.split('#')[0]+'#s='+s.stationuuid;
+  var u=location.origin+location.pathname.replace(/[^\/]*$/,'')+'#s='+s.stationuuid;
   var data={title:'LiveRadio — '+s.name.trim(),text:s.name.trim(),url:u};
   if(navigator.share){navigator.share(data).catch(function(){});return;}
   if(navigator.clipboard)navigator.clipboard.writeText(u).then(function(){toast(T('copied'));}).catch(function(){});
@@ -738,7 +808,6 @@ var current=null,queue=[],qi=-1,sleepT=null,sleepMin=0,tickT=null;
 var retries=0,retryT=null,MAXR=3;
 var PLAY='M8 5v14l11-7z',PAUSE='M6 5h4v14H6zM14 5h4v14h-4z',WAIT='M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z';
 function setIcon(d){pIcon.querySelector('path').setAttribute('d',d);}
-
 function markPlaying(){
   var els=document.querySelectorAll('.st');
   for(var i=0;i<els.length;i++)
@@ -787,6 +856,7 @@ function play(s){
   if((mine.stations||[]).indexOf(s.stationuuid)<0){
     mine.stations=(mine.stations||[]).concat([s.stationuuid]);LS.set('lr_mine',mine);drawStats();}
   counter('plays',true).then(function(n){if(n!==null)$('sPlays').textContent=fmtNum(n);});
+  gaEvent('play_station',{station_name:s.name.trim(),station_country:s.country||''});
   if('mediaSession' in navigator){
     try{
       navigator.mediaSession.metadata=new MediaMetadata({title:s.name.trim(),
@@ -802,8 +872,6 @@ function play(s){
 function toggle(){if(audio.paused){var p=audio.play();if(p&&p.catch)p.catch(function(){});}else audio.pause();}
 function next(){if(queue.length){qi=(qi+1)%queue.length;play(queue[qi]);}}
 function prev(){if(queue.length){qi=(qi-1+queue.length)%queue.length;play(queue[qi]);}}
-
-/* FEATURE 4: auto-reconnect, then skip */
 function failed(){
   if(!current)return;
   setIcon(PLAY);bars.style.display='none';
@@ -824,8 +892,7 @@ function failed(){
   }
 }
 audio.addEventListener('error',failed);
-audio.addEventListener('stalled',function(){ if(current&&!audio.paused)failed(); });
-
+audio.addEventListener('stalled',function(){if(current&&!audio.paused)failed();});
 $('pBtn').onclick=function(){
   if(!current){var last=LS.get('lr_last',null);if(last){play(last);return;}}
   toggle();
@@ -854,15 +921,13 @@ $('aSleep').onclick=function(){
 var vol=$('vol');
 vol.value=LS.get('lr_vol',100);audio.volume=vol.value/100;
 vol.oninput=function(){audio.volume=vol.value/100;LS.set('lr_vol',+vol.value);};
-
 audio.onplaying=function(){retries=0;clearTimeout(retryT);
   setIcon(PAUSE);bars.style.display='flex';markPlaying();startTick();};
 audio.onpause=function(){setIcon(PLAY);bars.style.display='none';markPlaying();
   clearInterval(tickT);LS.set('lr_mine',mine);drawStats();};
 audio.onwaiting=function(){setIcon(WAIT);};
-
 $('randBtn').onclick=function(){var l=all.length?all:favs;
-  if(l.length)play(l[Math.floor(Math.random()*l.length)]);};
+  if(l.length){goHome();play(l[Math.floor(Math.random()*l.length)]);}};
 
 /* ================= settings ================= */
 function syncQ(){
@@ -889,6 +954,130 @@ $('resetBtn').onclick=function(){
   toast(T('cleared'));
 };
 
+/* ================= in-page navigation (audio never stops) ================= */
+var ROOT=location.origin+location.pathname.replace(/[^\/]*$/,'');
+var pageEl=$('page'),homeEl=$('home');
+function isHome(){return !pageEl.classList.contains('on');}
+function trans(root){
+  var els=root.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){
+    var v=els[i].getAttribute('data-'+lang);
+    if(v)els[i].innerHTML=v;
+  }
+}
+function goHome(push){
+  pageEl.classList.remove('on');pageEl.innerHTML='';
+  homeEl.style.display='';$('searchWrap').style.display='';
+  document.title='LiveRadio — Free Online Radio Stations Worldwide';
+  if(push){history.pushState({p:''},'',ROOT);gaView(location.pathname,document.title);}
+  window.scrollTo(0,0);
+}
+$('homeBtn').onclick=function(){goHome(true);};
+
+function loadPage(url,push){
+  pageEl.innerHTML='<div id="pLoad">'+T('loading')+'</div>';
+  pageEl.classList.add('on');homeEl.style.display='none';$('searchWrap').style.display='none';
+  window.scrollTo(0,0);
+  fetch(url).then(function(r){
+    if(!r.ok)throw 0;return r.text();
+  }).then(function(html){
+    var doc=new DOMParser().parseFromString(html,'text/html');
+    var m=doc.querySelector('main');
+    if(!m)throw 0;
+    var as=m.querySelectorAll('a[href]');
+    for(var i=0;i<as.length;i++){
+      try{as[i].href=new URL(as[i].getAttribute('href'),url).href;}catch(e){}
+    }
+    var imgs=m.querySelectorAll('img[src]');
+    for(var j=0;j<imgs.length;j++){
+      try{imgs[j].src=new URL(imgs[j].getAttribute('src'),url).href;}catch(e){}
+    }
+    pageEl.innerHTML=m.innerHTML;
+    trans(pageEl);
+    var t=doc.querySelector('title');
+    document.title=t?t.textContent:'LiveRadio';
+    if(push)history.pushState({p:url},'',url);
+    gaView(new URL(url).pathname,document.title);
+    hookPageLinks();
+    initArticlesList();
+  }).catch(function(){
+    pageEl.innerHTML='<div id="pLoad">'+T('pageErr')+'</div>';
+  });
+}
+/* the articles.html page needs its list rebuilt once injected */
+function initArticlesList(){
+  var list=pageEl.querySelector('#list');
+  if(!list)return;
+  var chips=pageEl.querySelector('#chips'),empty=pageEl.querySelector('#empty');
+  var filter='';
+  function fmtDate(d){
+    try{return new Date(d).toLocaleDateString(lang==='ar'?'ar':'en-GB',
+      {year:'numeric',month:'long',day:'numeric'});}catch(e){return d;}
+  }
+  function draw(){
+    if(chips){
+      var tags=[],seen={};
+      posts.forEach(function(p){var t=p.tag.en;if(!seen[t]){seen[t]=p.tag;tags.push(t);}});
+      chips.innerHTML='';
+      var ab=document.createElement('button');
+      ab.className='chip'+(filter===''?' on':'');
+      ab.textContent=lang==='ar'?'الكل':'All';
+      ab.onclick=function(){filter='';draw();};chips.appendChild(ab);
+      tags.forEach(function(t){
+        var b=document.createElement('button');
+        b.className='chip'+(filter===t?' on':'');
+        b.textContent=seen[t][lang]||t;
+        b.onclick=function(){filter=t;draw();};chips.appendChild(b);
+      });
+    }
+    list.innerHTML='';
+    var items=posts.filter(function(p){return !filter||p.tag.en===filter;});
+    items.sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
+    if(empty)empty.style.display=items.length?'none':'block';
+    items.forEach(function(p){
+      var a=document.createElement('a');a.className='art';
+      a.href=ROOT+'articles/'+p.slug+'.html';
+      a.innerHTML='<div class="tag"></div><h2></h2><p></p><div class="d" style="font-size:12px;color:var(--mut)"></div>';
+      a.querySelector('.tag').textContent=p.tag[lang]||p.tag.en;
+      a.querySelector('h2').textContent=p.title[lang]||p.title.en;
+      a.querySelector('p').textContent=p.desc[lang]||p.desc.en;
+      a.querySelector('.d').textContent=fmtDate(p.date);
+      list.appendChild(a);
+    });
+    hookPageLinks();
+  }
+  if(posts.length)draw();
+  else fetch('./articles.json').then(function(r){return r.json();})
+        .then(function(d){posts=d||[];draw();}).catch(function(){});
+}
+function internal(href){
+  if(!href)return false;
+  if(href.indexOf(location.origin)!==0)return false;
+  if(href.indexOf('#')===0)return false;
+  return /\.html$/.test(href)||href===ROOT||href===ROOT.replace(/\/$/,'');
+}
+function hookLink(a){
+  if(a.dataset.hooked)return;
+  a.dataset.hooked='1';
+  a.addEventListener('click',function(e){
+    var href=a.href;
+    if(!internal(href))return;
+    if(e.metaKey||e.ctrlKey||e.shiftKey||a.target==='_blank')return;
+    e.preventDefault();
+    if(href===ROOT||href===ROOT+'index.html')goHome(true);
+    else loadPage(href,true);
+  });
+}
+function hookPageLinks(){
+  var as=document.querySelectorAll('a[href]');
+  for(var i=0;i<as.length;i++)hookLink(as[i]);
+}
+window.addEventListener('popstate',function(){
+  var h=location.href.split('#')[0];
+  if(h===ROOT||h===ROOT+'index.html')goHome(false);
+  else loadPage(h,false);
+});
+
 /* ================= lang ================= */
 function applyLang(){
   var d=I[lang];
@@ -900,6 +1089,8 @@ function applyLang(){
   langBtn.textContent=lang==='en'?'العربية':'English';
   if(country.options.length)country.options[0].textContent=d.allc;
   buildGenres();updateTitle();renderRecent();drawArticles();drawStats();drawUsage();syncQ();drawLocal();
+  if(!isHome()){trans(pageEl);initArticlesList();}
+  hookPageLinks();
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
 }
 langBtn.onclick=function(){lang=lang==='en'?'ar':'en';applyLang();render(true);};
@@ -917,7 +1108,6 @@ window.addEventListener('keydown',function(e){
 });
 window.addEventListener('beforeunload',function(){LS.set('lr_mine',mine);});
 
-/* open a shared station link */
 function openHash(){
   var h=location.hash||'';
   var m=h.match(/s=([0-9a-fA-F-]{10,})/);
@@ -930,7 +1120,7 @@ function openHash(){
 window.addEventListener('hashchange',openHash);
 
 /* ================= init ================= */
-applyTheme();syncTabs();applyLang();syncQ();renderRecent();drawStats();drawUsage();
+applyTheme();syncTabs();applyLang();syncQ();renderRecent();drawStats();drawUsage();hookPageLinks();
 (function(){
   var last=LS.get('lr_last',null);
   if(last){pName.textContent=last.name;pMeta.textContent=last.country||'';
