@@ -1,5 +1,18 @@
 [
   {
+    "slug": "moroccan-radio-stations-guide",
+    "date": "2026-10-31",
+    "tag": { "en": "Country guide", "ar": "دليل دولة" },
+    "title": {
+      "en": "Moroccan radio stations: a complete listening guide",
+      "ar": "المحطات الإذاعية المغربية: دليل استماع كامل"
+    },
+    "desc": {
+      "en": "Medi1, Hit Radio, Chada FM, Radio Mars, the SNRT channels and Amazigh radio — who broadcasts what, and how to listen.",
+      "ar": "مدي1، هيت راديو، شدى إف إم، راديو مارس، قنوات SNRT والإذاعة الأمازيغية — من يبثّ ماذا، وكيف تستمع."
+    }
+  },
+  {
     "slug": "best-radio-stations-world",
     "date": "2026-10-30",
     "tag": { "en": "Guide", "ar": "دليل" },
