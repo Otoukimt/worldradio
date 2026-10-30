@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How Online Radio Streaming Works — Bitrates, Codecs and Buffering | LiveRadio</title>
+<meta name="description" content="A clear explainer of how internet radio works: what a stream URL is, what bitrate and codec mean, why stations buffer, and why some stations will not play in a browser.">
+<meta name="theme-color" content="#0b0f1a">
+<meta property="og:title" content="How Online Radio Streaming Works">
+<meta property="og:description" content="Bitrates, codecs and buffering, explained simply for everyday listeners.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0f1a;--card:#161d31;--line:#232c45;--txt:#eef2ff;--mut:#93a0c0;
+--acc:#22d3a6;--acc2:#6366f1;--font:'Outfit','Cairo',system-ui,sans-serif;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--txt);font-family:var(--font);
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Cairo',var(--font)}
+a{color:var(--acc);text-decoration:none}
+button{font-family:inherit}
+header{position:sticky;top:0;z-index:30;background:rgba(11,15,26,.93);backdrop-filter:blur(14px);
+border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.hrow{display:flex;align-items:center;gap:10px;padding:12px 16px;max-width:760px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--txt)}
+.logo-dot{width:11px;height:11px;border-radius:50%;background:var(--acc)}
+.logo span{color:var(--acc)}
+.spacer{flex:1}
+.btn{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+main{max-width:760px;margin:0 auto;padding:26px 18px 60px}
+.crumb{font-size:13px;color:var(--mut);margin-bottom:14px}
+.tagx{display:inline-block;font-size:12px;color:var(--acc);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800}
+.meta{color:var(--mut);font-size:14px;margin-bottom:26px}
+h2{font-size:22px;margin:34px 0 12px;font-weight:800;line-height:1.3}
+h3{font-size:18px;margin:26px 0 8px;font-weight:700}
+p{line-height:1.8;color:#dbe2f7;margin:0 0 16px;font-size:16.5px}
+ul,ol{line-height:1.85;color:#dbe2f7;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
+li{margin-bottom:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:start}
+th{background:var(--card);font-weight:700}
+code{background:var(--card);border:1px solid var(--line);padding:2px 7px;border-radius:6px;
+font-size:14px;font-family:ui-monospace,monospace;direction:ltr;display:inline-block}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:26px 0}
+.box h3{margin-top:0}
+.cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
+color:#04221b;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px}
+footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;color:var(--mut);font-size:14px}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
+footer nav a{color:var(--mut)}
+footer nav a:hover{color:var(--acc)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <a class="logo" href="../"><span class="logo-dot"></span>Live<span>Radio</span></a>
+    <div class="spacer"></div>
+    <button class="btn" id="langBtn">العربية</button>
+  </div>
+</header>
+
+<main>
+  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <span data-en="Explainers" data-ar="شروحات">Explainers</span></div>
+  <span class="tagx" data-en="Explainer" data-ar="شرح">Explainer</span>
+  <h1 data-en="How online radio streaming works" data-ar="كيف يعمل بث الراديو عبر الإنترنت">How online radio streaming works</h1>
+  <div class="meta"><span data-en="Updated October 2026 · 8 min read" data-ar="تحديث أكتوبر 2026 · قراءة 8 دقائق">Updated October 2026 · 8 min read</span></div>
+
+  <p data-en="When you tap play on an internet radio station, nothing is downloaded in the way a song file is downloaded. Instead your device opens a connection to a server and that server starts pushing audio at you in small pieces, continuously, for as long as you keep listening. Everything else — the delay before sound starts, the occasional stutter, the difference in sound quality between two stations — follows from that one fact." data-ar="حين تضغط زر التشغيل في محطة إذاعية عبر الإنترنت، لا يُنزَّل شيء بالطريقة التي يُنزَّل بها ملف أغنية. بل يفتح جهازك اتصالاً بخادم، ويبدأ ذلك الخادم بدفع الصوت إليك على هيئة قطع صغيرة، بشكل متواصل، ما دمت تستمع. وكل ما عدا ذلك — التأخير قبل بدء الصوت، التقطّع العارض، فارق الجودة بين محطتين — ينبع من هذه الحقيقة الواحدة.">When you tap play on an internet radio station, nothing is downloaded.</p>
+
+  <h2 data-en="The stream URL" data-ar="رابط البث">The stream URL</h2>
+  <p data-en="Every station has a stream URL — an address that returns audio instead of a web page. It usually looks like a normal link ending in something like <code>/live</code>, <code>/stream</code> or <code>.mp3</code>, and in most cases it is handled by one of three server programs: Icecast, SHOUTcast, or a standard web server delivering HLS segments. You can paste such a URL into VLC or almost any media player and it will start playing, with no website involved at all." data-ar="لكل محطة رابط بث — عنوان يُرجع صوتاً بدل صفحة ويب. وهو عادةً يبدو كرابط عادي ينتهي بشيء مثل <code>/live</code> أو <code>/stream</code> أو <code>.mp3</code>، وفي معظم الحالات يديره أحد ثلاثة برامج خوادم: Icecast أو SHOUTcast أو خادم ويب عادي يقدّم مقاطع HLS. يمكنك لصق هذا الرابط في VLC أو أي مشغل وسائط تقريباً فيبدأ التشغيل، دون أي موقع ويب على الإطلاق.">Every station has a stream URL.</p>
+
+  <h2 data-en="Codec: how the audio is packed" data-ar="الترميز: كيف يُحزَم الصوت">Codec: how the audio is packed</h2>
+  <p data-en="Raw audio is far too large to send continuously, so it is compressed by a codec. Three dominate internet radio:" data-ar="الصوت الخام أكبر من أن يُرسَل باستمرار، لذا يُضغَط عبر مُرمِّز (codec). ثلاثة مرمّزات تهيمن على راديو الإنترنت:">Raw audio is far too large to send continuously.</p>
+  <ul>
+    <li data-en="<strong>MP3</strong> — the oldest and most universally compatible. Plays everywhere, but needs a higher bitrate to sound good." data-ar="<strong>MP3</strong> — الأقدم والأوسع توافقاً. يعمل في كل مكان، لكنه يحتاج معدل بت أعلى ليبدو جيداً."><strong>MP3</strong></li>
+    <li data-en="<strong>AAC and AAC+</strong> — noticeably better than MP3 at the same bitrate, which is why most modern stations use it for mobile streams." data-ar="<strong>AAC و AAC+</strong> — أفضل بوضوح من MP3 عند نفس معدل البت، ولهذا تستعمله معظم المحطات الحديثة في بثها للهواتف."><strong>AAC and AAC+</strong></li>
+    <li data-en="<strong>Opus and Ogg Vorbis</strong> — open formats with excellent quality at low bitrates, common on independent and public stations." data-ar="<strong>Opus و Ogg Vorbis</strong> — صيغ مفتوحة بجودة ممتازة عند معدلات بت منخفضة، منتشرة في المحطات المستقلة والعمومية."><strong>Opus and Ogg Vorbis</strong></li>
+  </ul>
+
+  <h2 data-en="Bitrate: how much data per second" data-ar="معدل البت: كم بيانات في الثانية">Bitrate: how much data per second</h2>
+  <p data-en="Bitrate is measured in kilobits per second (kbps) and is the single number that decides both sound quality and data consumption. Higher is better sounding and more expensive in data; there is no way around that trade-off." data-ar="يُقاس معدل البت بالكيلوبت في الثانية (kbps)، وهو الرقم الوحيد الذي يحدد جودة الصوت واستهلاك البيانات معاً. فكلما ارتفع تحسّن الصوت وزاد استهلاك الباقة؛ ولا مفرّ من هذه المقايضة.">Bitrate is measured in kilobits per second.</p>
+  <table>
+    <tr><th data-en="Bitrate" data-ar="معدل البت">Bitrate</th><th data-en="Sounds like" data-ar="يبدو مثل">Sounds like</th><th data-en="Data per hour" data-ar="البيانات في الساعة">Data per hour</th></tr>
+    <tr><td>32–48 kbps</td><td data-en="Speech, AM-like" data-ar="كلام، يشبه AM">Speech, AM-like</td><td>~15–22 MB</td></tr>
+    <tr><td>64 kbps AAC</td><td data-en="Good for talk, acceptable for music" data-ar="جيد للكلام، مقبول للموسيقى">Good for talk</td><td>~29 MB</td></tr>
+    <tr><td>128 kbps MP3</td><td data-en="Standard music quality" data-ar="جودة موسيقية قياسية">Standard music quality</td><td>~58 MB</td></tr>
+    <tr><td>320 kbps</td><td data-en="Near CD, for good headphones" data-ar="قريب من الـCD، لسماعات جيدة">Near CD</td><td>~144 MB</td></tr>
+  </table>
+
+  <h2 data-en="Buffering: why there is a delay" data-ar="التخزين المؤقت: لماذا يوجد تأخير">Buffering: why there is a delay</h2>
+  <p data-en="Your player never plays audio the instant it arrives. It first collects a few seconds in a buffer, then plays from the buffer while the next pieces are still arriving. This is why there is a short pause after you press play, and why a brief drop in your connection usually goes unnoticed — the buffer covers it. When the connection drops for longer than the buffer holds, the sound stops and the player has to refill, which is the stutter you hear." data-ar="لا يشغّل المشغّل الصوت لحظة وصوله أبداً. بل يجمع أولاً بضع ثوانٍ في ذاكرة مؤقتة (buffer)، ثم يشغّل منها بينما تواصل القطع التالية الوصول. ولهذا توجد وقفة قصيرة بعد ضغط التشغيل، ولهذا يمرّ انقطاع قصير في اتصالك دون أن تلاحظه — الذاكرة المؤقتة تغطيه. أما حين ينقطع الاتصال مدة أطول مما تحتمله الذاكرة، يتوقف الصوت ويضطر المشغّل لإعادة التعبئة، وهذا هو التقطّع الذي تسمعه.">Your player never plays audio the instant it arrives.</p>
+  <p data-en="It also explains something listeners often find strange: internet radio is always a few seconds behind the actual broadcast. For a football match or a live news bulletin, that delay can reach twenty or thirty seconds on HLS streams, which buffer in longer segments by design." data-ar="وهذا يفسّر أيضاً أمراً يجده المستمعون غريباً غالباً: راديو الإنترنت متأخر دائماً بضع ثوانٍ عن البث الفعلي. وفي مباراة كرة قدم أو نشرة أخبار حيّة قد يصل هذا التأخير إلى عشرين أو ثلاثين ثانية في بث HLS، لأنه يخزّن في مقاطع أطول بحكم تصميمه.">Internet radio is always a few seconds behind.</p>
+
+  <div class="box">
+    <h3 data-en="Why some stations will not play in a browser" data-ar="لماذا لا تعمل بعض المحطات في المتصفح">Why some stations will not play in a browser</h3>
+    <p data-en="A secure website (https) is not allowed to load audio from an insecure address (http). Browsers block it silently to protect you, so a station whose stream URL still starts with http simply produces nothing on an https site. This is the single most common reason a station appears in a directory but refuses to play. The station has to update its own server; there is nothing a listener can do about it." data-ar="لا يُسمح لموقع آمن (https) بتحميل صوت من عنوان غير آمن (http). يحجب المتصفح ذلك بصمت حمايةً لك، فالمحطة التي ما زال رابط بثها يبدأ بـ http لا تُنتج شيئاً داخل موقع https. وهذا أشيع سبب لظهور محطة في دليل ثم رفضها العمل. على المحطة نفسها تحديث خادمها؛ ولا يملك المستمع حيال ذلك شيئاً.">A secure website is not allowed to load audio from an insecure address.</p>
+  </div>
+
+  <h2 data-en="Metadata: the track name that appears" data-ar="البيانات الوصفية: اسم الأغنية الذي يظهر">Metadata: the track name that appears</h2>
+  <p data-en="Alongside the audio, many stations send small text updates containing the current artist and title. This is optional, which is why some stations display a live track name and others show nothing but the station name. When the information is wrong or frozen on an old song, the fault is at the station's end, not the player's." data-ar="إلى جانب الصوت، ترسل كثير من المحطات تحديثات نصية صغيرة تحمل اسم الفنان والأغنية الحالية. وهذا اختياري، ولهذا تعرض بعض المحطات اسم الأغنية مباشرة بينما لا تعرض أخرى سوى اسم المحطة. وحين تكون المعلومة خاطئة أو متجمدة على أغنية قديمة، فالخلل عند المحطة لا عند المشغّل.">Alongside the audio, many stations send small text updates.</p>
+
+  <h2 data-en="What this means in practice" data-ar="ماذا يعني هذا عملياً">What this means in practice</h2>
+  <ul>
+    <li data-en="If a station stutters, the problem is usually your connection or the station's server load — not your device." data-ar="إن تقطّعت محطة، فالمشكلة عادةً في اتصالك أو في ضغط الخادم — لا في جهازك.">If a station stutters, the problem is usually your connection.</li>
+    <li data-en="If one station sounds flat and another sounds rich, compare their bitrates before blaming your headphones." data-ar="إن بدت محطة باهتة وأخرى غنية، قارن معدل البت بينهما قبل أن تلوم سماعاتك.">Compare bitrates before blaming your headphones.</li>
+    <li data-en="If a station never starts at all, it is almost always an http stream being blocked, or a server that has simply gone offline." data-ar="وإن لم تبدأ محطة أبداً، فالسبب في الغالب بث http محجوب، أو خادم توقف عن العمل ببساطة.">A station that never starts is almost always blocked or offline.</li>
+  </ul>
+
+  <a class="cta" href="../" data-en="Try it on hundreds of live stations &rarr;" data-ar="جرّبه على مئات المحطات المباشرة &larr;">Try it on hundreds of live stations &rarr;</a>
+</main>
+
+<footer>
+  <nav>
+    <a href="../" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="../about.html" data-en="About" data-ar="من نحن">About</a>
+    <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+    <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+  </nav>
+  <div>© <span id="yr"></span> LiveRadio</div>
+</footer>
+
+<script>
+var lang=localStorage.getItem('lr_lang')||'en';
+function apply(){
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){
+    var v=els[i].getAttribute('data-'+lang);
+    if(v)els[i].innerHTML=v;
+  }
+  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  try{localStorage.setItem('lr_lang',lang);}catch(e){}
+}
+document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
+document.getElementById('yr').textContent=new Date().getFullYear();
+apply();
+</script>
+</body>
+</html>
