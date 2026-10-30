@@ -1,0 +1,41 @@
+[
+  {
+    "slug": "best-radio-stations-world",
+    "date": "2026-10-30",
+    "tag": { "en": "Guide", "ar": "دليل" },
+    "title": {
+      "en": "The best radio stations in the world",
+      "ar": "أفضل المحطات الإذاعية في العالم"
+    },
+    "desc": {
+      "en": "A handpicked tour of the stations worth your evening, from BBC to Radio Nova.",
+      "ar": "جولة مختارة في المحطات التي تستحق سهرتك، من BBC إلى راديو نوفا."
+    }
+  },
+  {
+    "slug": "how-online-radio-works",
+    "date": "2026-10-30",
+    "tag": { "en": "Explainer", "ar": "شرح" },
+    "title": {
+      "en": "How online radio streaming works",
+      "ar": "كيف يعمل بث الراديو عبر الإنترنت"
+    },
+    "desc": {
+      "en": "Bitrates, codecs and buffering, explained simply for everyday listeners.",
+      "ar": "معدل البت والترميز والتخزين المؤقت، مشروحة ببساطة لكل مستمع."
+    }
+  },
+  {
+    "slug": "listen-radio-data-saving",
+    "date": "2026-10-30",
+    "tag": { "en": "Tips", "ar": "نصائح" },
+    "title": {
+      "en": "Listen to radio without burning your data",
+      "ar": "استمع للراديو دون استهلاك باقتك"
+    },
+    "desc": {
+      "en": "Practical settings that cut mobile data use while keeping the sound clean.",
+      "ar": "إعدادات عملية تقلّل استهلاك الإنترنت مع الحفاظ على نقاء الصوت."
+    }
+  }
+]
