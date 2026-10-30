@@ -21,30 +21,37 @@
 :root{
   --bg:#0b0f1a; --card:#161d31; --card2:#1c2440; --line:#232c45;
   --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1; --red:#f43f5e;
+  --shadow:rgba(0,0,0,.35);
   --font:'Outfit','Cairo',system-ui,sans-serif;
   box-sizing:border-box;
+}
+html[data-theme="light"]{
+  --bg:#f6f8fc; --card:#ffffff; --card2:#eef2fa; --line:#dde4f0;
+  --txt:#0e1626; --mut:#5c6b87; --acc:#0ea47f; --acc2:#4f46e5; --red:#dc2743;
+  --shadow:rgba(16,24,40,.08);
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-behavior:smooth;height:100%}
 body{margin:0;min-height:100%;background:var(--bg);color:var(--txt);font-family:var(--font);
   padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:calc(100px + env(safe-area-inset-bottom,0px));-webkit-font-smoothing:antialiased}
+  padding-bottom:calc(100px + env(safe-area-inset-bottom,0px));-webkit-font-smoothing:antialiased;
+  transition:background .25s,color .25s}
 html[dir="rtl"] body{font-family:'Cairo',var(--font)}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit}
 
-header{position:sticky;top:0;z-index:30;background:rgba(11,15,26,.93);backdrop-filter:blur(14px);
+header{position:sticky;top:0;z-index:30;background:var(--bg);
   border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
-.hrow{display:flex;align-items:center;gap:8px;padding:12px 16px;max-width:1200px;margin:0 auto}
+.hrow{display:flex;align-items:center;gap:7px;padding:12px 16px;max-width:1200px;margin:0 auto}
 .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;letter-spacing:-.5px}
 .logo-dot{width:12px;height:12px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgba(34,211,166,.18);animation:pulse 2s infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 9px rgba(34,211,166,0)}}
 .logo span{color:var(--acc)}
 .spacer{flex:1}
-.btn{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+.btn{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 13px;
   border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
 .btn:hover{border-color:var(--acc)}
-.ibtn{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;padding:0;font-size:16px}
+.ibtn{width:37px;height:37px;border-radius:50%;display:grid;place-items:center;padding:0;font-size:15px}
 .searchbar{padding:0 16px 12px;max-width:1200px;margin:0 auto}
 .searchbar input{width:100%;background:var(--card);border:1px solid var(--line);color:var(--txt);
   padding:12px 16px;border-radius:14px;font-family:inherit;font-size:15px;outline:none}
@@ -66,7 +73,7 @@ header{position:sticky;top:0;z-index:30;background:rgba(11,15,26,.93);backdrop-f
 .chips::-webkit-scrollbar{display:none}
 .chip{background:var(--card);border:1px solid var(--line);color:var(--mut);padding:8px 16px;
   border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
-.chip.on{background:var(--acc);border-color:var(--acc);color:#04221b}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
 select.ctry{width:100%;margin-top:8px;background:var(--card);border:1px solid var(--line);
   color:var(--txt);padding:11px 14px;border-radius:12px;font-family:inherit;font-size:15px}
 
@@ -80,19 +87,23 @@ select.ctry{width:100%;margin-top:8px;background:var(--card);border:1px solid va
 .row::-webkit-scrollbar{display:none}
 .row .st{flex:0 0 96px}
 
-.st{display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;
+.st{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;
   background:none;border:none;padding:4px;color:inherit;position:relative}
 .ring{width:84px;height:84px;border-radius:50%;padding:3px;position:relative;
-  background:linear-gradient(135deg,var(--line),#2c3758);display:grid;place-items:center;transition:.25s}
+  background:linear-gradient(135deg,var(--line),var(--card2));display:grid;place-items:center;transition:.25s}
 .st:hover .ring{background:linear-gradient(135deg,var(--acc),var(--acc2));transform:translateY(-3px)}
 .st.playing .ring{background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 0 22px rgba(34,211,166,.35)}
 .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--card);display:block}
 .ring .fb{width:100%;height:100%;border-radius:50%;background:var(--card);display:grid;
   place-items:center;font-size:24px;font-weight:800;color:var(--acc)}
-.fav{position:absolute;top:-2px;inset-inline-end:-2px;width:28px;height:28px;border-radius:50%;
-  background:rgba(11,15,26,.9);border:1px solid var(--line);display:grid;place-items:center;
-  font-size:14px;cursor:pointer;z-index:2;color:var(--mut);padding:0;line-height:1}
+.fav{position:absolute;top:-2px;inset-inline-end:-2px;width:27px;height:27px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;
+  font-size:13px;cursor:pointer;z-index:2;color:var(--mut);padding:0;line-height:1}
 .fav.on{color:var(--red);border-color:var(--red)}
+.info{position:absolute;top:-2px;inset-inline-start:-2px;width:27px;height:27px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;
+  font-size:12px;font-weight:800;cursor:pointer;z-index:2;color:var(--mut);padding:0;line-height:1}
+.info:hover{color:var(--acc);border-color:var(--acc)}
 .st .nm{font-size:12.5px;font-weight:600;line-height:1.3;text-align:center;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:104px}
 .st .cn{font-size:11px;color:var(--mut)}
@@ -123,8 +134,8 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 16px;text-a
 footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:14px}
 footer nav a:hover{color:var(--acc)}
 
-.player{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(18,24,41,.98);
-  backdrop-filter:blur(18px);border-top:1px solid var(--line);
+.player{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--bg);
+  border-top:1px solid var(--line);box-shadow:0 -8px 28px var(--shadow);
   padding-bottom:env(safe-area-inset-bottom,0px);
   transform:translateY(130%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
 .player.up{transform:translateY(0)}
@@ -135,7 +146,7 @@ footer nav a:hover{color:var(--acc)}
 .pinfo .t{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pinfo .s{font-size:12.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pbtn{width:48px;height:48px;border-radius:50%;flex:none;border:none;cursor:pointer;
-  background:linear-gradient(135deg,var(--acc),var(--acc2));color:#04221b;display:grid;place-items:center}
+  background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;display:grid;place-items:center}
 .pbtn svg{width:22px;height:22px;fill:currentColor}
 .nav{background:none;border:none;color:var(--mut);font-size:18px;cursor:pointer;padding:4px;flex:none;line-height:1}
 .nav:hover{color:var(--txt)}
@@ -153,12 +164,13 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 .pact{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
   border-radius:999px;font-size:13px;font-weight:600;cursor:pointer}
 .pact.on{border-color:var(--acc);color:var(--acc)}
-.usage{font-size:12px;color:var(--mut);text-align:center;margin-top:10px}
+.usage{font-size:12px;color:var(--mut);text-align:center;margin-top:10px;line-height:1.6}
+.usage b{color:var(--acc)}
 
-.sheet{position:fixed;inset:0;z-index:70;background:rgba(5,8,15,.7);display:none;align-items:flex-end}
+.sheet{position:fixed;inset:0;z-index:70;background:rgba(5,8,15,.6);display:none;align-items:flex-end}
 .sheet.on{display:flex}
 .sheetin{background:var(--bg);border-top:1px solid var(--line);border-radius:20px 20px 0 0;
-  width:100%;max-height:86vh;overflow-y:auto;padding:20px 18px calc(24px + env(safe-area-inset-bottom,0px))}
+  width:100%;max-height:88vh;overflow-y:auto;padding:20px 18px calc(24px + env(safe-area-inset-bottom,0px))}
 .sheetin h3{margin:0 0 4px;font-size:19px;font-weight:800}
 .sh-sub{color:var(--mut);font-size:13px;margin:0 0 18px}
 .grp{margin-bottom:22px}
@@ -171,7 +183,24 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 .opt small{display:block;color:var(--mut);font-size:11.5px;margin-top:3px}
 .close{width:100%;background:var(--card);border:1px solid var(--line);color:var(--txt);
   padding:13px;border-radius:12px;font-weight:700;cursor:pointer;font-size:15px}
-.danger{color:var(--red);border-color:var(--line);background:none;margin-bottom:10px}
+.danger{color:var(--red);background:none;margin-bottom:10px}
+
+/* station info sheet */
+.ihead{display:flex;gap:14px;align-items:center;margin-bottom:16px}
+#iArt{width:66px;height:66px;border-radius:50%;object-fit:cover;background:var(--card);flex:none}
+.ihead .n{font-size:18px;font-weight:800;line-height:1.3}
+.ihead .c{font-size:13px;color:var(--mut);margin-top:3px}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.kv:last-of-type{border-bottom:none}
+.kv .k{color:var(--mut);font-weight:600}
+.kv .v{font-weight:600;text-align:end;word-break:break-word}
+.itags{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 18px}
+.itag{background:var(--card);border:1px solid var(--line);color:var(--mut);
+  padding:5px 11px;border-radius:999px;font-size:12px;font-weight:600}
+.ibtns{display:flex;gap:8px;margin-bottom:10px}
+.ibtns button{flex:1;background:var(--card);border:1px solid var(--line);color:var(--txt);
+  padding:12px;border-radius:12px;font-weight:700;cursor:pointer;font-size:14px}
+.ibtns .main{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none}
 
 #top{position:fixed;inset-inline-end:16px;bottom:calc(104px + env(safe-area-inset-bottom,0px));
   z-index:40;width:42px;height:42px;border-radius:50%;background:var(--card2);border:1px solid var(--line);
@@ -189,6 +218,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
   <div class="hrow">
     <div class="logo"><span class="logo-dot"></span>Live<span>Radio</span></div>
     <div class="spacer"></div>
+    <button class="btn ibtn" id="themeBtn" title="Theme">&#9789;</button>
     <button class="btn ibtn" id="randBtn" title="Random">&#127922;</button>
     <button class="btn ibtn" id="setBtn" title="Settings">&#9881;</button>
     <button class="btn" id="langBtn">العربية</button>
@@ -210,6 +240,11 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
   <div class="chips" id="genres"></div>
   <select class="ctry" id="country"></select>
 </div>
+
+<section class="sec" id="localSec" style="display:none">
+  <div class="sechead"><h2 id="localTitle">Stations near you</h2></div>
+  <div class="row" id="local"></div>
+</section>
 
 <section class="sec" id="recentSec" style="display:none">
   <div class="sechead"><h2 data-i="recent">Recently played</h2></div>
@@ -253,6 +288,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 <button id="top" title="Top">&#8593;</button>
 <div id="toast"></div>
 
+<!-- settings -->
 <div class="sheet" id="sheet">
   <div class="sheetin">
     <h3 data-i="settings">Settings</h3>
@@ -261,10 +297,11 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     <div class="grp">
       <div class="lab" data-i="quality">Audio quality &amp; data use</div>
       <div class="opts" id="qOpts">
-        <button class="opt" data-q="low"><b data-i="qLow">Saver</b><small data-i="qLowS">≤64 kbps · ~29 MB/h</small></button>
-        <button class="opt" data-q="mid"><b data-i="qMid">Balanced</b><small data-i="qMidS">≤128 kbps · ~58 MB/h</small></button>
+        <button class="opt" data-q="low"><b data-i="qLow">Saver</b><small data-i="qLowS">&le;64 kbps</small></button>
+        <button class="opt" data-q="mid"><b data-i="qMid">Balanced</b><small data-i="qMidS">&le;128 kbps</small></button>
         <button class="opt" data-q="high"><b data-i="qHigh">Best</b><small data-i="qHighS">No limit</small></button>
       </div>
+      <div class="sh-sub" style="margin:10px 0 0" id="qNote"></div>
     </div>
 
     <div class="grp">
@@ -278,6 +315,29 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 
     <button class="close danger" id="resetBtn" data-i="reset">Clear my saved data</button>
     <button class="close" id="closeSheet" data-i="done">Done</button>
+  </div>
+</div>
+
+<!-- station info -->
+<div class="sheet" id="iSheet">
+  <div class="sheetin">
+    <div class="ihead">
+      <div id="iArt" class="pfb">&#9834;</div>
+      <div><div class="n" id="iName">—</div><div class="c" id="iCountry">—</div></div>
+    </div>
+    <div class="itags" id="iTags"></div>
+    <div class="kv"><span class="k" data-i="kBitrate">Bitrate</span><span class="v" id="iBitrate">—</span></div>
+    <div class="kv"><span class="k" data-i="kCodec">Format</span><span class="v" id="iCodec">—</span></div>
+    <div class="kv"><span class="k" data-i="kLang">Language</span><span class="v" id="iLang">—</span></div>
+    <div class="kv"><span class="k" data-i="kData2">Data per hour</span><span class="v" id="iData">—</span></div>
+    <div class="kv"><span class="k" data-i="kVotes">Listener votes</span><span class="v" id="iVotes">—</span></div>
+    <div class="kv" id="iSiteRow" style="display:none"><span class="k" data-i="kSite">Website</span><span class="v"><a id="iSite" href="#" target="_blank" rel="noopener nofollow" style="color:var(--acc)">—</a></span></div>
+    <div class="ibtns" style="margin-top:18px">
+      <button class="main" id="iPlay" data-i="iPlay">Play</button>
+      <button id="iFav" data-i="iFav">Favourite</button>
+      <button id="iShare" data-i="iShare">Share</button>
+    </div>
+    <button class="close" id="iClose" data-i="done">Done</button>
   </div>
 </div>
 
@@ -300,6 +360,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     </div>
     <div class="prow pacts">
       <button class="pact" id="aFav">&#9829; <span data-i="fav">Favourite</span></button>
+      <button class="pact" id="aInfo">&#8505; <span data-i="infoB">Details</span></button>
       <button class="pact" id="aShare">&#128279; <span data-i="share">Share</span></button>
       <button class="pact" id="aSleep">&#9201; <span data-i="sleep">Sleep timer</span></button>
       <button class="pact" id="aClose">&times; <span data-i="close">Close</span></button>
@@ -315,44 +376,56 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 var I={
  en:{h1:'Listen to the world, <em>live</em>.',
   sub:'Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.',
-  popular:'Popular stations',favs:'Your favourites',recent:'Recently played',
+  popular:'Popular stations',favs:'Your favourites',recent:'Recently played',near:'Stations from {c}',
   more:'Show more',guides:'Radio guides &amp; articles',allArts:'See all &rarr;',allArts2:'Articles',
   about:'About',privacy:'Privacy Policy',contact:'Contact',
   search:'Search stations...',allc:'All countries',empty:'No stations found.',
   noFav:'No favourites yet. Tap the heart on any station.',
   tAll:'Browse',tFav:'&#9829; Favourites',vol:'Volume',fav:'Favourite',share:'Share',
-  sleep:'Sleep timer',close:'Close',
+  sleep:'Sleep timer',close:'Close',infoB:'Details',
   settings:'Settings',setSub:'Saved on this device only.',
-  quality:'Audio quality &amp; data use',qLow:'Saver',qLowS:'&le;64 kbps · ~29 MB/h',
-  qMid:'Balanced',qMidS:'&le;128 kbps · ~58 MB/h',qHigh:'Best',qHighS:'No limit',
+  quality:'Audio quality &amp; data use',qLow:'Saver',qLowS:'&le;64 kbps',
+  qMid:'Balanced',qMidS:'&le;128 kbps',qHigh:'Best',qHighS:'No limit',
+  qNote:'Applies to the station list. The station playing now keeps its own bitrate until you pick another.',
   myStats:'Your listening stats',kMinutes:'minutes',kStations:'stations',kData:'MB used',
   reset:'Clear my saved data',done:'Done',
   kVisits:'Visits',kPlays:'Stations played',kMine:'Your listening',
+  kBitrate:'Bitrate',kCodec:'Format',kLang:'Language',kData2:'Data per hour',kVotes:'Listener votes',kSite:'Website',
+  iPlay:'Play',iFav:'Favourite',iShare:'Share',
   added:'Added to favourites',removed:'Removed from favourites',copied:'Link copied',
   sleepOn:'Sleep timer: {n} min',sleepOff:'Sleep timer off',
   err:'This station is unavailable',found:'{n} stations',
-  qSet:'Quality set to {q}',cleared:'Saved data cleared',
-  usage:'{b} kbps · about {m} MB per hour',hrs:'h'},
+  qSet:'{q} — {n} stations match',cleared:'Saved data cleared',
+  usage:'Playing at <b>{b} kbps</b> · about <b>{m} MB</b> per hour',
+  usage2:'Quality setting: {q}',hrs:'h',
+  retry:'Connection lost — reconnecting ({n}/3)…',skipped:'Station failed, moving to the next one',
+  unknown:'Unknown'},
  ar:{h1:'استمع إلى العالم، <em>مباشرةً</em>.',
   sub:'مئات المحطات الإذاعية المجانية من كل دول العالم. اختر محطة وتابع التصفح — الصوت لا يتوقف.',
-  popular:'المحطات الأكثر استماعاً',favs:'محطاتك المفضلة',recent:'استمعت مؤخراً',
+  popular:'المحطات الأكثر استماعاً',favs:'محطاتك المفضلة',recent:'استمعت مؤخراً',near:'محطات من {c}',
   more:'عرض المزيد',guides:'مقالات وأدلة الراديو',allArts:'عرض الكل &larr;',allArts2:'المقالات',
   about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',
   search:'ابحث عن محطة...',allc:'كل الدول',empty:'لا توجد محطات.',
   noFav:'لا توجد مفضلة بعد. اضغط على القلب في أي محطة.',
   tAll:'تصفّح',tFav:'&#9829; المفضلة',vol:'الصوت',fav:'مفضلة',share:'مشاركة',
-  sleep:'مؤقت النوم',close:'إغلاق',
+  sleep:'مؤقت النوم',close:'إغلاق',infoB:'تفاصيل',
   settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',
-  quality:'جودة الصوت واستهلاك البيانات',qLow:'توفير',qLowS:'&le;64 kbps · ~29 م.ب/ساعة',
-  qMid:'متوازن',qMidS:'&le;128 kbps · ~58 م.ب/ساعة',qHigh:'الأفضل',qHighS:'بلا حدّ',
+  quality:'جودة الصوت واستهلاك البيانات',qLow:'توفير',qLowS:'&le;64 kbps',
+  qMid:'متوازن',qMidS:'&le;128 kbps',qHigh:'الأفضل',qHighS:'بلا حدّ',
+  qNote:'يسري على قائمة المحطات. أما المحطة العاملة الآن فتبقى بمعدل بتها حتى تختار غيرها.',
   myStats:'إحصاءات استماعك',kMinutes:'دقيقة',kStations:'محطة',kData:'م.ب مستهلكة',
   reset:'مسح بياناتي المحفوظة',done:'تم',
   kVisits:'الزيارات',kPlays:'محطات شُغِّلت',kMine:'استماعك',
+  kBitrate:'معدل البت',kCodec:'الصيغة',kLang:'اللغة',kData2:'البيانات في الساعة',kVotes:'أصوات المستمعين',kSite:'الموقع',
+  iPlay:'تشغيل',iFav:'مفضلة',iShare:'مشاركة',
   added:'أُضيفت إلى المفضلة',removed:'أُزيلت من المفضلة',copied:'تم نسخ الرابط',
   sleepOn:'مؤقت النوم: {n} دقيقة',sleepOff:'أُلغي مؤقت النوم',
   err:'تعذّر تشغيل هذه المحطة',found:'{n} محطة',
-  qSet:'ضُبطت الجودة على {q}',cleared:'مُسحت البيانات المحفوظة',
-  usage:'{b} kbps · نحو {m} م.ب في الساعة',hrs:'س'}
+  qSet:'{q} — {n} محطة مطابقة',cleared:'مُسحت البيانات المحفوظة',
+  usage:'يعمل بـ <b>{b} kbps</b> · نحو <b>{m} م.ب</b> في الساعة',
+  usage2:'إعداد الجودة: {q}',hrs:'س',
+  retry:'انقطع الاتصال — إعادة المحاولة ({n}/3)…',skipped:'تعذّرت المحطة، الانتقال إلى التالية',
+  unknown:'غير معروف'}
 };
 var lang=localStorage.getItem('lr_lang')||'en';
 function T(k){return I[lang][k];}
@@ -362,35 +435,33 @@ var search=$('search'),langBtn=$('langBtn'),country=$('country'),genresEl=$('gen
     grid=$('grid'),statusEl=$('status'),moreBtn=$('moreBtn'),cntEl=$('cnt');
 $('yr').textContent=new Date().getFullYear();
 
-function applyLang(){
-  var d=I[lang];
-  document.documentElement.lang=lang;
-  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
-  var els=document.querySelectorAll('[data-i]');
-  for(var i=0;i<els.length;i++){var k=els[i].dataset.i;if(d[k])els[i].innerHTML=d[k];}
-  search.placeholder=d.search; langBtn.innerHTML=d.btn||(lang==='en'?'العربية':'English');
-  langBtn.textContent=lang==='en'?'العربية':'English';
-  if(country.options.length)country.options[0].textContent=d.allc;
-  buildGenres(); updateTitle(); renderRecent(); drawArticles(); drawStats(); drawUsage();
-  try{localStorage.setItem('lr_lang',lang);}catch(e){}
+/* ================= storage ================= */
+var LS={get:function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v===null?d:v}catch(e){return d}},
+        set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+var favs=LS.get('lr_favs',[]),recent=LS.get('lr_recent',[]);
+var quality=LS.get('lr_quality','mid');
+var mine=LS.get('lr_mine',{sec:0,mb:0,stations:[]});
+var theme=LS.get('lr_theme','dark');
+
+/* ================= theme (FEATURE 1) ================= */
+function applyTheme(){
+  document.documentElement.setAttribute('data-theme',theme);
+  $('themeBtn').innerHTML=theme==='dark'?'&#9728;':'&#9789;';
+  var m=document.querySelector('meta[name=theme-color]');
+  if(m)m.setAttribute('content',theme==='dark'?'#0b0f1a':'#f6f8fc');
+  LS.set('lr_theme',theme);
 }
-langBtn.onclick=function(){lang=lang==='en'?'ar':'en';applyLang();render(true);};
+$('themeBtn').onclick=function(){theme=theme==='dark'?'light':'dark';applyTheme();};
 
 /* ================= toast ================= */
 var tt;
 function toast(m){var t=$('toast');t.innerHTML=m;t.classList.add('show');
-  clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2200);}
-
-/* ================= storage ================= */
-var LS={get:function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v===null?d:v}catch(e){return d}},
-        set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-var favs=LS.get('lr_favs',[]), recent=LS.get('lr_recent',[]);
-var quality=LS.get('lr_quality','mid');
-var mine=LS.get('lr_mine',{sec:0,mb:0,stations:[]});
+  clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2400);}
 
 function isFav(u){for(var i=0;i<favs.length;i++)if(favs[i].stationuuid===u)return true;return false;}
-function slim(s){return{stationuuid:s.stationuuid,name:s.name,country:s.country,favicon:s.favicon,
-  tags:s.tags,bitrate:s.bitrate||0,url_resolved:s.url_resolved||s.url};}
+function slim(s){return{stationuuid:s.stationuuid,name:s.name,country:s.country,countrycode:s.countrycode,
+  favicon:s.favicon,tags:s.tags,bitrate:s.bitrate||0,codec:s.codec,language:s.language,votes:s.votes,
+  homepage:s.homepage,url_resolved:s.url_resolved||s.url};}
 
 function toggleFav(s){
   if(isFav(s.stationuuid)){favs=favs.filter(function(f){return f.stationuuid!==s.stationuuid});toast(T('removed'));}
@@ -408,14 +479,13 @@ function pushRecent(s){
   LS.set('lr_recent',recent);renderRecent();
 }
 
-/* ================= stations data ================= */
+/* ================= data ================= */
 var MIRRORS=['https://de2.api.radio-browser.info','https://nl1.api.radio-browser.info','https://at1.api.radio-browser.info'];
 var GENRES=[{k:'',en:'All',ar:'الكل'},{k:'pop',en:'Pop',ar:'بوب'},{k:'news',en:'News',ar:'أخبار'},
  {k:'rock',en:'Rock',ar:'روك'},{k:'jazz',en:'Jazz',ar:'جاز'},{k:'classical',en:'Classical',ar:'كلاسيكي'},
  {k:'quran',en:'Quran',ar:'قرآن'},{k:'dance',en:'Dance',ar:'رقص'},{k:'talk',en:'Talk',ar:'حواري'},
  {k:'sport',en:'Sport',ar:'رياضة'},{k:'oldies',en:'Oldies',ar:'قديم'},{k:'hiphop',en:'Hip hop',ar:'هيب هوب'}];
 var QCAP={low:64,mid:128,high:0};
-
 var raw=[],all=[],shown=0,PAGE=48;
 var fGenre='',fCountry='',fText='',tab='all';
 
@@ -428,6 +498,23 @@ function api(p){
   }
   return tryNext();
 }
+function clean(d){
+  var seen={};
+  return (d||[]).filter(function(s){
+    var u=s.url_resolved||s.url||'';
+    if(u.indexOf('https://')!==0||!s.name||s.name.trim().length<2)return false;
+    var k=s.name.trim().toLowerCase();if(seen[k])return false;seen[k]=1;return true;});
+}
+function ini(n){return (n||'?').trim().charAt(0).toUpperCase();}
+function mbPerHour(br){return Math.round((br||128)*3600/8/1024);}
+
+/* FEATURE 2: country flags */
+function flag(cc){
+  if(!cc||cc.length!==2)return '';
+  var c=cc.toUpperCase();
+  try{return String.fromCodePoint(0x1F1E6+c.charCodeAt(0)-65,0x1F1E6+c.charCodeAt(1)-65);}catch(e){return '';}
+}
+
 function buildGenres(){
   genresEl.innerHTML='';
   GENRES.forEach(function(g){
@@ -442,13 +529,11 @@ function buildCountries(){
   return api('/json/countries?order=stationcount&reverse=true&limit=130').then(function(l){
     country.innerHTML='';country.add(new Option(T('allc'),''));
     (l||[]).filter(function(c){return c.name&&c.stationcount>5}).forEach(function(c){
-      country.add(new Option(c.name+' ('+c.stationcount+')',c.name));});
+      var f=flag(c.iso_3166_1||'');
+      country.add(new Option((f?f+' ':'')+c.name+' ('+c.stationcount+')',c.name));});
     country.onchange=function(){fCountry=country.value;load();};
   });
 }
-function ini(n){return (n||'?').trim().charAt(0).toUpperCase();}
-function mbPerHour(br){return Math.round((br||128)*3600/8/1024);}
-
 function applyQuality(){
   var cap=QCAP[quality];
   all=raw.filter(function(s){return !cap||!s.bitrate||s.bitrate<=cap;});
@@ -466,9 +551,12 @@ function card(s){
   var h=document.createElement('button');h.className='fav'+(isFav(s.stationuuid)?' on':'');
   h.dataset.u=s.stationuuid;h.innerHTML='&#9829;';
   h.onclick=function(e){e.stopPropagation();toggleFav(s);};
+  var inf=document.createElement('button');inf.className='info';inf.innerHTML='&#8505;';
+  inf.onclick=function(e){e.stopPropagation();showInfo(s);};
   var nm=document.createElement('div');nm.className='nm';nm.textContent=s.name.trim();
-  var cn=document.createElement('div');cn.className='cn';cn.textContent=s.country||'';
-  b.appendChild(ring);b.appendChild(h);b.appendChild(nm);b.appendChild(cn);
+  var cn=document.createElement('div');cn.className='cn';
+  cn.textContent=(flag(s.countrycode)+' '+(s.country||'')).trim();
+  b.appendChild(ring);b.appendChild(h);b.appendChild(inf);b.appendChild(nm);b.appendChild(cn);
   if(s.bitrate){var br=document.createElement('div');br.className='br';br.textContent=s.bitrate+' kbps';b.appendChild(br);}
   b.onclick=function(){play(s);};
   return b;
@@ -501,14 +589,7 @@ function load(){
   if(fGenre)p+='&tag='+encodeURIComponent(fGenre);
   if(fCountry)p+='&country='+encodeURIComponent(fCountry);
   if(fText)p+='&name='+encodeURIComponent(fText);
-  return api(p).then(function(d){
-    var seen={};
-    raw=(d||[]).filter(function(s){
-      var u=s.url_resolved||s.url||'';
-      if(u.indexOf('https://')!==0||!s.name||s.name.trim().length<2)return false;
-      var k=s.name.trim().toLowerCase();if(seen[k])return false;seen[k]=1;return true;});
-    applyQuality();render(true);
-  });
+  return api(p).then(function(d){raw=clean(d);applyQuality();render(true);});
 }
 var tmr;
 search.oninput=function(e){clearTimeout(tmr);fText=e.target.value.trim();
@@ -529,12 +610,43 @@ function renderRecent(){
   markPlaying();
 }
 
+/* FEATURE 2b: stations from the visitor's own region */
+var localList=[],localName='';
+function loadLocal(){
+  var reg='';
+  try{
+    var l=navigator.language||'';
+    var parts=l.split('-');
+    if(parts.length>1)reg=parts[parts.length-1].toUpperCase();
+    if(!reg&&navigator.languages)for(var i=0;i<navigator.languages.length;i++){
+      var p=navigator.languages[i].split('-');
+      if(p.length>1){reg=p[p.length-1].toUpperCase();break;}
+    }
+  }catch(e){}
+  if(!reg||reg.length!==2)return;
+  api('/json/stations/search?hidebroken=true&limit=40&order=clickcount&reverse=true&countrycode='+reg)
+    .then(function(d){
+      localList=clean(d).slice(0,20);
+      if(!localList.length)return;
+      localName=localList[0].country||reg;
+      drawLocal();
+    }).catch(function(){});
+}
+function drawLocal(){
+  if(!localList.length)return;
+  $('localTitle').textContent=T('near').replace('{c}',(flag(localList[0].countrycode)+' '+localName).trim());
+  var r=$('local');r.innerHTML='';
+  localList.forEach(function(s){r.appendChild(card(s));});
+  $('localSec').style.display='block';
+  markPlaying();
+}
+
 /* ================= articles ================= */
 var posts=[];
 function drawArticles(){
   var l=$('artList');if(!l)return;l.innerHTML='';
-  var items=posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');}).slice(0,6);
-  items.forEach(function(p){
+  posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');}).slice(0,6)
+   .forEach(function(p){
     var a=document.createElement('a');a.className='art';a.href='./articles/'+p.slug+'.html';
     a.innerHTML='<div class="tag"></div><h3></h3><p></p>';
     a.querySelector('.tag').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
@@ -566,17 +678,64 @@ function drawStats(){
   $('stCount').textContent=(mine.stations||[]).length;
   $('stData').textContent=Math.round(mine.mb||0);
 }
-(function initCounters(){
+(function(){
   var seen=sessionStorage.getItem('lr_seen');
-  counter('visits',!seen).then(function(n){ if(n!==null)$('sVisits').textContent=fmtNum(n); });
+  counter('visits',!seen).then(function(n){if(n!==null)$('sVisits').textContent=fmtNum(n);});
   try{sessionStorage.setItem('lr_seen','1');}catch(e){}
-  counter('plays',false).then(function(n){ if(n!==null)$('sPlays').textContent=fmtNum(n); });
+  counter('plays',false).then(function(n){if(n!==null)$('sPlays').textContent=fmtNum(n);});
 })();
+
+/* ================= station info sheet (FEATURE 3) ================= */
+var iStation=null;
+function showInfo(s){
+  iStation=s;
+  var old=$('iArt'),nu;
+  if(s.favicon&&s.favicon.indexOf('https')===0){
+    nu=document.createElement('img');nu.src=s.favicon;nu.alt='';
+    nu.onerror=function(){var f=document.createElement('div');f.className='pfb';f.id='iArt';
+      f.textContent=ini(s.name);f.style.cssText='width:66px;height:66px;border-radius:50%;background:var(--card)';
+      $('iArt').replaceWith(f);};
+  }else{nu=document.createElement('div');nu.className='pfb';nu.textContent=ini(s.name);
+    nu.style.cssText='width:66px;height:66px;border-radius:50%;background:var(--card)';}
+  nu.id='iArt';old.replaceWith(nu);
+
+  $('iName').textContent=s.name.trim();
+  $('iCountry').textContent=(flag(s.countrycode)+' '+(s.country||T('unknown'))).trim();
+  $('iBitrate').textContent=s.bitrate?s.bitrate+' kbps':T('unknown');
+  $('iCodec').textContent=s.codec||T('unknown');
+  $('iLang').textContent=s.language||T('unknown');
+  $('iData').textContent='~'+mbPerHour(s.bitrate)+' MB';
+  $('iVotes').textContent=(s.votes||0).toLocaleString(lang==='ar'?'ar':'en');
+  var tg=$('iTags');tg.innerHTML='';
+  (s.tags||'').split(',').filter(Boolean).slice(0,6).forEach(function(t){
+    var e=document.createElement('span');e.className='itag';e.textContent=t.trim();tg.appendChild(e);});
+  if(s.homepage&&s.homepage.indexOf('http')===0){
+    $('iSiteRow').style.display='flex';$('iSite').href=s.homepage;
+    $('iSite').textContent=s.homepage.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,30);
+  }else $('iSiteRow').style.display='none';
+  $('iFav').style.borderColor=isFav(s.stationuuid)?'var(--red)':'var(--line)';
+  $('iSheet').classList.add('on');
+}
+$('iClose').onclick=function(){$('iSheet').classList.remove('on');};
+$('iSheet').onclick=function(e){if(e.target===this)this.classList.remove('on');};
+$('iPlay').onclick=function(){if(iStation){play(iStation);$('iSheet').classList.remove('on');}};
+$('iFav').onclick=function(){if(iStation){toggleFav(iStation);
+  $('iFav').style.borderColor=isFav(iStation.stationuuid)?'var(--red)':'var(--line)';}};
+$('iShare').onclick=function(){if(iStation)shareStation(iStation);};
+
+/* FEATURE 3b: per-station share link */
+function shareStation(s){
+  var u=location.href.split('#')[0]+'#s='+s.stationuuid;
+  var data={title:'LiveRadio — '+s.name.trim(),text:s.name.trim(),url:u};
+  if(navigator.share){navigator.share(data).catch(function(){});return;}
+  if(navigator.clipboard)navigator.clipboard.writeText(u).then(function(){toast(T('copied'));}).catch(function(){});
+}
 
 /* ================= player ================= */
 var audio=$('audio'),player=$('player'),pName=$('pName'),pMeta=$('pMeta'),
     pIcon=$('pIcon'),bars=$('bars');
 var current=null,queue=[],qi=-1,sleepT=null,sleepMin=0,tickT=null;
+var retries=0,retryT=null,MAXR=3;
 var PLAY='M8 5v14l11-7z',PAUSE='M6 5h4v14H6zM14 5h4v14h-4z',WAIT='M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z';
 function setIcon(d){pIcon.querySelector('path').setAttribute('d',d);}
 
@@ -594,11 +753,13 @@ function setArt(s){
   }else{nu=document.createElement('div');nu.className='pfb';nu.textContent=ini(s.name);}
   nu.id='pArt';old.replaceWith(nu);
 }
+function qLabel(){return T(quality==='low'?'qLow':quality==='mid'?'qMid':'qHigh');}
 function drawUsage(){
   var u=$('usage');
-  if(!current){u.textContent='';return;}
+  if(!current){u.innerHTML=T('usage2').replace('{q}',qLabel());return;}
   var br=current.bitrate||128;
-  u.textContent=T('usage').replace('{b}',br).replace('{m}',mbPerHour(br));
+  u.innerHTML=T('usage').replace('{b}',br).replace('{m}',mbPerHour(br))
+    +'<br>'+T('usage2').replace('{q}',qLabel());
 }
 function startTick(){
   clearInterval(tickT);
@@ -612,19 +773,20 @@ function startTick(){
 }
 function play(s){
   if(current&&current.stationuuid===s.stationuuid){toggle();return;}
-  current=s;
+  current=s;retries=0;clearTimeout(retryT);
   var src=(tab==='fav'?favs:all);
-  queue=src.length?src:recent;
+  queue=src.length?src:(localList.length?localList:recent);
   qi=-1;for(var i=0;i<queue.length;i++)if(queue[i].stationuuid===s.stationuuid){qi=i;break;}
   audio.src=s.url_resolved||s.url;
   var pr=audio.play();if(pr&&pr.catch)pr.catch(function(){});
   pName.textContent=s.name.trim();
-  pMeta.textContent=[s.country,(s.tags||'').split(',')[0]].filter(Boolean).join(' • ');
+  pMeta.textContent=[flag(s.countrycode)+' '+(s.country||''),(s.tags||'').split(',')[0]]
+    .map(function(x){return (x||'').trim();}).filter(Boolean).join(' • ');
   setArt(s);player.classList.add('up');setIcon(WAIT);drawUsage();
   pushRecent(s);refreshHearts();LS.set('lr_last',slim(s));
   if((mine.stations||[]).indexOf(s.stationuuid)<0){
     mine.stations=(mine.stations||[]).concat([s.stationuuid]);LS.set('lr_mine',mine);drawStats();}
-  counter('plays',true).then(function(n){ if(n!==null)$('sPlays').textContent=fmtNum(n); });
+  counter('plays',true).then(function(n){if(n!==null)$('sPlays').textContent=fmtNum(n);});
   if('mediaSession' in navigator){
     try{
       navigator.mediaSession.metadata=new MediaMetadata({title:s.name.trim(),
@@ -641,18 +803,43 @@ function toggle(){if(audio.paused){var p=audio.play();if(p&&p.catch)p.catch(func
 function next(){if(queue.length){qi=(qi+1)%queue.length;play(queue[qi]);}}
 function prev(){if(queue.length){qi=(qi-1+queue.length)%queue.length;play(queue[qi]);}}
 
+/* FEATURE 4: auto-reconnect, then skip */
+function failed(){
+  if(!current)return;
+  setIcon(PLAY);bars.style.display='none';
+  if(retries<MAXR){
+    retries++;
+    toast(T('retry').replace('{n}',retries));
+    clearTimeout(retryT);
+    retryT=setTimeout(function(){
+      if(!current)return;
+      audio.src=current.url_resolved||current.url;
+      var p=audio.play();if(p&&p.catch)p.catch(function(){});
+      setIcon(WAIT);
+    },1800*retries);
+  }else{
+    toast(queue.length>1?T('skipped'):T('err'));
+    retries=0;
+    if(queue.length>1)setTimeout(next,900);
+  }
+}
+audio.addEventListener('error',failed);
+audio.addEventListener('stalled',function(){ if(current&&!audio.paused)failed(); });
+
 $('pBtn').onclick=function(){
   if(!current){var last=LS.get('lr_last',null);if(last){play(last);return;}}
   toggle();
 };
 $('pNext').onclick=next;$('pPrev').onclick=prev;
-$('pInfo').onclick=function(){player.classList.toggle('open');};
+$('pInfo').onclick=function(){player.classList.toggle('open');drawUsage();};
+$('aInfo').onclick=function(){if(current)showInfo(current);};
 $('aClose').onclick=function(){audio.pause();audio.removeAttribute('src');audio.load();
   player.classList.remove('up','open');current=null;markPlaying();LS.set('lr_mine',mine);};
 $('aFav').onclick=function(){if(current)toggleFav(current);};
 $('aShare').onclick=function(){
+  if(current){shareStation(current);return;}
   var u=location.href.split('#')[0];
-  if(navigator.share){navigator.share({title:'LiveRadio',text:current?current.name.trim():'LiveRadio',url:u}).catch(function(){});return;}
+  if(navigator.share){navigator.share({title:'LiveRadio',url:u}).catch(function(){});return;}
   if(navigator.clipboard)navigator.clipboard.writeText(u).then(function(){toast(T('copied'));}).catch(function(){});
 };
 var SLEEPS=[0,15,30,60,90];
@@ -668,26 +855,27 @@ var vol=$('vol');
 vol.value=LS.get('lr_vol',100);audio.volume=vol.value/100;
 vol.oninput=function(){audio.volume=vol.value/100;LS.set('lr_vol',+vol.value);};
 
-audio.onplaying=function(){setIcon(PAUSE);bars.style.display='flex';markPlaying();startTick();};
+audio.onplaying=function(){retries=0;clearTimeout(retryT);
+  setIcon(PAUSE);bars.style.display='flex';markPlaying();startTick();};
 audio.onpause=function(){setIcon(PLAY);bars.style.display='none';markPlaying();
   clearInterval(tickT);LS.set('lr_mine',mine);drawStats();};
 audio.onwaiting=function(){setIcon(WAIT);};
-audio.onerror=function(){setIcon(PLAY);bars.style.display='none';toast(T('err'));};
 
 $('randBtn').onclick=function(){var l=all.length?all:favs;
   if(l.length)play(l[Math.floor(Math.random()*l.length)]);};
 
-/* ================= settings sheet ================= */
+/* ================= settings ================= */
 function syncQ(){
   var os=document.querySelectorAll('#qOpts .opt');
   for(var i=0;i<os.length;i++)os[i].classList.toggle('on',os[i].dataset.q===quality);
+  $('qNote').textContent=T('qNote');
 }
 (function(){
   var os=document.querySelectorAll('#qOpts .opt');
   for(var i=0;i<os.length;i++)os[i].onclick=function(){
     quality=this.dataset.q;LS.set('lr_quality',quality);syncQ();
-    applyQuality();render(true);
-    toast(T('qSet').replace('{q}',T(quality==='low'?'qLow':quality==='mid'?'qMid':'qHigh')));
+    applyQuality();render(true);drawUsage();
+    toast(T('qSet').replace('{q}',qLabel()).replace('{n}',all.length));
   };
 })();
 $('setBtn').onclick=function(){drawStats();syncQ();$('sheet').classList.add('on');};
@@ -701,6 +889,21 @@ $('resetBtn').onclick=function(){
   toast(T('cleared'));
 };
 
+/* ================= lang ================= */
+function applyLang(){
+  var d=I[lang];
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  var els=document.querySelectorAll('[data-i]');
+  for(var i=0;i<els.length;i++){var k=els[i].dataset.i;if(d[k])els[i].innerHTML=d[k];}
+  search.placeholder=d.search;
+  langBtn.textContent=lang==='en'?'العربية':'English';
+  if(country.options.length)country.options[0].textContent=d.allc;
+  buildGenres();updateTitle();renderRecent();drawArticles();drawStats();drawUsage();syncQ();drawLocal();
+  try{localStorage.setItem('lr_lang',lang);}catch(e){}
+}
+langBtn.onclick=function(){lang=lang==='en'?'ar':'en';applyLang();render(true);};
+
 /* ================= misc ================= */
 var topBtn=$('top');
 window.addEventListener('scroll',function(){topBtn.style.display=window.scrollY>600?'grid':'none';});
@@ -710,17 +913,30 @@ window.addEventListener('keydown',function(e){
   if(e.code==='Space'&&current){e.preventDefault();toggle();}
   if(e.code==='ArrowRight')next();
   if(e.code==='ArrowLeft')prev();
+  if(e.code==='Escape'){$('sheet').classList.remove('on');$('iSheet').classList.remove('on');}
 });
 window.addEventListener('beforeunload',function(){LS.set('lr_mine',mine);});
 
+/* open a shared station link */
+function openHash(){
+  var h=location.hash||'';
+  var m=h.match(/s=([0-9a-fA-F-]{10,})/);
+  if(!m)return;
+  api('/json/stations/byuuid/'+m[1]).then(function(d){
+    var s=(d&&d[0])?d[0]:null;
+    if(s&&(s.url_resolved||s.url))play(s);
+  }).catch(function(){});
+}
+window.addEventListener('hashchange',openHash);
+
 /* ================= init ================= */
-syncTabs();applyLang();syncQ();renderRecent();drawStats();
+applyTheme();syncTabs();applyLang();syncQ();renderRecent();drawStats();drawUsage();
 (function(){
   var last=LS.get('lr_last',null);
   if(last){pName.textContent=last.name;pMeta.textContent=last.country||'';
     setArt(last);player.classList.add('up');}
 })();
-buildCountries().then(load);
+buildCountries().then(load).then(function(){loadLocal();openHash();});
 </script>
 </body>
 </html>
