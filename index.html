@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LiveRadio — Free Online Radio Stations Worldwide</title>
+<meta name="description" content="Listen to hundreds of free live radio stations from around the world. Browse by country and genre, save favourites, and keep listening while you browse.">
+<meta name="theme-color" content="#0b0f1a">
+<link rel="canonical" href="https://otoukimt.github.io/worldradio/">
+<meta property="og:title" content="LiveRadio — Free Online Radio Stations Worldwide">
+<meta property="og:description" content="Hundreds of free live radio stations from every country, with a background player.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f1a; --card:#161d31; --card2:#1c2440; --line:#232c45;
+  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1; --red:#f43f5e;
+  --font:'Outfit','Cairo',system-ui,sans-serif;
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;height:100%}
+body{
+  margin:0;min-height:100%;background:var(--bg);color:var(--txt);font-family:var(--font);
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:calc(100px + env(safe-area-inset-bottom,0px));
+  -webkit-font-smoothing:antialiased;
+}
+html[dir="rtl"] body{font-family:'Cairo',var(--font)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+
+header{position:sticky;top:0;z-index:30;background:rgba(11,15,26,.93);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.hrow{display:flex;align-items:center;gap:10px;padding:12px 16px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;letter-spacing:-.5px}
+.logo-dot{width:12px;height:12px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgba(34,211,166,.18);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(34,211,166,0)}}
+.logo span{color:var(--acc)}
+.spacer{flex:1}
+.btn{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+  border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--acc)}
+.ibtn{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;padding:0;font-size:17px}
+.searchbar{padding:0 16px 12px;max-width:1200px;margin:0 auto}
+.searchbar input{width:100%;background:var(--card);border:1px solid var(--line);color:var(--txt);
+  padding:12px 16px;border-radius:14px;font-family:inherit;font-size:15px;outline:none}
+.searchbar input:focus{border-color:var(--acc)}
+
+.hero{max-width:1200px;margin:0 auto;padding:26px 16px 6px;text-align:center}
+.hero h1{font-size:clamp(26px,6vw,42px);margin:0 0 10px;line-height:1.2;font-weight:800}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--acc),var(--acc2));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);margin:0 auto;max-width:620px;font-size:16px;line-height:1.6}
+
+.tabs{display:flex;gap:8px;max-width:1200px;margin:18px auto 0;padding:0 16px}
+.tab{flex:1;background:var(--card);border:1px solid var(--line);color:var(--mut);padding:10px;
+  border-radius:12px;font-size:14px;font-weight:700;cursor:pointer}
+.tab.on{background:var(--card2);border-color:var(--acc);color:var(--txt)}
+
+.filters{max-width:1200px;margin:0 auto;padding:14px 16px 4px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{background:var(--card);border:1px solid var(--line);color:var(--mut);padding:8px 16px;
+  border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#04221b}
+select.ctry{width:100%;margin-top:8px;background:var(--card);border:1px solid var(--line);
+  color:var(--txt);padding:11px 14px;border-radius:12px;font-family:inherit;font-size:15px}
+
+.sec{max-width:1200px;margin:0 auto;padding:16px}
+.sechead{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sec h2{font-size:20px;margin:0;font-weight:800}
+.cnt{font-size:13px;color:var(--mut);font-weight:600}
+.grid{display:grid;gap:18px 10px;grid-template-columns:repeat(auto-fill,minmax(104px,1fr))}
+.row{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.row::-webkit-scrollbar{display:none}
+.row .st{flex:0 0 96px}
+
+.st{display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;
+  background:none;border:none;padding:4px;color:inherit;position:relative}
+.ring{width:84px;height:84px;border-radius:50%;padding:3px;position:relative;
+  background:linear-gradient(135deg,var(--line),#2c3758);display:grid;place-items:center;transition:.25s}
+.st:hover .ring{background:linear-gradient(135deg,var(--acc),var(--acc2));transform:translateY(-3px)}
+.st.playing .ring{background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 0 22px rgba(34,211,166,.35)}
+.ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--card);display:block}
+.ring .fb{width:100%;height:100%;border-radius:50%;background:var(--card);display:grid;
+  place-items:center;font-size:24px;font-weight:800;color:var(--acc)}
+.fav{position:absolute;top:-2px;inset-inline-end:-2px;width:28px;height:28px;border-radius:50%;
+  background:rgba(11,15,26,.9);border:1px solid var(--line);display:grid;place-items:center;
+  font-size:14px;cursor:pointer;z-index:2;color:var(--mut);padding:0;line-height:1}
+.fav.on{color:var(--red);border-color:var(--red)}
+.st .nm{font-size:12.5px;font-weight:600;line-height:1.3;text-align:center;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:104px}
+.st .cn{font-size:11px;color:var(--mut)}
+
+.sk{display:flex;flex-direction:column;align-items:center;gap:8px}
+.sk .c{width:84px;height:84px;border-radius:50%;background:var(--card);animation:sh 1.3s infinite}
+.sk .l{width:70px;height:10px;border-radius:6px;background:var(--card);animation:sh 1.3s infinite}
+@keyframes sh{50%{opacity:.45}}
+.load{text-align:center;color:var(--mut);padding:30px 0;font-size:15px}
+.more{display:block;margin:22px auto 0}
+
+.arts{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.art{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:.2s;display:block}
+.art:hover{border-color:var(--acc);transform:translateY(-2px)}
+.art .tag{font-size:12px;color:var(--acc);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.art h3{margin:8px 0 6px;font-size:17px;font-weight:700;line-height:1.35}
+.art p{margin:0;color:var(--mut);font-size:14px;line-height:1.55}
+
+footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 16px;text-align:center;color:var(--mut);font-size:14px}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:14px}
+footer nav a:hover{color:var(--acc)}
+
+.player{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(18,24,41,.98);
+  backdrop-filter:blur(18px);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  transform:translateY(130%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.player.up{transform:translateY(0)}
+.pmain{display:flex;align-items:center;gap:10px;padding:10px 14px}
+#pArt{width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--card);flex:none}
+.pfb{display:grid;place-items:center;font-weight:800;color:var(--acc)}
+.pinfo{flex:1;min-width:0;cursor:pointer}
+.pinfo .t{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pinfo .s{font-size:12.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pbtn{width:48px;height:48px;border-radius:50%;flex:none;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--acc),var(--acc2));color:#04221b;display:grid;place-items:center}
+.pbtn svg{width:22px;height:22px;fill:currentColor}
+.nav{background:none;border:none;color:var(--mut);font-size:18px;cursor:pointer;padding:4px;flex:none;line-height:1}
+.nav:hover{color:var(--txt)}
+.bars{display:flex;gap:2px;align-items:flex-end;height:14px;flex:none}
+.bars i{width:3px;background:var(--acc);border-radius:2px;animation:eq .9s ease-in-out infinite;display:block}
+.bars i:nth-child(2){animation-delay:.15s}.bars i:nth-child(3){animation-delay:.3s}
+@keyframes eq{0%,100%{height:4px}50%{height:14px}}
+.pext{display:none;padding:0 16px 14px}
+.player.open .pext{display:block;border-top:1px solid var(--line);padding-top:14px}
+.prow{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.prow:last-child{margin-bottom:0}
+.prow label{font-size:13px;color:var(--mut);font-weight:600;flex:none;min-width:58px}
+input[type=range]{flex:1;accent-color:var(--acc);height:4px}
+.pacts{display:flex;gap:8px;flex-wrap:wrap}
+.pact{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+  border-radius:999px;font-size:13px;font-weight:600;cursor:pointer}
+.pact.on{border-color:var(--acc);color:var(--acc)}
+
+#top{position:fixed;inset-inline-end:16px;bottom:calc(104px + env(safe-area-inset-bottom,0px));
+  z-index:40;width:42px;height:42px;border-radius:50%;background:var(--card2);border:1px solid var(--line);
+  color:var(--txt);cursor:pointer;display:none;place-items:center;font-size:18px}
+#toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);
+  bottom:calc(110px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--card2);
+  border:1px solid var(--line);color:var(--txt);padding:10px 18px;border-radius:999px;
+  font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;max-width:88vw;text-align:center}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <div class="logo"><span class="logo-dot"></span>Live<span>Radio</span></div>
+    <div class="spacer"></div>
+    <button class="btn ibtn" id="randBtn" title="Random">&#127922;</button>
+    <button class="btn" id="langBtn">العربية</button>
+  </div>
+  <div class="searchbar"><input id="search" type="search" placeholder="Search stations..."></div>
+</header>
+
+<section class="hero">
+  <h1 data-i="h1">Listen to the world, <em>live</em>.</h1>
+  <p data-i="sub">Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.</p>
+</section>
+
+<div class="tabs">
+  <button class="tab on" data-tab="all" data-i="tAll">Browse</button>
+  <button class="tab" data-tab="fav" data-i="tFav">Favourites</button>
+</div>
+
+<div class="filters" id="filters">
+  <div class="chips" id="genres"></div>
+  <select class="ctry" id="country"></select>
+</div>
+
+<section class="sec" id="recentSec" style="display:none">
+  <div class="sechead"><h2 data-i="recent">Recently played</h2></div>
+  <div class="row" id="recent"></div>
+</section>
+
+<section class="sec">
+  <div class="sechead">
+    <h2 id="secTitle">Popular stations</h2>
+    <span class="cnt" id="cnt"></span>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="load" id="status" style="display:none"></div>
+  <button class="btn more" id="moreBtn" style="display:none" data-i="more">Show more</button>
+</section>
+
+<section class="sec" id="articles">
+  <div class="sechead"><h2 data-i="guides">Radio guides &amp; articles</h2></div>
+  <div class="arts">
+    <a class="art" href="./articles/best-radio-stations-world.html">
+      <div class="tag" data-i="t1">Guide</div>
+      <h3 data-i="a1t">The best radio stations in the world</h3>
+      <p data-i="a1d">A handpicked tour of the stations worth your evening, from BBC to Radio Nova.</p>
+    </a>
+    <a class="art" href="./articles/how-online-radio-works.html">
+      <div class="tag" data-i="t2">Explainer</div>
+      <h3 data-i="a2t">How online radio streaming works</h3>
+      <p data-i="a2d">Bitrates, codecs and buffering, explained simply for everyday listeners.</p>
+    </a>
+    <a class="art" href="./articles/listen-radio-data-saving.html">
+      <div class="tag" data-i="t3">Tips</div>
+      <h3 data-i="a3t">Listen to radio without burning your data</h3>
+      <p data-i="a3d">Practical settings that cut mobile data use while keeping the sound clean.</p>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <nav>
+    <a href="./about.html" data-i="about">About</a>
+    <a href="./privacy.html" data-i="privacy">Privacy Policy</a>
+    <a href="./contact.html" data-i="contact">Contact</a>
+  </nav>
+  <div>© <span id="yr"></span> LiveRadio</div>
+</footer>
+
+<button id="top" title="Top">&#8593;</button>
+<div id="toast"></div>
+
+<div class="player" id="player">
+  <div class="pmain">
+    <div id="pArt" class="pfb">&#9834;</div>
+    <div class="pinfo" id="pInfo">
+      <div class="t" id="pName">—</div>
+      <div class="s" id="pMeta">—</div>
+    </div>
+    <div class="bars" id="bars" style="display:none"><i></i><i></i><i></i></div>
+    <button class="nav" id="pPrev">&#9198;</button>
+    <button class="pbtn" id="pBtn" aria-label="Play"><svg id="pIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    <button class="nav" id="pNext">&#9197;</button>
+  </div>
+  <div class="pext">
+    <div class="prow">
+      <label data-i="vol">Volume</label>
+      <input type="range" id="vol" min="0" max="100" value="100">
+    </div>
+    <div class="prow pacts">
+      <button class="pact" id="aFav">&#9829; <span data-i="fav">Favourite</span></button>
+      <button class="pact" id="aShare">&#128279; <span data-i="share">Share</span></button>
+      <button class="pact" id="aSleep">&#9201; <span data-i="sleep">Sleep timer</span></button>
+      <button class="pact" id="aClose">&times; <span data-i="close">Close</span></button>
+    </div>
+  </div>
+</div>
+
+<audio id="audio" preload="none"></audio>
+
+<script>
+/* ---------- i18n ---------- */
+var I={
+ en:{h1:'Listen to the world, <em>live</em>.',
+  sub:'Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.',
+  popular:'Popular stations',favs:'Your favourites',recent:'Recently played',
+  more:'Show more',guides:'Radio guides &amp; articles',about:'About',privacy:'Privacy Policy',contact:'Contact',
+  search:'Search stations...',allc:'All countries',empty:'No stations found.',
+  noFav:'No favourites yet. Tap the heart on any station.',
+  tAll:'Browse',tFav:'&#9829; Favourites',vol:'Volume',fav:'Favourite',share:'Share',sleep:'Sleep timer',close:'Close',
+  t1:'Guide',t2:'Explainer',t3:'Tips',
+  a1t:'The best radio stations in the world',a1d:'A handpicked tour of the stations worth your evening, from BBC to Radio Nova.',
+  a2t:'How online radio streaming works',a2d:'Bitrates, codecs and buffering, explained simply for everyday listeners.',
+  a3t:'Listen to radio without burning your data',a3d:'Practical settings that cut mobile data use while keeping the sound clean.',
+  btn:'العربية',added:'Added to favourites',removed:'Removed from favourites',
+  copied:'Link copied',sleepOn:'Sleep timer: {n} min',sleepOff:'Sleep timer off',
+  err:'This station is unavailable',found:'{n} stations'},
+ ar:{h1:'استمع إلى العالم، <em>مباشرةً</em>.',
+  sub:'مئات المحطات الإذاعية المجانية من كل دول العالم. اختر محطة وتابع التصفح — الصوت لا يتوقف.',
+  popular:'المحطات الأكثر استماعاً',favs:'محطاتك المفضلة',recent:'استمعت مؤخراً',
+  more:'عرض المزيد',guides:'مقالات وأدلة الراديو',about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',
+  search:'ابحث عن محطة...',allc:'كل الدول',empty:'لا توجد محطات.',
+  noFav:'لا توجد مفضلة بعد. اضغط على القلب في أي محطة.',
+  tAll:'تصفّح',tFav:'&#9829; المفضلة',vol:'الصوت',fav:'مفضلة',share:'مشاركة',sleep:'مؤقت النوم',close:'إغلاق',
+  t1:'دليل',t2:'شرح',t3:'نصائح',
+  a1t:'أفضل المحطات الإذاعية في العالم',a1d:'جولة مختارة في المحطات التي تستحق سهرتك، من BBC إلى راديو نوفا.',
+  a2t:'كيف يعمل بث الراديو عبر الإنترنت',a2d:'معدل البت والترميز والتخزين المؤقت، مشروحة ببساطة لكل مستمع.',
+  a3t:'استمع للراديو دون استهلاك باقتك',a3d:'إعدادات عملية تقلّل استهلاك الإنترنت مع الحفاظ على نقاء الصوت.',
+  btn:'English',added:'أُضيفت إلى المفضلة',removed:'أُزيلت من المفضلة',
+  copied:'تم نسخ الرابط',sleepOn:'مؤقت النوم: {n} دقيقة',sleepOff:'أُلغي مؤقت النوم',
+  err:'تعذّر تشغيل هذه المحطة',found:'{n} محطة'}
+};
+var lang=localStorage.getItem('lr_lang')||'en';
+function T(k){return I[lang][k];}
+function $(id){return document.getElementById(id);}
+
+var search=$('search'),langBtn=$('langBtn'),country=$('country'),genresEl=$('genres'),
+    grid=$('grid'),statusEl=$('status'),moreBtn=$('moreBtn'),cntEl=$('cnt');
+$('yr').textContent=new Date().getFullYear();
+
+function applyLang(){
+  var d=I[lang];
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  var els=document.querySelectorAll('[data-i]');
+  for(var i=0;i<els.length;i++){var k=els[i].dataset.i;if(d[k])els[i].innerHTML=d[k];}
+  search.placeholder=d.search; langBtn.innerHTML=d.btn;
+  if(country.options.length)country.options[0].textContent=d.allc;
+  buildGenres(); updateTitle(); renderRecent();
+  try{localStorage.setItem('lr_lang',lang);}catch(e){}
+}
+langBtn.onclick=function(){lang=lang==='en'?'ar':'en';applyLang();render(true);};
+
+/* ---------- toast ---------- */
+var tt;
+function toast(m){var t=$('toast');t.innerHTML=m;t.classList.add('show');
+  clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2200);}
+
+/* ---------- storage ---------- */
+var LS={get:function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v===null?d:v}catch(e){return d}},
+        set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+var favs=LS.get('lr_favs',[]), recent=LS.get('lr_recent',[]);
+function isFav(u){for(var i=0;i<favs.length;i++)if(favs[i].stationuuid===u)return true;return false;}
+function slim(s){return{stationuuid:s.stationuuid,name:s.name,country:s.country,
+  favicon:s.favicon,tags:s.tags,url_resolved:s.url_resolved||s.url};}
+
+function toggleFav(s){
+  if(isFav(s.stationuuid)){
+    favs=favs.filter(function(f){return f.stationuuid!==s.stationuuid});toast(T('removed'));
+  }else{favs.unshift(slim(s));toast(T('added'));}
+  LS.set('lr_favs',favs); refreshHearts();
+  if(tab==='fav')render(true);
+}
+function refreshHearts(){
+  var hs=document.querySelectorAll('.fav');
+  for(var i=0;i<hs.length;i++)hs[i].classList.toggle('on',isFav(hs[i].dataset.u));
+  $('aFav').classList.toggle('on',!!current&&isFav(current.stationuuid));
+}
+function pushRecent(s){
+  recent=[slim(s)].concat(recent.filter(function(r){return r.stationuuid!==s.stationuuid})).slice(0,12);
+  LS.set('lr_recent',recent); renderRecent();
+}
+
+/* ---------- data ---------- */
+var MIRRORS=['https://de2.api.radio-browser.info','https://nl1.api.radio-browser.info','https://at1.api.radio-browser.info'];
+var GENRES=[{k:'',en:'All',ar:'الكل'},{k:'pop',en:'Pop',ar:'بوب'},{k:'news',en:'News',ar:'أخبار'},
+ {k:'rock',en:'Rock',ar:'روك'},{k:'jazz',en:'Jazz',ar:'جاز'},{k:'classical',en:'Classical',ar:'كلاسيكي'},
+ {k:'quran',en:'Quran',ar:'قرآن'},{k:'dance',en:'Dance',ar:'رقص'},{k:'talk',en:'Talk',ar:'حواري'},
+ {k:'sport',en:'Sport',ar:'رياضة'},{k:'oldies',en:'Oldies',ar:'قديم'},{k:'hiphop',en:'Hip hop',ar:'هيب هوب'}];
+
+var all=[],shown=0,PAGE=48;
+var fGenre='',fCountry='',fText='',tab='all';
+
+function api(p){
+  var i=0;
+  function tryNext(){
+    if(i>=MIRRORS.length)return Promise.resolve(null);
+    var m=MIRRORS[i++];
+    return fetch(m+p).then(function(r){return r.ok?r.json():tryNext()}).catch(tryNext);
+  }
+  return tryNext();
+}
+function buildGenres(){
+  genresEl.innerHTML='';
+  GENRES.forEach(function(g){
+    var b=document.createElement('button');
+    b.className='chip'+(g.k===fGenre?' on':'');
+    b.textContent=lang==='ar'?g.ar:g.en;
+    b.onclick=function(){fGenre=g.k;load();};
+    genresEl.appendChild(b);
+  });
+}
+function buildCountries(){
+  return api('/json/countries?order=stationcount&reverse=true&limit=130').then(function(l){
+    country.innerHTML='';country.add(new Option(T('allc'),''));
+    (l||[]).filter(function(c){return c.name&&c.stationcount>5}).forEach(function(c){
+      country.add(new Option(c.name+' ('+c.stationcount+')',c.name));});
+    country.onchange=function(){fCountry=country.value;load();};
+  });
+}
+function ini(n){return (n||'?').trim().charAt(0).toUpperCase();}
+
+function card(s){
+  var b=document.createElement('button');b.className='st';b.dataset.uuid=s.stationuuid;
+  var ring=document.createElement('div');ring.className='ring';
+  if(s.favicon&&s.favicon.indexOf('https')===0){
+    var im=document.createElement('img');im.src=s.favicon;im.alt=s.name;im.loading='lazy';
+    im.onerror=function(){var f=document.createElement('div');f.className='fb';f.textContent=ini(s.name);ring.replaceChild(f,im);};
+    ring.appendChild(im);
+  }else{var f=document.createElement('div');f.className='fb';f.textContent=ini(s.name);ring.appendChild(f);}
+  var h=document.createElement('button');h.className='fav'+(isFav(s.stationuuid)?' on':'');
+  h.dataset.u=s.stationuuid;h.innerHTML='&#9829;';
+  h.onclick=function(e){e.stopPropagation();toggleFav(s);};
+  var nm=document.createElement('div');nm.className='nm';nm.textContent=s.name.trim();
+  var cn=document.createElement('div');cn.className='cn';cn.textContent=s.country||'';
+  b.appendChild(ring);b.appendChild(h);b.appendChild(nm);b.appendChild(cn);
+  b.onclick=function(){play(s);};
+  return b;
+}
+function skeletons(n){grid.innerHTML='';for(var i=0;i<n;i++){
+  var d=document.createElement('div');d.className='sk';
+  d.innerHTML='<div class="c"></div><div class="l"></div>';grid.appendChild(d);}}
+
+function updateTitle(){$('secTitle').textContent=tab==='fav'?T('favs'):T('popular');}
+
+function render(reset){
+  if(reset){grid.innerHTML='';shown=0;}
+  var list=tab==='fav'?favs:all;
+  var sl=list.slice(shown,shown+PAGE);
+  sl.forEach(function(s){grid.appendChild(card(s));});
+  shown+=sl.length;
+  moreBtn.style.display=shown<list.length?'block':'none';
+  cntEl.textContent=list.length?T('found').replace('{n}',list.length):'';
+  if(!list.length){statusEl.style.display='block';statusEl.textContent=tab==='fav'?T('noFav'):T('empty');}
+  else statusEl.style.display='none';
+  markPlaying();
+}
+moreBtn.onclick=function(){render(false);};
+
+function load(){
+  buildGenres();updateTitle();
+  if(tab==='fav'){render(true);return;}
+  statusEl.style.display='none';skeletons(12);cntEl.textContent='';moreBtn.style.display='none';
+  var p='/json/stations/search?hidebroken=true&limit=600&order=clickcount&reverse=true';
+  if(fGenre)p+='&tag='+encodeURIComponent(fGenre);
+  if(fCountry)p+='&country='+encodeURIComponent(fCountry);
+  if(fText)p+='&name='+encodeURIComponent(fText);
+  return api(p).then(function(d){
+    var seen={};
+    all=(d||[]).filter(function(s){
+      var u=s.url_resolved||s.url||'';
+      if(u.indexOf('https://')!==0||!s.name||s.name.trim().length<2)return false;
+      var k=s.name.trim().toLowerCase();if(seen[k])return false;seen[k]=1;return true;});
+    render(true);
+  });
+}
+var tmr;
+search.oninput=function(e){clearTimeout(tmr);fText=e.target.value.trim();
+  if(tab!=='all'){tab='all';syncTabs();}tmr=setTimeout(load,500);};
+
+function syncTabs(){
+  var ts=document.querySelectorAll('.tab');
+  for(var i=0;i<ts.length;i++)ts[i].classList.toggle('on',ts[i].dataset.tab===tab);
+  $('filters').style.display=tab==='fav'?'none':'block';
+}
+(function(){var ts=document.querySelectorAll('.tab');
+  for(var i=0;i<ts.length;i++)ts[i].onclick=function(){tab=this.dataset.tab;syncTabs();load();};})();
+
+function renderRecent(){
+  var r=$('recent');r.innerHTML='';
+  $('recentSec').style.display=recent.length?'block':'none';
+  recent.forEach(function(s){r.appendChild(card(s));});
+  markPlaying();
+}
+
+/* ---------- player ---------- */
+var audio=$('audio'),player=$('player'),pName=$('pName'),pMeta=$('pMeta'),
+    pIcon=$('pIcon'),bars=$('bars');
+var current=null,queue=[],qi=-1,sleepT=null,sleepMin=0;
+var PLAY='M8 5v14l11-7z',PAUSE='M6 5h4v14H6zM14 5h4v14h-4z',WAIT='M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z';
+function setIcon(d){pIcon.querySelector('path').setAttribute('d',d);}
+
+function markPlaying(){
+  var els=document.querySelectorAll('.st');
+  for(var i=0;i<els.length;i++)
+    els[i].classList.toggle('playing',!!current&&els[i].dataset.uuid===current.stationuuid&&!audio.paused);
+}
+function setArt(s){
+  var old=$('pArt'),nu;
+  if(s.favicon&&s.favicon.indexOf('https')===0){
+    nu=document.createElement('img');nu.src=s.favicon;nu.alt='';
+    nu.onerror=function(){var f=document.createElement('div');f.className='pfb';f.id='pArt';
+      f.textContent=ini(s.name);$('pArt').replaceWith(f);};
+  }else{nu=document.createElement('div');nu.className='pfb';nu.textContent=ini(s.name);}
+  nu.id='pArt';old.replaceWith(nu);
+}
+function play(s){
+  if(current&&current.stationuuid===s.stationuuid){toggle();return;}
+  current=s;
+  var src=(tab==='fav'?favs:all);
+  queue=src.length?src:recent;
+  qi=-1;for(var i=0;i<queue.length;i++)if(queue[i].stationuuid===s.stationuuid){qi=i;break;}
+  audio.src=s.url_resolved||s.url;
+  var pr=audio.play();if(pr&&pr.catch)pr.catch(function(){});
+  pName.textContent=s.name.trim();
+  pMeta.textContent=[s.country,(s.tags||'').split(',')[0]].filter(Boolean).join(' • ');
+  setArt(s);player.classList.add('up');setIcon(WAIT);
+  pushRecent(s);refreshHearts();LS.set('lr_last',slim(s));
+  if('mediaSession' in navigator){
+    try{
+      navigator.mediaSession.metadata=new MediaMetadata({title:s.name.trim(),
+        artist:s.country||'LiveRadio',album:'LiveRadio',
+        artwork:(s.favicon&&s.favicon.indexOf('https')===0)?[{src:s.favicon,sizes:'256x256'}]:[]});
+      navigator.mediaSession.setActionHandler('play',function(){audio.play()});
+      navigator.mediaSession.setActionHandler('pause',function(){audio.pause()});
+      navigator.mediaSession.setActionHandler('previoustrack',prev);
+      navigator.mediaSession.setActionHandler('nexttrack',next);
+    }catch(e){}
+  }
+}
+function toggle(){if(audio.paused){var p=audio.play();if(p&&p.catch)p.catch(function(){});}else audio.pause();}
+function next(){if(queue.length){qi=(qi+1)%queue.length;play(queue[qi]);}}
+function prev(){if(queue.length){qi=(qi-1+queue.length)%queue.length;play(queue[qi]);}}
+
+$('pBtn').onclick=function(){
+  if(!current){var last=LS.get('lr_last',null);if(last){play(last);return;}}
+  toggle();
+};
+$('pNext').onclick=next;$('pPrev').onclick=prev;
+$('pInfo').onclick=function(){player.classList.toggle('open');};
+$('aClose').onclick=function(){audio.pause();audio.removeAttribute('src');audio.load();
+  player.classList.remove('up','open');current=null;markPlaying();};
+$('aFav').onclick=function(){if(current)toggleFav(current);};
+$('aShare').onclick=function(){
+  var u=location.href.split('#')[0];
+  if(navigator.share){navigator.share({title:'LiveRadio',text:current?current.name.trim():'LiveRadio',url:u}).catch(function(){});return;}
+  if(navigator.clipboard)navigator.clipboard.writeText(u).then(function(){toast(T('copied'));}).catch(function(){});
+};
+var SLEEPS=[0,15,30,60,90];
+$('aSleep').onclick=function(){
+  var i=SLEEPS.indexOf(sleepMin);sleepMin=SLEEPS[(i+1)%SLEEPS.length];
+  clearTimeout(sleepT);
+  var b=$('aSleep');b.classList.toggle('on',sleepMin>0);
+  if(sleepMin>0){sleepT=setTimeout(function(){audio.pause();b.classList.remove('on');sleepMin=0;},sleepMin*60000);
+    toast(T('sleepOn').replace('{n}',sleepMin));}
+  else toast(T('sleepOff'));
+};
+var vol=$('vol');
+vol.value=LS.get('lr_vol',100);audio.volume=vol.value/100;
+vol.oninput=function(){audio.volume=vol.value/100;LS.set('lr_vol',+vol.value);};
+
+audio.onplaying=function(){setIcon(PAUSE);bars.style.display='flex';markPlaying();};
+audio.onpause=function(){setIcon(PLAY);bars.style.display='none';markPlaying();};
+audio.onwaiting=function(){setIcon(WAIT);};
+audio.onerror=function(){setIcon(PLAY);bars.style.display='none';toast(T('err'));};
+
+$('randBtn').onclick=function(){var l=all.length?all:favs;
+  if(l.length)play(l[Math.floor(Math.random()*l.length)]);};
+
+var topBtn=$('top');
+window.addEventListener('scroll',function(){topBtn.style.display=window.scrollY>600?'grid':'none';});
+topBtn.onclick=function(){window.scrollTo({top:0,behavior:'smooth'});};
+
+window.addEventListener('keydown',function(e){
+  if(e.target.tagName==='INPUT')return;
+  if(e.code==='Space'&&current){e.preventDefault();toggle();}
+  if(e.code==='ArrowRight')next();
+  if(e.code==='ArrowLeft')prev();
+});
+
+/* ---------- init ---------- */
+syncTabs();applyLang();renderRecent();
+(function(){
+  var last=LS.get('lr_last',null);
+  if(last){pName.textContent=last.name;pMeta.textContent=last.country||'';
+    setArt(last);player.classList.add('up');}
+})();
+buildCountries().then(load);
+</script>
+</body>
+</html>
