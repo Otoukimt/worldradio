@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LiveRadio — Free Online Radio Stations Worldwide</title>
+<meta name="description" content="Listen to hundreds of free live radio stations from around the world. Browse by country and genre, with a background player and radio guides.">
+<meta name="theme-color" content="#0b0f1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f1a; --bg2:#121829; --card:#161d31; --line:#232c45;
+  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1;
+  --font:'Outfit','Cairo',system-ui,sans-serif;
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;height:100%}
+body{
+  margin:0;min-height:100%;background:var(--bg);color:var(--txt);
+  font-family:var(--font);
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));
+  -webkit-font-smoothing:antialiased;
+}
+html[dir="rtl"] body{font-family:'Cairo',var(--font)}
+a{color:inherit;text-decoration:none}
+
+/* ===== Header ===== */
+header{
+  position:sticky;top:0;z-index:30;
+  background:rgba(11,15,26,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top,0px);
+}
+.hrow{display:flex;align-items:center;gap:12px;padding:12px 16px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;letter-spacing:-.5px}
+.logo-dot{width:12px;height:12px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgba(34,211,166,.18);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(34,211,166,0)}}
+.logo span{color:var(--acc)}
+.spacer{flex:1}
+.btn{
+  background:var(--card);border:1px solid var(--line);color:var(--txt);
+  padding:8px 14px;border-radius:999px;font-family:inherit;font-size:14px;
+  font-weight:600;cursor:pointer;white-space:nowrap;
+}
+.btn:hover{border-color:var(--acc)}
+.searchbar{padding:0 16px 12px;max-width:1200px;margin:0 auto}
+.searchbar input{
+  width:100%;background:var(--card);border:1px solid var(--line);color:var(--txt);
+  padding:12px 16px;border-radius:14px;font-family:inherit;font-size:15px;outline:none;
+}
+.searchbar input:focus{border-color:var(--acc)}
+
+/* ===== Hero ===== */
+.hero{max-width:1200px;margin:0 auto;padding:28px 16px 8px;text-align:center}
+.hero h1{font-size:clamp(26px,6vw,42px);margin:0 0 10px;line-height:1.2;font-weight:800}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);margin:0 auto;max-width:620px;font-size:16px;line-height:1.6}
+
+/* ===== Filters ===== */
+.filters{max-width:1200px;margin:0 auto;padding:18px 16px 4px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  background:var(--card);border:1px solid var(--line);color:var(--mut);
+  padding:8px 16px;border-radius:999px;font-size:14px;font-weight:600;
+  cursor:pointer;white-space:nowrap;font-family:inherit;
+}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#04221b}
+select.ctry{
+  width:100%;margin-top:8px;background:var(--card);border:1px solid var(--line);
+  color:var(--txt);padding:11px 14px;border-radius:12px;font-family:inherit;font-size:15px;
+}
+
+/* ===== Stations grid ===== */
+.sec{max-width:1200px;margin:0 auto;padding:16px}
+.sec h2{font-size:20px;margin:0 0 14px;font-weight:800}
+.grid{
+  display:grid;gap:16px 10px;
+  grid-template-columns:repeat(auto-fill,minmax(104px,1fr));
+}
+.st{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  cursor:pointer;background:none;border:none;padding:4px;font-family:inherit;color:inherit;
+}
+.ring{
+  width:84px;height:84px;border-radius:50%;padding:3px;
+  background:linear-gradient(135deg,var(--line),#2c3758);
+  display:grid;place-items:center;transition:.25s;position:relative;
+}
+.st:hover .ring{background:linear-gradient(135deg,var(--acc),var(--acc2));transform:translateY(-3px)}
+.st.playing .ring{background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 0 22px rgba(34,211,166,.35)}
+.ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--card);display:block}
+.ring .fb{
+  width:100%;height:100%;border-radius:50%;background:var(--card);
+  display:grid;place-items:center;font-size:24px;font-weight:800;color:var(--acc);
+}
+.st .nm{font-size:12.5px;font-weight:600;line-height:1.3;text-align:center;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:104px}
+.st .cn{font-size:11px;color:var(--mut)}
+.load{text-align:center;color:var(--mut);padding:40px 0;font-size:15px}
+.more{display:block;margin:22px auto 0;}
+
+/* ===== Articles ===== */
+.arts{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.art{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:.2s}
+.art:hover{border-color:var(--acc);transform:translateY(-2px)}
+.art .tag{font-size:12px;color:var(--acc);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.art h3{margin:8px 0 6px;font-size:17px;font-weight:700;line-height:1.35}
+.art p{margin:0;color:var(--mut);font-size:14px;line-height:1.55}
+
+/* ===== Footer ===== */
+footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 16px;text-align:center;color:var(--mut);font-size:14px}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:14px}
+footer nav a:hover{color:var(--acc)}
+
+/* ===== Floating player ===== */
+.player{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(18,24,41,.97);backdrop-filter:blur(18px);
+  border-top:1px solid var(--line);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));
+  display:flex;align-items:center;gap:12px;
+  transform:translateY(130%);transition:transform .35s cubic-bezier(.4,0,.2,1);
+}
+.player.up{transform:translateY(0)}
+.player img,.player .pfb{width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--card);flex:none}
+.player .pfb{display:grid;place-items:center;font-weight:800;color:var(--acc)}
+.pinfo{flex:1;min-width:0}
+.pinfo .t{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pinfo .s{font-size:12.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pbtn{
+  width:48px;height:48px;border-radius:50%;flex:none;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--acc),var(--acc2));color:#04221b;
+  display:grid;place-items:center;
+}
+.pbtn svg{width:22px;height:22px;fill:currentColor}
+.xbtn{background:none;border:none;color:var(--mut);font-size:24px;cursor:pointer;padding:0 4px;flex:none;line-height:1}
+.bars{display:flex;gap:2px;align-items:flex-end;height:14px}
+.bars i{width:3px;background:var(--acc);border-radius:2px;animation:eq .9s ease-in-out infinite;display:block}
+.bars i:nth-child(2){animation-delay:.15s}.bars i:nth-child(3){animation-delay:.3s}
+@keyframes eq{0%,100%{height:4px}50%{height:14px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <div class="logo"><span class="logo-dot"></span>Live<span>Radio</span></div>
+    <div class="spacer"></div>
+    <button class="btn" id="langBtn">العربية</button>
+  </div>
+  <div class="searchbar">
+    <input id="search" type="search" placeholder="Search stations...">
+  </div>
+</header>
+
+<section class="hero">
+  <h1 data-i="h1">Listen to the world, <em>live</em>.</h1>
+  <p data-i="sub">Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.</p>
+</section>
+
+<div class="filters">
+  <div class="chips" id="genres"></div>
+  <select class="ctry" id="country"></select>
+</div>
+
+<section class="sec">
+  <h2 id="secTitle" data-i="popular">Popular stations</h2>
+  <div class="grid" id="grid"></div>
+  <div class="load" id="status" data-i="loading">Loading stations…</div>
+  <button class="btn more" id="moreBtn" style="display:none" data-i="more">Show more</button>
+</section>
+
+<section class="sec" id="articles">
+  <h2 data-i="guides">Radio guides &amp; articles</h2>
+  <div class="arts">
+    <a class="art" href="./articles/best-radio-stations-world.html">
+      <div class="tag" data-i="t1">Guide</div>
+      <h3 data-i="a1t">The best radio stations in the world</h3>
+      <p data-i="a1d">A handpicked tour of the stations worth your evening, from BBC to Radio Nova.</p>
+    </a>
+    <a class="art" href="./articles/how-online-radio-works.html">
+      <div class="tag" data-i="t2">Explainer</div>
+      <h3 data-i="a2t">How online radio streaming works</h3>
+      <p data-i="a2d">Bitrates, codecs and buffering, explained simply for everyday listeners.</p>
+    </a>
+    <a class="art" href="./articles/listen-radio-data-saving.html">
+      <div class="tag" data-i="t3">Tips</div>
+      <h3 data-i="a3t">Listen to radio without burning your data</h3>
+      <p data-i="a3d">Practical settings that cut mobile data use while keeping the sound clean.</p>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <nav>
+    <a href="./about.html" data-i="about">About</a>
+    <a href="./privacy.html" data-i="privacy">Privacy Policy</a>
+    <a href="./contact.html" data-i="contact">Contact</a>
+  </nav>
+  <div>© <span id="yr"></span> LiveRadio</div>
+</footer>
+
+<div class="player" id="player">
+  <div id="pArt" class="pfb">♪</div>
+  <div class="pinfo">
+    <div class="t" id="pName">—</div>
+    <div class="s" id="pMeta">—</div>
+  </div>
+  <div class="bars" id="bars" style="display:none"><i></i><i></i><i></i></div>
+  <button class="pbtn" id="pBtn" aria-label="Play/Pause">
+    <svg id="pIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+  </button>
+  <button class="xbtn" id="pClose" aria-label="Close">&times;</button>
+</div>
+
+<audio id="audio" preload="none"></audio>
+
+<script>
+/* ---------------- i18n ---------------- */
+const I = {
+  en:{h1:'Listen to the world, <em>live</em>.',
+      sub:'Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.',
+      popular:'Popular stations', loading:'Loading stations…', more:'Show more',
+      guides:'Radio guides & articles', about:'About', privacy:'Privacy Policy', contact:'Contact',
+      search:'Search stations...', allc:'All countries', empty:'No stations found.',
+      t1:'Guide',t2:'Explainer',t3:'Tips',
+      a1t:'The best radio stations in the world', a1d:'A handpicked tour of the stations worth your evening, from BBC to Radio Nova.',
+      a2t:'How online radio streaming works', a2d:'Bitrates, codecs and buffering, explained simply for everyday listeners.',
+      a3t:'Listen to radio without burning your data', a3d:'Practical settings that cut mobile data use while keeping the sound clean.',
+      btn:'العربية'},
+  ar:{h1:'استمع إلى العالم، <em>مباشرةً</em>.',
+      sub:'مئات المحطات الإذاعية المجانية من كل دول العالم. اختر محطة وتابع التصفح — الصوت لا يتوقف.',
+      popular:'المحطات الأكثر استماعاً', loading:'جارٍ تحميل المحطات…', more:'عرض المزيد',
+      guides:'مقالات وأدلة الراديو', about:'من نحن', privacy:'سياسة الخصوصية', contact:'اتصل بنا',
+      search:'ابحث عن محطة...', allc:'كل الدول', empty:'لا توجد محطات.',
+      t1:'دليل',t2:'شرح',t3:'نصائح',
+      a1t:'أفضل المحطات الإذاعية في العالم', a1d:'جولة مختارة في المحطات التي تستحق سهرتك، من BBC إلى راديو نوفا.',
+      a2t:'كيف يعمل بث الراديو عبر الإنترنت', a2d:'معدل البت والترميز والتخزين المؤقت، مشروحة ببساطة لكل مستمع.',
+      a3t:'استمع للراديو دون استهلاك باقتك', a3d:'إعدادات عملية تقلّل استهلاك الإنترنت مع الحفاظ على نقاء الصوت.',
+      btn:'English'}
+};
+let lang = localStorage.getItem('lr_lang') || 'en';
+
+function applyLang(){
+  const d = I[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang==='ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const k = el.dataset.i; if(d[k]) el.innerHTML = d[k];
+  });
+  document.getElementById('search').placeholder = d.search;
+  document.getElementById('langBtn').textContent = d.btn;
+  if(countrySel.options.length) countrySel.options[0].textContent = d.allc;
+  localStorage.setItem('lr_lang', lang);
+}
+document.getElementById('langBtn').onclick = ()=>{ lang = lang==='en'?'ar':'en'; applyLang(); };
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ---------------- Data ---------------- */
+const MIRRORS = ['https://de2.api.radio-browser.info','https://nl1.api.radio-browser.info','https://at1.api.radio-browser.info'];
+const GENRES = [
+  {k:'',   en:'All',       ar:'الكل'},
+  {k:'pop',en:'Pop',       ar:'بوب'},
+  {k:'news',en:'News',     ar:'أخبار'},
+  {k:'rock',en:'Rock',     ar:'روك'},
+  {k:'jazz',en:'Jazz',     ar:'جاز'},
+  {k:'classical',en:'Classical',ar:'كلاسيكي'},
+  {k:'quran',en:'Quran',   ar:'قرآن'},
+  {k:'dance',en:'Dance',   ar:'رقص'},
+  {k:'talk',en:'Talk',     ar:'حواري'},
+  {k:'sport',en:'Sport',   ar:'رياضة'}
+];
+
+const grid = document.getElementById('grid');
+const statusEl = document.getElementById('status');
+const countrySel = document.getElementById('country');
+const genresEl = document.getElementById('genres');
+const moreBtn = document.getElementById('moreBtn');
+
+let all = [], shown = 0, PAGE = 48;
+let fGenre = '', fCountry = '', fText = '';
+
+async function api(path){
+  for(const m of MIRRORS){
+    try{
+      const r = await fetch(m+path, {headers:{'Accept':'application/json'}});
+      if(r.ok) return await r.json();
+    }catch(e){}
+  }
+  return null;
+}
+
+function buildGenres(){
+  genresEl.innerHTML = '';
+  GENRES.forEach(g=>{
+    const b = document.createElement('button');
+    b.className = 'chip' + (g.k===fGenre?' on':'');
+    b.textContent = lang==='ar'? g.ar : g.en;
+    b.dataset.k = g.k;
+    b.onclick = ()=>{ fGenre = g.k; load(); };
+    genresEl.appendChild(b);
+  });
+}
+
+async function buildCountries(){
+  const list = await api('/json/countries?order=stationcount&reverse=true&limit=120');
+  countrySel.innerHTML = '';
+  const o0 = new Option(I[lang].allc, ''); countrySel.add(o0);
+  (list||[]).filter(c=>c.name && c.stationcount>5).forEach(c=>{
+    countrySel.add(new Option(c.name+' ('+c.stationcount+')', c.name));
+  });
+  countrySel.onchange = ()=>{ fCountry = countrySel.value; load(); };
+}
+
+function initial(n){ return (n||'?').trim().charAt(0).toUpperCase(); }
+
+function card(s){
+  const b = document.createElement('button');
+  b.className = 'st';
+  b.dataset.uuid = s.stationuuid;
+  const ring = document.createElement('div'); ring.className = 'ring';
+  if(s.favicon && s.favicon.startsWith('https')){
+    const img = document.createElement('img');
+    img.src = s.favicon; img.alt = s.name; img.loading='lazy';
+    img.onerror = ()=>{ const f=document.createElement('div'); f.className='fb'; f.textContent=initial(s.name); ring.replaceChild(f,img); };
+    ring.appendChild(img);
+  } else {
+    const f=document.createElement('div'); f.className='fb'; f.textContent=initial(s.name); ring.appendChild(f);
+  }
+  const nm = document.createElement('div'); nm.className='nm'; nm.textContent = s.name.trim();
+  const cn = document.createElement('div'); cn.className='cn'; cn.textContent = s.country || '';
+  b.append(ring, nm, cn);
+  b.onclick = ()=> play(s);
+  return b;
+}
+
+function render(reset){
+  if(reset){ grid.innerHTML=''; shown=0; }
+  const slice = all.slice(shown, shown+PAGE);
+  slice.forEach(s=> grid.appendChild(card(s)));
+  shown += slice.length;
+  moreBtn.style.display = shown < all.length ? 'block' : 'none';
+  statusEl.style.display = all.length ? 'none' : 'block';
+  if(!all.length) statusEl.textContent = I[lang].empty;
+  markPlaying();
+}
+moreBtn.onclick = ()=> render(false);
+
+async function load(){
+  buildGenres();
+  grid.innerHTML=''; statusEl.style.display='block'; statusEl.textContent = I[lang].loading;
+  moreBtn.style.display='none';
+  let p = '/json/stations/search?hidebroken=true&limit=600&order=clickcount&reverse=true';
+  if(fGenre) p += '&tag=' + encodeURIComponent(fGenre);
+  if(fCountry) p += '&country=' + encodeURIComponent(fCountry);
+  if(fText) p += '&name=' + encodeURIComponent(fText);
+  const data = await api(p);
+  all = (data||[]).filter(s=>{
+    const u = s.url_resolved || s.url || '';
+    return u.startsWith('https://') && s.name && s.name.trim().length>1;
+  });
+  const seen = new Set();
+  all = all.filter(s=>{ const k=s.name.trim().toLowerCase(); if(seen.has(k)) return false; seen.add(k); return true; });
+  render(true);
+}
+
+let tmr;
+document.getElementById('search').oninput = e=>{
+  clearTimeout(tmr); fText = e.target.value.trim();
+  tmr = setTimeout(load, 500);
+};
+
+/* ---------------- Player ---------------- */
+const audio = document.getElementById('audio');
+const player = document.getElementById('player');
+const pName = document.getElementById('pName'), pMeta = document.getElementById('pMeta');
+const pIcon = document.getElementById('pIcon'), bars = document.getElementById('bars');
+let current = null;
+
+const ICON_PLAY = 'M8 5v14l11-7z';
+const ICON_PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
+const ICON_WAIT = 'M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z';
+
+function setIcon(d){ pIcon.querySelector('path').setAttribute('d', d); }
+
+function markPlaying(){
+  document.querySelectorAll('.st').forEach(el=>{
+    el.classList.toggle('playing', !!current && el.dataset.uuid===current.stationuuid && !audio.paused);
+  });
+}
+
+function play(s){
+  if(current && current.stationuuid === s.stationuuid){ toggle(); return; }
+  current = s;
+  audio.src = s.url_resolved || s.url;
+  audio.play().catch(()=>{});
+  pName.textContent = s.name.trim();
+  pMeta.textContent = [s.country, (s.tags||'').split(',')[0]].filter(Boolean).join(' • ');
+  const art = document.getElementById('pArt');
+  const nu = document.createElement(s.favicon && s.favicon.startsWith('https') ? 'img':'div');
+  if(nu.tagName==='IMG'){ nu.src=s.favicon; nu.alt=''; nu.onerror=()=>{const f=document.createElement('div');f.className='pfb';f.id='pArt';f.textContent=initial(s.name);art.replaceWith(f);} }
+  else { nu.className='pfb'; nu.textContent = initial(s.name); }
+  nu.id='pArt'; art.replaceWith(nu);
+  player.classList.add('up');
+  setIcon(ICON_WAIT);
+  if('mediaSession' in navigator){
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: s.name.trim(), artist: s.country||'LiveRadio', album:'LiveRadio',
+      artwork: s.favicon && s.favicon.startsWith('https') ? [{src:s.favicon, sizes:'256x256'}] : []
+    });
+    navigator.mediaSession.setActionHandler('play', ()=>audio.play());
+    navigator.mediaSession.setActionHandler('pause', ()=>audio.pause());
+  }
+}
+
+function toggle(){ audio.paused ? audio.play().catch(()=>{}) : audio.pause(); }
+document.getElementById('pBtn').onclick = toggle;
+document.getElementById('pClose').onclick = ()=>{
+  audio.pause(); audio.removeAttribute('src'); audio.load();
+  player.classList.remove('up'); current=null; markPlaying();
+};
+
+audio.onplaying = ()=>{ setIcon(ICON_PAUSE); bars.style.display='flex'; markPlaying(); };
+audio.onpause = ()=>{ setIcon(ICON_PLAY); bars.style.display='none'; markPlaying(); };
+audio.onwaiting = ()=> setIcon(ICON_WAIT);
+audio.onerror = ()=>{ setIcon(ICON_PLAY); bars.style.display='none'; pMeta.textContent = lang==='ar'?'تعذّر تشغيل هذه المحطة':'This station is unavailable'; };
+
+/* ---------------- Init ---------------- */
+applyLang();
+buildCountries().then(load);
+</script>
+</body>
+</html>
