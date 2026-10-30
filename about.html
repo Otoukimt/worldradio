@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About LiveRadio — Free Worldwide Radio Streaming</title>
+<meta name="description" content="About LiveRadio: what the site is, where the station list comes from, how it is funded, and what it does not do.">
+<meta name="theme-color" content="#0b0f1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0f1a;--card:#161d31;--line:#232c45;--txt:#eef2ff;--mut:#93a0c0;
+--acc:#22d3a6;--acc2:#6366f1;--font:'Outfit','Cairo',system-ui,sans-serif;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--txt);font-family:var(--font);
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Cairo',var(--font)}
+a{color:var(--acc);text-decoration:none}
+button{font-family:inherit}
+header{position:sticky;top:0;z-index:30;background:rgba(11,15,26,.93);backdrop-filter:blur(14px);
+border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.hrow{display:flex;align-items:center;gap:10px;padding:12px 16px;max-width:760px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--txt)}
+.logo-dot{width:11px;height:11px;border-radius:50%;background:var(--acc)}
+.logo span{color:var(--acc)}
+.spacer{flex:1}
+.btn{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+main{max-width:760px;margin:0 auto;padding:26px 18px 60px}
+h1{font-size:clamp(26px,6vw,36px);line-height:1.25;margin:0 0 20px;font-weight:800}
+h2{font-size:21px;margin:32px 0 10px;font-weight:800}
+p{line-height:1.8;color:#dbe2f7;margin:0 0 16px;font-size:16.5px}
+ul{line-height:1.85;color:#dbe2f7;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
+li{margin-bottom:8px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:26px 0}
+.box h2{margin-top:0;font-size:18px}
+footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;color:var(--mut);font-size:14px}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
+footer nav a{color:var(--mut)}
+footer nav a:hover{color:var(--acc)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <a class="logo" href="./"><span class="logo-dot"></span>Live<span>Radio</span></a>
+    <div class="spacer"></div>
+    <button class="btn" id="langBtn">العربية</button>
+  </div>
+</header>
+
+<main>
+  <h1 data-en="About LiveRadio" data-ar="عن LiveRadio">About LiveRadio</h1>
+
+  <p data-en="LiveRadio is a free directory and player for live radio stations from around the world. It exists for one reason: finding a good station online is harder than it should be. Thousands of broadcasters publish a stream, but they are scattered across the web behind outdated pages, broken links and apps nobody wants to install. This site puts them in one place and plays them in your browser, with nothing to download and no account to create." data-ar="LiveRadio دليل ومشغّل مجاني للمحطات الإذاعية المباشرة من مختلف أنحاء العالم. وُجد لسبب واحد: العثور على محطة جيدة على الإنترنت أصعب مما ينبغي. فآلاف المحطات تنشر بثها، لكنها مبعثرة عبر الويب خلف صفحات قديمة وروابط معطّلة وتطبيقات لا أحد يريد تثبيتها. هذا الموقع يجمعها في مكان واحد ويشغّلها في متصفحك، دون أي تنزيل ودون إنشاء حساب.">LiveRadio is a free directory and player for live radio stations.</p>
+
+  <h2 data-en="Where the stations come from" data-ar="من أين تأتي المحطات">Where the stations come from</h2>
+  <p data-en="The station list is drawn from Radio Browser, an open, community-maintained database of public radio streams. Stations are added and corrected by volunteers worldwide, which is why the catalogue is broad but occasionally imperfect: a stream may be offline, renamed, or missing its logo. When a station stops working, the fault is almost always at the broadcaster's end rather than ours." data-ar="تُستمد قائمة المحطات من Radio Browser، وهي قاعدة بيانات مفتوحة يصونها المجتمع لروابط البث الإذاعي العامة. يضيف المتطوعون حول العالم المحطات ويصححونها، ولهذا فالكتالوغ واسع لكنه غير مثالي أحياناً: فقد يكون البث متوقفاً أو تغيّر اسمه أو ينقصه شعاره. وحين تتوقف محطة عن العمل، فالخلل في الغالب عند الجهة الباثة لا عندنا.">The station list is drawn from Radio Browser.</p>
+
+  <h2 data-en="What we do not do" data-ar="ما الذي لا نفعله">What we do not do</h2>
+  <ul>
+    <li data-en="We do not host, record, store or rebroadcast any audio. Playback connects your browser directly to the broadcaster's own server." data-ar="لا نستضيف أي صوت ولا نسجّله ولا نخزّنه ولا نعيد بثه. فالتشغيل يربط متصفحك مباشرة بخادم الجهة الباثة نفسها.">We do not host or rebroadcast any audio.</li>
+    <li data-en="We do not claim ownership of any station, logo or broadcast. All trademarks and content belong to their respective owners." data-ar="لا ندّعي ملكية أي محطة أو شعار أو بث. فجميع العلامات التجارية والمحتوى ملك لأصحابها.">We do not claim ownership of any station or logo.</li>
+    <li data-en="We do not require registration, and we do not sell personal data." data-ar="لا نطلب تسجيلاً، ولا نبيع أي بيانات شخصية.">We do not require registration.</li>
+  </ul>
+
+  <h2 data-en="How the site is funded" data-ar="كيف يُموَّل الموقع">How the site is funded</h2>
+  <p data-en="LiveRadio is free to use and is supported by advertising. Ads pay for the time spent building and maintaining the site; they never affect which stations are listed or in what order. Details of how advertising and cookies work are set out in the privacy policy." data-ar="استعمال LiveRadio مجاني، ويعتمد في تمويله على الإعلانات. تغطي الإعلانات الوقت المبذول في بناء الموقع وصيانته؛ وهي لا تؤثر إطلاقاً على المحطات المدرجة ولا على ترتيبها. وتفاصيل عمل الإعلانات وملفات تعريف الارتباط موضّحة في سياسة الخصوصية.">LiveRadio is free to use and is supported by advertising.</p>
+
+  <div class="box">
+    <h2 data-en="Reporting a problem" data-ar="الإبلاغ عن مشكلة">Reporting a problem</h2>
+    <p data-en="If a station is broken, mislabelled, or if you represent a broadcaster and would like your station removed from the directory, write to us and it will be handled promptly. Contact details are on the contact page." data-ar="إن كانت محطة معطّلة أو مسمّاة بشكل خاطئ، أو كنت تمثّل جهة باثة وترغب في إزالة محطتك من الدليل، راسلنا وسيُعالج الأمر سريعاً. وتجد بيانات التواصل في صفحة الاتصال.">Write to us if a station is broken or you want it removed.</p>
+  </div>
+</main>
+
+<footer>
+  <nav>
+    <a href="./" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="./about.html" data-en="About" data-ar="من نحن">About</a>
+    <a href="./privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+    <a href="./contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+  </nav>
+  <div>© <span id="yr"></span> LiveRadio</div>
+</footer>
+
+<script>
+var lang=localStorage.getItem('lr_lang')||'en';
+function apply(){
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
+  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  try{localStorage.setItem('lr_lang',lang);}catch(e){}
+}
+document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
+document.getElementById('yr').textContent=new Date().getFullYear();
+apply();
+</script>
+</body>
+</html>
