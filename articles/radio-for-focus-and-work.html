@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Radio for focus: why it beats a playlist every time | LiveRadio</title>
+<meta name="description" content="Why radio works better than playlists for concentration, what makes a station usable as background, and which kinds of stations to pick for deep work.">
+<meta name="theme-color" content="#eef3fb">
+<meta property="og:title" content="Radio for focus: why it beats a playlist every time">
+<meta property="og:description" content="Why radio works better than playlists for concentration, what makes a station usable as background, and which kinds of stations to pick for deep work.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6fc; --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
+  --txt:#111a2e; --mut:#5a6880; --acc:#0d9488; --acc2:#5b53e0;
+  --shadow:rgba(23,38,74,.09);
+  --headG:linear-gradient(120deg,#e8f1ff 0%,#eeeafd 48%,#fdeef4 100%);
+  --footG:linear-gradient(120deg,#fdeef4 0%,#eeeafd 52%,#e8f1ff 100%);
+  --cardG:linear-gradient(170deg,#ffffff 0%,#f6f9ff 100%);
+  --font:'Outfit','Cairo',system-ui,sans-serif;box-sizing:border-box;
+}
+html[data-theme="dark"]{
+  --bg:#0b0f1a; --card:#161d31; --card2:#1c2440; --line:#232c45;
+  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1;
+  --shadow:rgba(0,0,0,.35);
+  --headG:linear-gradient(120deg,#0e1526,#121a2e 60%,#17132a);
+  --footG:linear-gradient(120deg,#17132a,#121a2e 48%,#0e1526);
+  --cardG:linear-gradient(170deg,#161d31,#141b2d);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--txt);font-family:var(--font);
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Cairo',var(--font)}
+a{color:var(--acc);text-decoration:none}
+button{font-family:inherit}
+header{position:sticky;top:0;z-index:30;background:var(--headG);border-bottom:1px solid var(--line);
+padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(10px)}
+.hrow{display:flex;align-items:center;gap:10px;padding:12px 16px;max-width:760px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--txt)}
+.logo-dot{width:11px;height:11px;border-radius:50%;background:var(--acc)}
+.logo span{color:var(--acc)}
+.spacer{flex:1}
+.btn{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px var(--shadow)}
+main{max-width:760px;margin:0 auto;padding:22px 18px 60px}
+.crumb{font-size:13px;color:var(--mut);margin-bottom:14px}
+.tagx{display:inline-block;font-size:12px;color:var(--acc);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800}
+.meta{color:var(--mut);font-size:14px;margin-bottom:22px}
+.hero{height:170px;border-radius:18px;margin-bottom:26px;position:relative;overflow:hidden;
+background:linear-gradient(135deg,#065f46,#1e3a8a 60%,#4c1d95);display:grid;place-items:center}
+.hero .wav{display:flex;gap:6px;align-items:flex-end;height:68px}
+.hero .wav i{width:8px;background:rgba(255,255,255,.88);border-radius:4px;display:block;animation:w 1.4s ease-in-out infinite}
+.hero .wav i:nth-child(1){height:24px;animation-delay:0s}
+.hero .wav i:nth-child(2){height:48px;animation-delay:.15s}
+.hero .wav i:nth-child(3){height:68px;animation-delay:.3s}
+.hero .wav i:nth-child(4){height:40px;animation-delay:.45s}
+.hero .wav i:nth-child(5){height:58px;animation-delay:.6s}
+.hero .wav i:nth-child(6){height:28px;animation-delay:.75s}
+.hero .wav i:nth-child(7){height:46px;animation-delay:.9s}
+@keyframes w{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+h2{font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
+h3{font-size:18px;margin:26px 0 8px;font-weight:700}
+p{line-height:1.85;color:var(--txt);opacity:.93;margin:0 0 16px;font-size:16.5px}
+ul,ol{line-height:1.85;color:var(--txt);opacity:.93;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
+li{margin-bottom:9px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:start}
+th{background:var(--card2);font-weight:700}
+blockquote{border-inline-start:3px solid var(--acc);margin:24px 0;padding-inline-start:16px;
+color:var(--mut);font-style:italic;line-height:1.8}
+.box{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:18px;margin:28px 0;
+box-shadow:0 2px 8px var(--shadow)}
+.box h3{margin-top:0}
+.cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
+color:#fff;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px;
+box-shadow:0 6px 18px var(--shadow)}
+footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;color:var(--mut);
+font-size:14px;background:var(--footG)}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
+footer nav a{color:var(--mut)}
+footer nav a:hover{color:var(--acc)}
+</style>
+<script>
+(function(){
+  var t='light';
+  try{var v=JSON.parse(localStorage.getItem('lr_theme'));if(v==='dark'||v==='light')t=v;}catch(e){}
+  document.documentElement.setAttribute('data-theme',t);
+  var m=document.querySelector('meta[name=theme-color]');
+  if(m)m.setAttribute('content',t==='dark'?'#0e1526':'#eef3fb');
+})();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <a class="logo" href="../"><span class="logo-dot"></span>Live<span>Radio</span></a>
+    <div class="spacer"></div>
+    <button class="btn" id="langBtn">العربية</button>
+  </div>
+</header>
+
+<main>
+  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Tips" data-ar="نصائح">Tips</a></div>
+  <span class="tagx" data-en="Tips" data-ar="نصائح">Tips</span>
+  <h1 data-en="Radio for focus: why it beats a playlist every time" data-ar="الراديو للتركيز: لماذا يتفوّق على قوائم التشغيل دائماً">Radio for focus: why it beats a playlist every time</h1>
+  <div class="meta"><span data-en="Updated October 2026 · 7 min read" data-ar="تحديث أكتوبر 2026 · قراءة 7 دقائق">Updated October 2026 · 7 min read</span></div>
+
+  <div class="hero"><div class="wav"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+
+  <p data-en="There is a specific kind of frustration in building the perfect focus playlist and then spending twenty minutes skipping through it. The problem is not the music. The problem is that you have a skip button, and every track is a small decision you did not need to make. Radio removes the button. That turns out to matter more than almost anything about the songs themselves." data-ar="ثمة إحباط خاص في أن تبني قائمة التشغيل المثالية للتركيز ثم تمضي عشرين دقيقة تتخطّى أغانيها. المشكلة ليست في الموسيقى، بل في أن لديك زر تخطٍّ، وأن كل مقطوعة قرار صغير لم تكن بحاجة إلى اتخاذه. والراديو يزيل الزرّ. ويتبيّن أن لهذا أهمية تفوق كل ما يتعلق بالأغاني نفسها.">There is a specific kind of frustration in building the perfect focus playlist and then spending twenty minutes skipping through it. The problem is not the music. The problem is that you have a skip button, and every track is a small decision you did not need to make. Radio removes the button. That turns out to matter more than almost anything about the songs themselves.</p>
+  <h2 data-en="Why a playlist breaks concentration" data-ar="لماذا تكسر قائمة التشغيل التركيز">Why a playlist breaks concentration</h2>
+  <p data-en="A playlist is a list of choices you made earlier, presented back to you one at a time while you are trying to think about something else. Each track arrives carrying a small question — keep it or skip it — and answering that question costs attention even when the answer is obvious. Over two hours of work, that is a few dozen interruptions you never consciously registered." data-ar="قائمة التشغيل سلسلة اختيارات اتخذتها سابقاً، تُعرض عليك واحدة تلو الأخرى بينما تحاول التفكير في شيء آخر. وكل مقطوعة تصل حاملة سؤالاً صغيراً — أبقيها أم أتخطّاها — والإجابة عن هذا السؤال تكلّف انتباهاً حتى حين يكون الجواب بديهياً. وعلى مدى ساعتين من العمل، فتلك بضع عشرات من المقاطعات لم تسجّلها بوعيك قط.">A playlist is a list of choices you made earlier, presented back to you one at a time while you are trying to think about something else. Each track arrives carrying a small question — keep it or skip it — and answering that question costs attention even when the answer is obvious. Over two hours of work, that is a few dozen interruptions you never consciously registered.</p>
+  <p data-en="Algorithmic radio made this worse rather than better. When a service learns what you skip, it starts serving you things engineered to hold you, which is the opposite of what background music should do. Music designed to grab attention cannot also be music you work through." data-ar="وقد زاد الراديو الخوارزمي الأمر سوءاً لا تحسّناً. فحين تتعلّم خدمة ما تتخطّاه، تبدأ بتقديم أشياء مصمَّمة لتمسك بك، وهذا نقيض ما ينبغي أن تفعله الموسيقى الخلفية. فالموسيقى المصمَّمة لخطف الانتباه لا يمكن أن تكون في الوقت نفسه موسيقى تعمل خلالها.">Algorithmic radio made this worse rather than better. When a service learns what you skip, it starts serving you things engineered to hold you, which is the opposite of what background music should do. Music designed to grab attention cannot also be music you work through.</p>
+  <h2 data-en="What makes a station work for focus" data-ar="ما الذي يجعل محطة صالحة للتركيز">What makes a station work for focus</h2>
+  <p data-en="After enough hours of testing this on actual work, three things separate a station you can think through from one you cannot." data-ar="بعد ساعات كافية من اختبار هذا على عمل حقيقي، تفصل ثلاثة أمور بين محطة تستطيع التفكير خلالها وأخرى لا تستطيع.">After enough hours of testing this on actual work, three things separate a station you can think through from one you cannot.</p>
+  <ul>
+    <li data-en="<strong>No lyrics in a language you read.</strong> Your brain processes words whether you want it to or not. This is why instrumental music works, and also why a station in a language you do not speak works almost as well — Brazilian radio is excellent for an English-speaking writer for exactly this reason." data-ar="<strong>لا كلمات بلغة تقرأها.</strong> فدماغك يعالج الكلمات شئت أم أبيت. ولهذا تنجح الموسيقى الآلية، ولهذا أيضاً تنجح محطة بلغة لا تتكلمها نجاحاً مماثلاً تقريباً — فالراديو البرازيلي ممتاز لكاتب ناطق بالإنجليزية لهذا السبب بالضبط."><strong>No lyrics in a language you read.</strong> Your brain processes words whether you want it to or not. This is why instrumental music works, and also why a station in a language you do not speak works almost as well — Brazilian radio is excellent for an English-speaking writer for exactly this reason.</li>
+    <li data-en="<strong>A narrow dynamic range.</strong> Music that moves between whisper and crash forces you to keep adjusting, mentally if not with the volume knob. Steady-level music disappears." data-ar="<strong>مدى ديناميّ ضيّق.</strong> فالموسيقى التي تتنقل بين الهمس والصخب تجبرك على تعديل مستمر، ذهنياً إن لم يكن بمقبض الصوت. أما الموسيقى الثابتة المستوى فتختفي."><strong>A narrow dynamic range.</strong> Music that moves between whisper and crash forces you to keep adjusting, mentally if not with the volume knob. Steady-level music disappears.</li>
+    <li data-en="<strong>Few or no adverts.</strong> This rules out most commercial FM instantly. An advert is speech, it is loud, and it is designed to interrupt — three strikes." data-ar="<strong>إعلانات قليلة أو معدومة.</strong> وهذا يستبعد معظم FM التجاري فوراً. فالإعلان كلامٌ وعالٍ ومصمَّمٌ للمقاطعة — ثلاث نقاط ضدّه."><strong>Few or no adverts.</strong> This rules out most commercial FM instantly. An advert is speech, it is loud, and it is designed to interrupt — three strikes.</li>
+  </ul>
+  <h2 data-en="Station types that actually work" data-ar="أنواع المحطات التي تنجح فعلاً">Station types that actually work</h2>
+  <h3 data-en="Ambient and downtempo" data-ar="المحيطية والإيقاع البطيء">Ambient and downtempo</h3>
+  <p data-en="The oldest and most reliable category online. Stations in this space have been running continuous streams since the late 1990s, long before anyone used the phrase focus music, and they were built by people who actually listen to it rather than by a recommendation engine. SomaFM's Groove Salad is the reference point." data-ar="أقدم الفئات وأكثرها موثوقية على الإنترنت. فالمحطات في هذا المجال تبثّ تياراً متواصلاً منذ أواخر التسعينيات، قبل أن يستعمل أحد عبارة «موسيقى التركيز» بزمن طويل، وقد بناها أناس يستمعون إليها فعلاً لا محرّك توصيات. وGroove Salad من SomaFM هي المرجع.">The oldest and most reliable category online. Stations in this space have been running continuous streams since the late 1990s, long before anyone used the phrase focus music, and they were built by people who actually listen to it rather than by a recommendation engine. SomaFM's Groove Salad is the reference point.</p>
+  <h3 data-en="Classical, especially baroque" data-ar="الكلاسيكية، والباروك خصوصاً">Classical, especially baroque</h3>
+  <p data-en="Baroque music has an almost mechanical regularity — steady tempo, repeating structures, no sudden emotional swerves. It was largely written as functional music for rooms where other things were happening, which is precisely the job you are asking it to do. Public classical stations tend to carry long uninterrupted blocks." data-ar="للموسيقى الباروكية انتظام شبه آليّ — إيقاع ثابت وبنى متكررة وبلا انعطافات عاطفية مفاجئة. وقد كُتبت في معظمها موسيقى وظيفية لغرف تجري فيها أمور أخرى، وهي تحديداً المهمة التي تطلبها منها. والمحطات الكلاسيكية العمومية تميل إلى بثّ كتل طويلة بلا مقاطعة.">Baroque music has an almost mechanical regularity — steady tempo, repeating structures, no sudden emotional swerves. It was largely written as functional music for rooms where other things were happening, which is precisely the job you are asking it to do. Public classical stations tend to carry long uninterrupted blocks.</p>
+  <h3 data-en="Quran recitation" data-ar="التلاوة القرآنية">Quran recitation</h3>
+  <p data-en="For Arabic speakers this is complicated — it is text, and you will follow it. For non-Arabic speakers it functions as pure sustained vocal tone and is remarkably effective. Worth saying plainly either way: many people find it inappropriate as background to work, and that is a reasonable position to hold." data-ar="بالنسبة للناطقين بالعربية الأمر معقّد — فهو نصّ وستتبعه. أما لغير الناطقين بها فيعمل كنغمة صوتية ممتدة خالصة، وهو فعّال على نحو لافت. ويستحق القول بصراحة في الحالين: كثير من الناس يرون أنه لا يليق أن يكون خلفية للعمل، وهذا موقف وجيه.">For Arabic speakers this is complicated — it is text, and you will follow it. For non-Arabic speakers it functions as pure sustained vocal tone and is remarkably effective. Worth saying plainly either way: many people find it inappropriate as background to work, and that is a reasonable position to hold.</p>
+  <h3 data-en="Jazz, with one condition" data-ar="الجاز، بشرط واحد">Jazz, with one condition</h3>
+  <p data-en="Cool jazz and bossa nova work. Bebop does not. The difference is whether the music is asking you to follow a soloist. If there is a conversation happening between the instruments, you will listen to it instead of working, and you will not notice you have started." data-ar="الجاز الهادئ والبوسا نوفا ينجحان. أما البيبوب فلا. والفرق هو: هل تطلب منك الموسيقى تتبّع عازف منفرد؟ فإن كان ثمة حوار يجري بين الآلات، فستستمع إليه بدل أن تعمل، ولن تنتبه إلى أنك بدأت.">Cool jazz and bossa nova work. Bebop does not. The difference is whether the music is asking you to follow a soloist. If there is a conversation happening between the instruments, you will listen to it instead of working, and you will not notice you have started.</p>
+  <h2 data-en="Two things to avoid" data-ar="أمران تتجنّبهما">Two things to avoid</h2>
+  <ol>
+    <li data-en="<strong>Stations you like too much.</strong> If a station plays things you want to hear, it is not a focus station. The best working stations are ones you would never choose for the drive home." data-ar="<strong>محطات تحبّها أكثر من اللازم.</strong> فإن كانت محطة تشغّل أشياء تريد سماعها، فهي ليست محطة تركيز. وأفضل محطات العمل هي تلك التي لن تختارها أبداً لطريق العودة إلى البيت."><strong>Stations you like too much.</strong> If a station plays things you want to hear, it is not a focus station. The best working stations are ones you would never choose for the drive home.</li>
+    <li data-en="<strong>News radio.</strong> It feels productive and it is the single most destructive thing you can have on. Speech in your own language competes directly for the exact part of your brain you are trying to write or code with." data-ar="<strong>الراديو الإخباري.</strong> يبدو مثمراً وهو أكثر ما يمكن أن تشغّله تدميراً. فالكلام بلغتك ينافس مباشرةً الجزء نفسه من دماغك الذي تحاول أن تكتب أو تبرمج به."><strong>News radio.</strong> It feels productive and it is the single most destructive thing you can have on. Speech in your own language competes directly for the exact part of your brain you are trying to write or code with.</li>
+  </ol>
+  <blockquote data-en="Good background music is music you cannot describe afterwards. If you can tell someone what was playing, it was not doing its job." data-ar="الموسيقى الخلفية الجيدة هي التي لا تستطيع وصفها بعد انتهائها. فإن استطعت أن تخبر أحداً بما كان يُشغَّل، فهي لم تؤدِّ مهمتها.">Good background music is music you cannot describe afterwards. If you can tell someone what was playing, it was not doing its job.</blockquote>
+  <div class="box">
+    <h3 data-en="A practical setup" data-ar="ترتيب عملي">A practical setup</h3>
+  <p data-en="Pick two stations, not twenty. One for deep work and one for admin and email, where a bit of energy helps. Save them, and stop browsing for better ones — searching for the right station is itself a procrastination technique, and a very convincing one. Set the volume slightly lower than feels right; background music works best just above the threshold where you would notice it stopping." data-ar="اختر محطتين لا عشرين. واحدة للعمل العميق وأخرى للمهام الإدارية والبريد حيث تنفع قليل من الطاقة. احفظهما، وتوقّف عن التنقيب عن أفضل منهما — فالبحث عن المحطة المناسبة هو نفسه أسلوب تسويف، وأسلوب مقنع جداً. واضبط الصوت أخفض قليلاً مما يبدو صحيحاً؛ فالموسيقى الخلفية تعمل في أفضل حالاتها فوق العتبة التي ستلاحظ عندها توقّفها بقليل.">Pick two stations, not twenty. One for deep work and one for admin and email, where a bit of energy helps. Save them, and stop browsing for better ones — searching for the right station is itself a procrastination technique, and a very convincing one. Set the volume slightly lower than feels right; background music works best just above the threshold where you would notice it stopping.</p>
+  </div>
+
+
+  <a class="cta" href="../" data-en="Find a station to work to &rarr;" data-ar="ابحث عن محطة تعمل عليها &larr;">Find a station to work to &rarr;</a>
+</main>
+
+<footer>
+  <nav>
+    <a href="../" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a>
+    <a href="../about.html" data-en="About" data-ar="من نحن">About</a>
+    <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+    <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+  </nav>
+  <div>© <span id="yr"></span> LiveRadio</div>
+</footer>
+
+<script>
+var lang=(function(){
+  var s=null;try{s=localStorage.getItem('lr_lang');}catch(e){}
+  if(s==='ar'||s==='en')return s;
+  var ls=[];try{ls=[navigator.language||''].concat(navigator.languages||[]);}catch(e){}
+  for(var i=0;i<ls.length;i++){if((ls[i]||'').toLowerCase().indexOf('ar')===0)return 'ar';}
+  return 'en';
+})();
+function apply(){
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
+  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  try{localStorage.setItem('lr_lang',lang);}catch(e){}
+}
+document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
+document.getElementById('yr').textContent=new Date().getFullYear();
+apply();
+</script>
+</body>
+</html>
