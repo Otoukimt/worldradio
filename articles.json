@@ -1,8 +1,59 @@
 [
   {
+    "slug": "radio-in-the-car",
+    "date": "2026-10-31",
+    "tag": {
+      "en": "Tips",
+      "ar": "نصائح"
+    },
+    "title": {
+      "en": "Radio in the car: why it refuses to die",
+      "ar": "الراديو في السيارة: لماذا يرفض أن يموت"
+    },
+    "desc": {
+      "en": "Why FM still beats streaming on the road — data, tunnels, traffic reports and RDS settings worth knowing.",
+      "ar": "لماذا ما زال FM يتفوّق على البثّ في الطريق — البيانات والأنفاق ونشرات السير وإعدادات RDS التي تستحق المعرفة."
+    }
+  },
+  {
+    "slug": "history-of-radio-ten-stations",
+    "date": "2026-10-31",
+    "tag": {
+      "en": "History",
+      "ar": "تاريخ"
+    },
+    "title": {
+      "en": "The history of radio in ten stations",
+      "ar": "تاريخ الراديو في عشر محطات"
+    },
+    "desc": {
+      "en": "From KDKA in 1920 to the first internet streams — ten stations that each changed what radio could do.",
+      "ar": "من KDKA سنة 1920 إلى أولى محطات الإنترنت — عشر محطات غيّرت كلٌّ منها ما يستطيع الراديو فعله."
+    }
+  },
+  {
+    "slug": "radio-for-focus-and-work",
+    "date": "2026-10-31",
+    "tag": {
+      "en": "Tips",
+      "ar": "نصائح"
+    },
+    "title": {
+      "en": "Radio for focus: why it beats a playlist every time",
+      "ar": "الراديو للتركيز: لماذا يتفوّق على قوائم التشغيل دائماً"
+    },
+    "desc": {
+      "en": "What makes a station usable as background for deep work, and the two kinds you should avoid.",
+      "ar": "ما الذي يجعل محطة صالحة كخلفية للعمل العميق، والنوعان اللذان ينبغي تجنّبهما."
+    }
+  },
+  {
     "slug": "fm-dab-internet-radio",
     "date": "2026-10-31",
-    "tag": { "en": "Explainer", "ar": "شرح" },
+    "tag": {
+      "en": "Explainer",
+      "ar": "شرح"
+    },
     "title": {
       "en": "FM, DAB or internet radio: which actually sounds better",
       "ar": "FM أم DAB أم راديو الإنترنت: أيّها أفضل صوتاً فعلاً"
@@ -15,7 +66,10 @@
   {
     "slug": "egyptian-radio-guide",
     "date": "2026-10-31",
-    "tag": { "en": "Country guide", "ar": "دليل دولة" },
+    "tag": {
+      "en": "Country guide",
+      "ar": "دليل دولة"
+    },
     "title": {
       "en": "Egyptian radio: a guide to the oldest dial in the Arab world",
       "ar": "الراديو المصري: دليل أقدم مؤشر في العالم العربي"
@@ -28,7 +82,10 @@
   {
     "slug": "moroccan-radio-stations-guide",
     "date": "2026-10-31",
-    "tag": { "en": "Country guide", "ar": "دليل دولة" },
+    "tag": {
+      "en": "Country guide",
+      "ar": "دليل دولة"
+    },
     "title": {
       "en": "Moroccan radio stations: a complete listening guide",
       "ar": "المحطات الإذاعية المغربية: دليل استماع كامل"
@@ -41,7 +98,10 @@
   {
     "slug": "best-radio-stations-world",
     "date": "2026-10-30",
-    "tag": { "en": "Guide", "ar": "دليل" },
+    "tag": {
+      "en": "Guide",
+      "ar": "دليل"
+    },
     "title": {
       "en": "The best radio stations in the world",
       "ar": "أفضل المحطات الإذاعية في العالم"
@@ -54,7 +114,10 @@
   {
     "slug": "how-online-radio-works",
     "date": "2026-10-30",
-    "tag": { "en": "Explainer", "ar": "شرح" },
+    "tag": {
+      "en": "Explainer",
+      "ar": "شرح"
+    },
     "title": {
       "en": "How online radio streaming works",
       "ar": "كيف يعمل بث الراديو عبر الإنترنت"
@@ -67,7 +130,10 @@
   {
     "slug": "listen-radio-data-saving",
     "date": "2026-10-30",
-    "tag": { "en": "Tips", "ar": "نصائح" },
+    "tag": {
+      "en": "Tips",
+      "ar": "نصائح"
+    },
     "title": {
       "en": "Listen to radio without burning your data",
       "ar": "استمع للراديو دون استهلاك باقتك"
