@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FM, DAB or internet radio: which actually sounds better | LiveRadio</title>
+<meta name="description" content="A clear comparison of FM, DAB+ and internet radio: real sound quality, how each behaves on a weak signal, data cost, delay, and which to use when.">
+<meta name="theme-color" content="#eef3fb">
+<meta property="og:title" content="FM, DAB or internet radio: which actually sounds better">
+<meta property="og:description" content="A clear comparison of FM, DAB+ and internet radio: real sound quality, how each behaves on a weak signal, data cost, delay, and which to use when.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6fc; --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
+  --txt:#111a2e; --mut:#5a6880; --acc:#0d9488; --acc2:#5b53e0;
+  --shadow:rgba(23,38,74,.09);
+  --headG:linear-gradient(120deg,#e8f1ff 0%,#eeeafd 48%,#fdeef4 100%);
+  --footG:linear-gradient(120deg,#fdeef4 0%,#eeeafd 52%,#e8f1ff 100%);
+  --cardG:linear-gradient(170deg,#ffffff 0%,#f6f9ff 100%);
+  --font:'Outfit','Cairo',system-ui,sans-serif;box-sizing:border-box;
+}
+html[data-theme="dark"]{
+  --bg:#0b0f1a; --card:#161d31; --card2:#1c2440; --line:#232c45;
+  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1;
+  --shadow:rgba(0,0,0,.35);
+  --headG:linear-gradient(120deg,#0e1526,#121a2e 60%,#17132a);
+  --footG:linear-gradient(120deg,#17132a,#121a2e 48%,#0e1526);
+  --cardG:linear-gradient(170deg,#161d31,#141b2d);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--txt);font-family:var(--font);
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Cairo',var(--font)}
+a{color:var(--acc);text-decoration:none}
+button{font-family:inherit}
+header{position:sticky;top:0;z-index:30;background:var(--headG);border-bottom:1px solid var(--line);
+padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(10px)}
+.hrow{display:flex;align-items:center;gap:10px;padding:12px 16px;max-width:760px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--txt)}
+.logo-dot{width:11px;height:11px;border-radius:50%;background:var(--acc)}
+.logo span{color:var(--acc)}
+.spacer{flex:1}
+.btn{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px var(--shadow)}
+main{max-width:760px;margin:0 auto;padding:22px 18px 60px}
+.crumb{font-size:13px;color:var(--mut);margin-bottom:14px}
+.tagx{display:inline-block;font-size:12px;color:var(--acc);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800}
+.meta{color:var(--mut);font-size:14px;margin-bottom:22px}
+.hero{height:170px;border-radius:18px;margin-bottom:26px;position:relative;overflow:hidden;
+background:linear-gradient(135deg,#0369a1,#4338ca 58%,#0f766e);display:grid;place-items:center}
+.hero .wav{display:flex;gap:6px;align-items:flex-end;height:68px}
+.hero .wav i{width:8px;background:rgba(255,255,255,.88);border-radius:4px;display:block;animation:w 1.4s ease-in-out infinite}
+.hero .wav i:nth-child(1){height:24px;animation-delay:0s}
+.hero .wav i:nth-child(2){height:48px;animation-delay:.15s}
+.hero .wav i:nth-child(3){height:68px;animation-delay:.3s}
+.hero .wav i:nth-child(4){height:40px;animation-delay:.45s}
+.hero .wav i:nth-child(5){height:58px;animation-delay:.6s}
+.hero .wav i:nth-child(6){height:28px;animation-delay:.75s}
+.hero .wav i:nth-child(7){height:46px;animation-delay:.9s}
+@keyframes w{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+h2{font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
+h3{font-size:18px;margin:26px 0 8px;font-weight:700}
+p{line-height:1.85;color:var(--txt);opacity:.93;margin:0 0 16px;font-size:16.5px}
+ul,ol{line-height:1.85;color:var(--txt);opacity:.93;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
+li{margin-bottom:9px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:start}
+th{background:var(--card2);font-weight:700}
+blockquote{border-inline-start:3px solid var(--acc);margin:24px 0;padding-inline-start:16px;
+color:var(--mut);font-style:italic;line-height:1.8}
+.box{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:18px;margin:28px 0;
+box-shadow:0 2px 8px var(--shadow)}
+.box h3{margin-top:0}
+.cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
+color:#fff;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px;
+box-shadow:0 6px 18px var(--shadow)}
+footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;color:var(--mut);
+font-size:14px;background:var(--footG)}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
+footer nav a{color:var(--mut)}
+footer nav a:hover{color:var(--acc)}
+</style>
+<script>
+(function(){
+  var t='light';
+  try{var v=JSON.parse(localStorage.getItem('lr_theme'));if(v==='dark'||v==='light')t=v;}catch(e){}
+  document.documentElement.setAttribute('data-theme',t);
+  var m=document.querySelector('meta[name=theme-color]');
+  if(m)m.setAttribute('content',t==='dark'?'#0e1526':'#eef3fb');
+})();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <a class="logo" href="../"><span class="logo-dot"></span>Live<span>Radio</span></a>
+    <div class="spacer"></div>
+    <button class="btn" id="langBtn">العربية</button>
+  </div>
+</header>
+
+<main>
+  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Explainers" data-ar="شروحات">Explainers</a></div>
+  <span class="tagx" data-en="Explainer" data-ar="شرح">Explainer</span>
+  <h1 data-en="FM, DAB or internet radio: which actually sounds better" data-ar="FM أم DAB أم راديو الإنترنت: أيّها أفضل صوتاً فعلاً">FM, DAB or internet radio: which actually sounds better</h1>
+  <div class="meta"><span data-en="Updated October 2026 · 9 min read" data-ar="تحديث أكتوبر 2026 · قراءة 9 دقائق">Updated October 2026 · 9 min read</span></div>
+
+  <div class="hero"><div class="wav"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+
+  <p data-en="Ask three people which sounds better, FM or internet radio, and you will get three confident answers that contradict each other. The honest answer is that the question is badly posed. Each of these systems fails in a different place, and which one wins depends entirely on what you are listening to, where you are standing, and how much the broadcaster decided to spend." data-ar="اسأل ثلاثة أشخاص أيّهما أفضل صوتاً، FM أم راديو الإنترنت، فتحصل على ثلاث إجابات واثقة يناقض بعضها بعضاً. والجواب الصادق أن السؤال نفسه سيّئ الطرح. فكل نظام من هذه الأنظمة يفشل في موضع مختلف، وأيّها يفوز يتوقف كلياً على ما تستمع إليه، وأين تقف، وكم قرّرت المحطة أن تنفق.">Ask three people which sounds better, FM or internet radio, and you will get three confident answers that contradict each other. The honest answer is that the question is badly posed. Each of these systems fails in a different place, and which one wins depends entirely on what you are listening to, where you are standing, and how much the broadcaster decided to spend.</p>
+  <h2 data-en="FM: the analogue baseline" data-ar="FM: الأساس التناظري">FM: the analogue baseline</h2>
+  <p data-en="FM has been carrying music since the 1940s and the physics have not changed. A strong FM signal delivers roughly 15 kHz of audio bandwidth in stereo, which is below what a CD carries but comfortably above what most people can hear degradation in. More importantly, FM degrades gracefully. As you drive away from the transmitter the sound does not stop, it gets hissy, then it gets mono, then it gets noisy. You always know what is happening." data-ar="يحمل FM الموسيقى منذ الأربعينيات ولم تتغير فيزياؤه. فالإشارة القوية تقدّم نحو 15 كيلوهرتز من عرض النطاق الصوتي بالاستريو، وهو أقل مما يحمله القرص المدمج لكنه أعلى بمريح من الحدّ الذي يلاحظ عنده معظم الناس التدهور. والأهم أن FM يتدهور بلُطف. فكلما ابتعدت بسيارتك عن المرسل لا يتوقف الصوت، بل يصير مشوّشاً، ثم أحادياً، ثم مزعجاً. وأنت تعرف دائماً ما الذي يجري.">FM has been carrying music since the 1940s and the physics have not changed. A strong FM signal delivers roughly 15 kHz of audio bandwidth in stereo, which is below what a CD carries but comfortably above what most people can hear degradation in. More importantly, FM degrades gracefully. As you drive away from the transmitter the sound does not stop, it gets hissy, then it gets mono, then it gets noisy. You always know what is happening.</p>
+  <p data-en="What people rarely mention is that most FM stations do not sound like clean FM at all, because they run heavy dynamic compression to seem louder than the station next to them on the dial. That loudness war has done far more damage to the sound of commercial FM than the transmission standard ever did." data-ar="وما نادراً ما يُذكر أن معظم محطات FM لا تبدو كـFM نظيف أصلاً، لأنها تشغّل ضغطاً دينامياً ثقيلاً لتبدو أعلى صوتاً من جارتها على المؤشر. وقد أضرّت حرب العلوّ هذه بصوت FM التجاري أكثر بكثير مما أضرّ به معيار الإرسال نفسه.">What people rarely mention is that most FM stations do not sound like clean FM at all, because they run heavy dynamic compression to seem louder than the station next to them on the dial. That loudness war has done far more damage to the sound of commercial FM than the transmission standard ever did.</p>
+  <h2 data-en="DAB and DAB+: digital, but not automatically better" data-ar="DAB و DAB+: رقمي، لكن ليس أفضل تلقائياً">DAB and DAB+: digital, but not automatically better</h2>
+  <p data-en="Digital radio was sold on a simple promise: no hiss, no fading, more stations. The first two are true. The third is the problem. A DAB multiplex carries a fixed amount of data, and every station added to it takes bitrate away from the others. Broadcasters, given the choice between fewer stations at good quality and more stations at poor quality, chose more stations almost everywhere." data-ar="بِيع الراديو الرقمي بوعد بسيط: لا تشويش، لا تلاشٍ، ومحطات أكثر. والأولان صحيحان. أما الثالث فهو المشكلة. إذ يحمل مجمّع DAB كمية ثابتة من البيانات، وكل محطة تُضاف إليه تأخذ من معدل بت الباقيات. وحين خُيّر الباثّون بين محطات أقل بجودة جيدة ومحطات أكثر بجودة رديئة، اختاروا المحطات الأكثر في كل مكان تقريباً.">Digital radio was sold on a simple promise: no hiss, no fading, more stations. The first two are true. The third is the problem. A DAB multiplex carries a fixed amount of data, and every station added to it takes bitrate away from the others. Broadcasters, given the choice between fewer stations at good quality and more stations at poor quality, chose more stations almost everywhere.</p>
+  <p data-en="The result is that plenty of DAB stations run at bitrates low enough that a good FM signal beats them audibly, particularly on music with cymbals or applause, where the artefacts are easiest to hear. DAB+ improved this a lot by switching to a more efficient codec, so a DAB+ station at 64 kbps can sound genuinely fine. But the standard did not guarantee quality; it only made quality affordable, and that is not the same thing." data-ar="والنتيجة أن كثيراً من محطات DAB تعمل بمعدلات بت منخفضة بما يكفي لأن تتفوق عليها إشارة FM جيدة بشكل مسموع، خصوصاً في الموسيقى ذات الصنوج أو التصفيق، حيث تكون التشوّهات أسهل سماعاً. وقد حسّن DAB+ هذا كثيراً بالانتقال إلى مرمّز أكفأ، فصار بإمكان محطة DAB+ بـ64 kbps أن تبدو جيدة فعلاً. لكن المعيار لم يضمن الجودة، بل جعلها فقط ميسورة، وليس هذا الأمر نفسه.">The result is that plenty of DAB stations run at bitrates low enough that a good FM signal beats them audibly, particularly on music with cymbals or applause, where the artefacts are easiest to hear. DAB+ improved this a lot by switching to a more efficient codec, so a DAB+ station at 64 kbps can sound genuinely fine. But the standard did not guarantee quality; it only made quality affordable, and that is not the same thing.</p>
+  <p data-en="One real drawback: digital radio does not degrade gracefully. It works, and then at some threshold it stops, bubbles, or cuts out entirely. In a tunnel or a valley, FM gives you a worse version of the programme while DAB gives you nothing." data-ar="وثمة عيب حقيقي: الراديو الرقمي لا يتدهور بلُطف. فهو يعمل، ثم عند عتبة ما يتوقف أو يتقطّع أو ينقطع كلياً. ففي نفق أو واد، يعطيك FM نسخة أسوأ من البرنامج بينما لا يعطيك DAB شيئاً.">One real drawback: digital radio does not degrade gracefully. It works, and then at some threshold it stops, bubbles, or cuts out entirely. In a tunnel or a valley, FM gives you a worse version of the programme while DAB gives you nothing.</p>
+  <h2 data-en="Internet radio: the only one with no ceiling" data-ar="راديو الإنترنت: الوحيد بلا سقف">Internet radio: the only one with no ceiling</h2>
+  <p data-en="Internet streaming is the only option here with no technical limit on quality. A station can stream at 320 kbps MP3 or lossless FLAC if it chooses to, and some do. It is also the only option where you can hear a station in Casablanca from a flat in Oslo, which no transmitter will ever manage." data-ar="البث عبر الإنترنت هو الخيار الوحيد هنا بلا حدّ تقني للجودة. فبإمكان محطة أن تبثّ بـ320 kbps بصيغة MP3 أو حتى بصيغة FLAC بلا فقدان إن أرادت، وبعضها يفعل. وهو أيضاً الخيار الوحيد الذي يتيح لك سماع محطة في الدار البيضاء من شقة في أوسلو، وهو ما لن يحققه أي مرسل.">Internet streaming is the only option here with no technical limit on quality. A station can stream at 320 kbps MP3 or lossless FLAC if it chooses to, and some do. It is also the only option where you can hear a station in Casablanca from a flat in Oslo, which no transmitter will ever manage.</p>
+  <p data-en="The catch is that very few stations choose the ceiling. Most publish 64 or 128 kbps because bandwidth costs them money per listener, which is a cost FM and DAB simply do not have — a transmitter costs the same whether one person or a million are tuned in. So the medium with unlimited potential is, in practice, often the one running the lowest bitrate." data-ar="لكن المفارقة أن قليلاً جداً من المحطات يختار السقف. فمعظمها ينشر 64 أو 128 kbps لأن عرض النطاق يكلّفها مالاً عن كل مستمع، وهي كلفة لا يتحملها FM ولا DAB أصلاً — فالمرسل يكلّف نفس الشيء سواء استمع إليه شخص واحد أو مليون. وهكذا فالوسيط ذو الإمكان اللامحدود هو عملياً، في أحيان كثيرة، الأدنى معدلَ بت.">The catch is that very few stations choose the ceiling. Most publish 64 or 128 kbps because bandwidth costs them money per listener, which is a cost FM and DAB simply do not have — a transmitter costs the same whether one person or a million are tuned in. So the medium with unlimited potential is, in practice, often the one running the lowest bitrate.</p>
+  <h2 data-en="Side by side" data-ar="جنباً إلى جنب">Side by side</h2>
+  <table>
+    <tr><th data-en="" data-ar=""></th><th data-en="FM" data-ar="FM">FM</th><th data-en="DAB+" data-ar="DAB+">DAB+</th><th data-en="Internet" data-ar="الإنترنت">Internet</th></tr>
+    <tr><td data-en="Best case quality" data-ar="الجودة في أفضل حال">Best case quality</td><td data-en="Very good" data-ar="جيدة جداً">Very good</td><td data-en="Very good" data-ar="جيدة جداً">Very good</td><td data-en="Unlimited" data-ar="بلا حدّ">Unlimited</td></tr>
+    <tr><td data-en="Typical real quality" data-ar="الجودة الواقعية المعتادة">Typical real quality</td><td data-en="Good" data-ar="جيدة">Good</td><td data-en="Variable" data-ar="متفاوتة">Variable</td><td data-en="Variable" data-ar="متفاوتة">Variable</td></tr>
+    <tr><td data-en="Behaves when signal is weak" data-ar="سلوكه عند ضعف الإشارة">Behaves when signal is weak</td><td data-en="Degrades slowly" data-ar="يتدهور ببطء">Degrades slowly</td><td data-en="Cuts out" data-ar="ينقطع">Cuts out</td><td data-en="Buffers, then cuts" data-ar="يخزّن ثم ينقطع">Buffers, then cuts</td></tr>
+    <tr><td data-en="Costs the listener" data-ar="يكلّف المستمع">Costs the listener</td><td data-en="Nothing" data-ar="لا شيء">Nothing</td><td data-en="Nothing" data-ar="لا شيء">Nothing</td><td data-en="Mobile data" data-ar="بيانات الهاتف">Mobile data</td></tr>
+    <tr><td data-en="Range" data-ar="المدى">Range</td><td data-en="Local" data-ar="محلي">Local</td><td data-en="Regional" data-ar="جهوي">Regional</td><td data-en="Worldwide" data-ar="عالمي">Worldwide</td></tr>
+    <tr><td data-en="Delay behind live" data-ar="التأخير عن المباشر">Delay behind live</td><td data-en="None" data-ar="لا شيء">None</td><td data-en="2–6 s" data-ar="2–6 ثوانٍ">2–6 s</td><td data-en="5–30 s" data-ar="5–30 ثانية">5–30 s</td></tr>
+  </table>
+  <h2 data-en="So which should you use" data-ar="فأيّها تستعمل">So which should you use</h2>
+  <ol>
+    <li data-en="<strong>In the car, locally:</strong> FM, almost always. No data cost, no dropouts in tunnels, no delay. The sound is fine and the reliability is unmatched." data-ar="<strong>في السيارة محلياً:</strong> FM في كل الأحوال تقريباً. بلا كلفة بيانات، وبلا انقطاع في الأنفاق، وبلا تأخير. الصوت جيد والموثوقية لا تُضاهى."><strong>In the car, locally:</strong> FM, almost always. No data cost, no dropouts in tunnels, no delay. The sound is fine and the reliability is unmatched.</li>
+    <li data-en="<strong>At home on Wi-Fi:</strong> internet, and look for the highest bitrate the station publishes. This is where streaming actually wins." data-ar="<strong>في البيت على الواي فاي:</strong> الإنترنت، وابحث عن أعلى معدل بت تنشره المحطة. هنا يفوز البث فعلاً."><strong>At home on Wi-Fi:</strong> internet, and look for the highest bitrate the station publishes. This is where streaming actually wins.</li>
+    <li data-en="<strong>Live sport:</strong> FM, without hesitation. A thirty-second delay means you hear the goal from the neighbours before you hear it from the commentator." data-ar="<strong>الرياضة المباشرة:</strong> FM دون تردد. فتأخير ثلاثين ثانية يعني أنك تسمع الهدف من الجيران قبل أن تسمعه من المعلّق."><strong>Live sport:</strong> FM, without hesitation. A thirty-second delay means you hear the goal from the neighbours before you hear it from the commentator.</li>
+    <li data-en="<strong>Anything not broadcast near you:</strong> internet, because there is no alternative, and that is the whole point of it." data-ar="<strong>أي شيء لا يُبثّ قربك:</strong> الإنترنت، لأنه لا بديل، وهذا هو جوهر وجوده بالضبط."><strong>Anything not broadcast near you:</strong> internet, because there is no alternative, and that is the whole point of it.</li>
+  </ol>
+  <blockquote data-en="The best-sounding radio is not a technology. It is a station that was mastered carefully and transmitted at a bitrate somebody was willing to pay for." data-ar="أفضل راديو صوتاً ليس تقنية، بل محطة أُتقِن مزجها وأُرسلت بمعدل بت كان أحدهم مستعداً لدفع ثمنه.">The best-sounding radio is not a technology. It is a station that was mastered carefully and transmitted at a bitrate somebody was willing to pay for.</blockquote>
+  <div class="box">
+    <h3 data-en="One test worth doing yourself" data-ar="اختبار واحد يستحق أن تجريه بنفسك">One test worth doing yourself</h3>
+  <p data-en="Find a station that broadcasts on both FM and online — most national broadcasters do. Play the same programme on a radio and on your phone, a few seconds apart so you can switch between them. Most people are surprised twice: first by how small the difference is, and then by how much of the difference comes from the speaker rather than the signal." data-ar="ابحث عن محطة تبثّ على FM وعبر الإنترنت معاً — ومعظم المحطات الوطنية تفعل. شغّل البرنامج نفسه على جهاز راديو وعلى هاتفك بفارق ثوانٍ قليلة لتتمكّن من التنقل بينهما. ويُفاجأ معظم الناس مرتين: أولاً بضآلة الفارق، ثم بأن معظم ذلك الفارق يأتي من السمّاعة لا من الإشارة.">Find a station that broadcasts on both FM and online — most national broadcasters do. Play the same programme on a radio and on your phone, a few seconds apart so you can switch between them. Most people are surprised twice: first by how small the difference is, and then by how much of the difference comes from the speaker rather than the signal.</p>
+  </div>
+
+
+  <a class="cta" href="../" data-en="Compare them yourself &rarr;" data-ar="قارن بينها بنفسك &larr;">Compare them yourself &rarr;</a>
+</main>
+
+<footer>
+  <nav>
+    <a href="../" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a>
+    <a href="../about.html" data-en="About" data-ar="من نحن">About</a>
+    <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+    <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+  </nav>
+  <div>© <span id="yr"></span> LiveRadio</div>
+</footer>
+
+<script>
+var lang=(function(){
+  var s=null;try{s=localStorage.getItem('lr_lang');}catch(e){}
+  if(s==='ar'||s==='en')return s;
+  var ls=[];try{ls=[navigator.language||''].concat(navigator.languages||[]);}catch(e){}
+  for(var i=0;i<ls.length;i++){if((ls[i]||'').toLowerCase().indexOf('ar')===0)return 'ar';}
+  return 'en';
+})();
+function apply(){
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
+  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  try{localStorage.setItem('lr_lang',lang);}catch(e){}
+}
+document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
+document.getElementById('yr').textContent=new Date().getFullYear();
+apply();
+</script>
+</body>
+</html>
