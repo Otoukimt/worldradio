@@ -209,6 +209,10 @@ footer nav a:hover{color:var(--acc)}
 #page .art h2{margin:8px 0 6px;font-size:17px;font-weight:700;line-height:1.35}
 #page .chips{margin-bottom:18px}
 #pLoad{text-align:center;color:var(--mut);padding:60px 0;font-size:15px}
+.backb{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:9px 16px;
+  border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:18px;
+  box-shadow:0 1px 3px var(--shadow)}
+.backb:hover{border-color:var(--acc);color:var(--acc)}
 
 .player{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--pbg);
   border-top:1px solid var(--line);box-shadow:0 -8px 28px var(--shadow);
@@ -314,6 +318,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
   <div class="tabs">
     <button class="tab on" data-tab="all" data-i="tAll">Browse</button>
     <button class="tab" data-tab="fav" data-i="tFav">Favourites</button>
+    <button class="tab" data-tab="arts" data-i="tArts">Articles</button>
   </div>
 
   <div class="filters" id="filters">
@@ -349,11 +354,6 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     <div class="arts" id="artList"></div>
   </section>
 
-  <div class="stats">
-    <div class="stat"><div class="v" id="sVisits">—</div><div class="k" data-i="kVisits">Visits</div></div>
-    <div class="stat"><div class="v" id="sPlays">—</div><div class="k" data-i="kPlays">Stations played</div></div>
-    <div class="stat"><div class="v" id="sMine">0</div><div class="k" data-i="kMine">Your listening</div></div>
-  </div>
 </div>
 
 <footer>
@@ -475,7 +475,8 @@ var I={
   about:'About',privacy:'Privacy Policy',contact:'Contact',
   search:'Search stations...',allc:'All countries',empty:'No stations found.',
   noFav:'No favourites yet. Tap the heart on any station.',
-  tAll:'Browse',tFav:'&#9829; Favourites',vol:'Volume',fav:'Favourite',share:'Share',
+  tAll:'Browse',tFav:'&#9829; Favourites',tArts:'&#128214; Articles',
+  backHome:'&larr; Back to stations',vol:'Volume',fav:'Favourite',share:'Share',
   sleep:'Sleep timer',close:'Close',infoB:'Details',
   settings:'Settings',setSub:'Saved on this device only.',
   quality:'Audio quality &amp; data use',qLow:'Saver',qLowS:'&le;64 kbps',
@@ -483,7 +484,6 @@ var I={
   qNote:'Applies to the station list. The station playing now keeps its own bitrate until you pick another.',
   myStats:'Your listening stats',kMinutes:'minutes',kStations:'stations',kData:'MB used',
   reset:'Clear my saved data',done:'Done',
-  kVisits:'Visits',kPlays:'Stations played',kMine:'Your listening',
   kBitrate:'Bitrate',kCodec:'Format',kLang:'Language',kData2:'Data per hour',kVotes:'Listener votes',kSite:'Website',
   iPlay:'Play',iFav:'Favourite',iShare:'Share',
   added:'Added to favourites',removed:'Removed from favourites',copied:'Link copied',
@@ -501,7 +501,8 @@ var I={
   about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',
   search:'ابحث عن محطة...',allc:'كل الدول',empty:'لا توجد محطات.',
   noFav:'لا توجد مفضلة بعد. اضغط على القلب في أي محطة.',
-  tAll:'تصفّح',tFav:'&#9829; المفضلة',vol:'الصوت',fav:'مفضلة',share:'مشاركة',
+  tAll:'تصفّح',tFav:'&#9829; المفضلة',tArts:'&#128214; المقالات',
+  backHome:'&rarr; العودة إلى المحطات',vol:'الصوت',fav:'مفضلة',share:'مشاركة',
   sleep:'مؤقت النوم',close:'إغلاق',infoB:'تفاصيل',
   settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',
   quality:'جودة الصوت واستهلاك البيانات',qLow:'توفير',qLowS:'&le;64 kbps',
@@ -509,7 +510,6 @@ var I={
   qNote:'يسري على قائمة المحطات. أما المحطة العاملة الآن فتبقى بمعدل بتها حتى تختار غيرها.',
   myStats:'إحصاءات استماعك',kMinutes:'دقيقة',kStations:'محطة',kData:'م.ب مستهلكة',
   reset:'مسح بياناتي المحفوظة',done:'تم',
-  kVisits:'الزيارات',kPlays:'محطات شُغِّلت',kMine:'استماعك',
   kBitrate:'معدل البت',kCodec:'الصيغة',kLang:'اللغة',kData2:'البيانات في الساعة',kVotes:'أصوات المستمعين',kSite:'الموقع',
   iPlay:'تشغيل',iFav:'مفضلة',iShare:'مشاركة',
   added:'أُضيفت إلى المفضلة',removed:'أُزيلت من المفضلة',copied:'تم نسخ الرابط',
@@ -691,10 +691,13 @@ search.oninput=function(e){clearTimeout(tmr);fText=e.target.value.trim();
 function syncTabs(){
   var ts=document.querySelectorAll('.tab');
   for(var i=0;i<ts.length;i++)ts[i].classList.toggle('on',ts[i].dataset.tab===tab);
+  if(!isHome()){for(var j=0;j<ts.length;j++)ts[j].classList.toggle('on',ts[j].dataset.tab==='arts');}
   $('filters').style.display=tab==='fav'?'none':'block';
 }
 (function(){var ts=document.querySelectorAll('.tab');
-  for(var i=0;i<ts.length;i++)ts[i].onclick=function(){tab=this.dataset.tab;syncTabs();load();};})();
+  for(var i=0;i<ts.length;i++)ts[i].onclick=function(){
+    if(this.dataset.tab==='arts'){loadPage(ROOT+'articles.html',true);return;}
+    tab=this.dataset.tab;syncTabs();load();};})();
 
 function renderRecent(){
   var r=$('recent');r.innerHTML='';
@@ -766,31 +769,12 @@ function drawArticles(){
 fetch('./articles.json').then(function(r){return r.json();})
   .then(function(d){posts=d||[];drawArticles();}).catch(function(){});
 
-var CNS='liveradio_otoukimt';
-function counter(key,up){
-  var u='https://api.counterapi.dev/v1/'+CNS+'/'+key+'/'+(up?'up':'');
-  return fetch(u).then(function(r){return r.ok?r.json():null;})
-    .then(function(d){return d&&typeof d.count==='number'?d.count:null;})
-    .catch(function(){return null;});
-}
-function fmtNum(n){
-  if(n>=1000000)return (n/1000000).toFixed(1)+'M';
-  if(n>=1000)return (n/1000).toFixed(1)+'K';
-  return String(n);
-}
 function drawStats(){
   var m=Math.round(mine.sec/60);
-  $('sMine').textContent=m>=60?(m/60).toFixed(1)+' '+T('hrs'):m+'';
   $('stMin').textContent=m;
   $('stCount').textContent=(mine.stations||[]).length;
   $('stData').textContent=Math.round(mine.mb||0);
 }
-(function(){
-  var seen=sessionStorage.getItem('lr_seen');
-  counter('visits',!seen).then(function(n){if(n!==null)$('sVisits').textContent=fmtNum(n);});
-  try{sessionStorage.setItem('lr_seen','1');}catch(e){}
-  counter('plays',false).then(function(n){if(n!==null)$('sPlays').textContent=fmtNum(n);});
-})();
 
 var iStation=null;
 function showInfo(s){
@@ -887,7 +871,6 @@ function play(s){
   pushRecent(s);refreshHearts();LS.set('lr_last',slim(s));
   if((mine.stations||[]).indexOf(s.stationuuid)<0){
     mine.stations=(mine.stations||[]).concat([s.stationuuid]);LS.set('lr_mine',mine);drawStats();}
-  counter('plays',true).then(function(n){if(n!==null)$('sPlays').textContent=fmtNum(n);});
   gaEvent('play_station',{station_name:s.name.trim(),station_country:s.country||''});
   if('mediaSession' in navigator){
     try{
@@ -999,13 +982,17 @@ function trans(root){
 function goHome(push){
   pageEl.classList.remove('on');pageEl.innerHTML='';
   homeEl.style.display='';$('searchWrap').style.display='';
+  if(tab==='arts')tab='all';
+  syncTabs();
   document.title='LiveRadio — Free Online Radio Stations Worldwide';
   if(push){history.pushState({p:''},'',ROOT);gaView(location.pathname,document.title);}
   window.scrollTo(0,0);
 }
 $('homeBtn').onclick=function(){goHome(true);};
 function loadPage(url,push){
-  pageEl.innerHTML='<div id="pLoad">'+T('loading')+'</div>';
+  pageEl.innerHTML='<button class="backb" id="backBtn">'+T('backHome')+'</button>'+
+    '<div id="pLoad">'+T('loading')+'</div>';
+  $('backBtn').onclick=function(){goHome(true);};
   pageEl.classList.add('on');homeEl.style.display='none';$('searchWrap').style.display='none';
   window.scrollTo(0,0);
   fetch(url).then(function(r){if(!r.ok)throw 0;return r.text();})
@@ -1017,7 +1004,9 @@ function loadPage(url,push){
     for(var i=0;i<as.length;i++){try{as[i].href=new URL(as[i].getAttribute('href'),url).href;}catch(e){}}
     var imgs=m.querySelectorAll('img[src]');
     for(var j=0;j<imgs.length;j++){try{imgs[j].src=new URL(imgs[j].getAttribute('src'),url).href;}catch(e){}}
-    pageEl.innerHTML=m.innerHTML;
+    pageEl.innerHTML='<button class="backb" id="backBtn"></button>'+m.innerHTML;
+    $('backBtn').innerHTML=T('backHome');
+    $('backBtn').onclick=function(){goHome(true);};
     trans(pageEl);
     var t=doc.querySelector('title');
     document.title=t?t.textContent:'LiveRadio';
@@ -1025,7 +1014,9 @@ function loadPage(url,push){
     gaView(new URL(url).pathname,document.title);
     hookPageLinks();initArticlesList();
   }).catch(function(){
-    pageEl.innerHTML='<div id="pLoad">'+T('pageErr')+'</div>';
+    pageEl.innerHTML='<button class="backb" id="backBtn">'+T('backHome')+'</button>'+
+      '<div id="pLoad">'+T('pageErr')+'</div>';
+    $('backBtn').onclick=function(){goHome(true);};
   });
 }
 function initArticlesList(){
