@@ -1,5 +1,31 @@
 [
   {
+    "slug": "fm-dab-internet-radio",
+    "date": "2026-10-31",
+    "tag": { "en": "Explainer", "ar": "شرح" },
+    "title": {
+      "en": "FM, DAB or internet radio: which actually sounds better",
+      "ar": "FM أم DAB أم راديو الإنترنت: أيّها أفضل صوتاً فعلاً"
+    },
+    "desc": {
+      "en": "Real sound quality, behaviour on a weak signal, data cost and delay — and which one to use when.",
+      "ar": "الجودة الواقعية، والسلوك عند ضعف الإشارة، وكلفة البيانات والتأخير — وأيّها تستعمل ومتى."
+    }
+  },
+  {
+    "slug": "egyptian-radio-guide",
+    "date": "2026-10-31",
+    "tag": { "en": "Country guide", "ar": "دليل دولة" },
+    "title": {
+      "en": "Egyptian radio: a guide to the oldest dial in the Arab world",
+      "ar": "الراديو المصري: دليل أقدم مؤشر في العالم العربي"
+    },
+    "desc": {
+      "en": "Sawt al-Arab, Middle East Radio, Nogoum FM, Nile FM and the Quran channels — the history and how to listen.",
+      "ar": "صوت العرب، الشرق الأوسط، نجوم إف إم، نايل إف إم وقنوات القرآن — التاريخ وكيف تستمع."
+    }
+  },
+  {
     "slug": "moroccan-radio-stations-guide",
     "date": "2026-10-31",
     "tag": { "en": "Country guide", "ar": "دليل دولة" },
