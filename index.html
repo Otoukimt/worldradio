@@ -345,6 +345,11 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     <select class="ctry" id="country"></select>
   </div>
 
+  <section class="sec" id="featSec" style="display:none">
+    <div class="sechead"><h2 id="featTitle">Featured</h2></div>
+    <div class="row" id="feat"></div>
+  </section>
+
   <section class="sec" id="localSec" style="display:none">
     <div class="sechead"><h2 id="localTitle">Stations near you</h2></div>
     <div class="row" id="local"></div>
@@ -363,6 +368,11 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     <div class="grid" id="grid"></div>
     <div class="load" id="status" style="display:none"></div>
     <button class="btn more" id="moreBtn" style="display:none" data-i="more">Show more</button>
+  </section>
+
+  <section class="sec" id="popSec" style="display:none">
+    <div class="sechead"><h2 data-i="mostRead">Most read</h2></div>
+    <div class="arts" id="popList"></div>
   </section>
 
   <section class="sec" id="articles">
@@ -503,7 +513,8 @@ var I={
   usage2:'Quality setting: {q}',hrs:'h',
   retry:'Connection lost — reconnecting ({n}/3)…',skipped:'Station failed, moving to the next one',
   unknown:'Unknown',loading:'Loading…',pageErr:'Could not load that page.',
-  finding:'Finding {s}…',notFound:'Could not find {s} right now.'},
+  finding:'Finding {s}…',notFound:'Could not find {s} right now.',
+  featured:'Featured stations',mostRead:'Most read'},
  ar:{h1:'استمع إلى العالم، <em>مباشرةً</em>.',
   sub:'مئات المحطات الإذاعية المجانية من كل دول العالم. اختر محطة وتابع التصفح — الصوت لا يتوقف.',
   popular:'المحطات الأكثر استماعاً',favs:'محطاتك المفضلة',recent:'استمعت مؤخراً',near:'محطات من {c}',
@@ -530,7 +541,8 @@ var I={
   usage2:'إعداد الجودة: {q}',hrs:'س',
   retry:'انقطع الاتصال — إعادة المحاولة ({n}/3)…',skipped:'تعذّرت المحطة، الانتقال إلى التالية',
   unknown:'غير معروف',loading:'جارٍ التحميل…',pageErr:'تعذّر تحميل الصفحة.',
-  finding:'جارٍ البحث عن {s}…',notFound:'تعذّر العثور على {s} الآن.'}
+  finding:'جارٍ البحث عن {s}…',notFound:'تعذّر العثور على {s} الآن.',
+  featured:'محطات مختارة',mostRead:'الأكثر قراءة'}
 };
 /* default language: English, unless the device is Arabic */
 var lang=(function(){
@@ -777,8 +789,109 @@ function drawArticles(){
   });
   hookPageLinks();
 }
+/* ===== site.json: colours, texts, genres, featured — all editable from the studio app ===== */
+var CFG=null;
+function applyColors(c){
+  if(!c)return;
+  var st=document.getElementById('cfgCss');
+  if(!st){st=document.createElement('style');st.id='cfgCss';document.head.appendChild(st);}
+  function block(sel,o){
+    if(!o)return '';
+    var t=sel+'{';
+    for(var k in o){ if(o[k]) t+='--'+k+':'+o[k]+';'; }
+    return t+'}';
+  }
+  st.textContent=block(':root',c.light)+block('html[data-theme="dark"]',c.dark);
+}
+function applyCfg(d){
+  if(!d)return;
+  CFG=d;
+  applyColors(d.colors);
+  if(d.brand&&(d.brand.name1||d.brand.name2)){
+    var lg=document.getElementById('homeBtn');
+    if(lg)lg.innerHTML='<span class="logo-dot"></span>'+(d.brand.name1||'')+
+      '<span>'+(d.brand.name2||'')+'</span>';
+  }
+  if(d.hero){
+    if(d.hero.h1){I.en.h1=d.hero.h1.en||I.en.h1;I.ar.h1=d.hero.h1.ar||I.ar.h1;}
+    if(d.hero.sub){I.en.sub=d.hero.sub.en||I.en.sub;I.ar.sub=d.hero.sub.ar||I.ar.sub;}
+  }
+  if(d.genres&&d.genres.length)GENRES=d.genres;
+  if(d.defaultTheme&&localStorage.getItem('lr_theme')===null){
+    theme=d.defaultTheme==='dark'?'dark':'light';applyTheme();
+  }
+  applyLang();
+  drawFeatured();
+  drawPopular();
+}
+
+/* محطات مختارة: أسماء تُحدَّد من التطبيق، تُجلب حيّة */
+var featList=[];
+function drawFeatured(){
+  var names=(CFG&&CFG.featured)||[];
+  var box=document.getElementById('feat'),sec=document.getElementById('featSec');
+  if(!box||!names.length){if(sec)sec.style.display='none';return;}
+  document.getElementById('featTitle').textContent=T('featured');
+  if(featList.length){
+    box.innerHTML='';
+    featList.forEach(function(s){box.appendChild(card(s));});
+    sec.style.display='block';markPlaying();return;
+  }
+  var got=[],left=names.length;
+  names.forEach(function(n){
+    api('/json/stations/search?hidebroken=true&limit=10&order=clickcount&reverse=true&name='
+        +encodeURIComponent(n))
+      .then(function(d){
+        var l=clean(d);
+        if(l.length)got.push(l[0]);
+      }).catch(function(){}).then(function(){
+        if(--left<=0){
+          featList=got;
+          if(!got.length){sec.style.display='none';return;}
+          box.innerHTML='';
+          got.forEach(function(s){box.appendChild(card(s));});
+          sec.style.display='block';markPlaying();
+        }
+      });
+  });
+}
+
+/* الأكثر قراءة: ترتيب يحدده التطبيق في site.json أو stats.json */
+var stats=null;
+function drawPopular(){
+  var sec=document.getElementById('popSec'),box=document.getElementById('popList');
+  if(!sec||!box||!posts.length)return;
+  var order=(CFG&&CFG.popular)||[];
+  if(!order.length&&stats){
+    order=Object.keys(stats).sort(function(a,b){return stats[b]-stats[a];}).slice(0,3);
+  }
+  if(!order.length){sec.style.display='none';return;}
+  box.innerHTML='';
+  var n=0;
+  order.forEach(function(slug){
+    var p=null;
+    for(var i=0;i<posts.length;i++)if(posts[i].slug===slug){p=posts[i];break;}
+    if(!p)return;
+    var a=document.createElement('a');a.className='art';
+    a.href='./articles/'+p.slug+'.html';
+    a.innerHTML='<div class="tag"></div><h3></h3><p></p>';
+    a.querySelector('.tag').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
+    a.querySelector('h3').textContent=p.title[lang]||p.title.en;
+    a.querySelector('p').textContent=p.desc[lang]||p.desc.en;
+    box.appendChild(a);n++;
+  });
+  sec.style.display=n?'block':'none';
+  hookPageLinks();
+}
+
 fetch('./articles.json').then(function(r){return r.json();})
-  .then(function(d){posts=d||[];drawArticles();}).catch(function(){});
+  .then(function(d){posts=d||[];drawArticles();drawPopular();}).catch(function(){});
+
+fetch('./stats.json').then(function(r){return r.ok?r.json():null;})
+  .then(function(d){stats=d;drawPopular();}).catch(function(){});
+
+fetch('./site.json').then(function(r){return r.ok?r.json():null;})
+  .then(function(d){applyCfg(d);}).catch(function(){});
 
 function drawStats(){
   var m=Math.round(mine.sec/60);
@@ -1113,6 +1226,7 @@ function applyLang(){
   langBtn.textContent=lang==='en'?'العربية':'English';
   if(country.options.length)country.options[0].textContent=d.allc;
   buildGenres();updateTitle();renderRecent();drawArticles();drawStats();drawUsage();syncQ();drawLocal();
+  drawFeatured();drawPopular();
   if(!isHome()){trans(pageEl);hookPlayButtons();initArticlesList();}
   hookPageLinks();
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
