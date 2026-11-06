@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="yX25szfjBSoo35hZI9DG4jLp4pah3fZ07GVtTvfX_qk" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LKJTP0YVEN');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Why a radio stream stops working, and what you can actually do | LiveRadio</title>
+<meta name="description" content="Six reasons an online radio station fails to play: insecure http streams, server limits, buffering, codec mismatches, dead directory entries and frozen metadata.">
+<link rel="canonical" href="https://worldliveradio.com/articles/radio-stream-not-working.html">
+<meta name="theme-color" content="#eef3fb">
+<meta property="og:title" content="Why a radio stream stops working, and what you can actually do">
+<meta property="og:description" content="Six reasons an online radio station fails to play: insecure http streams, server limits, buffering, codec mismatches, dead directory entries and frozen metadata.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6fc; --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
+  --txt:#111a2e; --mut:#5a6880; --acc:#0d9488; --acc2:#5b53e0;
+  --shadow:rgba(23,38,74,.09);
+  --headG:linear-gradient(120deg,#e8f1ff 0%,#eeeafd 48%,#fdeef4 100%);
+  --footG:linear-gradient(120deg,#fdeef4 0%,#eeeafd 52%,#e8f1ff 100%);
+  --cardG:linear-gradient(170deg,#ffffff 0%,#f6f9ff 100%);
+  --font:'Outfit','Cairo',system-ui,sans-serif;box-sizing:border-box;
+}
+html[data-theme="dark"]{
+  --bg:#0b0f1a; --card:#161d31; --card2:#1c2440; --line:#232c45;
+  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1;
+  --shadow:rgba(0,0,0,.35);
+  --headG:linear-gradient(120deg,#0e1526,#121a2e 60%,#17132a);
+  --footG:linear-gradient(120deg,#17132a,#121a2e 48%,#0e1526);
+  --cardG:linear-gradient(170deg,#161d31,#141b2d);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--txt);font-family:var(--font);
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Cairo',var(--font)}
+a{color:var(--acc);text-decoration:none}
+button{font-family:inherit}
+header{position:sticky;top:0;z-index:30;background:var(--headG);border-bottom:1px solid var(--line);
+padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(10px)}
+.hrow{display:flex;align-items:center;gap:10px;padding:12px 16px;max-width:760px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--txt)}
+.logo-dot{width:11px;height:11px;border-radius:50%;background:var(--acc)}
+.logo span{color:var(--acc)}
+.spacer{flex:1}
+.btn{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px var(--shadow)}
+main{max-width:760px;margin:0 auto;padding:22px 18px 60px}
+.crumb{font-size:13px;color:var(--mut);margin-bottom:14px}
+.tagx{display:inline-block;font-size:12px;color:var(--acc);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800;
+background:linear-gradient(100deg,var(--acc),var(--acc2) 70%);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{color:var(--acc2)}
+.playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
+padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
+margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
+.playbtn:hover{filter:brightness(1.07)}
+.meta{color:var(--mut);font-size:14px;margin-bottom:22px}
+.hero{height:190px;border-radius:18px;margin-bottom:26px;position:relative;overflow:hidden;
+background:linear-gradient(135deg,#111827,#7f1d1d 50%,#1e3a8a);display:grid;place-items:center}
+.hero svg{width:100%;height:100%;display:block}
+.hero .wav{display:flex;gap:6px;align-items:flex-end;height:68px}
+.hero .wav i{width:8px;background:rgba(255,255,255,.88);border-radius:4px;display:block;animation:w 1.4s ease-in-out infinite}
+.hero .wav i:nth-child(1){height:24px;animation-delay:0s}
+.hero .wav i:nth-child(2){height:48px;animation-delay:.15s}
+.hero .wav i:nth-child(3){height:68px;animation-delay:.3s}
+.hero .wav i:nth-child(4){height:40px;animation-delay:.45s}
+.hero .wav i:nth-child(5){height:58px;animation-delay:.6s}
+.hero .wav i:nth-child(6){height:28px;animation-delay:.75s}
+.hero .wav i:nth-child(7){height:46px;animation-delay:.9s}
+@keyframes w{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+h2{font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
+h3{font-size:18px;margin:26px 0 8px;font-weight:700}
+p{line-height:1.85;color:var(--txt);opacity:.93;margin:0 0 16px;font-size:16.5px}
+ul,ol{line-height:1.85;color:var(--txt);opacity:.93;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
+li{margin-bottom:9px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:start}
+th{background:var(--card2);font-weight:700}
+blockquote{border-inline-start:3px solid var(--acc);margin:24px 0;padding-inline-start:16px;
+color:var(--mut);font-style:italic;line-height:1.8}
+.box{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:18px;margin:28px 0;
+box-shadow:0 2px 8px var(--shadow)}
+.box h3{margin-top:0}
+.cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
+color:#fff;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px;
+box-shadow:0 6px 18px var(--shadow)}
+footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;color:var(--mut);
+font-size:14px;background:var(--footG)}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
+footer nav a{color:var(--mut)}
+footer nav a:hover{color:var(--acc)}
+</style>
+<script>
+(function(){
+  var t='light';
+  try{var v=JSON.parse(localStorage.getItem('lr_theme'));if(v==='dark'||v==='light')t=v;}catch(e){}
+  document.documentElement.setAttribute('data-theme',t);
+  var m=document.querySelector('meta[name=theme-color]');
+  if(m)m.setAttribute('content',t==='dark'?'#0e1526':'#eef3fb');
+})();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <a class="logo" href="../"><span class="logo-dot"></span>Live<span>Radio</span></a>
+    <div class="spacer"></div>
+    <button class="btn" id="langBtn">العربية</button>
+  </div>
+</header>
+
+<main>
+  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Tips" data-ar="نصائح">Tips</a></div>
+  <span class="tagx" data-en="Troubleshooting" data-ar="حلّ المشكلات">Troubleshooting</span>
+  <h1 data-en="Why a radio stream stops working, and what you can actually do" data-ar="لماذا يتوقف بثّ الراديو، وما الذي تستطيع فعله فعلاً">Why a radio stream stops working, and what you can actually do</h1>
+  <div class="meta"><span data-en="Updated November 2026 · 8 min read" data-ar="تحديث نونبر 2026 · قراءة 8 دقائق">Updated November 2026 · 8 min read</span></div>
+
+  <div class="hero"><svg viewBox="0 0 800 190" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A broken signal line being repaired">
+<defs><linearGradient id="f1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111827"/><stop offset=".5" stop-color="#7f1d1d"/><stop offset="1" stop-color="#1e3a8a"/></linearGradient></defs>
+<rect width="800" height="190" fill="url(#f1)"/>
+<path d="M0 95 q 40 -40 80 0 t 80 0 t 80 0" fill="none" stroke="#5eead4" stroke-width="3" stroke-opacity=".9"/>
+<path d="M560 95 q 40 -40 80 0 t 80 0 t 80 0" fill="none" stroke="#5eead4" stroke-width="3" stroke-opacity=".9"/>
+<g stroke="#f87171" stroke-width="3" stroke-linecap="round" stroke-opacity=".9">
+<line x1="250" y1="95" x2="280" y2="95" stroke-dasharray="6 10"/><line x1="480" y1="95" x2="510" y2="95" stroke-dasharray="6 10"/></g>
+<g transform="translate(400 95)">
+<circle r="46" fill="#fff" fill-opacity=".1" stroke="#f87171" stroke-opacity=".6" stroke-width="2"/>
+<path d="M-8 -26 h16 l-4 32 h-8 z" fill="#f87171"/><circle cy="20" r="6" fill="#f87171"/></g>
+<g fill="#5eead4" fill-opacity=".6"><circle cx="120" cy="150" r="3"/><circle cx="160" cy="158" r="2.4"/><circle cx="660" cy="150" r="3"/><circle cx="620" cy="158" r="2.4"/></g></svg></div>
+
+  <p data-en="You tap play and nothing happens. Or it plays for ninety seconds and stops. Or it worked yesterday and today the station has vanished from the list entirely. Every one of these has a specific cause, and in most cases you can tell within thirty seconds which one you are dealing with. This guide works through them in the order they actually occur." data-ar="تضغط التشغيل فلا يحدث شيء. أو يعمل تسعين ثانية ثم يتوقف. أو كان يعمل أمس واليوم اختفت المحطة من القائمة كلياً. ولكلٍّ من هذه سبب محدد، وفي معظم الحالات تستطيع أن تعرف خلال ثلاثين ثانية أيَّها تواجه. ويعالجها هذا الدليل بالترتيب الذي تقع فيه فعلاً.">You tap play and nothing happens. Or it plays for ninety seconds and stops. Or it worked yesterday and today the station has vanished from the list entirely. Every one of these has a specific cause, and in most cases you can tell within thirty seconds which one you are dealing with. This guide works through them in the order they actually occur.</p>
+  <h2 data-en="1. The station starts and never produces sound" data-ar="1. المحطة تبدأ ولا تُصدر صوتاً أبداً">1. The station starts and never produces sound</h2>
+  <p data-en="This is the most common failure and it is almost never your fault. The usual cause is an insecure stream: the station still publishes its audio on an http address, and every modern browser silently refuses to load insecure audio inside a secure https page. There is no error message because blocking it quietly is the intended behaviour." data-ar="هذا أشيع الأعطال، وهو لا يكاد يكون خطأك أبداً. والسبب المعتاد بثّ غير آمن: فالمحطة ما زالت تنشر صوتها على عنوان http، وكل متصفح حديث يرفض بصمت تحميل صوت غير آمن داخل صفحة https آمنة. ولا رسالة خطأ لأن الحجب الصامت هو السلوك المقصود.">This is the most common failure and it is almost never your fault. The usual cause is an insecure stream: the station still publishes its audio on an http address, and every modern browser silently refuses to load insecure audio inside a secure https page. There is no error message because blocking it quietly is the intended behaviour.</p>
+  <p data-en="You cannot fix this from your side, and neither can the site you are using. Only the broadcaster can, by moving its stream to https. The practical response is to find another stream for the same station — large broadcasters often publish several, and one of them is usually secure." data-ar="لا تستطيع إصلاح هذا من جهتك، ولا يستطيعه الموقع الذي تستعمله. فالباثّ وحده يقدر، بنقل بثه إلى https. والاستجابة العملية أن تبحث عن بثّ آخر للمحطة نفسها — فالمحطات الكبيرة تنشر عدة روابط غالباً، وأحدها آمن عادةً.">You cannot fix this from your side, and neither can the site you are using. Only the broadcaster can, by moving its stream to https. The practical response is to find another stream for the same station — large broadcasters often publish several, and one of them is usually secure.</p>
+  <h2 data-en="2. It plays, then cuts out after a minute or two" data-ar="2. يعمل ثم ينقطع بعد دقيقة أو اثنتين">2. It plays, then cuts out after a minute or two</h2>
+  <p data-en="Three possibilities, in order of likelihood. The station's server hit its listener limit and dropped the newest connections. Your own connection briefly dropped below the bitrate and the buffer emptied. Or the station restarted its encoder, which happens more often than listeners assume, particularly on small independent streams." data-ar="ثلاثة احتمالات بترتيب الاحتمالية. بلغ خادم المحطة حدّ المستمعين فأسقط أحدث الاتصالات. أو انخفض اتصالك أنت لحظةً تحت معدل البت ففرغت الذاكرة المؤقتة. أو أعادت المحطة تشغيل مرمّزها، وهذا يحدث أكثر مما يفترض المستمعون، خصوصاً في البثوث المستقلة الصغيرة.">Three possibilities, in order of likelihood. The station's server hit its listener limit and dropped the newest connections. Your own connection briefly dropped below the bitrate and the buffer emptied. Or the station restarted its encoder, which happens more often than listeners assume, particularly on small independent streams.</p>
+  <p data-en="A quick test tells you which: switch to a lower-bitrate station. If that one holds steadily, your connection is the limit. If it also drops, the problem is upstream and nothing you change will help." data-ar="اختبار سريع يخبرك بأيّها: انتقل إلى محطة بمعدل بت أقل. فإن ثبتت تلك، فاتصالك هو الحدّ. وإن انقطعت هي أيضاً، فالمشكلة في الأعلى ولن ينفع شيء تغيّره.">A quick test tells you which: switch to a lower-bitrate station. If that one holds steadily, your connection is the limit. If it also drops, the problem is upstream and nothing you change will help.</p>
+  <h2 data-en="3. It stutters constantly but keeps going" data-ar="3. يتقطّع باستمرار لكنه يستمر">3. It stutters constantly but keeps going</h2>
+  <p data-en="This is a buffer problem, and the cause is a connection that is just barely fast enough. The stream keeps running out of audio and refilling. Lowering the quality setting solves it immediately — a 64 kbps stream needs half the sustained bandwidth of a 128 kbps one and sounds nearly identical on a phone speaker. Our <a href='./listen-radio-data-saving.html'>data guide</a> covers the numbers." data-ar="هذه مشكلة ذاكرة مؤقتة، وسببها اتصال سريع بالكاد يكفي. فيواصل البثّ نفادَ الصوت ثم إعادة التعبئة. وخفض إعداد الجودة يحلّها فوراً — فبثّ بـ64 kbps يحتاج نصف النطاق المستدام الذي يحتاجه بثّ بـ128 kbps ويبدو مطابقاً تقريباً على سمّاعة هاتف. ويغطي <a href='./listen-radio-data-saving.html'>دليل البيانات</a> الأرقام.">This is a buffer problem, and the cause is a connection that is just barely fast enough. The stream keeps running out of audio and refilling. Lowering the quality setting solves it immediately — a 64 kbps stream needs half the sustained bandwidth of a 128 kbps one and sounds nearly identical on a phone speaker. Our <a href='./listen-radio-data-saving.html'>data guide</a> covers the numbers.</p>
+  <h2 data-en="4. The station disappeared from the directory" data-ar="4. اختفت المحطة من الدليل">4. The station disappeared from the directory</h2>
+  <p data-en="Open directories mark a stream as broken after it fails repeatedly over a period, and hide it. The station may be permanently gone, or its server may have been down for maintenance during the checks. Either way the entry usually returns on its own once the stream responds again." data-ar="تضع الأدلة المفتوحة علامة «معطّل» على بثّ يفشل مراراً خلال مدة، ثم تخفيه. وقد تكون المحطة قد زالت نهائياً، أو قد يكون خادمها متوقفاً للصيانة أثناء الفحوص. وفي الحالين يعود المدخل عادةً من تلقاء نفسه حين يستجيب البثّ مجدداً.">Open directories mark a stream as broken after it fails repeatedly over a period, and hide it. The station may be permanently gone, or its server may have been down for maintenance during the checks. Either way the entry usually returns on its own once the stream responds again.</p>
+  <p data-en="Stations disappear permanently for mundane reasons: the licence lapsed, the hosting bill went unpaid, the person running it stopped. Internet radio has a high turnover among small stations, and a directory is a snapshot rather than a guarantee." data-ar="وتختفي المحطات نهائياً لأسباب عادية: انتهت الرخصة، أو لم تُدفع فاتورة الاستضافة، أو توقّف من يديرها. ومعدل الدوران مرتفع بين المحطات الصغيرة في راديو الإنترنت، والدليل لقطة لا ضمانة.">Stations disappear permanently for mundane reasons: the licence lapsed, the hosting bill went unpaid, the person running it stopped. Internet radio has a high turnover among small stations, and a directory is a snapshot rather than a guarantee.</p>
+  <h2 data-en="5. It works on one device but not another" data-ar="5. يعمل على جهاز دون آخر">5. It works on one device but not another</h2>
+  <p data-en="Usually a codec issue. Some older streams use formats that one browser supports and another does not — Ogg Vorbis is the classic example, historically supported in some browsers and not others. Switching browsers is the fastest test. If it works in one and not the other, the station is using a format your preferred browser does not decode, and there is nothing to fix beyond using a different player." data-ar="عادةً مشكلة ترميز. فبعض البثوث القديمة تستعمل صيغاً يدعمها متصفح ولا يدعمها آخر — وOgg Vorbis المثال الكلاسيكي، إذ دعمته بعض المتصفحات تاريخياً دون غيرها. وتبديل المتصفح أسرع اختبار. فإن عمل في واحد دون آخر، فالمحطة تستعمل صيغة لا يفكّها متصفحك المفضّل، ولا شيء يُصلَح غير استعمال مشغّل مختلف.">Usually a codec issue. Some older streams use formats that one browser supports and another does not — Ogg Vorbis is the classic example, historically supported in some browsers and not others. Switching browsers is the fastest test. If it works in one and not the other, the station is using a format your preferred browser does not decode, and there is nothing to fix beyond using a different player.</p>
+  <h2 data-en="6. The sound is live but the track name is wrong" data-ar="6. الصوت مباشر لكن اسم الأغنية خاطئ">6. The sound is live but the track name is wrong</h2>
+  <p data-en="Metadata is optional and is sent separately from the audio. A station can transmit perfectly while its track information is frozen on a song from three hours ago, because a script somewhere stopped updating. This is entirely at the broadcaster's end and affects nothing you are hearing." data-ar="البيانات الوصفية اختيارية وتُرسَل منفصلة عن الصوت. فقد تبثّ محطة بشكل سليم تماماً بينما معلومات المقطوعة لديها متجمدة على أغنية من ثلاث ساعات، لأن نصّاً برمجياً في مكان ما توقف عن التحديث. وهذا كله في طرف الباثّ ولا يؤثر في شيء مما تسمعه.">Metadata is optional and is sent separately from the audio. A station can transmit perfectly while its track information is frozen on a song from three hours ago, because a script somewhere stopped updating. This is entirely at the broadcaster's end and affects nothing you are hearing.</p>
+  <div class="box">
+    <h3 data-en="The thirty-second diagnosis" data-ar="التشخيص في ثلاثين ثانية">The thirty-second diagnosis</h3>
+  <p data-en="Try a second station. If it plays perfectly, the first station is the problem and no amount of restarting will change that. If it also fails, the issue is your connection, your browser or your device — in that order of likelihood. This single test resolves most cases faster than any settings menu." data-ar="جرّب محطة ثانية. فإن عملت تماماً، فالمحطة الأولى هي المشكلة ولن يغيّر ذلك أي قدر من إعادة التشغيل. وإن فشلت هي أيضاً، فالمشكلة في اتصالك أو متصفحك أو جهازك — بهذا الترتيب في الاحتمالية. وهذا الاختبار الواحد يحسم معظم الحالات أسرع من أي قائمة إعدادات.">Try a second station. If it plays perfectly, the first station is the problem and no amount of restarting will change that. If it also fails, the issue is your connection, your browser or your device — in that order of likelihood. This single test resolves most cases faster than any settings menu.</p>
+  </div>
+  <blockquote data-en="Most radio problems are not your problem. The useful skill is telling in half a minute which ones are." data-ar="معظم مشاكل الراديو ليست مشكلتك. والمهارة المفيدة أن تعرف في نصف دقيقة أيّها كذلك.">Most radio problems are not your problem. The useful skill is telling in half a minute which ones are.</blockquote>
+
+
+  <a class="cta" href="../" data-en="Try another station &rarr;" data-ar="جرّب محطة أخرى &larr;">Try another station &rarr;</a>
+</main>
+
+<footer>
+  <nav>
+    <a href="../" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a>
+    <a href="../about.html" data-en="About" data-ar="من نحن">About</a>
+    <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+    <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+  </nav>
+  <div>© <span id="yr"></span> LiveRadio</div>
+</footer>
+
+<script>
+var lang=(function(){
+  var s=null;try{s=localStorage.getItem('lr_lang');}catch(e){}
+  if(s==='ar'||s==='en')return s;
+  var ls=[];try{ls=[navigator.language||''].concat(navigator.languages||[]);}catch(e){}
+  for(var i=0;i<ls.length;i++){if((ls[i]||'').toLowerCase().indexOf('ar')===0)return 'ar';}
+  return 'en';
+})();
+function apply(){
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
+  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  try{localStorage.setItem('lr_lang',lang);}catch(e){}
+}
+document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
+document.getElementById('yr').textContent=new Date().getFullYear();
+apply();
+</script>
+</body>
+</html>

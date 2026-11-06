@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="yX25szfjBSoo35hZI9DG4jLp4pah3fZ07GVtTvfX_qk" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LKJTP0YVEN');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to start your own internet radio station | LiveRadio</title>
+<meta name="description" content="A practical guide to launching an internet radio station: the four technical components, real bandwidth costs, music licensing, and how to actually get listeners.">
+<link rel="canonical" href="https://worldliveradio.com/articles/start-your-own-internet-radio.html">
+<meta name="theme-color" content="#eef3fb">
+<meta property="og:title" content="How to start your own internet radio station">
+<meta property="og:description" content="A practical guide to launching an internet radio station: the four technical components, real bandwidth costs, music licensing, and how to actually get listeners.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6fc; --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
+  --txt:#111a2e; --mut:#5a6880; --acc:#0d9488; --acc2:#5b53e0;
+  --shadow:rgba(23,38,74,.09);
+  --headG:linear-gradient(120deg,#e8f1ff 0%,#eeeafd 48%,#fdeef4 100%);
+  --footG:linear-gradient(120deg,#fdeef4 0%,#eeeafd 52%,#e8f1ff 100%);
+  --cardG:linear-gradient(170deg,#ffffff 0%,#f6f9ff 100%);
+  --font:'Outfit','Cairo',system-ui,sans-serif;box-sizing:border-box;
+}
+html[data-theme="dark"]{
+  --bg:#0b0f1a; --card:#161d31; --card2:#1c2440; --line:#232c45;
+  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1;
+  --shadow:rgba(0,0,0,.35);
+  --headG:linear-gradient(120deg,#0e1526,#121a2e 60%,#17132a);
+  --footG:linear-gradient(120deg,#17132a,#121a2e 48%,#0e1526);
+  --cardG:linear-gradient(170deg,#161d31,#141b2d);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--txt);font-family:var(--font);
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Cairo',var(--font)}
+a{color:var(--acc);text-decoration:none}
+button{font-family:inherit}
+header{position:sticky;top:0;z-index:30;background:var(--headG);border-bottom:1px solid var(--line);
+padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(10px)}
+.hrow{display:flex;align-items:center;gap:10px;padding:12px 16px;max-width:760px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--txt)}
+.logo-dot{width:11px;height:11px;border-radius:50%;background:var(--acc)}
+.logo span{color:var(--acc)}
+.spacer{flex:1}
+.btn{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px var(--shadow)}
+main{max-width:760px;margin:0 auto;padding:22px 18px 60px}
+.crumb{font-size:13px;color:var(--mut);margin-bottom:14px}
+.tagx{display:inline-block;font-size:12px;color:var(--acc);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800;
+background:linear-gradient(100deg,var(--acc),var(--acc2) 70%);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{color:var(--acc2)}
+.playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
+padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
+margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
+.playbtn:hover{filter:brightness(1.07)}
+.meta{color:var(--mut);font-size:14px;margin-bottom:22px}
+.hero{height:190px;border-radius:18px;margin-bottom:26px;position:relative;overflow:hidden;
+background:linear-gradient(135deg,#581c87,#0e7490 50%,#065f46);display:grid;place-items:center}
+.hero svg{width:100%;height:100%;display:block}
+.hero .wav{display:flex;gap:6px;align-items:flex-end;height:68px}
+.hero .wav i{width:8px;background:rgba(255,255,255,.88);border-radius:4px;display:block;animation:w 1.4s ease-in-out infinite}
+.hero .wav i:nth-child(1){height:24px;animation-delay:0s}
+.hero .wav i:nth-child(2){height:48px;animation-delay:.15s}
+.hero .wav i:nth-child(3){height:68px;animation-delay:.3s}
+.hero .wav i:nth-child(4){height:40px;animation-delay:.45s}
+.hero .wav i:nth-child(5){height:58px;animation-delay:.6s}
+.hero .wav i:nth-child(6){height:28px;animation-delay:.75s}
+.hero .wav i:nth-child(7){height:46px;animation-delay:.9s}
+@keyframes w{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+h2{font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
+h3{font-size:18px;margin:26px 0 8px;font-weight:700}
+p{line-height:1.85;color:var(--txt);opacity:.93;margin:0 0 16px;font-size:16.5px}
+ul,ol{line-height:1.85;color:var(--txt);opacity:.93;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
+li{margin-bottom:9px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:start}
+th{background:var(--card2);font-weight:700}
+blockquote{border-inline-start:3px solid var(--acc);margin:24px 0;padding-inline-start:16px;
+color:var(--mut);font-style:italic;line-height:1.8}
+.box{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:18px;margin:28px 0;
+box-shadow:0 2px 8px var(--shadow)}
+.box h3{margin-top:0}
+.cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
+color:#fff;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px;
+box-shadow:0 6px 18px var(--shadow)}
+footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;color:var(--mut);
+font-size:14px;background:var(--footG)}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
+footer nav a{color:var(--mut)}
+footer nav a:hover{color:var(--acc)}
+</style>
+<script>
+(function(){
+  var t='light';
+  try{var v=JSON.parse(localStorage.getItem('lr_theme'));if(v==='dark'||v==='light')t=v;}catch(e){}
+  document.documentElement.setAttribute('data-theme',t);
+  var m=document.querySelector('meta[name=theme-color]');
+  if(m)m.setAttribute('content',t==='dark'?'#0e1526':'#eef3fb');
+})();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <a class="logo" href="../"><span class="logo-dot"></span>Live<span>Radio</span></a>
+    <div class="spacer"></div>
+    <button class="btn" id="langBtn">العربية</button>
+  </div>
+</header>
+
+<main>
+  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Guides" data-ar="أدلة">Guides</a></div>
+  <span class="tagx" data-en="How-to" data-ar="دليل عملي">How-to</span>
+  <h1 data-en="How to start your own internet radio station" data-ar="كيف تطلق محطتك الإذاعية على الإنترنت">How to start your own internet radio station</h1>
+  <div class="meta"><span data-en="Updated November 2026 · 9 min read" data-ar="تحديث نونبر 2026 · قراءة 9 دقائق">Updated November 2026 · 9 min read</span></div>
+
+  <div class="hero"><svg viewBox="0 0 800 190" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mixing desk faders and a signal going out">
+<defs><linearGradient id="s1" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#581c87"/><stop offset=".5" stop-color="#0e7490"/><stop offset="1" stop-color="#065f46"/></linearGradient></defs>
+<rect width="800" height="190" fill="url(#s1)"/>
+<g stroke="#a5f3fc" stroke-opacity=".55" stroke-width="3" stroke-linecap="round">
+<line x1="120" y1="56" x2="120" y2="150"/><line x1="170" y1="56" x2="170" y2="150"/><line x1="220" y1="56" x2="220" y2="150"/>
+<line x1="270" y1="56" x2="270" y2="150"/><line x1="320" y1="56" x2="320" y2="150"/><line x1="370" y1="56" x2="370" y2="150"/></g>
+<g fill="#fff"><rect x="110" y="104" width="20" height="11" rx="5"/><rect x="160" y="78" width="20" height="11" rx="5"/>
+<rect x="210" y="124" width="20" height="11" rx="5"/><rect x="260" y="92" width="20" height="11" rx="5"/>
+<rect x="310" y="136" width="20" height="11" rx="5"/><rect x="360" y="70" width="20" height="11" rx="5"/></g>
+<g fill="none" stroke="#fcd34d" stroke-opacity=".7" stroke-width="2.5" stroke-linecap="round">
+<path d="M470 100 a40 40 0 0 1 0 -0.1"/><path d="M470 70 a44 44 0 0 1 0 60"/><path d="M500 52 a70 70 0 0 1 0 96" stroke-opacity=".45"/>
+<path d="M530 34 a96 96 0 0 1 0 132" stroke-opacity=".25"/></g>
+<circle cx="462" cy="100" r="8" fill="#fcd34d"/>
+<g fill="#fff" fill-opacity=".18"><rect x="600" y="60" width="150" height="80" rx="10"/></g>
+<g stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none"><rect x="600" y="60" width="150" height="80" rx="10"/><line x1="600" y1="84" x2="750" y2="84"/></g>
+<g fill="#5eead4"><circle cx="616" cy="72" r="4"/><circle cx="630" cy="72" r="4"/><circle cx="644" cy="72" r="4"/></g></svg></div>
+
+  <p data-en="Thirty years ago starting a radio station meant a transmitter, a licence and a lawyer. Today it means a laptop, a server and about the cost of a streaming subscription. The barrier collapsed so completely that most people have not noticed it happened. This is a practical guide to what is actually involved, written for someone who has never done it." data-ar="قبل ثلاثين عاماً كان إطلاق محطة إذاعية يعني مرسلاً ورخصةً ومحامياً. واليوم يعني حاسوباً محمولاً وخادماً وما يعادل كلفة اشتراك بثّ. انهار الحاجز انهياراً كاملاً حتى إن معظم الناس لم ينتبهوا إلى حدوث ذلك. وهذا دليل عملي لما يتطلبه الأمر فعلاً، مكتوب لمن لم يفعله من قبل.">Thirty years ago starting a radio station meant a transmitter, a licence and a lawyer. Today it means a laptop, a server and about the cost of a streaming subscription. The barrier collapsed so completely that most people have not noticed it happened. This is a practical guide to what is actually involved, written for someone who has never done it.</p>
+  <h2 data-en="Step one: decide what the station is" data-ar="الخطوة الأولى: قرّر ما هي المحطة">Step one: decide what the station is</h2>
+  <p data-en="This sounds like advice to skip. It is not. The single most common reason a new internet station fails is that it plays a bit of everything, which means nobody can describe it to a friend. The stations that survive are narrow: one city's music, one decade, one genre nobody else serves, one language. Narrow is not a limitation online — there is no local market to satisfy, only a global audience of people who want exactly that thing." data-ar="يبدو هذا نصيحة تُتجاوز. وليس كذلك. فالسبب الأشيع لفشل محطة إنترنت جديدة أنها تشغّل قليلاً من كل شيء، ما يعني أن لا أحد يستطيع وصفها لصديق. والمحطات التي تستمر ضيّقة: موسيقى مدينة واحدة، أو عقد واحد، أو نوع لا يخدمه غيرها، أو لغة واحدة. والضيق ليس قيداً على الإنترنت — فلا سوق محلية تُرضيها، بل جمهور عالمي ممن يريدون ذلك الشيء بالضبط.">This sounds like advice to skip. It is not. The single most common reason a new internet station fails is that it plays a bit of everything, which means nobody can describe it to a friend. The stations that survive are narrow: one city's music, one decade, one genre nobody else serves, one language. Narrow is not a limitation online — there is no local market to satisfy, only a global audience of people who want exactly that thing.</p>
+  <h2 data-en="Step two: the technical chain" data-ar="الخطوة الثانية: السلسلة التقنية">Step two: the technical chain</h2>
+  <p data-en="Every internet station, from a bedroom project to a national broadcaster, is the same four components in a row." data-ar="كل محطة إنترنت، من مشروع في غرفة نوم إلى هيئة بثّ وطنية، هي المكوّنات الأربعة نفسها متتاليةً.">Every internet station, from a bedroom project to a national broadcaster, is the same four components in a row.</p>
+  <ol>
+    <li data-en="<strong>A source.</strong> Software on your computer that assembles the audio — your playlist, your microphone, your jingles. Free options exist for every operating system; this is not where you spend money." data-ar="<strong>مصدر.</strong> برنامج على حاسوبك يجمع الصوت — قائمة تشغيلك وميكروفونك وجنغلاتك. وتوجد خيارات مجانية لكل نظام تشغيل؛ وليس هنا حيث تُنفق المال."><strong>A source.</strong> Software on your computer that assembles the audio — your playlist, your microphone, your jingles. Free options exist for every operating system; this is not where you spend money.</li>
+    <li data-en="<strong>An encoder.</strong> This compresses your audio into a stream, usually MP3 or AAC. It is often built into the source software. The bitrate you choose here decides both your sound quality and your bandwidth bill — see <a href='./how-online-radio-works.html'>how online radio works</a> for the trade-off." data-ar="<strong>مرمِّز.</strong> يضغط صوتك إلى تيار بثّ، عادةً MP3 أو AAC. وغالباً ما يكون مدمجاً في برنامج المصدر. ومعدل البت الذي تختاره هنا يحدد جودة صوتك وفاتورة النطاق معاً — انظر <a href='./how-online-radio-works.html'>كيف يعمل راديو الإنترنت</a> لفهم المقايضة."><strong>An encoder.</strong> This compresses your audio into a stream, usually MP3 or AAC. It is often built into the source software. The bitrate you choose here decides both your sound quality and your bandwidth bill — see <a href='./how-online-radio-works.html'>how online radio works</a> for the trade-off.</li>
+    <li data-en="<strong>A streaming server.</strong> This is the part that costs money. Icecast and SHOUTcast are the two standard server programs; you either rent a hosted service that runs one for you, or install it yourself on a cheap virtual server." data-ar="<strong>خادم بثّ.</strong> هذا هو الجزء الذي يكلّف مالاً. وIcecast وSHOUTcast هما برنامجا الخادم القياسيان؛ فإما أن تستأجر خدمة مستضافة تشغّل أحدهما لك، أو تثبّته بنفسك على خادم افتراضي رخيص."><strong>A streaming server.</strong> This is the part that costs money. Icecast and SHOUTcast are the two standard server programs; you either rent a hosted service that runs one for you, or install it yourself on a cheap virtual server.</li>
+    <li data-en="<strong>A way for people to listen.</strong> A page with a player, an entry in the public directories, and ideally a link people can share. Without this step you have a stream nobody knows about." data-ar="<strong>وسيلة ليستمع الناس.</strong> صفحة فيها مشغّل، ومدخل في الأدلة العامة، ويُفضَّل رابط يستطيع الناس مشاركته. وبدون هذه الخطوة لديك بثّ لا يعرف به أحد."><strong>A way for people to listen.</strong> A page with a player, an entry in the public directories, and ideally a link people can share. Without this step you have a stream nobody knows about.</li>
+  </ol>
+  <h2 data-en="Step three: the costs nobody mentions first" data-ar="الخطوة الثالثة: التكاليف التي لا يذكرها أحد أولاً">Step three: the costs nobody mentions first</h2>
+  <p data-en="Streaming is priced per listener, which is the crucial difference from FM. A transmitter costs the same whether one person or a million are tuned in; a stream costs you bandwidth for every single connection. The arithmetic is simple and worth doing before you start." data-ar="يُسعَّر البثّ لكل مستمع، وهذا هو الفارق الحاسم عن FM. فالمرسل يكلّف الشيء نفسه سواء استمع إليه شخص واحد أو مليون؛ أما البثّ فيكلّفك نطاقاً عن كل اتصال على حدة. والحساب بسيط ويستحق أن تجريه قبل أن تبدأ.">Streaming is priced per listener, which is the crucial difference from FM. A transmitter costs the same whether one person or a million are tuned in; a stream costs you bandwidth for every single connection. The arithmetic is simple and worth doing before you start.</p>
+  <p data-en="A 128 kbps stream uses roughly 58 MB per listener per hour. Ten listeners for eight hours a day is about 139 GB a month. At 64 kbps AAC — which most people cannot distinguish on a phone — the same audience costs half that. This is why serious small stations stream at 64, not because they cannot afford better encoders." data-ar="بثّ بـ128 kbps يستهلك نحو 58 ميغابايت لكل مستمع في الساعة. وعشرة مستمعين لثماني ساعات يومياً يعني نحو 139 غيغابايت شهرياً. وعند 64 kbps بصيغة AAC — وهو ما لا يميّزه معظم الناس على هاتف — تكلّف الجمهور نفسه نصف ذلك. ولهذا تبثّ المحطات الصغيرة الجادة عند 64، لا لأنها لا تقدر على مرمّزات أفضل.">A 128 kbps stream uses roughly 58 MB per listener per hour. Ten listeners for eight hours a day is about 139 GB a month. At 64 kbps AAC — which most people cannot distinguish on a phone — the same audience costs half that. This is why serious small stations stream at 64, not because they cannot afford better encoders.</p>
+  <h2 data-en="Step four: the part people get wrong" data-ar="الخطوة الرابعة: الجزء الذي يخطئ فيه الناس">Step four: the part people get wrong</h2>
+  <p data-en="Music licensing. If you broadcast commercial recordings to the public, you owe royalties, and the fact that your station is small or free does not change that. The arrangements differ by country and there is no universal answer, so the only responsible advice is to find out what applies where you are before you build an audience rather than after." data-ar="ترخيص الموسيقى. فإن بثثت تسجيلات تجارية للعموم، فعليك حقوق، وكون محطتك صغيرة أو مجانية لا يغيّر ذلك. والترتيبات تختلف بحسب البلد ولا جواب عالمي واحد، لذا فالنصيحة المسؤولة الوحيدة أن تعرف ما ينطبق في مكانك قبل أن تبني جمهوراً لا بعده.">Music licensing. If you broadcast commercial recordings to the public, you owe royalties, and the fact that your station is small or free does not change that. The arrangements differ by country and there is no universal answer, so the only responsible advice is to find out what applies where you are before you build an audience rather than after.</p>
+  <p data-en="Three routes avoid the problem entirely: play only music you made, play only material released under licences that permit broadcast, or make a speech station. The third is the most overlooked — a talk or documentary station has no music rights issue at all, and speech also costs a third of the bandwidth." data-ar="ثلاثة مسارات تتفادى المشكلة كلياً: أن تشغّل موسيقى من صنعك فقط، أو مواد صدرت برخص تسمح بالبثّ فقط، أو أن تصنع محطة كلامية. والثالث هو الأكثر إغفالاً — فمحطة حوارية أو وثائقية بلا أي مشكلة حقوق موسيقية إطلاقاً، والكلام يكلّف أيضاً ثلث النطاق.">Three routes avoid the problem entirely: play only music you made, play only material released under licences that permit broadcast, or make a speech station. The third is the most overlooked — a talk or documentary station has no music rights issue at all, and speech also costs a third of the bandwidth.</p>
+  <h2 data-en="Step five: getting heard" data-ar="الخطوة الخامسة: أن تُسمَع">Step five: getting heard</h2>
+  <ul>
+    <li data-en="<strong>Add yourself to the open directories.</strong> Radio Browser is community-maintained and free to submit to; most third-party apps and sites pull from it, including this one." data-ar="<strong>أضف نفسك إلى الأدلة المفتوحة.</strong> فـRadio Browser يصونه المجتمع والإضافة إليه مجانية؛ ومعظم التطبيقات والمواقع تسحب منه، ومنها هذا الموقع."><strong>Add yourself to the open directories.</strong> Radio Browser is community-maintained and free to submit to; most third-party apps and sites pull from it, including this one.</li>
+    <li data-en="<strong>Publish an https stream.</strong> An insecure http link is blocked inside secure websites, which silently removes you from a large share of potential listeners." data-ar="<strong>انشر بثّاً بـhttps.</strong> فالرابط غير الآمن يُحجب داخل المواقع الآمنة، ما يزيلك بصمت من شريحة واسعة من المستمعين المحتملين."><strong>Publish an https stream.</strong> An insecure http link is blocked inside secure websites, which silently removes you from a large share of potential listeners.</li>
+    <li data-en="<strong>Send correct metadata.</strong> Artist and title text costs nothing and is the difference between a player showing your station name and showing the record playing." data-ar="<strong>أرسل بيانات وصفية صحيحة.</strong> فنصّ الفنان والعنوان لا يكلّف شيئاً، وهو الفرق بين مشغّل يعرض اسم محطتك ومشغّل يعرض التسجيل العامل."><strong>Send correct metadata.</strong> Artist and title text costs nothing and is the difference between a player showing your station name and showing the record playing.</li>
+    <li data-en="<strong>Be reliable before you are ambitious.</strong> A station that drops every twenty minutes loses listeners permanently; they do not come back to check whether you fixed it." data-ar="<strong>كن موثوقاً قبل أن تكون طموحاً.</strong> فالمحطة التي تنقطع كل عشرين دقيقة تفقد مستمعيها نهائياً؛ ولا يعودون ليتحققوا هل أصلحتها."><strong>Be reliable before you are ambitious.</strong> A station that drops every twenty minutes loses listeners permanently; they do not come back to check whether you fixed it.</li>
+  </ul>
+  <div class="box">
+    <h3 data-en="A realistic first month" data-ar="شهر أول واقعي">A realistic first month</h3>
+  <p data-en="Week one: decide the format and gather enough material for twelve hours. Week two: get a stream running and listen to it yourself on a phone over mobile data, not on the same computer. Week three: fix everything that broke, because something will. Week four: submit to directories and tell people. Do not announce anything publicly until you have run the stream unattended for seventy-two hours without it stopping." data-ar="الأسبوع الأول: قرّر الصيغة واجمع مواد تكفي اثنتي عشرة ساعة. الأسبوع الثاني: شغّل بثّاً واستمع إليه بنفسك على هاتف عبر بيانات الجوال، لا على الحاسوب نفسه. الأسبوع الثالث: أصلح كل ما تعطّل، فشيء ما سيتعطّل. الأسبوع الرابع: أرسل إلى الأدلة وأخبر الناس. ولا تعلن شيئاً علناً حتى تُشغّل البثّ دون انتباه اثنتين وسبعين ساعة بلا توقّف.">Week one: decide the format and gather enough material for twelve hours. Week two: get a stream running and listen to it yourself on a phone over mobile data, not on the same computer. Week three: fix everything that broke, because something will. Week four: submit to directories and tell people. Do not announce anything publicly until you have run the stream unattended for seventy-two hours without it stopping.</p>
+  </div>
+  <blockquote data-en="The hard part of running a station was never the transmitter. It was having something worth transmitting, and that part has not changed at all." data-ar="لم يكن الجزء الصعب في إدارة محطة هو المرسل قط. بل أن يكون لديك ما يستحق الإرسال، وهذا الجزء لم يتغير إطلاقاً.">The hard part of running a station was never the transmitter. It was having something worth transmitting, and that part has not changed at all.</blockquote>
+
+
+  <a class="cta" href="../" data-en="Hear what others are doing &rarr;" data-ar="اسمع ما يفعله الآخرون &larr;">Hear what others are doing &rarr;</a>
+</main>
+
+<footer>
+  <nav>
+    <a href="../" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a>
+    <a href="../about.html" data-en="About" data-ar="من نحن">About</a>
+    <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+    <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+  </nav>
+  <div>© <span id="yr"></span> LiveRadio</div>
+</footer>
+
+<script>
+var lang=(function(){
+  var s=null;try{s=localStorage.getItem('lr_lang');}catch(e){}
+  if(s==='ar'||s==='en')return s;
+  var ls=[];try{ls=[navigator.language||''].concat(navigator.languages||[]);}catch(e){}
+  for(var i=0;i<ls.length;i++){if((ls[i]||'').toLowerCase().indexOf('ar')===0)return 'ar';}
+  return 'en';
+})();
+function apply(){
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
+  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  try{localStorage.setItem('lr_lang',lang);}catch(e){}
+}
+document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
+document.getElementById('yr').textContent=new Date().getFullYear();
+apply();
+</script>
+</body>
+</html>

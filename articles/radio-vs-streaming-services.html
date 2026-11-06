@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="yX25szfjBSoo35hZI9DG4jLp4pah3fZ07GVtTvfX_qk" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LKJTP0YVEN');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Radio vs streaming: which one should you actually be using | LiveRadio</title>
+<meta name="description" content="An honest comparison of radio and music streaming: discovery, cost, data use, offline listening, and why people with unlimited music still turn the radio on.">
+<link rel="canonical" href="https://worldliveradio.com/articles/radio-vs-streaming-services.html">
+<meta name="theme-color" content="#eef3fb">
+<meta property="og:title" content="Radio vs streaming: which one should you actually be using">
+<meta property="og:description" content="An honest comparison of radio and music streaming: discovery, cost, data use, offline listening, and why people with unlimited music still turn the radio on.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6fc; --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
+  --txt:#111a2e; --mut:#5a6880; --acc:#0d9488; --acc2:#5b53e0;
+  --shadow:rgba(23,38,74,.09);
+  --headG:linear-gradient(120deg,#e8f1ff 0%,#eeeafd 48%,#fdeef4 100%);
+  --footG:linear-gradient(120deg,#fdeef4 0%,#eeeafd 52%,#e8f1ff 100%);
+  --cardG:linear-gradient(170deg,#ffffff 0%,#f6f9ff 100%);
+  --font:'Outfit','Cairo',system-ui,sans-serif;box-sizing:border-box;
+}
+html[data-theme="dark"]{
+  --bg:#0b0f1a; --card:#161d31; --card2:#1c2440; --line:#232c45;
+  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1;
+  --shadow:rgba(0,0,0,.35);
+  --headG:linear-gradient(120deg,#0e1526,#121a2e 60%,#17132a);
+  --footG:linear-gradient(120deg,#17132a,#121a2e 48%,#0e1526);
+  --cardG:linear-gradient(170deg,#161d31,#141b2d);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--txt);font-family:var(--font);
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Cairo',var(--font)}
+a{color:var(--acc);text-decoration:none}
+button{font-family:inherit}
+header{position:sticky;top:0;z-index:30;background:var(--headG);border-bottom:1px solid var(--line);
+padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(10px)}
+.hrow{display:flex;align-items:center;gap:10px;padding:12px 16px;max-width:760px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--txt)}
+.logo-dot{width:11px;height:11px;border-radius:50%;background:var(--acc)}
+.logo span{color:var(--acc)}
+.spacer{flex:1}
+.btn{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px var(--shadow)}
+main{max-width:760px;margin:0 auto;padding:22px 18px 60px}
+.crumb{font-size:13px;color:var(--mut);margin-bottom:14px}
+.tagx{display:inline-block;font-size:12px;color:var(--acc);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800;
+background:linear-gradient(100deg,var(--acc),var(--acc2) 70%);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{color:var(--acc2)}
+.playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
+padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
+margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
+.playbtn:hover{filter:brightness(1.07)}
+.meta{color:var(--mut);font-size:14px;margin-bottom:22px}
+.hero{height:190px;border-radius:18px;margin-bottom:26px;position:relative;overflow:hidden;
+background:linear-gradient(90deg,#7c2d12,#312e81 50%,#065f46);display:grid;place-items:center}
+.hero svg{width:100%;height:100%;display:block}
+.hero .wav{display:flex;gap:6px;align-items:flex-end;height:68px}
+.hero .wav i{width:8px;background:rgba(255,255,255,.88);border-radius:4px;display:block;animation:w 1.4s ease-in-out infinite}
+.hero .wav i:nth-child(1){height:24px;animation-delay:0s}
+.hero .wav i:nth-child(2){height:48px;animation-delay:.15s}
+.hero .wav i:nth-child(3){height:68px;animation-delay:.3s}
+.hero .wav i:nth-child(4){height:40px;animation-delay:.45s}
+.hero .wav i:nth-child(5){height:58px;animation-delay:.6s}
+.hero .wav i:nth-child(6){height:28px;animation-delay:.75s}
+.hero .wav i:nth-child(7){height:46px;animation-delay:.9s}
+@keyframes w{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+h2{font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
+h3{font-size:18px;margin:26px 0 8px;font-weight:700}
+p{line-height:1.85;color:var(--txt);opacity:.93;margin:0 0 16px;font-size:16.5px}
+ul,ol{line-height:1.85;color:var(--txt);opacity:.93;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
+li{margin-bottom:9px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:start}
+th{background:var(--card2);font-weight:700}
+blockquote{border-inline-start:3px solid var(--acc);margin:24px 0;padding-inline-start:16px;
+color:var(--mut);font-style:italic;line-height:1.8}
+.box{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:18px;margin:28px 0;
+box-shadow:0 2px 8px var(--shadow)}
+.box h3{margin-top:0}
+.cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
+color:#fff;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px;
+box-shadow:0 6px 18px var(--shadow)}
+footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;color:var(--mut);
+font-size:14px;background:var(--footG)}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
+footer nav a{color:var(--mut)}
+footer nav a:hover{color:var(--acc)}
+</style>
+<script>
+(function(){
+  var t='light';
+  try{var v=JSON.parse(localStorage.getItem('lr_theme'));if(v==='dark'||v==='light')t=v;}catch(e){}
+  document.documentElement.setAttribute('data-theme',t);
+  var m=document.querySelector('meta[name=theme-color]');
+  if(m)m.setAttribute('content',t==='dark'?'#0e1526':'#eef3fb');
+})();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <a class="logo" href="../"><span class="logo-dot"></span>Live<span>Radio</span></a>
+    <div class="spacer"></div>
+    <button class="btn" id="langBtn">العربية</button>
+  </div>
+</header>
+
+<main>
+  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Explainers" data-ar="شروحات">Explainers</a></div>
+  <span class="tagx" data-en="Explainer" data-ar="شرح">Explainer</span>
+  <h1 data-en="Radio vs streaming: which one should you actually be using" data-ar="الراديو مقابل خدمات البثّ: أيّهما ينبغي أن تستعمل فعلاً">Radio vs streaming: which one should you actually be using</h1>
+  <div class="meta"><span data-en="Updated November 2026 · 8 min read" data-ar="تحديث نونبر 2026 · قراءة 8 دقائق">Updated November 2026 · 8 min read</span></div>
+
+  <div class="hero"><svg viewBox="0 0 800 190" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Radio tower facing a play button">
+<defs><linearGradient id="v1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7c2d12"/><stop offset=".5" stop-color="#312e81"/><stop offset="1" stop-color="#065f46"/></linearGradient></defs>
+<rect width="800" height="190" fill="url(#v1)"/>
+<line x1="400" y1="18" x2="400" y2="172" stroke="#fff" stroke-opacity=".25" stroke-width="2" stroke-dasharray="7 7"/>
+<g transform="translate(215 100)"><g stroke="#fff" stroke-opacity=".9" stroke-width="3" fill="none">
+<path d="M0 -62 L-26 70 M0 -62 L26 70"/><path d="M-14 10 L14 10 M-20 42 L20 42"/></g>
+<circle cy="-66" r="6" fill="#fde68a"/>
+<g fill="none" stroke="#fde68a" stroke-opacity=".45" stroke-width="2"><path d="M-34 -50 a46 46 0 0 0 0 54"/><path d="M34 -50 a46 46 0 0 1 0 54"/></g></g>
+<g transform="translate(585 100)"><rect x="-52" y="-52" width="104" height="104" rx="26" fill="#fff" fill-opacity=".92"/>
+<path d="M-14 -24 L30 0 L-14 24 Z" fill="#312e81"/></g>
+<g fill="#fff" fill-opacity=".5"><circle cx="400" cy="100" r="16" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/></g></svg></div>
+
+  <p data-en="This is not a fair fight, and that is what makes it interesting. Spotify and Apple Music hold tens of millions of tracks and know exactly what you skipped last Tuesday. Radio holds whatever the presenter decided this morning and knows nothing about you at all. By any reasonable measure the streaming service should have ended radio a decade ago. It did not, and the reasons are worth understanding properly." data-ar="ليست هذه معركة عادلة، وهذا ما يجعلها مثيرة. فسبوتيفاي وآبل ميوزيك تملكان عشرات الملايين من المقطوعات وتعرفان بالضبط ما تخطّيتَه الثلاثاء الماضي. أما الراديو فلا يملك إلا ما قرّره المقدّم هذا الصباح ولا يعرف عنك شيئاً إطلاقاً. وبأي مقياس معقول كان ينبغي لخدمة البثّ أن تنهي الراديو قبل عقد. ولم تفعل، والأسباب تستحق فهماً صحيحاً.">This is not a fair fight, and that is what makes it interesting. Spotify and Apple Music hold tens of millions of tracks and know exactly what you skipped last Tuesday. Radio holds whatever the presenter decided this morning and knows nothing about you at all. By any reasonable measure the streaming service should have ended radio a decade ago. It did not, and the reasons are worth understanding properly.</p>
+  <a class="playbtn" href="../#q=BBC%20Radio%206%20Music" data-station="BBC Radio 6 Music"><span class="ic">&#9654;</span> <span data-en="Hear the difference now" data-ar="اسمع الفرق الآن">Hear the difference now</span></a>
+  <h2 data-en="What streaming genuinely does better" data-ar="ما تتقنه خدمات البثّ فعلاً">What streaming genuinely does better</h2>
+  <ul>
+    <li data-en="<strong>Exactly what you want, instantly.</strong> No other medium can do this. If you want one specific song right now, radio is useless and the argument ends there." data-ar="<strong>ما تريده بالضبط وفوراً.</strong> ولا وسيط آخر يستطيع ذلك. فإن أردت أغنية بعينها الآن، فالراديو عديم الفائدة وينتهي الجدال هنا."><strong>Exactly what you want, instantly.</strong> No other medium can do this. If you want one specific song right now, radio is useless and the argument ends there.</li>
+    <li data-en="<strong>Offline listening.</strong> Downloaded tracks work on a plane, in a tunnel, with no signal. Radio cannot." data-ar="<strong>الاستماع دون اتصال.</strong> فالمقطوعات المنزَّلة تعمل في طائرة أو نفق أو بلا إشارة. والراديو لا يستطيع."><strong>Offline listening.</strong> Downloaded tracks work on a plane, in a tunnel, with no signal. Radio cannot.</li>
+    <li data-en="<strong>No interruptions on a paid plan.</strong> No adverts, no presenter, no traffic report you did not need." data-ar="<strong>بلا مقاطعات في الخطة المدفوعة.</strong> لا إعلانات ولا مقدّم ولا نشرة سير لم تكن تحتاجها."><strong>No interruptions on a paid plan.</strong> No adverts, no presenter, no traffic report you did not need.</li>
+    <li data-en="<strong>Audio quality ceiling.</strong> A paid tier streams at a bitrate most radio stations cannot afford to serve per listener." data-ar="<strong>سقف جودة الصوت.</strong> فالخطة المدفوعة تبثّ بمعدل بت لا تقدر معظم المحطات على تقديمه لكل مستمع."><strong>Audio quality ceiling.</strong> A paid tier streams at a bitrate most radio stations cannot afford to serve per listener.</li>
+  </ul>
+  <h2 data-en="What radio does that streaming structurally cannot" data-ar="ما يفعله الراديو ولا تستطيعه خدمات البثّ بنيوياً">What radio does that streaming structurally cannot</h2>
+  <h3 data-en="It removes the decision" data-ar="يُلغي القرار">It removes the decision</h3>
+  <p data-en="A playlist is a sequence of small choices presented to you while you are trying to do something else. Radio takes the choice away entirely and replaces it with someone else's judgement, which is far more restful than it sounds. This is the single most underrated difference, and it is the reason people who have unlimited music still put the radio on. We go into it properly in <a href='./radio-for-focus-and-work.html'>radio for focus</a>." data-ar="قائمة التشغيل سلسلة اختيارات صغيرة تُعرض عليك بينما تحاول فعل شيء آخر. والراديو يأخذ الاختيار كلياً ويستبدله بحكم شخص آخر، وهذا أكثر راحةً بكثير مما يبدو. وهذا أكثر الفروق بخساً لحقّه، وهو سبب تشغيل من يملكون موسيقى بلا حدود للراديو. ونتناوله كما ينبغي في <a href='./radio-for-focus-and-work.html'>الراديو للتركيز</a>.">A playlist is a sequence of small choices presented to you while you are trying to do something else. Radio takes the choice away entirely and replaces it with someone else's judgement, which is far more restful than it sounds. This is the single most underrated difference, and it is the reason people who have unlimited music still put the radio on. We go into it properly in <a href='./radio-for-focus-and-work.html'>radio for focus</a>.</p>
+  <h3 data-en="It plays what you would never search for" data-ar="يشغّل ما لن تبحث عنه أبداً">It plays what you would never search for</h3>
+  <p data-en="A recommendation engine works by similarity: it shows you more of what you already chose. That is an excellent tool for deepening a taste and a poor one for changing it. Radio has no such constraint. A presenter can follow a Nigerian record with a Turkish psych reissue because they feel like it, and nobody searches for a thing they do not know exists." data-ar="يعمل محرك التوصيات بالتشابه: يعرض عليك مزيداً مما اخترته سلفاً. وهذه أداة ممتازة لتعميق ذوق ورديئة لتغييره. والراديو بلا هذا القيد. فبإمكان مقدّم أن يُتبع تسجيلاً نيجيرياً بإعادة إصدار سايكدلي تركي لأنه يشعر بذلك، ولا أحد يبحث عن شيء لا يعرف أنه موجود.">A recommendation engine works by similarity: it shows you more of what you already chose. That is an excellent tool for deepening a taste and a poor one for changing it. Radio has no such constraint. A presenter can follow a Nigerian record with a Turkish psych reissue because they feel like it, and nobody searches for a thing they do not know exists.</p>
+  <h3 data-en="It is local, live and free" data-ar="محليّ ومباشر ومجاني">It is local, live and free</h3>
+  <p data-en="A streaming service does not know your road is closed, that it is raining in your town, or that the match just ended. Radio is the only audio medium with a present tense. It is also free at the point of use, which matters more than a subscriber in a wealthy country tends to assume — for a very large share of the world's listeners, free is the entire argument." data-ar="خدمة البثّ لا تعرف أن طريقك مغلق، ولا أنها تمطر في بلدتك، ولا أن المباراة انتهت للتوّ. والراديو هو الوسيط الصوتي الوحيد ذو الزمن الحاضر. وهو أيضاً مجاني عند الاستعمال، وهذا يهمّ أكثر مما يفترضه مشترك في بلد غني — فبالنسبة لشريحة واسعة جداً من مستمعي العالم، المجانية هي الحجة كلها.">A streaming service does not know your road is closed, that it is raining in your town, or that the match just ended. Radio is the only audio medium with a present tense. It is also free at the point of use, which matters more than a subscriber in a wealthy country tends to assume — for a very large share of the world's listeners, free is the entire argument.</p>
+  <h2 data-en="Side by side" data-ar="جنباً إلى جنب">Side by side</h2>
+  <table>
+    <tr><th data-en="" data-ar=""></th><th data-en="Radio" data-ar="الراديو">Radio</th><th data-en="Streaming" data-ar="خدمات البثّ">Streaming</th></tr>
+    <tr><td data-en="Pick a specific song" data-ar="اختيار أغنية بعينها">Pick a specific song</td><td data-en="No" data-ar="لا">No</td><td data-en="Yes" data-ar="نعم">Yes</td></tr>
+    <tr><td data-en="Discover something unlike your taste" data-ar="اكتشاف ما يخالف ذوقك">Discover something unlike your taste</td><td data-en="Yes" data-ar="نعم">Yes</td><td data-en="Rarely" data-ar="نادراً">Rarely</td></tr>
+    <tr><td data-en="Works offline" data-ar="يعمل دون اتصال">Works offline</td><td data-en="FM yes, online no" data-ar="FM نعم، الإنترنت لا">FM yes, online no</td><td data-en="Yes, downloaded" data-ar="نعم، منزَّل">Yes, downloaded</td></tr>
+    <tr><td data-en="Cost" data-ar="الكلفة">Cost</td><td data-en="Free" data-ar="مجاني">Free</td><td data-en="Subscription" data-ar="اشتراك">Subscription</td></tr>
+    <tr><td data-en="Live and local" data-ar="مباشر ومحلي">Live and local</td><td data-en="Yes" data-ar="نعم">Yes</td><td data-en="No" data-ar="لا">No</td></tr>
+    <tr><td data-en="Data use per hour" data-ar="البيانات في الساعة">Data use per hour</td><td data-en="~29–58 MB" data-ar="~29–58 م.ب">~29–58 MB</td><td data-en="~70–150 MB" data-ar="~70–150 م.ب">~70–150 MB</td></tr>
+    <tr><td data-en="Needs a decision from you" data-ar="يتطلب قراراً منك">Needs a decision from you</td><td data-en="No" data-ar="لا">No</td><td data-en="Constantly" data-ar="باستمرار">Constantly</td></tr>
+  </table>
+  <h2 data-en="The honest conclusion" data-ar="الخلاصة الصادقة">The honest conclusion</h2>
+  <p data-en="They are not competitors, they are different tools, and the people who get the most out of both treat them that way. Streaming is for intent: you know what you want and you go and get it. Radio is for everything else — background, discovery, the drive home, the hours when choosing feels like work. A sensible setup is a subscription for the first case and two saved stations for the second, and almost nobody sets it up deliberately." data-ar="ليسا متنافسين بل أداتين مختلفتين، ومن يستفيد منهما أكثر يعاملهما هكذا. فخدمات البثّ للقصد: تعرف ما تريد فتذهب وتأخذه. والراديو لكل ما عدا ذلك — الخلفية والاكتشاف وطريق العودة والساعات التي يبدو فيها الاختيار عملاً. والترتيب المعقول اشتراكٌ للحالة الأولى ومحطتان محفوظتان للثانية، ولا يكاد أحد يضع هذا الترتيب عن قصد.">They are not competitors, they are different tools, and the people who get the most out of both treat them that way. Streaming is for intent: you know what you want and you go and get it. Radio is for everything else — background, discovery, the drive home, the hours when choosing feels like work. A sensible setup is a subscription for the first case and two saved stations for the second, and almost nobody sets it up deliberately.</p>
+  <blockquote data-en="Streaming solved access. It never solved choice, and choice is the expensive part." data-ar="حلّت خدمات البثّ مشكلة الوصول. ولم تحلّ مشكلة الاختيار قط، والاختيار هو الجزء المكلف.">Streaming solved access. It never solved choice, and choice is the expensive part.</blockquote>
+  <div class="box">
+    <h3 data-en="One experiment worth running" data-ar="تجربة تستحق التنفيذ">One experiment worth running</h3>
+  <p data-en="For one week, use streaming only when you want a specific thing and radio for everything else. Most people report two findings: they discovered more new music than in the previous month, and they spent noticeably less time deciding what to listen to. Our <a href='./best-radio-stations-world.html'>station guide</a> is a reasonable starting point for the second half." data-ar="لمدة أسبوع، استعمل خدمة البثّ حين تريد شيئاً بعينه فقط، والراديو لكل ما عداه. ويفيد معظم الناس بنتيجتين: اكتشفوا موسيقى جديدة أكثر مما اكتشفوا في الشهر السابق، وأمضوا وقتاً أقل بوضوح في تقرير ما يستمعون إليه. و<a href='./best-radio-stations-world.html'>دليل المحطات</a> نقطة انطلاق معقولة للنصف الثاني.">For one week, use streaming only when you want a specific thing and radio for everything else. Most people report two findings: they discovered more new music than in the previous month, and they spent noticeably less time deciding what to listen to. Our <a href='./best-radio-stations-world.html'>station guide</a> is a reasonable starting point for the second half.</p>
+  </div>
+
+
+  <a class="cta" href="../" data-en="Try a station now &rarr;" data-ar="جرّب محطة الآن &larr;">Try a station now &rarr;</a>
+</main>
+
+<footer>
+  <nav>
+    <a href="../" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a>
+    <a href="../about.html" data-en="About" data-ar="من نحن">About</a>
+    <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+    <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+  </nav>
+  <div>© <span id="yr"></span> LiveRadio</div>
+</footer>
+
+<script>
+var lang=(function(){
+  var s=null;try{s=localStorage.getItem('lr_lang');}catch(e){}
+  if(s==='ar'||s==='en')return s;
+  var ls=[];try{ls=[navigator.language||''].concat(navigator.languages||[]);}catch(e){}
+  for(var i=0;i<ls.length;i++){if((ls[i]||'').toLowerCase().indexOf('ar')===0)return 'ar';}
+  return 'en';
+})();
+function apply(){
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
+  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  try{localStorage.setItem('lr_lang',lang);}catch(e){}
+}
+document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
+document.getElementById('yr').textContent=new Date().getFullYear();
+apply();
+</script>
+</body>
+</html>
