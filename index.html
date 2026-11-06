@@ -179,7 +179,16 @@ footer nav a:hover{color:var(--acc)}
 #page .crumb{font-size:13px;color:var(--mut);margin-bottom:14px}
 #page .crumb a{color:var(--acc)}
 #page .tagx{display:inline-block;font-size:12px;color:var(--acc);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-#page h1{font-size:clamp(25px,6vw,36px);line-height:1.24;margin:10px 0 12px;font-weight:800}
+#page h1{font-size:clamp(25px,6vw,36px);line-height:1.24;margin:10px 0 12px;font-weight:800;
+  background:linear-gradient(100deg,var(--acc),var(--acc2) 70%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+#page h2{color:var(--acc2)}
+#page .playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
+  padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
+  margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
+#page .playbtn:hover{filter:brightness(1.07)}
+#page .playbtn .ic{font-size:18px}
 #page .meta{color:var(--mut);font-size:14px;margin-bottom:22px}
 #page .hero{height:170px;border-radius:18px;margin:0 0 26px;padding:0;max-width:none;position:relative;
   overflow:hidden;background:linear-gradient(135deg,#0f766e,#4338ca 60%,#be123c);display:grid;place-items:center}
@@ -493,7 +502,8 @@ var I={
   usage:'Playing at <b>{b} kbps</b> · about <b>{m} MB</b> per hour',
   usage2:'Quality setting: {q}',hrs:'h',
   retry:'Connection lost — reconnecting ({n}/3)…',skipped:'Station failed, moving to the next one',
-  unknown:'Unknown',loading:'Loading…',pageErr:'Could not load that page.'},
+  unknown:'Unknown',loading:'Loading…',pageErr:'Could not load that page.',
+  finding:'Finding {s}…',notFound:'Could not find {s} right now.'},
  ar:{h1:'استمع إلى العالم، <em>مباشرةً</em>.',
   sub:'مئات المحطات الإذاعية المجانية من كل دول العالم. اختر محطة وتابع التصفح — الصوت لا يتوقف.',
   popular:'المحطات الأكثر استماعاً',favs:'محطاتك المفضلة',recent:'استمعت مؤخراً',near:'محطات من {c}',
@@ -519,7 +529,8 @@ var I={
   usage:'يعمل بـ <b>{b} kbps</b> · نحو <b>{m} م.ب</b> في الساعة',
   usage2:'إعداد الجودة: {q}',hrs:'س',
   retry:'انقطع الاتصال — إعادة المحاولة ({n}/3)…',skipped:'تعذّرت المحطة، الانتقال إلى التالية',
-  unknown:'غير معروف',loading:'جارٍ التحميل…',pageErr:'تعذّر تحميل الصفحة.'}
+  unknown:'غير معروف',loading:'جارٍ التحميل…',pageErr:'تعذّر تحميل الصفحة.',
+  finding:'جارٍ البحث عن {s}…',notFound:'تعذّر العثور على {s} الآن.'}
 };
 /* default language: English, unless the device is Arabic */
 var lang=(function(){
@@ -1012,7 +1023,7 @@ function loadPage(url,push){
     document.title=t?t.textContent:'LiveRadio';
     if(push)history.pushState({p:url},'',url);
     gaView(new URL(url).pathname,document.title);
-    hookPageLinks();initArticlesList();
+    hookPageLinks();hookPlayButtons();initArticlesList();
   }).catch(function(){
     pageEl.innerHTML='<button class="backb" id="backBtn">'+T('backHome')+'</button>'+
       '<div id="pLoad">'+T('pageErr')+'</div>';
@@ -1102,7 +1113,7 @@ function applyLang(){
   langBtn.textContent=lang==='en'?'العربية':'English';
   if(country.options.length)country.options[0].textContent=d.allc;
   buildGenres();updateTitle();renderRecent();drawArticles();drawStats();drawUsage();syncQ();drawLocal();
-  if(!isHome()){trans(pageEl);initArticlesList();}
+  if(!isHome()){trans(pageEl);hookPlayButtons();initArticlesList();}
   hookPageLinks();
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
 }
@@ -1120,8 +1131,35 @@ window.addEventListener('keydown',function(e){
 });
 window.addEventListener('beforeunload',function(){LS.set('lr_mine',mine);});
 
+function playByName(name){
+  if(!name)return;
+  toast(T('finding').replace('{s}',name));
+  return api('/json/stations/search?hidebroken=true&limit=30&order=clickcount&reverse=true&name='
+      +encodeURIComponent(name))
+   .then(function(d){
+     var l=clean(d);
+     if(!l.length){toast(T('notFound').replace('{s}',name));return;}
+     l.sort(function(a,b){return (b.votes||0)-(a.votes||0);});
+     play(l[0]);
+   }).catch(function(){toast(T('err'));});
+}
+function hookPlayButtons(){
+  var bs=pageEl.querySelectorAll('.playbtn[data-station]');
+  for(var i=0;i<bs.length;i++){
+    if(bs[i].dataset.hookedp)continue;
+    bs[i].dataset.hookedp='1';
+    bs[i].addEventListener('click',function(e){
+      e.preventDefault();playByName(this.dataset.station);
+    });
+  }
+}
 function openHash(){
   var h=location.hash||'';
+  var q=h.match(/q=([^&]+)/);
+  if(q){
+    var nm='';try{nm=decodeURIComponent(q[1].replace(/\+/g,' '));}catch(e){nm=q[1];}
+    playByName(nm);return;
+  }
   var m=h.match(/s=([0-9a-fA-F-]{10,})/);
   if(!m)return;
   api('/json/stations/byuuid/'+m[1]).then(function(d){

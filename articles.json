@@ -1,5 +1,85 @@
 [
   {
+    "slug": "jovem-pan-brazil-guide",
+    "date": "2026-11-06",
+    "tag": {
+      "en": "Station guide",
+      "ar": "دليل محطة"
+    },
+    "title": {
+      "en": "Jovem Pan: the network that unified Brazilian pop radio",
+      "ar": "جوفم بان: الشبكة التي وحّدت راديو البوب البرازيلي"
+    },
+    "desc": {
+      "en": "How a 1994 satellite decision gave a continent-sized country one shared pop culture.",
+      "ar": "كيف منح قرارٌ ساتليّ سنة 1994 بلداً بحجم قارة ثقافةَ بوب واحدة مشتركة."
+    }
+  },
+  {
+    "slug": "radio-mirchi-india-guide",
+    "date": "2026-11-06",
+    "tag": {
+      "en": "Station guide",
+      "ar": "دليل محطة"
+    },
+    "title": {
+      "en": "Radio Mirchi 98.3: inside India's biggest FM network",
+      "ar": "راديو مرتشي 98.3: داخل أكبر شبكة FM في الهند"
+    },
+    "desc": {
+      "en": "Why a ban on broadcasting news produced the most personality-driven radio in the world.",
+      "ar": "لماذا أنتج منعُ بثّ الأخبار أكثر راديو في العالم اعتماداً على الشخصية."
+    }
+  },
+  {
+    "slug": "nrj-radio-france-guide",
+    "date": "2026-11-06",
+    "tag": {
+      "en": "Station guide",
+      "ar": "دليل محطة"
+    },
+    "title": {
+      "en": "NRJ: the Paris pirate that became Europe's biggest pop network",
+      "ar": "NRJ: قرصان باريس الذي صار أكبر شبكة بوب في أوروبا"
+    },
+    "desc": {
+      "en": "From an illegal frequency in 1981 to stations across a dozen countries — and why French quotas made it better.",
+      "ar": "من تردد غير قانوني سنة 1981 إلى محطات في عشرات الدول — ولماذا جعلتها الحصص الفرنسية أفضل."
+    }
+  },
+  {
+    "slug": "npr-public-radio-guide",
+    "date": "2026-11-06",
+    "tag": {
+      "en": "Station guide",
+      "ar": "دليل محطة"
+    },
+    "title": {
+      "en": "NPR: how American public radio holds an audience without shouting",
+      "ar": "NPR: كيف يُمسك الراديو العام الأمريكي بجمهوره دون صراخ"
+    },
+    "desc": {
+      "en": "A thousand member stations, two defining programmes, and an economic model unlike the rest of the dial.",
+      "ar": "ألف محطة عضو، وبرنامجان يحدّدانها، ونموذج اقتصادي يختلف عن بقية المؤشر."
+    }
+  },
+  {
+    "slug": "bbc-radio-1-guide",
+    "date": "2026-11-06",
+    "tag": {
+      "en": "Station guide",
+      "ar": "دليل محطة"
+    },
+    "title": {
+      "en": "BBC Radio 1: the station that invented modern pop radio",
+      "ar": "BBC Radio 1: المحطة التي اخترعت راديو البوب الحديث"
+    },
+    "desc": {
+      "en": "Born from the 1967 pirate radio ban, still the station labels watch. What to hear and when.",
+      "ar": "وُلدت من حظر راديو القراصنة سنة 1967، وما زالت المحطة التي تراقبها شركات الإنتاج. بمَ تستمع ومتى."
+    }
+  },
+  {
     "slug": "radio-in-the-car",
     "date": "2026-10-31",
     "tag": {
