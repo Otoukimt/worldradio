@@ -15,16 +15,12 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>germany Radio Online — Live Stations | LiveRadio</title>
-<meta name="description" content="German radio online: from the 1923 Vox-Haus broadcast to
-today's ARD networks and DAB+ dial — thousands of live
-stations, free.">
+<meta name="description" content="Listen to live radio from germany online: news, music, sport and Quran stations, free and without an app.">
 <link rel="canonical" href="https://worldliveradio.com/countries/germany.html">
 <meta name="theme-color" content="#e4ecf7">
 <link rel="icon" href="../icon-192.png">
 <meta property="og:title" content="germany Radio Online — Live Stations">
-<meta property="og:description" content="German radio online: from the 1923 Vox-Haus broadcast to
-today's ARD networks and DAB+ dial — thousands of live
-stations, free.">
+<meta property="og:description" content="Listen to live radio from germany online: news, music, sport and Quran stations, free and without an app.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -227,11 +223,24 @@ function grp(s){
   return 'other';
 }
 var M=['https://de2.api.radio-browser.info','https://nl1.api.radio-browser.info','https://at1.api.radio-browser.info'];
-function api(p){var i=0;function n(){if(i>=M.length)return Promise.resolve(null);
-  var m=M[i++];return fetch(m+p).then(function(r){return r.ok?r.json():n()}).catch(n);}return n();}
+/* المرايا الثلاث معاً وأسرعها يفوز، بمهلة 8 ثوانٍ لكل منها */
+function api(p){
+  return new Promise(function(resolve){
+    var done=false,left=M.length;
+    M.forEach(function(m){
+      var ctl=null,t=null;
+      try{ctl=new AbortController();}catch(e){}
+      t=setTimeout(function(){if(ctl)try{ctl.abort();}catch(e){}},8000);
+      fetch(m+p,ctl?{signal:ctl.signal}:undefined)
+        .then(function(r){if(!r.ok)throw 0;return r.json();})
+        .then(function(d){clearTimeout(t);if(!done){done=true;resolve(d);}})
+        .catch(function(){clearTimeout(t);if(--left<=0&&!done){done=true;resolve(null);}});
+    });
+  });
+}
 function normUrl(u){return (u||'').toLowerCase().replace(/^https?:\/\//,'').replace(/[?#].*$/,'')
   .replace(/\/+$/,'').replace(/;+$/,'');}
-var list=[],cat='';
+var list=[],cat='',loading=true;
 function card(s){
   var b=document.createElement('button');b.className='st';
   var r=document.createElement('div');r.className='ring';
@@ -265,7 +274,8 @@ function draw(){
   var body=$('body');body.innerHTML='';
   var sel=list.filter(function(s){return !cat||grp(s)===cat;});
   $('cnt').textContent=sel.length+' '+(lang==='ar'?'محطة':'stations');
-  if(!sel.length){$('status').textContent=(lang==='ar'?'لا محطات.':'No stations.');return;}
+  if(!sel.length){$('status').textContent=loading?(lang==='ar'?'جارٍ التحميل…':'Loading…')
+    :(lang==='ar'?'لا محطات.':'No stations.');return;}
   $('status').textContent='';
   if(cat){
     var g=document.createElement('div');g.className='grid';
@@ -309,13 +319,14 @@ $('langBtn').onclick=function(){lang=(lang==='en')?'ar':'en';apply();};
 
 api('/json/stations/search?hidebroken=true&limit=250&order=clickcount&reverse=true&countrycode='+CC)
  .then(function(d){
+   loading=false;
    var seen={};
    list=(d||[]).filter(function(s){
      var u=s.url_resolved||s.url||'';
      if(u.indexOf('https://')!==0||!s.name)return false;
      var k=normUrl(u);if(!k||seen[k])return false;seen[k]=1;return true;});
    apply();
- }).catch(function(){$('status').textContent='—';});
+ }).catch(function(){loading=false;$('status').textContent='—';});
 
 fetch('../articles.json').then(function(r){return r.json();}).then(function(all){
   var pick=all.filter(function(p){return (p.cc||'').toUpperCase()===CC;});
