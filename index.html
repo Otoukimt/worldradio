@@ -30,15 +30,16 @@
 <style>
 /* ===== LIGHT: tinted, never stark white ===== */
 :root{
-  --bg:#eef2fa; --bg2:#e6ecf8;
-  --card:#f7f9fe; --card2:#e9eefb; --line:#d7e0f0;
-  --txt:#121b2f; --mut:#5a6782; --acc:#0d9488; --acc2:#5b53e0;
-  --shadow:rgba(23,38,74,.10);
-  --headG:linear-gradient(120deg,#e4edff 0%,#eae7fb 48%,#fbeaf2 100%);
-  --footG:linear-gradient(120deg,#fbeaf2 0%,#eae7fb 52%,#e4edff 100%);
-  --cardG:linear-gradient(170deg,#f9fbff 0%,#eef3fc 100%);
-  --ringG:linear-gradient(135deg,#dbe4f6,#e8e2f8);
-  --pbg:linear-gradient(180deg,#f7f9fe 0%,#e9eefb 100%);
+  --bg:#e4ecf7; --bg2:#dbe6f6;
+  --card:#f1f6fd; --card2:#dde8f8; --line:#c4d4ea;
+  --txt:#0f1a2e; --mut:#4f5f7c; --acc:#0d8c82; --acc2:#5247d6;
+  --shadow:rgba(16,32,66,.13);
+  --headG:linear-gradient(120deg,#cfe2ff 0%,#ddd8fa 46%,#fbd9e8 100%);
+  --footG:linear-gradient(120deg,#fbd9e8 0%,#ddd8fa 52%,#cfe2ff 100%);
+  --cardG:linear-gradient(170deg,#f4f8fe 0%,#e3ecfa 100%);
+  --ringG:linear-gradient(135deg,#c9daf3,#ddd3f6);
+  --pbg:linear-gradient(180deg,#f1f6fd 0%,#dde8f8 100%);
+  --heroG:linear-gradient(180deg,rgba(207,226,255,.75) 0%,rgba(228,236,247,0) 100%);
   --font:'Outfit','Cairo',system-ui,sans-serif;
   box-sizing:border-box;
 }
@@ -52,6 +53,7 @@ html[data-theme="dark"]{
   --cardG:linear-gradient(170deg,#161d31,#141b2d);
   --ringG:linear-gradient(135deg,#232c45,#1c2440);
   --pbg:linear-gradient(180deg,#141b2d,#111829);
+  --heroG:linear-gradient(180deg,rgba(23,19,42,.65) 0%,rgba(11,15,26,0) 100%);
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-behavior:smooth;height:100%}
@@ -81,7 +83,8 @@ header{position:sticky;top:0;z-index:30;background:var(--headG);
 .ibtn{width:37px;height:37px;border-radius:50%;display:grid;place-items:center;padding:0;font-size:15px}
 
 .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-.hero{text-align:center;padding:26px 16px 4px;max-width:1100px;margin:0 auto}
+.herowrap{background:var(--heroG);padding-bottom:6px;border-bottom:1px solid var(--line)}
+.hero{text-align:center;padding:26px 16px 18px;max-width:1100px;margin:0 auto}
 .hero h1{font-size:clamp(25px,6vw,40px);margin:0 0 10px;line-height:1.2;font-weight:800}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--acc),var(--acc2));
   -webkit-background-clip:text;background-clip:text;color:transparent}
@@ -92,7 +95,9 @@ header{position:sticky;top:0;z-index:30;background:var(--headG);
   border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 1px 2px var(--shadow)}
 .tab.on{border-color:var(--acc);color:var(--txt);background:linear-gradient(170deg,var(--card),var(--card2))}
 
-.sec{max-width:1100px;margin:0 auto;padding:18px 16px 4px}
+.sec{max-width:1100px;margin:14px auto;padding:16px;border-radius:18px;
+  background:var(--cardG);border:1px solid var(--line);box-shadow:0 2px 10px var(--shadow)}
+@media(max-width:620px){.sec{margin:10px 10px;padding:14px 12px;border-radius:16px}}
 .sechead{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
 .sec h2{font-size:18px;margin:0;font-weight:800}
 .cnt{font-size:12.5px;color:var(--mut);font-weight:600}
@@ -326,10 +331,10 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 <div id="page"></div>
 
 <div id="home">
-  <section class="hero">
+  <div class="herowrap"><section class="hero">
     <h1 data-i="h1">Listen to the world, <em>live</em>.</h1>
     <p data-i="sub">Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.</p>
-  </section>
+  </section></div>
 
   <div class="tabs">
     <button class="tab on" data-tab="all" data-i="tAll">Browse</button>
@@ -470,6 +475,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     <div class="kv"><span class="k" data-i="kLang">Language</span><span class="v" id="iLang">—</span></div>
     <div class="kv"><span class="k" data-i="kData2">Data per hour</span><span class="v" id="iData">—</span></div>
     <div class="kv"><span class="k" data-i="kVotes">Listener votes</span><span class="v" id="iVotes">—</span></div>
+    <div class="kv"><span class="k" data-i="kStream">Stream</span><span class="v" id="iStream" style="font-size:11px;direction:ltr">—</span></div>
     <div class="kv" id="iSiteRow" style="display:none"><span class="k" data-i="kSite">Website</span><span class="v"><a id="iSite" href="#" target="_blank" rel="noopener nofollow" style="color:var(--acc)">—</a></span></div>
     <div class="ibtns" style="margin-top:18px">
       <button class="main" id="iPlay" data-i="iPlay">Play</button>
@@ -553,7 +559,8 @@ var I={
   guides:'Radio guides &amp; articles',allArts:'See all &rarr;',allArts2:'Articles',
   about:'About',privacy:'Privacy Policy',contact:'Contact',visitors:'Total visitors',
   backHome:'&larr; Back',empty:'Nothing found.',loading:'Loading…',
-  nStations:'{n} stations',found:'{n} stations',
+  nStations:'{n} stations',found:'{n} playable',
+  scanning:'Scanning {n} entries · {m} playable so far…',
   settings:'Settings',setSub:'Saved on this device only.',
   quality:'Audio quality &amp; data use',qLow:'Saver',qLowS:'&le;64 kbps',
   qMid:'Balanced',qMidS:'&le;128 kbps',qHigh:'Best',qHighS:'No limit',
@@ -562,7 +569,7 @@ var I={
   reset:'Clear my saved data',done:'Done',
   vol:'Volume',fav:'Favourite',share:'Share',sleep:'Sleep timer',close:'Close',infoB:'Details',
   kBitrate:'Bitrate',kCodec:'Format',kLang:'Language',kData2:'Data per hour',
-  kVotes:'Listener votes',kSite:'Website',iPlay:'Play',iFav:'Favourite',iShare:'Share',
+  kVotes:'Listener votes',kSite:'Website',kStream:'Stream',iPlay:'Play',iFav:'Favourite',iShare:'Share',
   added:'Added to favourites',removed:'Removed from favourites',copied:'Link copied',
   sleepOn:'Sleep timer: {n} min',sleepOff:'Sleep timer off',
   err:'This station is unavailable',qSet:'{q} — {n} stations match',cleared:'Saved data cleared',
@@ -584,7 +591,8 @@ var I={
   guides:'مقالات وأدلة الراديو',allArts:'عرض الكل &larr;',allArts2:'المقالات',
   about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',visitors:'إجمالي الزوار',
   backHome:'&rarr; رجوع',empty:'لا نتائج.',loading:'جارٍ التحميل…',
-  nStations:'{n} محطة',found:'{n} محطة',
+  nStations:'{n} محطة',found:'{n} قابلة للتشغيل',
+  scanning:'فحص {n} مدخلاً · {m} قابلة للتشغيل حتى الآن…',
   settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',
   quality:'جودة الصوت واستهلاك البيانات',qLow:'توفير',qLowS:'&le;64 kbps',
   qMid:'متوازن',qMidS:'&le;128 kbps',qHigh:'الأفضل',qHighS:'بلا حدّ',
@@ -593,7 +601,7 @@ var I={
   reset:'مسح بياناتي المحفوظة',done:'تم',
   vol:'الصوت',fav:'مفضلة',share:'مشاركة',sleep:'مؤقت النوم',close:'إغلاق',infoB:'تفاصيل',
   kBitrate:'معدل البت',kCodec:'الصيغة',kLang:'اللغة',kData2:'البيانات في الساعة',
-  kVotes:'أصوات المستمعين',kSite:'الموقع',iPlay:'تشغيل',iFav:'مفضلة',iShare:'مشاركة',
+  kVotes:'أصوات المستمعين',kSite:'الموقع',kStream:'رابط البث',iPlay:'تشغيل',iFav:'مفضلة',iShare:'مشاركة',
   added:'أُضيفت إلى المفضلة',removed:'أُزيلت من المفضلة',copied:'تم نسخ الرابط',
   sleepOn:'مؤقت النوم: {n} دقيقة',sleepOff:'أُلغي مؤقت النوم',
   err:'تعذّر تشغيل هذه المحطة',qSet:'{q} — {n} محطة مطابقة',cleared:'مُسحت البيانات المحفوظة',
@@ -619,6 +627,15 @@ $('yr').textContent=new Date().getFullYear();
 var LS={get:function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v===null?d:v}catch(e){return d}},
         set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 var favs=LS.get('lr_favs',[]),recent=LS.get('lr_recent',[]);
+/* إزالة التكرار من السجل المحفوظ: محطتان بنفس رابط البث هما محطة واحدة */
+(function(){
+  var seen={},out=[];
+  for(var i=0;i<recent.length;i++){
+    var k=(recent[i].url_resolved||'').toLowerCase().replace(/^https?:\/\//,'').replace(/[?#].*$/,'').replace(/\/+$/,'');
+    if(!k||seen[k])continue;seen[k]=1;out.push(recent[i]);
+  }
+  if(out.length!==recent.length){recent=out;LS.set('lr_recent',recent);}
+})();
 var quality=LS.get('lr_quality','mid');
 var mine=LS.get('lr_mine',{sec:0,mb:0,stations:[]});
 var theme=LS.get('lr_theme','light');
@@ -651,8 +668,15 @@ function api(p){
 var QCAP={low:64,mid:128,high:0};
 /* نفس رابط البث يعني المحطة نفسها مهما اختلف الاسم في قاعدة البيانات */
 function normUrl(u){
-  return (u||'').toLowerCase().replace(/^https?:\/\//,'').replace(/\/+$/,'')
-    .replace(/[?#].*$/,'').replace(/;$/,'');
+  var t=(u||'').toLowerCase()
+    .replace(/^https?:\/\//,'')
+    .replace(/[?#].*$/,'')
+    .replace(/:(80|443)(?=\/|$)/,'')
+    .replace(/\/+$/,'')
+    .replace(/;+$/,'')
+    .replace(/\/(listen|stream|live|play)(\.(mp3|aac|m3u8?|pls))?$/,'')
+    .replace(/\.(mp3|aac|m3u8?|pls)$/,'');
+  return t;
 }
 function clean(d,seen){
   seen=seen||{u:{},id:{}};
@@ -904,28 +928,37 @@ function groupOf(s){
 var ctryList=[],ctryCat='',ctrySeen=null,ctryOff=0,ctryDone=false,ctryBusy=false;
 var PAGE=700;
 
+/* الكثير من المحطات يبثّ على http ويحجبه المتصفح، لذا نواصل سحب الصفحات
+   حتى نجمع عدداً مفيداً من المحطات القابلة للتشغيل فعلاً */
 function fetchPage(){
   if(ctryBusy||ctryDone)return;
   ctryBusy=true;
   $('moreStations').style.display='none';
-  $('ctryStatus').textContent=T('loading');
-  api('/json/stations/search?hidebroken=true&limit='+PAGE+'&offset='+ctryOff+
-      '&order=clickcount&reverse=true&countrycode='+curCC)
-    .then(function(d){
-      var raw=d||[];
-      if(raw.length<PAGE)ctryDone=true;
-      ctryOff+=raw.length;
-      var fresh=capped(clean(raw,ctrySeen));
-      ctryList=ctryList.concat(fresh);
-      ctryBusy=false;
-      $('ctryStatus').textContent=ctryList.length?'':T('empty');
-      $('moreStations').style.display=ctryDone?'none':'block';
-      drawCatBar();drawCountryBody();
-    }).catch(function(){
-      ctryBusy=false;ctryDone=true;
-      $('ctryStatus').textContent=ctryList.length?'':T('empty');
-      $('moreStations').style.display='none';
-    });
+  var before=ctryList.length, tries=0;
+
+  function step(){
+    $('ctryStatus').textContent=T('scanning')
+      .replace('{n}',fmtNum(ctryOff)).replace('{m}',fmtNum(ctryList.length));
+    api('/json/stations/search?hidebroken=true&limit='+PAGE+'&offset='+ctryOff+
+        '&order=clickcount&reverse=true&countrycode='+curCC)
+      .then(function(d){
+        var raw=d||[];
+        ctryOff+=raw.length;
+        if(raw.length<PAGE)ctryDone=true;
+        ctryList=ctryList.concat(capped(clean(raw,ctrySeen)));
+        tries++;
+        var gained=ctryList.length-before;
+        if(!ctryDone && gained<60 && tries<8){ step(); return; }
+        finish();
+      }).catch(function(){ ctryDone=true; finish(); });
+  }
+  function finish(){
+    ctryBusy=false;
+    $('ctryStatus').textContent=ctryList.length?'':T('empty');
+    $('moreStations').style.display=ctryDone?'none':'block';
+    drawCatBar();drawCountryBody();
+  }
+  step();
 }
 $('moreStations').onclick=fetchPage;
 
@@ -969,7 +1002,7 @@ function drawCountryBody(){
 
   if(ctryCat){
     var g=document.createElement('div');g.className='grid';
-    list.slice(0,300).forEach(function(s){g.appendChild(card(s));});
+    list.forEach(function(s){g.appendChild(card(s));});
     body.appendChild(g);
   }else{
     var order=GROUPS.map(function(x){return x.k;}).concat(['other']);
@@ -981,7 +1014,7 @@ function drawCountryBody(){
       h.innerHTML=(gg?T(gg.t):T('gOther'))+' · '+fmtNum(sub.length);
       body.appendChild(h);
       var g2=document.createElement('div');g2.className='grid';
-      sub.slice(0,40).forEach(function(s){g2.appendChild(card(s));});
+      sub.slice(0,60).forEach(function(s){g2.appendChild(card(s));});
       body.appendChild(g2);
     });
   }
@@ -1080,6 +1113,7 @@ function showInfo(s){
   $('iLang').textContent=s.language||T('unknown');
   $('iData').textContent='~'+mbPerHour(s.bitrate)+' MB';
   $('iVotes').textContent=fmtNum(s.votes||0);
+  $('iStream').textContent=(s.url_resolved||s.url||'').replace(/^https?:\/\//,'').slice(0,48);
   var tg=$('iTags');tg.innerHTML='';
   (s.tags||'').split(',').filter(Boolean).slice(0,6).forEach(function(t){
     var e=document.createElement('span');e.className='itag';e.textContent=t.trim();tg.appendChild(e);});
