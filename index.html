@@ -187,8 +187,9 @@ header{position:sticky;top:0;z-index:30;background:var(--headG);
 @keyframes sh{50%{opacity:.45}}
 .load{text-align:center;color:var(--mut);padding:26px 0;font-size:14.5px}
 
-.arts{display:grid;gap:13px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));min-height:470px}
-@media(min-width:620px){.arts{min-height:330px}}
+.arts{display:grid;gap:13px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+#artList{min-height:470px}
+@media(min-width:620px){#artList{min-height:330px}}
 .art{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:17px;
   transition:.2s;display:block;box-shadow:0 2px 8px var(--shadow)}
 .art:hover{border-color:var(--acc);transform:translateY(-2px);box-shadow:0 6px 18px var(--shadow)}
@@ -207,6 +208,15 @@ footer nav a:hover{color:var(--acc)}
 .vis b{color:var(--acc);font-size:16px}
 
 #page{display:none;max-width:760px;margin:0 auto;padding:22px 18px 30px;position:relative;overflow-x:clip}
+.gcard{display:flex;align-items:center;gap:12px;background:var(--cardG);border:1px solid var(--line);
+  border-radius:16px;padding:14px;box-shadow:0 2px 8px var(--shadow);transition:.2s}
+.gcard:hover{border-color:var(--acc);transform:translateY(-2px)}
+.gcard .fg{font-size:34px;line-height:1;flex:none}
+.gcard .tx{min-width:0;flex:1}
+.gcard .nm{font-size:16px;font-weight:800;line-height:1.3}
+.gcard .ds{font-size:12.5px;color:var(--mut);line-height:1.5;margin-top:3px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gcard .nb{font-size:11.5px;color:var(--acc);font-weight:700;margin-top:4px}
 #page .cbanner{position:absolute;left:0;right:0;top:-24px;height:430px;z-index:0;
 overflow:hidden;pointer-events:none;user-select:none;display:flex;justify-content:center;
 align-items:flex-start;gap:0;filter:blur(36px) saturate(1.6);opacity:.78;
@@ -393,7 +403,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 
 <div id="page"></div>
 
-<div id="home">
+<main id="home">
   <div class="herowrap"><section class="hero">
     <h1 data-i="h1">Listen to the world, <em>live</em>.</h1>
     <p data-i="sub">Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.</p>
@@ -439,7 +449,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 
     <section class="sec" id="guideSec" style="display:none">
       <div class="sechead"><h2 data-i="cguides">Country guides</h2></div>
-      <div class="arts" id="guideList"></div>
+      <div class="arts" id="guideList" style="grid-template-columns:repeat(auto-fill,minmax(290px,1fr))"></div>
     </section>
 
   </div>
@@ -487,7 +497,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     </div>
     <div class="arts" id="artList"></div>
   </section>
-</div>
+</main>
 
 <footer>
   <div class="vis" id="visBox" style="display:none">
@@ -1200,15 +1210,19 @@ function drawGuides(){
   if(!guides.length){sec.style.display='none';return;}
   box.innerHTML='';
   guides.slice(0,6).forEach(function(c){
-    var a=document.createElement('a');a.className='art';
+    var a=document.createElement('a');a.className='gcard';
     a.href='./countries/'+c.slug+'.html';
-    var fl='';try{fl=String.fromCodePoint(0x1F1E6+c.cc.charCodeAt(0)-65,0x1F1E6+c.cc.charCodeAt(1)-65);}catch(e){}
-    a.innerHTML='<div class="tag"></div><h3></h3><p></p>';
-    a.querySelector('.tag').textContent=T('cguides');
-    a.querySelector('h3').textContent=fl+' '+(lang==='ar'?(c.ar||c.en):c.en);
-    a.querySelector('p').textContent=(lang==='ar')
-      ? ('كل محطات '+(c.ar||c.en)+' مباشرة، مقسّمة حسب التصنيف.')
-      : ('Every live station in '+c.en+', grouped by category.');
+    a.innerHTML='<div class="fg"></div><div class="tx"><div class="nm"></div>'+
+                '<div class="ds"></div><div class="nb"></div></div>';
+    a.querySelector('.fg').textContent=flagOf(c.cc);
+    a.querySelector('.nm').textContent=(lang==='ar'?(c.ar||c.en):c.en);
+    /* مقتطف حقيقي من نص الصفحة إن توفّر */
+    var ex=(lang==='ar'?c.descAr:c.descEn)||'';
+    a.querySelector('.ds').textContent=ex;
+    /* عدد المحطات من قائمة الدول الحيّة */
+    var n=0;
+    for(var i=0;i<countries.length;i++)if(countries[i].cc===c.cc){n=countries[i].n;break;}
+    a.querySelector('.nb').textContent=n?T('nStations').replace('{n}',fmtNum(n)):'';
     box.appendChild(a);
   });
   sec.style.display='block';
