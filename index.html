@@ -196,14 +196,13 @@ footer nav a:hover{color:var(--acc)}
 .vis b{color:var(--acc);font-size:16px}
 
 #page{display:none;max-width:760px;margin:0 auto;padding:22px 18px 30px;position:relative}
-#page .cbanner{position:absolute;left:50%;transform:translateX(-50%);
-width:150%;max-width:1400px;top:-40px;height:440px;z-index:0;
+#page .cbanner{position:absolute;left:0;right:0;top:-24px;height:430px;z-index:0;
 overflow:hidden;pointer-events:none;user-select:none;display:flex;justify-content:center;
-align-items:flex-start;gap:0;filter:blur(34px) saturate(1.6);opacity:.8;
--webkit-mask-image:linear-gradient(180deg,#000 0%,#000 30%,rgba(0,0,0,.5) 62%,transparent 100%);
-mask-image:linear-gradient(180deg,#000 0%,#000 30%,rgba(0,0,0,.5) 62%,transparent 100%)}
-#page .cbanner i{font-style:normal;font-size:220px;line-height:1}
-@media(max-width:620px){#page .cbanner{top:-30px;height:360px}#page .cbanner i{font-size:150px}}
+align-items:flex-start;gap:0;filter:blur(36px) saturate(1.6);opacity:.78;
+-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 32%,rgba(0,0,0,.45) 64%,transparent 100%);
+mask-image:linear-gradient(180deg,#000 0%,#000 32%,rgba(0,0,0,.45) 64%,transparent 100%)}
+#page .cbanner i{font-style:normal;font-size:210px;line-height:1;flex:none}
+@media(max-width:620px){#page .cbanner{top:-18px;height:340px}#page .cbanner i{font-size:140px}}
 html[data-theme="dark"] #page .cbanner{opacity:.55;filter:blur(70px) saturate(1.2) brightness(.85)}
 #page>*:not(.cbanner){position:relative;z-index:1}
 #page.on{display:block}
@@ -253,7 +252,7 @@ html[data-theme="dark"] #page .cbanner{opacity:.55;filter:blur(70px) saturate(1.
 #page .lead{color:var(--mut);font-size:16px;line-height:1.7;margin:0 0 26px;max-width:620px}
 #page .art h2{margin:8px 0 6px;font-size:17px;font-weight:700;line-height:1.35}
 .navrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-#page .navrow{justify-content:center}
+#page .navrow{justify-content:center;padding-top:6px;margin-bottom:10px}
 #page .navrow a,.backb{background:var(--cardG);border:1px solid var(--line);color:var(--txt);
   display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 16px;
   border-radius:999px;font-size:13.5px;font-weight:700;box-shadow:0 1px 3px var(--shadow);
@@ -1461,10 +1460,15 @@ function igrp(s){
 }
 function initCountryPage(cc){
   inCC=cc;inList=[];inCat='';
+  var f=flagOf(cc);
+  /* الهيكل له أزرار تنقله، فنحذف أزرار الصفحة المحقونة */
+  var nr=pageEl.querySelectorAll('.navrow');
+  for(var k=1;k<nr.length;k++)nr[k].parentNode.removeChild(nr[k]);
+  var fg=pageEl.querySelector('#flag');
+  if(fg)fg.textContent=f;
   var b=pageEl.querySelector('#cbanner');
   if(b){
     b.innerHTML='';
-    var f=flagOf(cc);
     for(var i=0;i<3;i++){var e=document.createElement('i');e.textContent=f;b.appendChild(e);}
   }
   var st=pageEl.querySelector('#status');
