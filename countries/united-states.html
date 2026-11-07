@@ -52,7 +52,18 @@ padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(10px)}
 .btn{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:8px 12px;
 border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px var(--shadow)}
 .btn:hover{border-color:var(--acc)}
-main{max-width:1000px;margin:0 auto;padding:0 16px 60px}
+main{max-width:1000px;margin:0 auto;padding:0 16px 60px;position:relative}
+/* خلفية مولّدة من علم الدولة: نسخ ضخمة مطموسة تتلاشى نحو الأسفل */
+.cbanner{position:absolute;left:-24px;right:-24px;top:-96px;height:380px;z-index:0;
+overflow:hidden;pointer-events:none;user-select:none;display:flex;justify-content:center;
+align-items:flex-start;gap:0;filter:blur(64px) saturate(1.55);opacity:.85;
+-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.55) 48%,transparent 100%);
+mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.55) 48%,transparent 100%)}
+.cbanner i{font-style:normal;font-size:250px;line-height:1;transform:translateY(-30px)}
+@media(max-width:620px){.cbanner{top:-80px;height:300px}.cbanner i{font-size:170px}}
+html[data-theme="dark"] .cbanner{opacity:.55;filter:blur(70px) saturate(1.2) brightness(.85)}
+main>*:not(.cbanner){position:relative;z-index:1}
+header{background:transparent;backdrop-filter:blur(16px) saturate(1.25)}
 .chead{text-align:center;padding:28px 10px 18px}
 .chead .fg{font-size:62px;line-height:1}
 .chead h1{font-size:clamp(25px,6vw,36px);margin:10px 0 8px;font-weight:800;
@@ -115,7 +126,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bo
   </div>
 </header>
 
-<main>
+<main data-type="country" data-cc="US" data-slug="united-states">
+  <div class="cbanner" aria-hidden="true" id="cbanner"></div>
   <div class="navrow">
     <a href="../" data-en="&larr; Home" data-ar="&rarr; الرئيسية">&larr; Home</a>
     <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a>
@@ -125,6 +137,13 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bo
     <div class="fg" id="flag">🌐</div>
     <h1 data-en="United States radio online" data-ar="إذاعات الولايات المتحدة مباشرة">United States radio online</h1>
     <div class="sub"><span id="cnt">—</span> · <span data-en="updated 2026-11-07" data-ar="تحديث 2026-11-07">updated 2026-11-07</span></div>
+  </div>
+
+  <div class="sec">
+    <h2 data-en="Live stations" data-ar="المحطات المباشرة">Live stations</h2>
+    <div class="catbar" id="catbar"></div>
+    <div id="body"></div>
+    <div class="load" id="status">Loading…</div>
   </div>
 
   <div class="sec" id="aboutSec">
@@ -139,13 +158,6 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bo
 <p>ونشأ الراديو العمومي إلى جانبها لا فوقها. فـNPR ونحو ألف محطة عضو تعمل بتبرعات المستمعين والرعاية، وتحمل التقارير الطويلة والعمل الوثائقي الذي لا متّسع له في الصيغ التجارية. وللمستمع من خارج البلاد، فالتباين بين برنامج صباحي تجاري وبين Morning Edition من NPR أسرع طريق لفهم مدى انقسام الصوت الأمريكي فعلاً.</p>
 <p>وثمة أمور تستحق المعرفة قبل أن تبدأ التصفّح. فصيغة الأخبار والحوار هي الأكثر استماعاً في البلاد، وهذا يفاجئ من يظن أن الراديو الأمريكي موسيقى فحسب. وموسيقى الكانتري لها بصمة جغرافية لا يضاهيها نوع آخر، إذ تهيمن على أجزاء واسعة من الجنوب والغرب الأوسط. والإذاعة الناطقة بالإسبانية صناعة قائمة بذاتها لا فئة هامشية، خصوصاً في تكساس وكاليفورنيا وفلوريدا والجنوب الغربي. أما المحطات الجامعية، في الطرف المنخفض من نطاق FM، فتبقى من أفضل الأماكن في العالم لسماع الموسيقى قبل أن تنتشر.</p>
 <p>وتحذير عملي واحد. ما زالت نسبة كبيرة من المحطات الأمريكية تنشر بثّها على عناوين http غير آمنة تحجبها المتصفحات الحديثة داخل المواقع الآمنة. وسترى في أي دليل محطات أكثر بكثير مما يعمل فعلاً. وهذا قيد في خوادم المحطات نفسها لا في الدليل، ولا يصلحه إلا الباثّ.</p></div>
-  </div>
-
-  <div class="sec">
-    <h2 data-en="Live stations" data-ar="المحطات المباشرة">Live stations</h2>
-    <div class="catbar" id="catbar"></div>
-    <div id="body"></div>
-    <div class="load" id="status">Loading…</div>
   </div>
 
   <div class="sec" id="relSec" style="display:none">
@@ -176,7 +188,14 @@ var lang=(function(){
 })();
 function $(id){return document.getElementById(id);}
 $('yr').textContent=new Date().getFullYear();
-try{$('flag').textContent=String.fromCodePoint(0x1F1E6+CC.charCodeAt(0)-65,0x1F1E6+CC.charCodeAt(1)-65);}catch(e){}
+var FLAG='🌐';
+try{FLAG=String.fromCodePoint(0x1F1E6+CC.charCodeAt(0)-65,0x1F1E6+CC.charCodeAt(1)-65);}catch(e){}
+$('flag').textContent=FLAG;
+(function(){
+  var b=$('cbanner');
+  if(!b)return;
+  for(var i=0;i<3;i++){var e=document.createElement('i');e.textContent=FLAG;b.appendChild(e);}
+})();
 
 var G=[
  {k:'news',en:'News & talk',ar:'أخبار وحوار',m:['news','talk','info','politic']},
@@ -261,10 +280,10 @@ function apply(){
   var hasAr=($('inAr').textContent||'').trim().length>20;
   var showEn=(lang==='en')?hasEn:(!hasAr&&hasEn);
   var showAr=(lang==='ar')?hasAr:(!hasEn&&hasAr);
-  $('inEn').style.display=showEn?'':'none';
-  $('inAr').style.display=showAr?'':'none';
+  $('inEn').style.display=showEn?'block':'none';
+  $('inAr').style.display=showAr?'block':'none';
   var ab=$('aboutSec');
-  if(ab)ab.style.display=(showEn||showAr)?'':'none';
+  if(ab)ab.style.display=(showEn||showAr)?'block':'none';
   $('langBtn').textContent=(lang==='en')?'Arabic':'إنجليزي';
   bar();draw();
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
