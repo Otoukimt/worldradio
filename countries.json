@@ -1,5 +1,14 @@
 [
   {
+    "cc": "CN",
+    "slug": "china",
+    "en": "China",
+    "ar": "الصين",
+    "date": "2026-11-07",
+    "descEn": "Radio reached China early and through the foreign concessions.",
+    "descAr": "وصل الراديو إلى الصين مبكراً وعبر الامتيازات الأجنبية. ظهرت أولى المحطات في شنغهاي في أوائل العشرينيات، أنشأها مشغّلون أجانب لجمهور أجنبي، وتبعتها محط…"
+  },
+  {
     "cc": "FR",
     "slug": "france",
     "en": "France",
