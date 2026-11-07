@@ -132,5 +132,38 @@
       "en": "History & culture",
       "ar": "تاريخ وثقافة"
     }
+  ],
+  "logo": "",
+  "footer": [
+    {
+      "k": "home",
+      "en": "Home",
+      "ar": "الرئيسية",
+      "href": "./"
+    },
+    {
+      "k": "articles",
+      "en": "Articles",
+      "ar": "المقالات",
+      "href": "./articles.html"
+    },
+    {
+      "k": "about",
+      "en": "About",
+      "ar": "من نحن",
+      "href": "./about.html"
+    },
+    {
+      "k": "privacy",
+      "en": "Privacy Policy",
+      "ar": "سياسة الخصوصية",
+      "href": "./privacy.html"
+    },
+    {
+      "k": "contact",
+      "en": "Contact",
+      "ar": "اتصل بنا",
+      "href": "./contact.html"
+    }
   ]
 }

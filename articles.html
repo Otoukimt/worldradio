@@ -57,6 +57,15 @@ header{position:sticky;top:0;z-index:30;background:var(--headG);border-bottom:1p
   padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(10px)}
 .hrow{display:flex;align-items:center;gap:8px;padding:12px 16px;max-width:1000px;margin:0 auto}
 .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px}
+.logo img{height:30px;width:auto;max-width:112px;object-fit:contain;display:block;border-radius:7px}
+@media(min-width:620px){.logo img{height:34px;max-width:140px}}
+#langBtn{font-size:12.5px;padding:8px 11px;line-height:1;min-height:37px}
+@media(max-width:400px){
+  .hrow{gap:5px;padding:10px 12px}
+  .logo{font-size:17px}.logo img{height:26px;max-width:88px}
+  .ibtn{width:34px;height:34px;font-size:14px}
+  #langBtn{font-size:11.5px;padding:7px 9px;min-height:34px}
+}
 .logo-dot{width:11px;height:11px;border-radius:50%;background:var(--acc)}
 .logo span{color:var(--acc)}
 .spacer{flex:1}
@@ -114,6 +123,9 @@ main{max-width:1000px;margin:0 auto;padding:0 16px 60px}
 .art h3{margin:8px 0 6px;font-size:16.5px;font-weight:700;line-height:1.35}
 .art p{margin:0 0 10px;color:var(--mut);font-size:13.5px;line-height:1.55}
 .art .d{font-size:11.5px;color:var(--mut)}
+.art.has-thumb{padding:0;overflow:hidden}
+.art .thumb{width:100%;height:150px;object-fit:cover;display:block;background:var(--card2)}
+.art .inner{padding:15px}
 .art .rd{position:absolute;inset-inline-end:14px;top:14px;font-size:11px;color:var(--mut);
   background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
 .pbar{height:4px;background:var(--card2);border-radius:3px;margin-top:10px;overflow:hidden}
@@ -140,7 +152,7 @@ footer nav a:hover{color:var(--acc)}
 
 <header>
   <div class="hrow">
-    <a class="logo" href="./"><span class="logo-dot"></span>Live<span>Radio</span></a>
+    <a class="logo" id="brand" href="./"><span class="logo-dot"></span>Live<span>Radio</span></a>
     <div class="spacer"></div>
     <button class="btn ibtn" id="themeBtn" title="Theme">&#9789;</button>
     <a class="btn" href="./" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
@@ -252,14 +264,24 @@ function cardOf(p,showProg){
   var a=document.createElement('a');a.className='art';
   a.href='./articles/'+p.slug+'.html';
   var pr=progOf(p.slug);
-  a.innerHTML='<div class="tag"></div><h3></h3><p></p><div class="d"></div>';
+  var views=(stats&&stats[p.slug])?Number(stats[p.slug]).toLocaleString('en-US'):'';
+  var meta=fmtDate(p.date)+(views?(' · '+views+' '+(lang==='ar'?'مشاهدة':'views')):'');
+  if(p.thumb){
+    a.className='art has-thumb';
+    a.innerHTML='<img class="thumb" loading="lazy" alt="">'+
+      '<div class="inner"><div class="tag"></div><h3></h3><p></p><div class="d"></div></div>';
+    var im=a.querySelector('.thumb');
+    im.src=p.thumb; im.alt=p.title[lang]||p.title.en;
+    im.onerror=function(){ this.style.display='none'; };
+  }else{
+    a.innerHTML='<div class="tag"></div><h3></h3><p></p><div class="d"></div>';
+  }
   a.querySelector('.tag').textContent=catName(p.cat||'');
   a.querySelector('h3').textContent=p.title[lang]||p.title.en;
   a.querySelector('p').textContent=p.desc[lang]||p.desc.en;
-  a.querySelector('.d').textContent=fmtDate(p.date);
-  if(stats&&stats[p.slug]){
-    var rd=document.createElement('div');rd.className='rd';
-    rd.textContent=Number(stats[p.slug]).toLocaleString('en-US');
+  a.querySelector('.d').textContent=meta;
+  if(views && !p.thumb){
+    var rd=document.createElement('div');rd.className='rd';rd.textContent=views;
     a.appendChild(rd);
   }
   if(showProg&&pr>3&&pr<97){
@@ -321,8 +343,10 @@ function drawFeatured(){
   }
   if(!p)return;
   var a=document.createElement('a');a.className='feat';a.href='./articles/'+p.slug+'.html';
-  a.innerHTML='<div class="band"><div class="wav"><i></i><i></i><i></i><i></i><i></i></div></div>'+
-    '<div class="body"><div class="tag"></div><h3></h3><p></p></div>';
+  var band = p.thumb
+    ? '<img class="band" src="'+p.thumb+'" alt="" style="width:100%;height:170px;object-fit:cover;display:block">'
+    : '<div class="band"><div class="wav"><i></i><i></i><i></i><i></i><i></i></div></div>';
+  a.innerHTML=band+'<div class="body"><div class="tag"></div><h3></h3><p></p></div>';
   a.querySelector('.tag').textContent=catName(p.cat||'');
   a.querySelector('h3').textContent=p.title[lang]||p.title.en;
   a.querySelector('p').textContent=p.desc[lang]||p.desc.en;
@@ -356,6 +380,23 @@ function drawContinue(){
   $('contSec').style.display='block';
 }
 
+function drawBrandFooter(){
+  if(!cfg)return;
+  var mark=(cfg.logo&&cfg.logo.length>4)?'<img src="'+cfg.logo+'" alt="">':'<span class="logo-dot"></span>';
+  var b=$('brand');
+  if(b)b.innerHTML=mark+((cfg.brand&&cfg.brand.name1)||'Live')+
+      '<span>'+((cfg.brand&&cfg.brand.name2)||'Radio')+'</span>';
+  var nav=document.querySelector('footer nav');
+  if(nav&&cfg.footer&&cfg.footer.length){
+    nav.innerHTML='';
+    cfg.footer.forEach(function(it){
+      if(!it||!it.href)return;
+      var a=document.createElement('a');a.href=it.href;
+      a.textContent=(lang==='ar'?(it.ar||it.en):(it.en||it.ar))||'';
+      nav.appendChild(a);
+    });
+  }
+}
 function applyLang(){
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
@@ -365,7 +406,7 @@ function applyLang(){
   }
   $('q').placeholder=T('searchP');
   $('langBtn').textContent=T('langBtn');
-  drawCats();drawList();drawFeatured();drawPopular();drawContinue();
+  drawBrandFooter();drawCats();drawList();drawFeatured();drawPopular();drawContinue();
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
 }
 $('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';applyLang();};
@@ -383,6 +424,12 @@ Promise.all([
   fetch('./stats.json').then(function(r){return r.ok?r.json():null;}).catch(function(){return null;})
 ]).then(function(res){
   posts=res[0]||[];cfg=res[1];stats=res[2];
+  if(cfg&&cfg.colors){
+    var st=document.createElement('style');
+    function blk(sel,o){if(!o)return '';var t=sel+'{';for(var k in o){if(o[k])t+='--'+k+':'+o[k]+';';}return t+'}';}
+    st.textContent=blk(':root',cfg.colors.light)+blk('html[data-theme="dark"]',cfg.colors.dark);
+    document.head.appendChild(st);
+  }
   cats=(cfg&&cfg.cats)||[];
   $('nArts').textContent=posts.length;
   $('nCats').textContent=cats.length||6;
