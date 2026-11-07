@@ -374,6 +374,11 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
       <div class="row" id="feat"></div>
     </section>
 
+    <section class="sec" id="guideSec" style="display:none">
+      <div class="sechead"><h2 data-i="cguides">Country guides</h2></div>
+      <div class="arts" id="guideList"></div>
+    </section>
+
     <section class="sec">
       <div class="sechead">
         <h2 data-i="explore">Explore by country</h2>
@@ -564,7 +569,7 @@ var I={
   langBtn:'Arabic',
   tAll:'Browse',tFav:'&#9829; Favourites',tArts:'&#128214; Articles',
   near:'Stations from {c}',recent:'Recently played',featured:'Featured stations',
-  explore:'Explore by country',allCountries:'All countries',discover:'Discover more &rarr;',
+  explore:'Explore by country',cguides:'Country guides',allCountries:'All countries',discover:'Discover more &rarr;',
   allCountriesBtn:'Browse all countries &rarr;',loadMore:'Load more stations',
   favs:'Your favourites',noFav:'No favourites yet. Tap the heart on any station.',
   searchC:'Search a country...',searchS:'Search a station...',
@@ -596,7 +601,7 @@ var I={
   langBtn:'إنجليزي',
   tAll:'تصفّح',tFav:'&#9829; المفضلة',tArts:'&#128214; المقالات',
   near:'محطات من {c}',recent:'استمعت مؤخراً',featured:'محطات مختارة',
-  explore:'استكشف حسب الدولة',allCountries:'كل الدول',discover:'اكتشف المزيد &larr;',
+  explore:'استكشف حسب الدولة',cguides:'أدلة الدول',allCountries:'كل الدول',discover:'اكتشف المزيد &larr;',
   allCountriesBtn:'تصفّح كل الدول &larr;',loadMore:'تحميل مزيد من المحطات',
   favs:'محطاتك المفضلة',noFav:'لا توجد مفضلة بعد. اضغط على القلب في أي محطة.',
   searchC:'ابحث عن دولة...',searchS:'ابحث عن محطة...',
@@ -894,7 +899,12 @@ function flagBtn(c){
   var nm=document.createElement('div');nm.className='fname';nm.textContent=(lang==='ar'?c.ar:c.en);
   var nu=document.createElement('div');nu.className='fnum';nu.textContent=T('nStations').replace('{n}',fmtNum(c.n));
   b.appendChild(cir);b.appendChild(nm);b.appendChild(nu);
-  b.onclick=function(){openCountry(c.cc,lang==='ar'?c.ar:c.en);};
+  b.onclick=function(){
+    for(var i=0;i<guides.length;i++){
+      if(guides[i].cc===c.cc){location.href='./countries/'+guides[i].slug+'.html';return;}
+    }
+    openCountry(c.cc,lang==='ar'?c.ar:c.en);
+  };
   return b;
 }
 function drawFlags(){
@@ -1128,6 +1138,30 @@ function applyCfg(d){
 
 fetch('./articles.json').then(function(r){return r.json();})
   .then(function(d){posts=d||[];drawArticles();}).catch(function(){});
+
+/* صفحات الدول: روابط حقيقية تفهرسها جوجل */
+var guides=[];
+function drawGuides(){
+  var sec=$('guideSec'),box=$('guideList');
+  if(!guides.length){sec.style.display='none';return;}
+  box.innerHTML='';
+  guides.slice(0,6).forEach(function(c){
+    var a=document.createElement('a');a.className='art';
+    a.href='./countries/'+c.slug+'.html';
+    var fl='';try{fl=String.fromCodePoint(0x1F1E6+c.cc.charCodeAt(0)-65,0x1F1E6+c.cc.charCodeAt(1)-65);}catch(e){}
+    a.innerHTML='<div class="tag"></div><h3></h3><p></p>';
+    a.querySelector('.tag').textContent=T('cguides');
+    a.querySelector('h3').textContent=fl+' '+(lang==='ar'?(c.ar||c.en):c.en);
+    a.querySelector('p').textContent=(lang==='ar')
+      ? ('كل محطات '+(c.ar||c.en)+' مباشرة، مقسّمة حسب التصنيف.')
+      : ('Every live station in '+c.en+', grouped by category.');
+    box.appendChild(a);
+  });
+  sec.style.display='block';
+  hookPageLinks();
+}
+fetch('./countries.json').then(function(r){return r.ok?r.json():[];})
+  .then(function(d){guides=d||[];drawGuides();}).catch(function(){});
 fetch('./site.json').then(function(r){return r.ok?r.json():null;})
   .then(function(d){applyCfg(d);}).catch(function(){});
 
@@ -1455,7 +1489,7 @@ function applyLang(){
   $('asearch').placeholder=d.searchC;
   $('stSearch').placeholder=d.searchS;
   $('langBtn').textContent=d.langBtn;
-  drawLocal();drawRecent();drawFeatured();drawArticles();drawStats();drawUsage();syncQ();drawFooter();
+  drawLocal();drawRecent();drawFeatured();drawArticles();drawStats();drawUsage();syncQ();drawFooter();drawGuides();
   if(countries.length){drawFlags();if(view==='all')drawAllFlags();}
   if(view==='fav')drawFav();
   if(view==='country'&&ctryList.length){ $('ctryTitle').textContent=(flagOf(curCC)+' '+cname(curCC,curCName)).trim();
