@@ -150,6 +150,10 @@ header{position:sticky;top:0;z-index:30;background:var(--headG);
 .chip{background:var(--cardG);border:1px solid var(--line);color:var(--mut);padding:8px 15px;
   border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px var(--shadow)}
 .chip.on{background:linear-gradient(135deg,var(--acc),var(--acc2));border-color:transparent;color:#fff}
+.bigbtn{display:block;width:100%;margin:18px 0 4px;padding:14px;border-radius:14px;
+  border:1px solid var(--line);cursor:pointer;font-family:inherit;font-size:15px;font-weight:800;
+  color:#fff;background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 6px 18px var(--shadow)}
+.bigbtn:hover{filter:brightness(1.07)}
 .grouphead{font-size:15px;font-weight:800;margin:18px 0 10px;color:var(--acc2)}
 
 .sk{display:flex;flex-direction:column;align-items:center;gap:7px}
@@ -315,7 +319,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     <button class="btn ibtn" id="themeBtn" title="Theme">&#9789;</button>
     <button class="btn ibtn" id="randBtn" title="Random">&#127922;</button>
     <button class="btn ibtn" id="setBtn" title="Settings">&#9881;</button>
-    <button class="btn" id="langBtn">العربية</button>
+    <button class="btn" id="langBtn">Arabic</button>
   </div>
 </header>
 
@@ -363,6 +367,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
       </div>
       <div class="flags" id="flags"></div>
       <div class="load" id="cstatus"></div>
+      <button class="bigbtn" id="allCountries2" data-i="allCountriesBtn">Browse all countries &rarr;</button>
     </section>
   </div>
 
@@ -386,6 +391,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
       <div class="catbar" id="catbar"></div>
       <div id="ctryBody"></div>
       <div class="load" id="ctryStatus"></div>
+      <button class="bigbtn" id="moreStations" style="display:none" data-i="loadMore">Load more stations</button>
     </section>
   </div>
 
@@ -537,9 +543,11 @@ YE:'اليمن',ZM:'زامبيا',ZW:'زيمبابوي'
 var I={
  en:{h1:'Listen to the world, <em>live</em>.',
   sub:'Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.',
+  langBtn:'Arabic',
   tAll:'Browse',tFav:'&#9829; Favourites',tArts:'&#128214; Articles',
   near:'Stations from {c}',recent:'Recently played',featured:'Featured stations',
   explore:'Explore by country',allCountries:'All countries',discover:'Discover more &rarr;',
+  allCountriesBtn:'Browse all countries &rarr;',loadMore:'Load more stations',
   favs:'Your favourites',noFav:'No favourites yet. Tap the heart on any station.',
   searchC:'Search a country...',searchS:'Search a station...',
   guides:'Radio guides &amp; articles',allArts:'See all &rarr;',allArts2:'Articles',
@@ -566,9 +574,11 @@ var I={
   gCulture:'Culture',gOther:'Other',gAll:'All'},
  ar:{h1:'استمع إلى العالم، <em>مباشرةً</em>.',
   sub:'مئات المحطات الإذاعية المجانية من كل دول العالم. اختر محطة وتابع التصفح — الصوت لا يتوقف.',
+  langBtn:'الإنجليزية',
   tAll:'تصفّح',tFav:'&#9829; المفضلة',tArts:'&#128214; المقالات',
   near:'محطات من {c}',recent:'استمعت مؤخراً',featured:'محطات مختارة',
   explore:'استكشف حسب الدولة',allCountries:'كل الدول',discover:'اكتشف المزيد &larr;',
+  allCountriesBtn:'تصفّح كل الدول &larr;',loadMore:'تحميل مزيد من المحطات',
   favs:'محطاتك المفضلة',noFav:'لا توجد مفضلة بعد. اضغط على القلب في أي محطة.',
   searchC:'ابحث عن دولة...',searchS:'ابحث عن محطة...',
   guides:'مقالات وأدلة الراديو',allArts:'عرض الكل &larr;',allArts2:'المقالات',
@@ -639,12 +649,20 @@ function api(p){
   return tryNext();
 }
 var QCAP={low:64,mid:128,high:0};
-function clean(d){
-  var seen={};
+/* نفس رابط البث يعني المحطة نفسها مهما اختلف الاسم في قاعدة البيانات */
+function normUrl(u){
+  return (u||'').toLowerCase().replace(/^https?:\/\//,'').replace(/\/+$/,'')
+    .replace(/[?#].*$/,'').replace(/;$/,'');
+}
+function clean(d,seen){
+  seen=seen||{u:{},id:{}};
   return (d||[]).filter(function(s){
     var u=s.url_resolved||s.url||'';
     if(u.indexOf('https://')!==0||!s.name||s.name.trim().length<2)return false;
-    var k=s.name.trim().toLowerCase();if(seen[k])return false;seen[k]=1;return true;});
+    if(seen.id[s.stationuuid])return false;
+    var k=normUrl(u);
+    if(!k||seen.u[k])return false;
+    seen.u[k]=1;seen.id[s.stationuuid]=1;return true;});
 }
 function capped(list){
   var cap=QCAP[quality];
@@ -664,7 +682,7 @@ function cname(cc,en){
   return en||cc||'';
 }
 function fmtNum(n){
-  try{return Number(n).toLocaleString(lang==='ar'?'ar-EG':'en-US');}catch(e){return String(n);}
+  try{return Number(n).toLocaleString('en-US');}catch(e){return String(n);}
 }
 
 /* ---------- favourites ---------- */
@@ -860,7 +878,9 @@ function drawAllFlags(){
   $('allCnt').textContent=T('found').replace('{n}',fmtNum(list.length));
 }
 $('asearch').oninput=function(){drawAllFlags();};
-$('allCountries').onclick=function(){showView('all');drawAllFlags();};
+function openAll(){showView('all');drawAllFlags();}
+$('allCountries').onclick=openAll;
+$('allCountries2').onclick=openAll;
 $('allBack').onclick=function(){showView('home');};
 $('ctryBack').onclick=function(){showView('home');};
 
@@ -881,22 +901,44 @@ function groupOf(s){
   }
   return 'other';
 }
-var ctryList=[],ctryCat='';
+var ctryList=[],ctryCat='',ctrySeen=null,ctryOff=0,ctryDone=false,ctryBusy=false;
+var PAGE=700;
+
+function fetchPage(){
+  if(ctryBusy||ctryDone)return;
+  ctryBusy=true;
+  $('moreStations').style.display='none';
+  $('ctryStatus').textContent=T('loading');
+  api('/json/stations/search?hidebroken=true&limit='+PAGE+'&offset='+ctryOff+
+      '&order=clickcount&reverse=true&countrycode='+curCC)
+    .then(function(d){
+      var raw=d||[];
+      if(raw.length<PAGE)ctryDone=true;
+      ctryOff+=raw.length;
+      var fresh=capped(clean(raw,ctrySeen));
+      ctryList=ctryList.concat(fresh);
+      ctryBusy=false;
+      $('ctryStatus').textContent=ctryList.length?'':T('empty');
+      $('moreStations').style.display=ctryDone?'none':'block';
+      drawCatBar();drawCountryBody();
+    }).catch(function(){
+      ctryBusy=false;ctryDone=true;
+      $('ctryStatus').textContent=ctryList.length?'':T('empty');
+      $('moreStations').style.display='none';
+    });
+}
+$('moreStations').onclick=fetchPage;
+
 function openCountry(cc,name){
-  curCC=cc;curCName=name||cc;ctryCat='';ctryList=[];
+  curCC=cc;curCName=name||cc;ctryCat='';
+  ctryList=[];ctrySeen={u:{},id:{}};ctryOff=0;ctryDone=false;ctryBusy=false;
   showView('country');
   $('ctryTitle').textContent=(flagOf(cc)+' '+cname(cc,name)).trim();
   $('ctryCnt').textContent='';
   $('stSearch').value='';
   $('catbar').innerHTML='';
   $('ctryBody').innerHTML='';
-  $('ctryStatus').textContent=T('loading');
-  api('/json/stations/search?hidebroken=true&limit=400&order=clickcount&reverse=true&countrycode='+cc)
-    .then(function(d){
-      ctryList=capped(clean(d));
-      $('ctryStatus').textContent=ctryList.length?'':T('empty');
-      drawCatBar();drawCountryBody();
-    }).catch(function(){$('ctryStatus').textContent=T('empty');});
+  fetchPage();
 }
 function drawCatBar(){
   var bar=$('catbar');bar.innerHTML='';
@@ -927,7 +969,7 @@ function drawCountryBody(){
 
   if(ctryCat){
     var g=document.createElement('div');g.className='grid';
-    list.slice(0,120).forEach(function(s){g.appendChild(card(s));});
+    list.slice(0,300).forEach(function(s){g.appendChild(card(s));});
     body.appendChild(g);
   }else{
     var order=GROUPS.map(function(x){return x.k;}).concat(['other']);
@@ -939,7 +981,7 @@ function drawCountryBody(){
       h.innerHTML=(gg?T(gg.t):T('gOther'))+' · '+fmtNum(sub.length);
       body.appendChild(h);
       var g2=document.createElement('div');g2.className='grid';
-      sub.slice(0,24).forEach(function(s){g2.appendChild(card(s));});
+      sub.slice(0,40).forEach(function(s){g2.appendChild(card(s));});
       body.appendChild(g2);
     });
   }
@@ -1382,7 +1424,7 @@ function applyLang(){
   $('csearch').placeholder=d.searchC;
   $('asearch').placeholder=d.searchC;
   $('stSearch').placeholder=d.searchS;
-  $('langBtn').textContent=lang==='en'?'العربية':'English';
+  $('langBtn').textContent=d.langBtn;
   drawLocal();drawRecent();drawFeatured();drawArticles();drawStats();drawUsage();syncQ();
   if(countries.length){drawFlags();if(view==='all')drawAllFlags();}
   if(view==='fav')drawFav();

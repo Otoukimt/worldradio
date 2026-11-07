@@ -7,12 +7,12 @@
   "visitors": 0,
   "colors": {
     "light": {
-      "bg": "#f3f6fc",
-      "card": "#ffffff",
-      "card2": "#eef3fc",
-      "line": "#dde5f2",
-      "txt": "#111a2e",
-      "mut": "#5a6880",
+      "bg": "#eef2fa",
+      "card": "#f7f9fe",
+      "card2": "#e9eefb",
+      "line": "#d7e0f0",
+      "txt": "#121b2f",
+      "mut": "#5a6782",
       "acc": "#0d9488",
       "acc2": "#5b53e0"
     },
