@@ -113,8 +113,32 @@ footer nav a:hover{color:var(--acc)}
   if(m)m.setAttribute('content',t==='dark'?'#0e1526':'#eef3fb');
 })();
 </script>
+
+<style>
+#rprog{position:fixed;top:0;left:0;height:3px;width:0;z-index:70;
+  background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .1s}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.navrow a,.navrow button{background:var(--cardG);border:1px solid var(--line);color:var(--txt);
+  padding:9px 15px;border-radius:999px;font-size:13.5px;font-weight:700;cursor:pointer;
+  font-family:inherit;box-shadow:0 1px 3px var(--shadow)}
+.navrow a:hover,.navrow button:hover{border-color:var(--acc);color:var(--acc)}
+.sharerow{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 8px}
+.sharerow button{flex:1;min-width:110px;background:var(--cardG);border:1px solid var(--line);
+  color:var(--txt);padding:11px;border-radius:12px;font-weight:700;cursor:pointer;
+  font-family:inherit;font-size:13.5px}
+.sharerow button:hover{border-color:var(--acc);color:var(--acc)}
+.related{margin:34px 0 10px}
+.related h2{font-size:19px;margin:0 0 12px}
+.rgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.rcard{background:var(--cardG);border:1px solid var(--line);border-radius:14px;padding:15px;
+  display:block;box-shadow:0 2px 8px var(--shadow);transition:.2s}
+.rcard:hover{border-color:var(--acc);transform:translateY(-2px)}
+.rcard .t{font-size:11.5px;color:var(--acc);font-weight:700;text-transform:uppercase}
+.rcard .h{font-size:15px;font-weight:700;margin:6px 0 0;line-height:1.35;color:var(--txt)}
+</style>
 </head>
 <body>
+<div id="rprog"></div>
 
 <header>
   <div class="hrow">
@@ -125,6 +149,11 @@ footer nav a:hover{color:var(--acc)}
 </header>
 
 <main>
+  <div class="navrow">
+    <a href="../" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
+    <a href="../articles.html" data-en="&larr; All articles" data-ar="&rarr; كل المقالات">&larr; All articles</a>
+  </div>
+
   <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Tips" data-ar="نصائح">Tips</a></div>
   <span class="tagx" data-en="Troubleshooting" data-ar="حلّ المشكلات">Troubleshooting</span>
   <h1 data-en="Why a radio stream stops working, and what you can actually do" data-ar="لماذا يتوقف بثّ الراديو، وما الذي تستطيع فعله فعلاً">Why a radio stream stops working, and what you can actually do</h1>
@@ -166,6 +195,18 @@ footer nav a:hover{color:var(--acc)}
 
 
   <a class="cta" href="../" data-en="Try another station &rarr;" data-ar="جرّب محطة أخرى &larr;">Try another station &rarr;</a>
+
+  <div class="sharerow">
+    <button id="shNative" data-en="Share" data-ar="مشاركة">Share</button>
+    <button id="shWhats">WhatsApp</button>
+    <button id="shX">X</button>
+    <button id="shCopy" data-en="Copy link" data-ar="نسخ الرابط">Copy link</button>
+  </div>
+
+  <div class="related" id="relSec" style="display:none">
+    <h2 data-en="Related articles" data-ar="مقالات ذات صلة">Related articles</h2>
+    <div class="rgrid" id="relGrid"></div>
+  </div>
 </main>
 
 <footer>
@@ -198,6 +239,72 @@ function apply(){
 document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
 document.getElementById('yr').textContent=new Date().getFullYear();
 apply();
+</script>
+
+<script>
+/* ===== شريط التقدّم + حفظ موضع القراءة + المشاركة + مقالات ذات صلة ===== */
+(function(){
+  var SLUG='radio-stream-not-working';
+  var bar=document.getElementById('rprog');
+  function pct(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    return h>0?Math.min(100,Math.round((window.scrollY/h)*100)):0;
+  }
+  var save=null;
+  window.addEventListener('scroll',function(){
+    var p=pct();
+    if(bar)bar.style.width=p+'%';
+    clearTimeout(save);
+    save=setTimeout(function(){
+      try{
+        var o=JSON.parse(localStorage.getItem('lr_read')||'{}');
+        o[SLUG]=p;localStorage.setItem('lr_read',JSON.stringify(o));
+      }catch(e){}
+    },400);
+  });
+
+  var sh=document.getElementById('shWhats'),cp=document.getElementById('shCopy'),
+      na=document.getElementById('shNative'),tw=document.getElementById('shX');
+  var url=location.href.split('#')[0], ttl=document.title;
+  if(sh)sh.onclick=function(){
+    window.open('https://wa.me/?text='+encodeURIComponent(ttl+' '+url),'_blank');
+  };
+  if(tw)tw.onclick=function(){
+    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(ttl)+
+      '&url='+encodeURIComponent(url),'_blank');
+  };
+  if(cp)cp.onclick=function(){
+    if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){
+      cp.textContent=(document.documentElement.lang==='ar')?'تم النسخ':'Copied';
+    });
+  };
+  if(na)na.onclick=function(){
+    if(navigator.share)navigator.share({title:ttl,url:url}).catch(function(){});
+    else if(cp)cp.click();
+  };
+
+  /* مقالات ذات صلة من نفس التصنيف */
+  fetch('../articles.json').then(function(r){return r.json();}).then(function(all){
+    var me=null;
+    for(var i=0;i<all.length;i++)if(all[i].slug===SLUG){me=all[i];break;}
+    if(!me)return;
+    var lang=document.documentElement.lang==='ar'?'ar':'en';
+    var same=all.filter(function(p){return p.slug!==SLUG&&p.cat===me.cat;});
+    var rest=all.filter(function(p){return p.slug!==SLUG&&p.cat!==me.cat;});
+    var pick=same.concat(rest).slice(0,3);
+    if(!pick.length)return;
+    var box=document.getElementById('relGrid');
+    if(!box)return;
+    pick.forEach(function(p){
+      var a=document.createElement('a');a.className='rcard';a.href='./'+p.slug+'.html';
+      a.innerHTML='<div class="t"></div><div class="h"></div>';
+      a.querySelector('.t').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
+      a.querySelector('.h').textContent=p.title[lang]||p.title.en;
+      box.appendChild(a);
+    });
+    document.getElementById('relSec').style.display='block';
+  }).catch(function(){});
+})();
 </script>
 </body>
 </html>
