@@ -742,14 +742,27 @@ function toast(m){var t=$('toast');t.innerHTML=m;t.classList.add('show');
 
 /* ---------- data helpers ---------- */
 var MIRRORS=['https://de2.api.radio-browser.info','https://nl1.api.radio-browser.info','https://at1.api.radio-browser.info'];
+/* تُطلَق المرايا الثلاث في وقت واحد ويفوز أسرعها، بمهلة 8 ثوانٍ لكل منها.
+   التسلسل القديم كان ينتظر كل مرآة بطيئة حتى تنتهي مهلتها. */
 function api(p){
-  var i=0;
-  function tryNext(){
-    if(i>=MIRRORS.length)return Promise.resolve(null);
-    var m=MIRRORS[i++];
-    return fetch(m+p).then(function(r){return r.ok?r.json():tryNext()}).catch(tryNext);
-  }
-  return tryNext();
+  return new Promise(function(resolve){
+    var done=false,left=MIRRORS.length;
+    MIRRORS.forEach(function(m){
+      var ctl=null,t=null;
+      try{ctl=new AbortController();}catch(e){}
+      t=setTimeout(function(){if(ctl)try{ctl.abort();}catch(e){}},8000);
+      fetch(m+p,ctl?{signal:ctl.signal}:undefined)
+        .then(function(r){ if(!r.ok)throw 0; return r.json(); })
+        .then(function(d){
+          clearTimeout(t);
+          if(!done){done=true;resolve(d);}
+        })
+        .catch(function(){
+          clearTimeout(t);
+          if(--left<=0&&!done){done=true;resolve(null);}
+        });
+    });
+  });
 }
 var QCAP={low:64,mid:128,high:0};
 /* نفس رابط البث يعني المحطة نفسها مهما اختلف الاسم في قاعدة البيانات */
@@ -1495,12 +1508,13 @@ function igrp(s){
       if(t.indexOf(GROUPS[i].m[j])>-1)return GROUPS[i].k;
   return 'other';
 }
+var inLoading=false;
 function initCountryPage(cc){
-  inCC=cc;inList=[];inCat='';
+  inCC=cc;inList=[];inCat='';inLoading=true;
   var f=flagOf(cc);
   /* الهيكل له أزرار تنقله، فنحذف أزرار الصفحة المحقونة */
   var nr=pageEl.querySelectorAll('.navrow');
-  for(var k=1;k<nr.length;k++)nr[k].parentNode.removeChild(nr[k]);
+  for(var k=0;k<nr.length;k++)nr[k].parentNode.removeChild(nr[k]);
   var fg=pageEl.querySelector('#flag');
   if(fg)fg.textContent=f;
   var b=pageEl.querySelector('#cbanner');
@@ -1512,9 +1526,10 @@ function initCountryPage(cc){
   if(st)st.textContent=T('loading');
   api('/json/stations/search?hidebroken=true&limit=250&order=clickcount&reverse=true&countrycode='+cc)
     .then(function(d){
+      inLoading=false;
       inList=capped(clean(d));
       drawInCountry();
-    }).catch(function(){ if(st)st.textContent=T('empty'); });
+    }).catch(function(){ inLoading=false; if(st)st.textContent=T('empty'); });
 }
 function drawInCountry(){
   var bar=pageEl.querySelector('#catbar'),
@@ -1539,7 +1554,7 @@ function drawInCountry(){
   var sel=inList.filter(function(s){return !inCat||igrp(s)===inCat;});
   if(cn)cn.textContent=T('found').replace('{n}',fmtNum(sel.length));
   body.innerHTML='';
-  if(!sel.length){if(st)st.textContent=T('empty');return;}
+  if(!sel.length){if(st)st.textContent=inLoading?T('loading'):T('empty');return;}
   if(st)st.textContent='';
 
   if(inCat){
