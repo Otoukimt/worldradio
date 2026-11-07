@@ -594,6 +594,7 @@ var I={
   hrs:'h',retry:'Connection lost — reconnecting ({n}/3)…',skipped:'Station failed, moving to the next one',
   unknown:'Unknown',pageErr:'Could not load that page.',
   finding:'Finding {s}…',notFound:'Could not find {s} right now.',
+  navTip:'Station saved — tap play to resume when you come back.',
   gNews:'News &amp; talk',gMusic:'Music',gRelig:'Religious',gSport:'Sport',
   gCulture:'Culture',gOther:'Other',gAll:'All'},
  ar:{h1:'استمع إلى العالم، <em>مباشرةً</em>.',
@@ -626,6 +627,7 @@ var I={
   hrs:'س',retry:'انقطع الاتصال — إعادة المحاولة ({n}/3)…',skipped:'تعذّرت المحطة، الانتقال إلى التالية',
   unknown:'غير معروف',pageErr:'تعذّر تحميل الصفحة.',
   finding:'جارٍ البحث عن {s}…',notFound:'تعذّر العثور على {s} الآن.',
+  navTip:'حُفظت المحطة — اضغط تشغيل لاستئنافها عند عودتك.',
   gNews:'أخبار وحوار',gMusic:'موسيقى',gRelig:'ديني',gSport:'رياضة',
   gCulture:'ثقافة',gOther:'منوّعات',gAll:'الكل'}
 };
@@ -1453,7 +1455,10 @@ function internal(href){
   if(!href)return false;
   if(href.indexOf(location.origin)!==0)return false;
   if(href.indexOf('#')===0)return false;
-  if(/articles\.html$/.test(href))return false;   /* المجلة صفحة مستقلة */
+  /* هذه الصفحات لها سكربتها الخاص ولا يعمل عند الحقن، فتُفتح كصفحات حقيقية */
+  if(/articles\.html$/.test(href))return false;
+  if(href.indexOf('/articles/')>-1)return false;
+  if(href.indexOf('/countries/')>-1)return false;
   return /\.html$/.test(href)||href===ROOT||href===ROOT.replace(/\/$/,'');
 }
 function hookLink(a){
@@ -1461,6 +1466,15 @@ function hookLink(a){
   a.dataset.hooked='1';
   a.addEventListener('click',function(e){
     var href=a.href;
+    /* الانتقال إلى مقال أو صفحة دولة يوقف الصوت: نحفظ المحطة ليستأنفها بضغطة */
+    if(!internal(href)&&current&&!audio.paused&&
+       (href.indexOf('/articles/')>-1||href.indexOf('/countries/')>-1||
+        /articles\.html$/.test(href))){
+      LS.set('lr_last',slim(current));
+      try{if(!sessionStorage.getItem('lr_navtip')){
+        sessionStorage.setItem('lr_navtip','1');toast(T('navTip'));
+      }}catch(e){}
+    }
     if(!internal(href))return;
     if(e.metaKey||e.ctrlKey||e.shiftKey||a.target==='_blank')return;
     e.preventDefault();
