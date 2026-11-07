@@ -1,14 +1,30 @@
 {
-  "brand": { "name1": "Live", "name2": "Radio" },
+  "brand": {
+    "name1": "Live",
+    "name2": "Radio"
+  },
   "defaultTheme": "light",
+  "visitors": 0,
   "colors": {
     "light": {
-      "bg": "#f3f6fc", "card": "#ffffff", "card2": "#eef3fc", "line": "#dde5f2",
-      "txt": "#111a2e", "mut": "#5a6880", "acc": "#0d9488", "acc2": "#5b53e0"
+      "bg": "#f3f6fc",
+      "card": "#ffffff",
+      "card2": "#eef3fc",
+      "line": "#dde5f2",
+      "txt": "#111a2e",
+      "mut": "#5a6880",
+      "acc": "#0d9488",
+      "acc2": "#5b53e0"
     },
     "dark": {
-      "bg": "#0b0f1a", "card": "#161d31", "card2": "#1c2440", "line": "#232c45",
-      "txt": "#eef2ff", "mut": "#93a0c0", "acc": "#22d3a6", "acc2": "#6366f1"
+      "bg": "#0b0f1a",
+      "card": "#161d31",
+      "card2": "#1c2440",
+      "line": "#232c45",
+      "txt": "#eef2ff",
+      "mut": "#93a0c0",
+      "acc": "#22d3a6",
+      "acc2": "#6366f1"
     }
   },
   "hero": {
@@ -24,17 +40,65 @@
   "featured": [],
   "popular": [],
   "genres": [
-    { "k": "",          "en": "All",       "ar": "الكل" },
-    { "k": "pop",       "en": "Pop",       "ar": "بوب" },
-    { "k": "news",      "en": "News",      "ar": "أخبار" },
-    { "k": "rock",      "en": "Rock",      "ar": "روك" },
-    { "k": "jazz",      "en": "Jazz",      "ar": "جاز" },
-    { "k": "classical", "en": "Classical", "ar": "كلاسيكي" },
-    { "k": "quran",     "en": "Quran",     "ar": "قرآن" },
-    { "k": "dance",     "en": "Dance",     "ar": "رقص" },
-    { "k": "talk",      "en": "Talk",      "ar": "حواري" },
-    { "k": "sport",     "en": "Sport",     "ar": "رياضة" },
-    { "k": "oldies",    "en": "Oldies",    "ar": "قديم" },
-    { "k": "hiphop",    "en": "Hip hop",   "ar": "هيب هوب" }
+    {
+      "k": "",
+      "en": "All",
+      "ar": "الكل"
+    },
+    {
+      "k": "pop",
+      "en": "Pop",
+      "ar": "بوب"
+    },
+    {
+      "k": "news",
+      "en": "News",
+      "ar": "أخبار"
+    },
+    {
+      "k": "rock",
+      "en": "Rock",
+      "ar": "روك"
+    },
+    {
+      "k": "jazz",
+      "en": "Jazz",
+      "ar": "جاز"
+    },
+    {
+      "k": "classical",
+      "en": "Classical",
+      "ar": "كلاسيكي"
+    },
+    {
+      "k": "quran",
+      "en": "Quran",
+      "ar": "قرآن"
+    },
+    {
+      "k": "dance",
+      "en": "Dance",
+      "ar": "رقص"
+    },
+    {
+      "k": "talk",
+      "en": "Talk",
+      "ar": "حواري"
+    },
+    {
+      "k": "sport",
+      "en": "Sport",
+      "ar": "رياضة"
+    },
+    {
+      "k": "oldies",
+      "en": "Oldies",
+      "ar": "قديم"
+    },
+    {
+      "k": "hiphop",
+      "en": "Hip hop",
+      "ar": "هيب هوب"
+    }
   ]
 }

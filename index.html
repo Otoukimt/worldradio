@@ -13,10 +13,10 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>LiveRadio — Free Online Radio Stations Worldwide</title>
-<meta name="description" content="Listen to hundreds of free live radio stations from around the world. Browse by country and genre, save favourites, choose audio quality, and keep listening while you browse.">
-<meta name="theme-color" content="#eef3fb">
+<meta name="description" content="Listen to hundreds of free live radio stations from around the world. Explore by country, save favourites, choose audio quality, and keep listening while you browse.">
 <link rel="canonical" href="https://worldliveradio.com/">
 <meta property="og:url" content="https://worldliveradio.com/">
+<meta name="theme-color" content="#eef2fa">
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" href="./icon-192.png">
 <link rel="apple-touch-icon" href="./icon-192.png">
@@ -28,25 +28,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-/* ===== LIGHT (default) ===== */
+/* ===== LIGHT: tinted, never stark white ===== */
 :root{
-  --bg:#f3f6fc; --bg2:#e9eef9;
-  --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
-  --txt:#111a2e; --mut:#5a6880; --acc:#0d9488; --acc2:#5b53e0; --red:#e11d48;
-  --shadow:rgba(23,38,74,.09);
-  --headG:linear-gradient(120deg,#e8f1ff 0%,#eeeafd 48%,#fdeef4 100%);
-  --footG:linear-gradient(120deg,#fdeef4 0%,#eeeafd 52%,#e8f1ff 100%);
-  --cardG:linear-gradient(170deg,#ffffff 0%,#f6f9ff 100%);
-  --ringG:linear-gradient(135deg,#e2e9f7,#eee7fb);
-  --pbg:linear-gradient(180deg,#ffffff 0%,#f2f6fe 100%);
+  --bg:#eef2fa; --bg2:#e6ecf8;
+  --card:#f7f9fe; --card2:#e9eefb; --line:#d7e0f0;
+  --txt:#121b2f; --mut:#5a6782; --acc:#0d9488; --acc2:#5b53e0;
+  --shadow:rgba(23,38,74,.10);
+  --headG:linear-gradient(120deg,#e4edff 0%,#eae7fb 48%,#fbeaf2 100%);
+  --footG:linear-gradient(120deg,#fbeaf2 0%,#eae7fb 52%,#e4edff 100%);
+  --cardG:linear-gradient(170deg,#f9fbff 0%,#eef3fc 100%);
+  --ringG:linear-gradient(135deg,#dbe4f6,#e8e2f8);
+  --pbg:linear-gradient(180deg,#f7f9fe 0%,#e9eefb 100%);
   --font:'Outfit','Cairo',system-ui,sans-serif;
   box-sizing:border-box;
 }
-/* ===== DARK ===== */
 html[data-theme="dark"]{
-  --bg:#0b0f1a; --bg2:#0b0f1a;
+  --bg:#0b0f1a; --bg2:#0a0e18;
   --card:#161d31; --card2:#1c2440; --line:#232c45;
-  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1; --red:#f43f5e;
+  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1;
   --shadow:rgba(0,0,0,.35);
   --headG:linear-gradient(120deg,#0e1526,#121a2e 60%,#17132a);
   --footG:linear-gradient(120deg,#17132a,#121a2e 48%,#0e1526);
@@ -57,20 +56,18 @@ html[data-theme="dark"]{
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-behavior:smooth;height:100%}
 body{margin:0;min-height:100%;color:var(--txt);font-family:var(--font);
-  background:var(--bg);
-  background-image:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
+  background:var(--bg);background-image:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
   background-attachment:fixed;
   padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:calc(100px + env(safe-area-inset-bottom,0px));-webkit-font-smoothing:antialiased;
-  transition:background .25s,color .25s}
+  padding-bottom:calc(100px + env(safe-area-inset-bottom,0px));
+  -webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
 html[dir="rtl"] body{font-family:'Cairo',var(--font)}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit}
 
 header{position:sticky;top:0;z-index:30;background:var(--headG);
-  border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px);
-  backdrop-filter:blur(10px)}
-.hrow{display:flex;align-items:center;gap:7px;padding:12px 16px;max-width:1200px;margin:0 auto}
+  border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(10px)}
+.hrow{display:flex;align-items:center;gap:7px;padding:12px 16px;max-width:1100px;margin:0 auto}
 .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;letter-spacing:-.5px;cursor:pointer}
 .logo-dot{width:12px;height:12px;border-radius:50%;background:var(--acc);
   box-shadow:0 0 0 4px rgba(13,148,136,.16);animation:pulse 2s infinite}
@@ -82,97 +79,99 @@ header{position:sticky;top:0;z-index:30;background:var(--headG);
   box-shadow:0 1px 2px var(--shadow)}
 .btn:hover{border-color:var(--acc)}
 .ibtn{width:37px;height:37px;border-radius:50%;display:grid;place-items:center;padding:0;font-size:15px}
-.searchbar{padding:0 16px 12px;max-width:1200px;margin:0 auto}
-.searchbar input{width:100%;background:var(--card);border:1px solid var(--line);color:var(--txt);
-  padding:12px 16px;border-radius:14px;font-family:inherit;font-size:15px;outline:none;
-  box-shadow:0 1px 3px var(--shadow)}
-.searchbar input:focus{border-color:var(--acc)}
 
-.hero{max-width:1200px;margin:0 auto;padding:26px 16px 6px;text-align:center}
-.hero h1{font-size:clamp(26px,6vw,42px);margin:0 0 10px;line-height:1.2;font-weight:800}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.hero{text-align:center;padding:26px 16px 4px;max-width:1100px;margin:0 auto}
+.hero h1{font-size:clamp(25px,6vw,40px);margin:0 0 10px;line-height:1.2;font-weight:800}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--acc),var(--acc2));
   -webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{color:var(--mut);margin:0 auto;max-width:620px;font-size:16px;line-height:1.6}
+.hero p{color:var(--mut);margin:0 auto;max-width:620px;font-size:15.5px;line-height:1.6}
 
-.tabs{display:flex;gap:8px;max-width:1200px;margin:18px auto 0;padding:0 16px}
+.tabs{display:flex;gap:8px;max-width:1100px;margin:18px auto 0;padding:0 16px}
 .tab{flex:1;background:var(--cardG);border:1px solid var(--line);color:var(--mut);padding:10px;
   border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 1px 2px var(--shadow)}
-.tab.on{border-color:var(--acc);color:var(--txt);
-  background:linear-gradient(170deg,var(--card),var(--card2))}
+.tab.on{border-color:var(--acc);color:var(--txt);background:linear-gradient(170deg,var(--card),var(--card2))}
 
-.filters{max-width:1200px;margin:0 auto;padding:14px 16px 4px}
-.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chip{background:var(--cardG);border:1px solid var(--line);color:var(--mut);padding:8px 16px;
-  border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;
-  box-shadow:0 1px 2px var(--shadow)}
-.chip.on{background:linear-gradient(135deg,var(--acc),var(--acc2));border-color:transparent;color:#fff}
-select.ctry{width:100%;margin-top:8px;background:var(--card);border:1px solid var(--line);
-  color:var(--txt);padding:11px 14px;border-radius:12px;font-family:inherit;font-size:15px;
-  box-shadow:0 1px 3px var(--shadow)}
+.sec{max-width:1100px;margin:0 auto;padding:18px 16px 4px}
+.sechead{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.sec h2{font-size:18px;margin:0;font-weight:800}
+.cnt{font-size:12.5px;color:var(--mut);font-weight:600}
+.more{margin-inline-start:auto;font-size:13.5px;color:var(--acc);font-weight:700;cursor:pointer;
+  background:none;border:none;padding:4px}
 
-.sec{max-width:1200px;margin:0 auto;padding:16px}
-.sechead{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
-.sec h2{font-size:20px;margin:0;font-weight:800}
-.cnt{font-size:13px;color:var(--mut);font-weight:600}
-.lnk{margin-inline-start:auto;font-size:14px;color:var(--acc);font-weight:600}
-.grid{display:grid;gap:18px 10px;grid-template-columns:repeat(auto-fill,minmax(104px,1fr))}
-.row{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.grid6{display:grid;gap:16px 8px;grid-template-columns:repeat(3,1fr)}
+@media(min-width:560px){.grid6{grid-template-columns:repeat(6,1fr)}}
+.grid{display:grid;gap:18px 8px;grid-template-columns:repeat(auto-fill,minmax(98px,1fr))}
+.row{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
 .row::-webkit-scrollbar{display:none}
-.row .st{flex:0 0 96px}
+.row .st{flex:0 0 92px}
 
-.st{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;
-  background:none;border:none;padding:4px;color:inherit;position:relative}
-.ring{width:84px;height:84px;border-radius:50%;padding:3px;position:relative;
-  background:var(--ringG);display:grid;place-items:center;transition:.25s;
-  box-shadow:0 2px 8px var(--shadow)}
+.st{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;
+  background:none;border:none;padding:3px;color:inherit;position:relative}
+.ring{width:76px;height:76px;border-radius:50%;padding:3px;position:relative;
+  background:var(--ringG);display:grid;place-items:center;transition:.25s;box-shadow:0 2px 8px var(--shadow)}
 .st:hover .ring{background:linear-gradient(135deg,var(--acc),var(--acc2));transform:translateY(-3px)}
-.st.playing .ring{background:linear-gradient(135deg,var(--acc),var(--acc2));
-  box-shadow:0 0 22px rgba(13,148,136,.35)}
+.st.playing .ring{background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 0 20px rgba(13,148,136,.35)}
 .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--card);display:block}
 .ring .fb{width:100%;height:100%;border-radius:50%;background:var(--card);display:grid;
-  place-items:center;font-size:24px;font-weight:800;color:var(--acc)}
-.fav{position:absolute;top:-2px;inset-inline-end:-2px;width:27px;height:27px;border-radius:50%;
+  place-items:center;font-size:22px;font-weight:800;color:var(--acc)}
+.fav{position:absolute;top:-2px;inset-inline-end:-2px;width:25px;height:25px;border-radius:50%;
   background:var(--card);border:1px solid var(--line);display:grid;place-items:center;
-  font-size:13px;cursor:pointer;z-index:2;color:var(--mut);padding:0;line-height:1;
-  box-shadow:0 1px 3px var(--shadow)}
-.fav.on{color:var(--red);border-color:var(--red)}
-.info{position:absolute;top:-2px;inset-inline-start:-2px;width:27px;height:27px;border-radius:50%;
+  font-size:12px;cursor:pointer;z-index:2;color:var(--mut);padding:0;line-height:1;box-shadow:0 1px 3px var(--shadow)}
+.fav.on{color:#e11d48;border-color:#e11d48}
+.info{position:absolute;top:-2px;inset-inline-start:-2px;width:25px;height:25px;border-radius:50%;
   background:var(--card);border:1px solid var(--line);display:grid;place-items:center;
-  font-size:12px;font-weight:800;cursor:pointer;z-index:2;color:var(--mut);padding:0;line-height:1;
-  box-shadow:0 1px 3px var(--shadow)}
+  font-size:11px;font-weight:800;cursor:pointer;z-index:2;color:var(--mut);padding:0;line-height:1;box-shadow:0 1px 3px var(--shadow)}
 .info:hover{color:var(--acc);border-color:var(--acc)}
-.st .nm{font-size:12.5px;font-weight:600;line-height:1.3;text-align:center;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:104px}
-.st .cn{font-size:11px;color:var(--mut)}
-.st .br{font-size:10px;color:var(--mut);opacity:.75}
+.st .nm{font-size:12px;font-weight:600;line-height:1.3;text-align:center;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:98px}
+.st .cn{font-size:10.5px;color:var(--mut)}
 
-.sk{display:flex;flex-direction:column;align-items:center;gap:8px}
-.sk .c{width:84px;height:84px;border-radius:50%;background:var(--card2);animation:sh 1.3s infinite}
-.sk .l{width:70px;height:10px;border-radius:6px;background:var(--card2);animation:sh 1.3s infinite}
+/* ===== country explorer ===== */
+.csearch{position:relative;margin-bottom:14px}
+.csearch input{width:100%;background:var(--card);border:1px solid var(--line);color:var(--txt);
+  padding:13px 16px;border-radius:14px;font-family:inherit;font-size:15px;outline:none;
+  box-shadow:0 1px 3px var(--shadow)}
+.csearch input:focus{border-color:var(--acc)}
+.flags{display:grid;gap:14px 8px;grid-template-columns:repeat(3,1fr)}
+@media(min-width:560px){.flags{grid-template-columns:repeat(6,1fr)}}
+.fl{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;
+  background:none;border:none;padding:4px;color:inherit}
+.fl .cir{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;
+  background:var(--cardG);border:1px solid var(--line);font-size:34px;line-height:1;
+  box-shadow:0 2px 8px var(--shadow);transition:.22s}
+.fl:hover .cir{border-color:var(--acc);transform:translateY(-3px)}
+.fl .fname{font-size:12px;font-weight:700;text-align:center;line-height:1.25;max-width:98px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fl .fnum{font-size:11px;color:var(--mut);font-weight:600}
+
+.catbar{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:6px;scrollbar-width:none}
+.catbar::-webkit-scrollbar{display:none}
+.chip{background:var(--cardG);border:1px solid var(--line);color:var(--mut);padding:8px 15px;
+  border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px var(--shadow)}
+.chip.on{background:linear-gradient(135deg,var(--acc),var(--acc2));border-color:transparent;color:#fff}
+.grouphead{font-size:15px;font-weight:800;margin:18px 0 10px;color:var(--acc2)}
+
+.sk{display:flex;flex-direction:column;align-items:center;gap:7px}
+.sk .c{width:76px;height:76px;border-radius:50%;background:var(--card2);animation:sh 1.3s infinite}
+.sk .l{width:62px;height:9px;border-radius:6px;background:var(--card2);animation:sh 1.3s infinite}
 @keyframes sh{50%{opacity:.45}}
-.load{text-align:center;color:var(--mut);padding:30px 0;font-size:15px}
-.more{display:block;margin:22px auto 0}
+.load{text-align:center;color:var(--mut);padding:26px 0;font-size:14.5px}
 
-.arts{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
-.art{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:18px;
+.arts{display:grid;gap:13px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.art{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:17px;
   transition:.2s;display:block;box-shadow:0 2px 8px var(--shadow)}
 .art:hover{border-color:var(--acc);transform:translateY(-2px);box-shadow:0 6px 18px var(--shadow)}
-.art .tag{font-size:12px;color:var(--acc);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-.art h3{margin:8px 0 6px;font-size:17px;font-weight:700;line-height:1.35}
-.art p{margin:0;color:var(--mut);font-size:14px;line-height:1.55}
+.art .tag{font-size:11.5px;color:var(--acc);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.art h3{margin:8px 0 6px;font-size:16.5px;font-weight:700;line-height:1.35}
+.art p{margin:0;color:var(--mut);font-size:13.5px;line-height:1.55}
 
-.stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:34px auto 0;
-  max-width:1200px;padding:0 16px}
-.stat{background:var(--cardG);border:1px solid var(--line);border-radius:14px;padding:14px 18px;
-  text-align:center;min-width:120px;flex:1;max-width:200px;box-shadow:0 2px 8px var(--shadow)}
-.stat .v{font-size:21px;font-weight:800;color:var(--acc);line-height:1.2}
-.stat .k{font-size:12px;color:var(--mut);margin-top:4px;font-weight:600}
-
-footer{border-top:1px solid var(--line);margin-top:44px;padding:28px 16px;text-align:center;
+footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 16px;text-align:center;
   color:var(--mut);font-size:14px;background:var(--footG)}
-footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:14px}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
 footer nav a:hover{color:var(--acc)}
+.vis{font-size:13px;margin-bottom:10px}
+.vis b{color:var(--acc);font-size:16px}
 
 #page{display:none;max-width:760px;margin:0 auto;padding:22px 18px 30px}
 #page.on{display:block}
@@ -182,28 +181,22 @@ footer nav a:hover{color:var(--acc)}
 #page h1{font-size:clamp(25px,6vw,36px);line-height:1.24;margin:10px 0 12px;font-weight:800;
   background:linear-gradient(100deg,var(--acc),var(--acc2) 70%);
   -webkit-background-clip:text;background-clip:text;color:transparent}
-#page h2{color:var(--acc2)}
-#page .playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-  background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
-  padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
-  margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
-#page .playbtn:hover{filter:brightness(1.07)}
-#page .playbtn .ic{font-size:18px}
+#page h2{color:var(--acc2);font-size:21px;margin:34px 0 11px;font-weight:800;line-height:1.3}
+#page h3{font-size:18px;margin:26px 0 8px;font-weight:700}
 #page .meta{color:var(--mut);font-size:14px;margin-bottom:22px}
-#page .hero{height:170px;border-radius:18px;margin:0 0 26px;padding:0;max-width:none;position:relative;
+#page .hero{height:180px;border-radius:18px;margin:0 0 26px;padding:0;max-width:none;position:relative;
   overflow:hidden;background:linear-gradient(135deg,#0f766e,#4338ca 60%,#be123c);display:grid;place-items:center}
-#page .hero .wav{display:flex;gap:6px;align-items:flex-end;height:68px}
+#page .hero .heroimg{width:100%;height:100%;object-fit:cover;display:block}
+#page .hero .wav{display:flex;gap:6px;align-items:flex-end;height:66px}
 #page .hero .wav i{width:8px;background:rgba(255,255,255,.88);border-radius:4px;display:block;animation:w 1.4s ease-in-out infinite}
 #page .hero .wav i:nth-child(1){height:24px;animation-delay:0s}
 #page .hero .wav i:nth-child(2){height:48px;animation-delay:.15s}
-#page .hero .wav i:nth-child(3){height:68px;animation-delay:.3s}
+#page .hero .wav i:nth-child(3){height:66px;animation-delay:.3s}
 #page .hero .wav i:nth-child(4){height:40px;animation-delay:.45s}
-#page .hero .wav i:nth-child(5){height:58px;animation-delay:.6s}
+#page .hero .wav i:nth-child(5){height:56px;animation-delay:.6s}
 #page .hero .wav i:nth-child(6){height:28px;animation-delay:.75s}
 #page .hero .wav i:nth-child(7){height:46px;animation-delay:.9s}
 @keyframes w{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
-#page h2{font-size:21px;margin:34px 0 11px;font-weight:800;line-height:1.3}
-#page h3{font-size:18px;margin:26px 0 8px;font-weight:700}
 #page p{line-height:1.85;color:var(--txt);opacity:.93;margin:0 0 16px;font-size:16.5px}
 #page ul,#page ol{line-height:1.85;color:var(--txt);opacity:.93;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
 #page li{margin-bottom:9px}
@@ -217,21 +210,23 @@ footer nav a:hover{color:var(--acc)}
 #page .box{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:18px;
   margin:28px 0;box-shadow:0 2px 8px var(--shadow)}
 #page .box h2,#page .box h3{margin-top:0}
-#page .cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
-  color:#fff;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px;
-  box-shadow:0 6px 18px var(--shadow)}
+#page .cta,#page .playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
+  padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
+  margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
 #page .mail{display:block;background:var(--cardG);border:1px solid var(--line);border-radius:16px;
   padding:20px;margin:22px 0;text-align:center;box-shadow:0 2px 8px var(--shadow)}
 #page .mail .lbl{font-size:13px;color:var(--mut);font-weight:600;margin-bottom:8px}
 #page .mail .ad{font-size:18px;font-weight:800;color:var(--acc);direction:ltr;word-break:break-all}
 #page .lead{color:var(--mut);font-size:16px;line-height:1.7;margin:0 0 26px;max-width:620px}
 #page .art h2{margin:8px 0 6px;font-size:17px;font-weight:700;line-height:1.35}
-#page .chips{margin-bottom:18px}
 #pLoad{text-align:center;color:var(--mut);padding:60px 0;font-size:15px}
 .backb{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:9px 16px;
-  border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:18px;
+  border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;margin:0 8px 18px 0;
   box-shadow:0 1px 3px var(--shadow)}
 .backb:hover{border-color:var(--acc);color:var(--acc)}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
+  background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .1s}
 
 .player{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--pbg);
   border-top:1px solid var(--line);box-shadow:0 -8px 28px var(--shadow);
@@ -239,16 +234,16 @@ footer nav a:hover{color:var(--acc)}
   transform:translateY(130%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
 .player.up{transform:translateY(0)}
 .pmain{display:flex;align-items:center;gap:10px;padding:10px 14px}
-#pArt{width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--card2);flex:none}
+#pArt{width:50px;height:50px;border-radius:50%;object-fit:cover;background:var(--card2);flex:none}
 .pfb{display:grid;place-items:center;font-weight:800;color:var(--acc)}
 .pinfo{flex:1;min-width:0;cursor:pointer}
 .pinfo .t{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pinfo .s{font-size:12.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pbtn{width:48px;height:48px;border-radius:50%;flex:none;border:none;cursor:pointer;
+.pbtn{width:46px;height:46px;border-radius:50%;flex:none;border:none;cursor:pointer;
   background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;display:grid;place-items:center;
   box-shadow:0 4px 12px var(--shadow)}
-.pbtn svg{width:22px;height:22px;fill:currentColor}
-.nav{background:none;border:none;color:var(--mut);font-size:18px;cursor:pointer;padding:4px;flex:none;line-height:1}
+.pbtn svg{width:21px;height:21px;fill:currentColor}
+.nav{background:none;border:none;color:var(--mut);font-size:17px;cursor:pointer;padding:4px;flex:none;line-height:1}
 .nav:hover{color:var(--txt)}
 .bars{display:flex;gap:2px;align-items:flex-end;height:14px;flex:none}
 .bars i{width:3px;background:var(--acc);border-radius:2px;animation:eq .9s ease-in-out infinite;display:block}
@@ -283,10 +278,9 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 .opt small{display:block;color:var(--mut);font-size:11.5px;margin-top:3px}
 .close{width:100%;background:var(--cardG);border:1px solid var(--line);color:var(--txt);
   padding:13px;border-radius:12px;font-weight:700;cursor:pointer;font-size:15px}
-.danger{color:var(--red);background:none;margin-bottom:10px}
-
+.danger{color:#e11d48;background:none;margin-bottom:10px}
 .ihead{display:flex;gap:14px;align-items:center;margin-bottom:16px}
-#iArt{width:66px;height:66px;border-radius:50%;object-fit:cover;background:var(--card2);flex:none}
+#iArt{width:64px;height:64px;border-radius:50%;object-fit:cover;background:var(--card2);flex:none}
 .ihead .n{font-size:18px;font-weight:800;line-height:1.3}
 .ihead .c{font-size:13px;color:var(--mut);margin-top:3px}
 .kv{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
@@ -302,8 +296,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 
 #top{position:fixed;inset-inline-end:16px;bottom:calc(104px + env(safe-area-inset-bottom,0px));
   z-index:40;width:42px;height:42px;border-radius:50%;background:var(--cardG);border:1px solid var(--line);
-  color:var(--txt);cursor:pointer;display:none;place-items:center;font-size:18px;
-  box-shadow:0 4px 12px var(--shadow)}
+  color:var(--txt);cursor:pointer;display:none;place-items:center;font-size:18px;box-shadow:0 4px 12px var(--shadow)}
 #toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);
   bottom:calc(110px + env(safe-area-inset-bottom,0px));z-index:80;background:var(--pbg);
   border:1px solid var(--line);color:var(--txt);padding:10px 18px;border-radius:999px;
@@ -313,6 +306,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 </style>
 </head>
 <body>
+<div id="prog"></div>
 
 <header>
   <div class="hrow">
@@ -323,7 +317,6 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     <button class="btn ibtn" id="setBtn" title="Settings">&#9881;</button>
     <button class="btn" id="langBtn">العربية</button>
   </div>
-  <div class="searchbar" id="searchWrap"><input id="search" type="search" placeholder="Search stations..."></div>
 </header>
 
 <div id="page"></div>
@@ -340,52 +333,87 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     <button class="tab" data-tab="arts" data-i="tArts">Articles</button>
   </div>
 
-  <div class="filters" id="filters">
-    <div class="chips" id="genres"></div>
-    <select class="ctry" id="country"></select>
+  <!-- ===== default home view ===== -->
+  <div id="homeMain">
+    <section class="sec" id="localSec" style="display:none">
+      <div class="sechead">
+        <h2 id="localTitle">Stations near you</h2>
+        <button class="more" id="localMore" data-i="discover">Discover more &rarr;</button>
+      </div>
+      <div class="grid6" id="local"></div>
+    </section>
+
+    <section class="sec" id="recentSec" style="display:none">
+      <div class="sechead"><h2 data-i="recent">Recently played</h2></div>
+      <div class="row" id="recent"></div>
+    </section>
+
+    <section class="sec" id="featSec" style="display:none">
+      <div class="sechead"><h2 id="featTitle">Featured</h2></div>
+      <div class="row" id="feat"></div>
+    </section>
+
+    <section class="sec">
+      <div class="sechead">
+        <h2 data-i="explore">Explore by country</h2>
+        <button class="more" id="allCountries" data-i="discover">Discover more &rarr;</button>
+      </div>
+      <div class="csearch">
+        <input id="csearch" type="search" placeholder="Search a country...">
+      </div>
+      <div class="flags" id="flags"></div>
+      <div class="load" id="cstatus"></div>
+    </section>
   </div>
 
-  <section class="sec" id="featSec" style="display:none">
-    <div class="sechead"><h2 id="featTitle">Featured</h2></div>
-    <div class="row" id="feat"></div>
-  </section>
+  <!-- ===== favourites view ===== -->
+  <div id="favMain" style="display:none">
+    <section class="sec">
+      <div class="sechead"><h2 data-i="favs">Your favourites</h2><span class="cnt" id="favCnt"></span></div>
+      <div class="grid" id="favGrid"></div>
+      <div class="load" id="favEmpty" style="display:none"></div>
+    </section>
+  </div>
 
-  <section class="sec" id="localSec" style="display:none">
-    <div class="sechead"><h2 id="localTitle">Stations near you</h2></div>
-    <div class="row" id="local"></div>
-  </section>
+  <!-- ===== one country ===== -->
+  <div id="ctryMain" style="display:none">
+    <section class="sec">
+      <button class="backb" id="ctryBack" data-i="backHome">&larr; Back</button>
+      <div class="sechead"><h2 id="ctryTitle">Country</h2><span class="cnt" id="ctryCnt"></span></div>
+      <div class="csearch">
+        <input id="stSearch" type="search" placeholder="Search a station...">
+      </div>
+      <div class="catbar" id="catbar"></div>
+      <div id="ctryBody"></div>
+      <div class="load" id="ctryStatus"></div>
+    </section>
+  </div>
 
-  <section class="sec" id="recentSec" style="display:none">
-    <div class="sechead"><h2 data-i="recent">Recently played</h2></div>
-    <div class="row" id="recent"></div>
-  </section>
-
-  <section class="sec">
-    <div class="sechead">
-      <h2 id="secTitle">Popular stations</h2>
-      <span class="cnt" id="cnt"></span>
-    </div>
-    <div class="grid" id="grid"></div>
-    <div class="load" id="status" style="display:none"></div>
-    <button class="btn more" id="moreBtn" style="display:none" data-i="more">Show more</button>
-  </section>
-
-  <section class="sec" id="popSec" style="display:none">
-    <div class="sechead"><h2 data-i="mostRead">Most read</h2></div>
-    <div class="arts" id="popList"></div>
-  </section>
+  <!-- ===== all countries ===== -->
+  <div id="allMain" style="display:none">
+    <section class="sec">
+      <button class="backb" id="allBack" data-i="backHome">&larr; Back</button>
+      <div class="sechead"><h2 data-i="allCountries">All countries</h2><span class="cnt" id="allCnt"></span></div>
+      <div class="csearch">
+        <input id="asearch" type="search" placeholder="Search a country...">
+      </div>
+      <div class="flags" id="allFlags"></div>
+    </section>
+  </div>
 
   <section class="sec" id="articles">
     <div class="sechead">
       <h2 data-i="guides">Radio guides &amp; articles</h2>
-      <a class="lnk" href="./articles.html" data-i="allArts">See all &rarr;</a>
+      <a class="more" href="./articles.html" data-i="allArts">See all &rarr;</a>
     </div>
     <div class="arts" id="artList"></div>
   </section>
-
 </div>
 
 <footer>
+  <div class="vis" id="visBox" style="display:none">
+    <span data-i="visitors">Total visitors</span>: <b id="visNum">0</b>
+  </div>
   <nav>
     <a href="./articles.html" data-i="allArts2">Articles</a>
     <a href="./about.html" data-i="about">About</a>
@@ -475,91 +503,107 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 </div>
 
 <audio id="audio" preload="none"></audio>
-
 <script>
-/* ============ Google Analytics 4 ============ */
-var GA_ID='G-LKJTP0YVEN';  /* loaded in <head> above */
-function gaView(path,title){
-  if(!GA_ID||!window.gtag)return;
-  gtag('event','page_view',{page_path:path,page_title:title});
-}
-function gaEvent(name,params){ if(GA_ID&&window.gtag)gtag('event',name,params||{}); }
+/* ============================================================
+   LiveRadio — home engine
+   ============================================================ */
 
-/* ================= i18n ================= */
+/* ---------- أسماء الدول بالعربية حسب رمز ISO ---------- */
+var CN_AR={
+AF:'أفغانستان',AL:'ألبانيا',DZ:'الجزائر',AD:'أندورا',AO:'أنغولا',AR:'الأرجنتين',AM:'أرمينيا',
+AU:'أستراليا',AT:'النمسا',AZ:'أذربيجان',BH:'البحرين',BD:'بنغلاديش',BY:'بيلاروسيا',BE:'بلجيكا',
+BJ:'بنين',BO:'بوليفيا',BA:'البوسنة والهرسك',BW:'بوتسوانا',BR:'البرازيل',BG:'بلغاريا',BF:'بوركينا فاسو',
+BI:'بوروندي',KH:'كمبوديا',CM:'الكاميرون',CA:'كندا',CV:'الرأس الأخضر',CF:'إفريقيا الوسطى',TD:'تشاد',
+CL:'تشيلي',CN:'الصين',CO:'كولومبيا',KM:'جزر القمر',CG:'الكونغو',CD:'الكونغو الديمقراطية',CR:'كوستاريكا',
+CI:'ساحل العاج',HR:'كرواتيا',CU:'كوبا',CY:'قبرص',CZ:'التشيك',DK:'الدنمارك',DJ:'جيبوتي',DO:'الدومينيكان',
+EC:'الإكوادور',EG:'مصر',SV:'السلفادور',EE:'إستونيا',ET:'إثيوبيا',FI:'فنلندا',FR:'فرنسا',GA:'الغابون',
+GM:'غامبيا',GE:'جورجيا',DE:'ألمانيا',GH:'غانا',GR:'اليونان',GT:'غواتيمالا',GN:'غينيا',HT:'هايتي',
+HN:'هندوراس',HK:'هونغ كونغ',HU:'المجر',IS:'آيسلندا',IN:'الهند',ID:'إندونيسيا',IR:'إيران',IQ:'العراق',
+IE:'أيرلندا',IL:'إسرائيل',IT:'إيطاليا',JM:'جامايكا',JP:'اليابان',JO:'الأردن',KZ:'كازاخستان',KE:'كينيا',
+KW:'الكويت',KG:'قيرغيزستان',LA:'لاوس',LV:'لاتفيا',LB:'لبنان',LY:'ليبيا',LT:'ليتوانيا',LU:'لوكسمبورغ',
+MK:'مقدونيا الشمالية',MG:'مدغشقر',MW:'مالاوي',MY:'ماليزيا',ML:'مالي',MT:'مالطا',MR:'موريتانيا',
+MU:'موريشيوس',MX:'المكسيك',MD:'مولدوفا',MN:'منغوليا',ME:'الجبل الأسود',MA:'المغرب',MZ:'موزمبيق',
+MM:'ميانمار',NA:'ناميبيا',NP:'نيبال',NL:'هولندا',NZ:'نيوزيلندا',NI:'نيكاراغوا',NE:'النيجر',
+NG:'نيجيريا',KP:'كوريا الشمالية',NO:'النرويج',OM:'عُمان',PK:'باكستان',PS:'فلسطين',PA:'بنما',
+PY:'باراغواي',PE:'بيرو',PH:'الفلبين',PL:'بولندا',PT:'البرتغال',PR:'بورتوريكو',QA:'قطر',RO:'رومانيا',
+RU:'روسيا',RW:'رواندا',SA:'السعودية',SN:'السنغال',RS:'صربيا',SG:'سنغافورة',SK:'سلوفاكيا',SI:'سلوفينيا',
+SO:'الصومال',ZA:'جنوب إفريقيا',KR:'كوريا الجنوبية',SS:'جنوب السودان',ES:'إسبانيا',LK:'سريلانكا',
+SD:'السودان',SE:'السويد',CH:'سويسرا',SY:'سوريا',TW:'تايوان',TJ:'طاجيكستان',TZ:'تنزانيا',TH:'تايلاند',
+TG:'توغو',TN:'تونس',TR:'تركيا',TM:'تركمانستان',UG:'أوغندا',UA:'أوكرانيا',AE:'الإمارات',
+GB:'المملكة المتحدة',US:'الولايات المتحدة',UY:'أوروغواي',UZ:'أوزبكستان',VE:'فنزويلا',VN:'فيتنام',
+YE:'اليمن',ZM:'زامبيا',ZW:'زيمبابوي'
+};
+
 var I={
  en:{h1:'Listen to the world, <em>live</em>.',
   sub:'Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.',
-  popular:'Popular stations',favs:'Your favourites',recent:'Recently played',near:'Stations from {c}',
-  more:'Show more',guides:'Radio guides &amp; articles',allArts:'See all &rarr;',allArts2:'Articles',
-  about:'About',privacy:'Privacy Policy',contact:'Contact',
-  search:'Search stations...',allc:'All countries',empty:'No stations found.',
-  noFav:'No favourites yet. Tap the heart on any station.',
   tAll:'Browse',tFav:'&#9829; Favourites',tArts:'&#128214; Articles',
-  backHome:'&larr; Back to stations',vol:'Volume',fav:'Favourite',share:'Share',
-  sleep:'Sleep timer',close:'Close',infoB:'Details',
+  near:'Stations from {c}',recent:'Recently played',featured:'Featured stations',
+  explore:'Explore by country',allCountries:'All countries',discover:'Discover more &rarr;',
+  favs:'Your favourites',noFav:'No favourites yet. Tap the heart on any station.',
+  searchC:'Search a country...',searchS:'Search a station...',
+  guides:'Radio guides &amp; articles',allArts:'See all &rarr;',allArts2:'Articles',
+  about:'About',privacy:'Privacy Policy',contact:'Contact',visitors:'Total visitors',
+  backHome:'&larr; Back',empty:'Nothing found.',loading:'Loading…',
+  nStations:'{n} stations',found:'{n} stations',
   settings:'Settings',setSub:'Saved on this device only.',
   quality:'Audio quality &amp; data use',qLow:'Saver',qLowS:'&le;64 kbps',
   qMid:'Balanced',qMidS:'&le;128 kbps',qHigh:'Best',qHighS:'No limit',
   qNote:'Applies to the station list. The station playing now keeps its own bitrate until you pick another.',
   myStats:'Your listening stats',kMinutes:'minutes',kStations:'stations',kData:'MB used',
   reset:'Clear my saved data',done:'Done',
-  kBitrate:'Bitrate',kCodec:'Format',kLang:'Language',kData2:'Data per hour',kVotes:'Listener votes',kSite:'Website',
-  iPlay:'Play',iFav:'Favourite',iShare:'Share',
+  vol:'Volume',fav:'Favourite',share:'Share',sleep:'Sleep timer',close:'Close',infoB:'Details',
+  kBitrate:'Bitrate',kCodec:'Format',kLang:'Language',kData2:'Data per hour',
+  kVotes:'Listener votes',kSite:'Website',iPlay:'Play',iFav:'Favourite',iShare:'Share',
   added:'Added to favourites',removed:'Removed from favourites',copied:'Link copied',
   sleepOn:'Sleep timer: {n} min',sleepOff:'Sleep timer off',
-  err:'This station is unavailable',found:'{n} stations',
-  qSet:'{q} — {n} stations match',cleared:'Saved data cleared',
-  usage:'Playing at <b>{b} kbps</b> · about <b>{m} MB</b> per hour',
-  usage2:'Quality setting: {q}',hrs:'h',
-  retry:'Connection lost — reconnecting ({n}/3)…',skipped:'Station failed, moving to the next one',
-  unknown:'Unknown',loading:'Loading…',pageErr:'Could not load that page.',
+  err:'This station is unavailable',qSet:'{q} — {n} stations match',cleared:'Saved data cleared',
+  usage:'Playing at <b>{b} kbps</b> · about <b>{m} MB</b> per hour',usage2:'Quality setting: {q}',
+  hrs:'h',retry:'Connection lost — reconnecting ({n}/3)…',skipped:'Station failed, moving to the next one',
+  unknown:'Unknown',pageErr:'Could not load that page.',
   finding:'Finding {s}…',notFound:'Could not find {s} right now.',
-  featured:'Featured stations',mostRead:'Most read'},
+  gNews:'News &amp; talk',gMusic:'Music',gRelig:'Religious',gSport:'Sport',
+  gCulture:'Culture',gOther:'Other',gAll:'All'},
  ar:{h1:'استمع إلى العالم، <em>مباشرةً</em>.',
   sub:'مئات المحطات الإذاعية المجانية من كل دول العالم. اختر محطة وتابع التصفح — الصوت لا يتوقف.',
-  popular:'المحطات الأكثر استماعاً',favs:'محطاتك المفضلة',recent:'استمعت مؤخراً',near:'محطات من {c}',
-  more:'عرض المزيد',guides:'مقالات وأدلة الراديو',allArts:'عرض الكل &larr;',allArts2:'المقالات',
-  about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',
-  search:'ابحث عن محطة...',allc:'كل الدول',empty:'لا توجد محطات.',
-  noFav:'لا توجد مفضلة بعد. اضغط على القلب في أي محطة.',
   tAll:'تصفّح',tFav:'&#9829; المفضلة',tArts:'&#128214; المقالات',
-  backHome:'&rarr; العودة إلى المحطات',vol:'الصوت',fav:'مفضلة',share:'مشاركة',
-  sleep:'مؤقت النوم',close:'إغلاق',infoB:'تفاصيل',
+  near:'محطات من {c}',recent:'استمعت مؤخراً',featured:'محطات مختارة',
+  explore:'استكشف حسب الدولة',allCountries:'كل الدول',discover:'اكتشف المزيد &larr;',
+  favs:'محطاتك المفضلة',noFav:'لا توجد مفضلة بعد. اضغط على القلب في أي محطة.',
+  searchC:'ابحث عن دولة...',searchS:'ابحث عن محطة...',
+  guides:'مقالات وأدلة الراديو',allArts:'عرض الكل &larr;',allArts2:'المقالات',
+  about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',visitors:'إجمالي الزوار',
+  backHome:'&rarr; رجوع',empty:'لا نتائج.',loading:'جارٍ التحميل…',
+  nStations:'{n} محطة',found:'{n} محطة',
   settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',
   quality:'جودة الصوت واستهلاك البيانات',qLow:'توفير',qLowS:'&le;64 kbps',
   qMid:'متوازن',qMidS:'&le;128 kbps',qHigh:'الأفضل',qHighS:'بلا حدّ',
   qNote:'يسري على قائمة المحطات. أما المحطة العاملة الآن فتبقى بمعدل بتها حتى تختار غيرها.',
   myStats:'إحصاءات استماعك',kMinutes:'دقيقة',kStations:'محطة',kData:'م.ب مستهلكة',
   reset:'مسح بياناتي المحفوظة',done:'تم',
-  kBitrate:'معدل البت',kCodec:'الصيغة',kLang:'اللغة',kData2:'البيانات في الساعة',kVotes:'أصوات المستمعين',kSite:'الموقع',
-  iPlay:'تشغيل',iFav:'مفضلة',iShare:'مشاركة',
+  vol:'الصوت',fav:'مفضلة',share:'مشاركة',sleep:'مؤقت النوم',close:'إغلاق',infoB:'تفاصيل',
+  kBitrate:'معدل البت',kCodec:'الصيغة',kLang:'اللغة',kData2:'البيانات في الساعة',
+  kVotes:'أصوات المستمعين',kSite:'الموقع',iPlay:'تشغيل',iFav:'مفضلة',iShare:'مشاركة',
   added:'أُضيفت إلى المفضلة',removed:'أُزيلت من المفضلة',copied:'تم نسخ الرابط',
   sleepOn:'مؤقت النوم: {n} دقيقة',sleepOff:'أُلغي مؤقت النوم',
-  err:'تعذّر تشغيل هذه المحطة',found:'{n} محطة',
-  qSet:'{q} — {n} محطة مطابقة',cleared:'مُسحت البيانات المحفوظة',
-  usage:'يعمل بـ <b>{b} kbps</b> · نحو <b>{m} م.ب</b> في الساعة',
-  usage2:'إعداد الجودة: {q}',hrs:'س',
-  retry:'انقطع الاتصال — إعادة المحاولة ({n}/3)…',skipped:'تعذّرت المحطة، الانتقال إلى التالية',
-  unknown:'غير معروف',loading:'جارٍ التحميل…',pageErr:'تعذّر تحميل الصفحة.',
+  err:'تعذّر تشغيل هذه المحطة',qSet:'{q} — {n} محطة مطابقة',cleared:'مُسحت البيانات المحفوظة',
+  usage:'يعمل بـ <b>{b} kbps</b> · نحو <b>{m} م.ب</b> في الساعة',usage2:'إعداد الجودة: {q}',
+  hrs:'س',retry:'انقطع الاتصال — إعادة المحاولة ({n}/3)…',skipped:'تعذّرت المحطة، الانتقال إلى التالية',
+  unknown:'غير معروف',pageErr:'تعذّر تحميل الصفحة.',
   finding:'جارٍ البحث عن {s}…',notFound:'تعذّر العثور على {s} الآن.',
-  featured:'محطات مختارة',mostRead:'الأكثر قراءة'}
+  gNews:'أخبار وحوار',gMusic:'موسيقى',gRelig:'ديني',gSport:'رياضة',
+  gCulture:'ثقافة',gOther:'منوّعات',gAll:'الكل'}
 };
-/* default language: English, unless the device is Arabic */
+
 var lang=(function(){
   var s=null;try{s=localStorage.getItem('lr_lang');}catch(e){}
   if(s==='ar'||s==='en')return s;
-  var ls=[];
-  try{ls=[navigator.language||''].concat(navigator.languages||[]);}catch(e){}
-  for(var i=0;i<ls.length;i++){
-    if((ls[i]||'').toLowerCase().indexOf('ar')===0)return 'ar';
-  }
+  var ls=[];try{ls=[navigator.language||''].concat(navigator.languages||[]);}catch(e){}
+  for(var i=0;i<ls.length;i++){if((ls[i]||'').toLowerCase().indexOf('ar')===0)return 'ar';}
   return 'en';
 })();
 function T(k){return I[lang][k];}
 function $(id){return document.getElementById(id);}
-
-var search=$('search'),langBtn=$('langBtn'),country=$('country'),genresEl=$('genres'),
-    grid=$('grid'),statusEl=$('status'),moreBtn=$('moreBtn'),cntEl=$('cnt');
 $('yr').textContent=new Date().getFullYear();
 
 var LS={get:function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v===null?d:v}catch(e){return d}},
@@ -568,12 +612,13 @@ var favs=LS.get('lr_favs',[]),recent=LS.get('lr_recent',[]);
 var quality=LS.get('lr_quality','mid');
 var mine=LS.get('lr_mine',{sec:0,mb:0,stations:[]});
 var theme=LS.get('lr_theme','light');
+var CFG=null,posts=[],stats=null;
 
 function applyTheme(){
   document.documentElement.setAttribute('data-theme',theme);
   $('themeBtn').innerHTML=theme==='dark'?'&#9728;':'&#9789;';
   var m=document.querySelector('meta[name=theme-color]');
-  if(m)m.setAttribute('content',theme==='dark'?'#0e1526':'#eef3fb');
+  if(m)m.setAttribute('content',theme==='dark'?'#0e1526':'#eef2fa');
   LS.set('lr_theme',theme);
 }
 $('themeBtn').onclick=function(){theme=theme==='dark'?'light':'dark';applyTheme();};
@@ -582,35 +627,8 @@ var tt;
 function toast(m){var t=$('toast');t.innerHTML=m;t.classList.add('show');
   clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2400);}
 
-function isFav(u){for(var i=0;i<favs.length;i++)if(favs[i].stationuuid===u)return true;return false;}
-function slim(s){return{stationuuid:s.stationuuid,name:s.name,country:s.country,countrycode:s.countrycode,
-  favicon:s.favicon,tags:s.tags,bitrate:s.bitrate||0,codec:s.codec,language:s.language,votes:s.votes,
-  homepage:s.homepage,url_resolved:s.url_resolved||s.url};}
-function toggleFav(s){
-  if(isFav(s.stationuuid)){favs=favs.filter(function(f){return f.stationuuid!==s.stationuuid});toast(T('removed'));}
-  else{favs.unshift(slim(s));toast(T('added'));}
-  LS.set('lr_favs',favs);refreshHearts();
-  if(tab==='fav')render(true);
-}
-function refreshHearts(){
-  var hs=document.querySelectorAll('.fav');
-  for(var i=0;i<hs.length;i++)hs[i].classList.toggle('on',isFav(hs[i].dataset.u));
-  $('aFav').classList.toggle('on',!!current&&isFav(current.stationuuid));
-}
-function pushRecent(s){
-  recent=[slim(s)].concat(recent.filter(function(r){return r.stationuuid!==s.stationuuid})).slice(0,12);
-  LS.set('lr_recent',recent);renderRecent();
-}
-
+/* ---------- data helpers ---------- */
 var MIRRORS=['https://de2.api.radio-browser.info','https://nl1.api.radio-browser.info','https://at1.api.radio-browser.info'];
-var GENRES=[{k:'',en:'All',ar:'الكل'},{k:'pop',en:'Pop',ar:'بوب'},{k:'news',en:'News',ar:'أخبار'},
- {k:'rock',en:'Rock',ar:'روك'},{k:'jazz',en:'Jazz',ar:'جاز'},{k:'classical',en:'Classical',ar:'كلاسيكي'},
- {k:'quran',en:'Quran',ar:'قرآن'},{k:'dance',en:'Dance',ar:'رقص'},{k:'talk',en:'Talk',ar:'حواري'},
- {k:'sport',en:'Sport',ar:'رياضة'},{k:'oldies',en:'Oldies',ar:'قديم'},{k:'hiphop',en:'Hip hop',ar:'هيب هوب'}];
-var QCAP={low:64,mid:128,high:0};
-var raw=[],all=[],shown=0,PAGE=48;
-var fGenre='',fCountry='',fText='',tab='all';
-
 function api(p){
   var i=0;
   function tryNext(){
@@ -620,6 +638,7 @@ function api(p){
   }
   return tryNext();
 }
+var QCAP={low:64,mid:128,high:0};
 function clean(d){
   var seen={};
   return (d||[]).filter(function(s){
@@ -627,37 +646,49 @@ function clean(d){
     if(u.indexOf('https://')!==0||!s.name||s.name.trim().length<2)return false;
     var k=s.name.trim().toLowerCase();if(seen[k])return false;seen[k]=1;return true;});
 }
+function capped(list){
+  var cap=QCAP[quality];
+  if(!cap)return list;
+  return list.filter(function(s){return !s.bitrate||s.bitrate<=cap;});
+}
 function ini(n){return (n||'?').trim().charAt(0).toUpperCase();}
 function mbPerHour(br){return Math.round((br||128)*3600/8/1024);}
-function flag(cc){
-  if(!cc||cc.length!==2)return '';
+function flagOf(cc){
+  if(!cc||cc.length!==2)return '🌐';
   var c=cc.toUpperCase();
-  try{return String.fromCodePoint(0x1F1E6+c.charCodeAt(0)-65,0x1F1E6+c.charCodeAt(1)-65);}catch(e){return '';}
+  try{return String.fromCodePoint(0x1F1E6+c.charCodeAt(0)-65,0x1F1E6+c.charCodeAt(1)-65);}catch(e){return '🌐';}
 }
-function buildGenres(){
-  genresEl.innerHTML='';
-  GENRES.forEach(function(g){
-    var b=document.createElement('button');
-    b.className='chip'+(g.k===fGenre?' on':'');
-    b.textContent=lang==='ar'?g.ar:g.en;
-    b.onclick=function(){fGenre=g.k;load();};
-    genresEl.appendChild(b);
-  });
+/* اسم الدولة بلغة الموقع */
+function cname(cc,en){
+  if(lang==='ar'&&cc&&CN_AR[cc.toUpperCase()])return CN_AR[cc.toUpperCase()];
+  return en||cc||'';
 }
-function buildCountries(){
-  return api('/json/countries?order=stationcount&reverse=true&limit=130').then(function(l){
-    country.innerHTML='';country.add(new Option(T('allc'),''));
-    (l||[]).filter(function(c){return c.name&&c.stationcount>5}).forEach(function(c){
-      var f=flag(c.iso_3166_1||'');
-      country.add(new Option((f?f+' ':'')+c.name+' ('+c.stationcount+')',c.name));});
-    country.onchange=function(){fCountry=country.value;load();};
-  });
+function fmtNum(n){
+  try{return Number(n).toLocaleString(lang==='ar'?'ar-EG':'en-US');}catch(e){return String(n);}
 }
-function applyQuality(){
-  var cap=QCAP[quality];
-  all=raw.filter(function(s){return !cap||!s.bitrate||s.bitrate<=cap;});
-  if(cap)all.sort(function(a,b){return (b.bitrate||0)-(a.bitrate||0);});
+
+/* ---------- favourites ---------- */
+function isFav(u){for(var i=0;i<favs.length;i++)if(favs[i].stationuuid===u)return true;return false;}
+function slim(s){return{stationuuid:s.stationuuid,name:s.name,country:s.country,countrycode:s.countrycode,
+  favicon:s.favicon,tags:s.tags,bitrate:s.bitrate||0,codec:s.codec,language:s.language,votes:s.votes,
+  homepage:s.homepage,url_resolved:s.url_resolved||s.url};}
+function toggleFav(s){
+  if(isFav(s.stationuuid)){favs=favs.filter(function(f){return f.stationuuid!==s.stationuuid});toast(T('removed'));}
+  else{favs.unshift(slim(s));toast(T('added'));}
+  LS.set('lr_favs',favs);refreshHearts();
+  if(view==='fav')drawFav();
 }
+function refreshHearts(){
+  var hs=document.querySelectorAll('.fav');
+  for(var i=0;i<hs.length;i++)hs[i].classList.toggle('on',isFav(hs[i].dataset.u));
+  $('aFav').classList.toggle('on',!!current&&isFav(current.stationuuid));
+}
+function pushRecent(s){
+  recent=[slim(s)].concat(recent.filter(function(r){return r.stationuuid!==s.stationuuid})).slice(0,12);
+  LS.set('lr_recent',recent);drawRecent();
+}
+
+/* ---------- station card ---------- */
 function card(s){
   var b=document.createElement('button');b.className='st';b.dataset.uuid=s.stationuuid;
   var ring=document.createElement('div');ring.className='ring';
@@ -673,63 +704,36 @@ function card(s){
   inf.onclick=function(e){e.stopPropagation();showInfo(s);};
   var nm=document.createElement('div');nm.className='nm';nm.textContent=s.name.trim();
   var cn=document.createElement('div');cn.className='cn';
-  cn.textContent=(flag(s.countrycode)+' '+(s.country||'')).trim();
+  cn.textContent=(flagOf(s.countrycode)+' '+cname(s.countrycode,s.country)).trim();
   b.appendChild(ring);b.appendChild(h);b.appendChild(inf);b.appendChild(nm);b.appendChild(cn);
-  if(s.bitrate){var br=document.createElement('div');br.className='br';br.textContent=s.bitrate+' kbps';b.appendChild(br);}
   b.onclick=function(){play(s);};
   return b;
 }
-function skeletons(n){grid.innerHTML='';for(var i=0;i<n;i++){
-  var d=document.createElement('div');d.className='sk';
-  d.innerHTML='<div class="c"></div><div class="l"></div>';grid.appendChild(d);}}
-function updateTitle(){$('secTitle').textContent=tab==='fav'?T('favs'):T('popular');}
-function render(reset){
-  if(reset){grid.innerHTML='';shown=0;}
-  var list=tab==='fav'?favs:all;
-  var sl=list.slice(shown,shown+PAGE);
-  sl.forEach(function(s){grid.appendChild(card(s));});
-  shown+=sl.length;
-  moreBtn.style.display=shown<list.length?'block':'none';
-  cntEl.textContent=list.length?T('found').replace('{n}',list.length):'';
-  if(!list.length){statusEl.style.display='block';statusEl.textContent=tab==='fav'?T('noFav'):T('empty');}
-  else statusEl.style.display='none';
-  markPlaying();
+function skel(box,n){
+  box.innerHTML='';
+  for(var i=0;i<n;i++){var d=document.createElement('div');d.className='sk';
+    d.innerHTML='<div class="c"></div><div class="l"></div>';box.appendChild(d);}
 }
-moreBtn.onclick=function(){render(false);};
-function load(){
-  buildGenres();updateTitle();
-  if(tab==='fav'){render(true);return Promise.resolve();}
-  statusEl.style.display='none';skeletons(12);cntEl.textContent='';moreBtn.style.display='none';
-  var p='/json/stations/search?hidebroken=true&limit=700&order=clickcount&reverse=true';
-  if(fGenre)p+='&tag='+encodeURIComponent(fGenre);
-  if(fCountry)p+='&country='+encodeURIComponent(fCountry);
-  if(fText)p+='&name='+encodeURIComponent(fText);
-  return api(p).then(function(d){raw=clean(d);applyQuality();render(true);});
-}
-var tmr;
-search.oninput=function(e){clearTimeout(tmr);fText=e.target.value.trim();
-  if(!isHome())goHome();
-  if(tab!=='all'){tab='all';syncTabs();}tmr=setTimeout(load,500);};
 
-function syncTabs(){
+/* ---------- views ---------- */
+var view='home';          // home | fav | country | all
+var curCC='',curCName='';
+
+function showView(v){
+  view=v;
+  $('homeMain').style.display = v==='home'?'':'none';
+  $('favMain').style.display  = v==='fav'?'':'none';
+  $('ctryMain').style.display = v==='country'?'':'none';
+  $('allMain').style.display  = v==='all'?'':'none';
+  $('articles').style.display = (v==='home')?'':'none';
   var ts=document.querySelectorAll('.tab');
-  for(var i=0;i<ts.length;i++)ts[i].classList.toggle('on',ts[i].dataset.tab===tab);
-  if(!isHome()){for(var j=0;j<ts.length;j++)ts[j].classList.toggle('on',ts[j].dataset.tab==='arts');}
-  $('filters').style.display=tab==='fav'?'none':'block';
-}
-(function(){var ts=document.querySelectorAll('.tab');
-  for(var i=0;i<ts.length;i++)ts[i].onclick=function(){
-    if(this.dataset.tab==='arts'){loadPage(ROOT+'articles.html',true);return;}
-    tab=this.dataset.tab;syncTabs();load();};})();
-
-function renderRecent(){
-  var r=$('recent');r.innerHTML='';
-  $('recentSec').style.display=recent.length?'block':'none';
-  recent.forEach(function(s){r.appendChild(card(s));});
-  markPlaying();
+  for(var i=0;i<ts.length;i++)
+    ts[i].classList.toggle('on', ts[i].dataset.tab===(v==='fav'?'fav':'all'));
+  window.scrollTo(0,0);
 }
 
-var localList=[],localName='';
+/* ---------- stations near you ---------- */
+var myCC='',myName='',localList=[];
 function detectCountry(){
   return fetch('https://api.country.is/')
     .then(function(r){return r.ok?r.json():null;})
@@ -737,8 +741,7 @@ function detectCountry(){
     .catch(function(){return null;})
     .then(function(cc){
       if(cc)return cc;
-      return fetch('https://ipapi.co/country/')
-        .then(function(r){return r.ok?r.text():null;})
+      return fetch('https://ipapi.co/country/').then(function(r){return r.ok?r.text():null;})
         .then(function(t){t=(t||'').trim().toUpperCase();return t.length===2?t:null;})
         .catch(function(){return null;});
     })
@@ -746,10 +749,8 @@ function detectCountry(){
       if(cc)return cc;
       try{
         var ls=[navigator.language].concat(navigator.languages||[]);
-        for(var i=0;i<ls.length;i++){
-          var p=(ls[i]||'').split('-');
-          if(p.length>1&&p[p.length-1].length===2)return p[p.length-1].toUpperCase();
-        }
+        for(var i=0;i<ls.length;i++){var p=(ls[i]||'').split('-');
+          if(p.length>1&&p[p.length-1].length===2)return p[p.length-1].toUpperCase();}
       }catch(e){}
       return null;
     });
@@ -757,25 +758,215 @@ function detectCountry(){
 function loadLocal(){
   detectCountry().then(function(cc){
     if(!cc)return;
-    api('/json/stations/search?hidebroken=true&limit=40&order=clickcount&reverse=true&countrycode='+cc)
+    myCC=cc;
+    skel($('local'),6);$('localSec').style.display='block';
+    api('/json/stations/search?hidebroken=true&limit=60&order=clickcount&reverse=true&countrycode='+cc)
       .then(function(d){
-        localList=clean(d).slice(0,20);
-        if(!localList.length)return;
-        localName=localList[0].country||cc;
+        localList=capped(clean(d));
+        if(!localList.length){$('localSec').style.display='none';return;}
+        myName=localList[0].country||cc;
         drawLocal();
-      }).catch(function(){});
+      }).catch(function(){$('localSec').style.display='none';});
   });
 }
 function drawLocal(){
   if(!localList.length)return;
-  $('localTitle').textContent=T('near').replace('{c}',(flag(localList[0].countrycode)+' '+localName).trim());
-  var r=$('local');r.innerHTML='';
-  localList.forEach(function(s){r.appendChild(card(s));});
-  $('localSec').style.display='block';
+  $('localTitle').textContent=T('near').replace('{c}',(flagOf(myCC)+' '+cname(myCC,myName)).trim());
+  var box=$('local');box.innerHTML='';
+  localList.slice(0,6).forEach(function(s){box.appendChild(card(s));});
+  $('localSec').style.display='block';markPlaying();
+}
+$('localMore').onclick=function(){ if(myCC)openCountry(myCC,myName); };
+
+/* ---------- recently played: last three ---------- */
+function drawRecent(){
+  var r=$('recent');r.innerHTML='';
+  $('recentSec').style.display=recent.length?'block':'none';
+  recent.slice(0,3).forEach(function(s){r.appendChild(card(s));});
   markPlaying();
 }
 
-var posts=[];
+/* ---------- featured ---------- */
+var featList=[];
+function drawFeatured(){
+  var names=(CFG&&CFG.featured)||[];
+  var box=$('feat'),sec=$('featSec');
+  if(!names.length){sec.style.display='none';return;}
+  $('featTitle').textContent=T('featured');
+  if(featList.length){
+    box.innerHTML='';featList.forEach(function(s){box.appendChild(card(s));});
+    sec.style.display='block';markPlaying();return;
+  }
+  var got=[],left=names.length;
+  names.forEach(function(n){
+    api('/json/stations/search?hidebroken=true&limit=8&order=clickcount&reverse=true&name='+encodeURIComponent(n))
+      .then(function(d){var l=clean(d);if(l.length)got.push(l[0]);})
+      .catch(function(){})
+      .then(function(){
+        if(--left<=0){
+          featList=got;
+          if(!got.length){sec.style.display='none';return;}
+          box.innerHTML='';got.forEach(function(s){box.appendChild(card(s));});
+          sec.style.display='block';markPlaying();
+        }
+      });
+  });
+}
+
+/* ---------- countries ---------- */
+var countries=[];
+function loadCountries(){
+  $('cstatus').textContent=T('loading');
+  api('/json/countries?order=stationcount&reverse=true&limit=250').then(function(l){
+    countries=(l||[]).filter(function(c){
+      return c.name && c.iso_3166_1 && c.iso_3166_1.length===2 && c.stationcount>4;
+    }).map(function(c){
+      var cc=c.iso_3166_1.toUpperCase();
+      return {cc:cc,en:c.name,ar:CN_AR[cc]||c.name,n:c.stationcount};
+    });
+    $('cstatus').textContent='';
+    drawFlags();
+  }).catch(function(){$('cstatus').textContent=T('empty');});
+}
+function matchCountry(c,q){
+  if(!q)return true;
+  var en=c.en.toLowerCase(), ar=c.ar;
+  return en.indexOf(q)===0 || ar.indexOf(q)===0 ||
+         en.indexOf(q)>-1 || ar.indexOf(q)>-1 || c.cc.toLowerCase().indexOf(q)===0;
+}
+function flagBtn(c){
+  var b=document.createElement('button');b.className='fl';
+  var cir=document.createElement('div');cir.className='cir';cir.textContent=flagOf(c.cc);
+  var nm=document.createElement('div');nm.className='fname';nm.textContent=(lang==='ar'?c.ar:c.en);
+  var nu=document.createElement('div');nu.className='fnum';nu.textContent=T('nStations').replace('{n}',fmtNum(c.n));
+  b.appendChild(cir);b.appendChild(nm);b.appendChild(nu);
+  b.onclick=function(){openCountry(c.cc,lang==='ar'?c.ar:c.en);};
+  return b;
+}
+function drawFlags(){
+  var q=($('csearch').value||'').trim().toLowerCase();
+  var list=countries.filter(function(c){return matchCountry(c,q);});
+  var box=$('flags');box.innerHTML='';
+  list.slice(0,9).forEach(function(c){box.appendChild(flagBtn(c));});
+  $('cstatus').textContent=list.length?'':T('empty');
+}
+$('csearch').oninput=function(){drawFlags();};
+
+function drawAllFlags(){
+  var q=($('asearch').value||'').trim().toLowerCase();
+  var list=countries.filter(function(c){return matchCountry(c,q);});
+  var box=$('allFlags');box.innerHTML='';
+  list.forEach(function(c){box.appendChild(flagBtn(c));});
+  $('allCnt').textContent=T('found').replace('{n}',fmtNum(list.length));
+}
+$('asearch').oninput=function(){drawAllFlags();};
+$('allCountries').onclick=function(){showView('all');drawAllFlags();};
+$('allBack').onclick=function(){showView('home');};
+$('ctryBack').onclick=function(){showView('home');};
+
+/* ---------- one country, grouped by category ---------- */
+var GROUPS=[
+ {k:'news',  t:'gNews',  m:['news','talk','info','politic','current affair','debate']},
+ {k:'music', t:'gMusic', m:['music','pop','rock','jazz','classical','dance','hiphop','hip hop','rap',
+                            'electronic','house','chill','oldies','folk','rai','chaabi','variety','top 40','hits']},
+ {k:'relig', t:'gRelig', m:['quran','islam','religio','christian','gospel','spiritual','coran']},
+ {k:'sport', t:'gSport', m:['sport','football','soccer']},
+ {k:'cult',  t:'gCulture',m:['culture','art','book','history','science','education','documentar']}
+];
+function groupOf(s){
+  var t=((s.tags||'')+' '+(s.name||'')).toLowerCase();
+  for(var i=0;i<GROUPS.length;i++){
+    var g=GROUPS[i];
+    for(var j=0;j<g.m.length;j++) if(t.indexOf(g.m[j])>-1) return g.k;
+  }
+  return 'other';
+}
+var ctryList=[],ctryCat='';
+function openCountry(cc,name){
+  curCC=cc;curCName=name||cc;ctryCat='';ctryList=[];
+  showView('country');
+  $('ctryTitle').textContent=(flagOf(cc)+' '+cname(cc,name)).trim();
+  $('ctryCnt').textContent='';
+  $('stSearch').value='';
+  $('catbar').innerHTML='';
+  $('ctryBody').innerHTML='';
+  $('ctryStatus').textContent=T('loading');
+  api('/json/stations/search?hidebroken=true&limit=400&order=clickcount&reverse=true&countrycode='+cc)
+    .then(function(d){
+      ctryList=capped(clean(d));
+      $('ctryStatus').textContent=ctryList.length?'':T('empty');
+      drawCatBar();drawCountryBody();
+    }).catch(function(){$('ctryStatus').textContent=T('empty');});
+}
+function drawCatBar(){
+  var bar=$('catbar');bar.innerHTML='';
+  var cats=[{k:'',t:'gAll'}];
+  var present={};
+  ctryList.forEach(function(s){present[groupOf(s)]=1;});
+  GROUPS.forEach(function(g){if(present[g.k])cats.push({k:g.k,t:g.t});});
+  if(present['other'])cats.push({k:'other',t:'gOther'});
+  cats.forEach(function(c){
+    var b=document.createElement('button');
+    b.className='chip'+(ctryCat===c.k?' on':'');
+    b.innerHTML=T(c.t);
+    b.onclick=function(){ctryCat=c.k;drawCatBar();drawCountryBody();};
+    bar.appendChild(b);
+  });
+}
+function drawCountryBody(){
+  var q=($('stSearch').value||'').trim().toLowerCase();
+  var list=ctryList.filter(function(s){
+    if(ctryCat&&groupOf(s)!==ctryCat)return false;
+    if(q&&s.name.toLowerCase().indexOf(q)<0)return false;
+    return true;
+  });
+  $('ctryCnt').textContent=T('found').replace('{n}',fmtNum(list.length));
+  var body=$('ctryBody');body.innerHTML='';
+  if(!list.length){$('ctryStatus').textContent=T('empty');return;}
+  $('ctryStatus').textContent='';
+
+  if(ctryCat){
+    var g=document.createElement('div');g.className='grid';
+    list.slice(0,120).forEach(function(s){g.appendChild(card(s));});
+    body.appendChild(g);
+  }else{
+    var order=GROUPS.map(function(x){return x.k;}).concat(['other']);
+    order.forEach(function(k){
+      var sub=list.filter(function(s){return groupOf(s)===k;});
+      if(!sub.length)return;
+      var gg=GROUPS.filter(function(x){return x.k===k;})[0];
+      var h=document.createElement('div');h.className='grouphead';
+      h.innerHTML=(gg?T(gg.t):T('gOther'))+' · '+fmtNum(sub.length);
+      body.appendChild(h);
+      var g2=document.createElement('div');g2.className='grid';
+      sub.slice(0,24).forEach(function(s){g2.appendChild(card(s));});
+      body.appendChild(g2);
+    });
+  }
+  markPlaying();
+}
+$('stSearch').oninput=function(){drawCountryBody();};
+
+/* ---------- favourites view ---------- */
+function drawFav(){
+  var box=$('favGrid');box.innerHTML='';
+  favs.forEach(function(s){box.appendChild(card(s));});
+  $('favCnt').textContent=favs.length?T('found').replace('{n}',fmtNum(favs.length)):'';
+  $('favEmpty').style.display=favs.length?'none':'block';
+  $('favEmpty').textContent=T('noFav');
+  markPlaying();
+}
+(function(){
+  var ts=document.querySelectorAll('.tab');
+  for(var i=0;i<ts.length;i++)ts[i].onclick=function(){
+    var t=this.dataset.tab;
+    if(t==='arts'){loadPage(ROOT+'articles.html',true);return;}
+    if(t==='fav'){showView('fav');drawFav();return;}
+    showView('home');
+  };
+})();
+
+/* ---------- articles preview ---------- */
 function drawArticles(){
   var l=$('artList');if(!l)return;l.innerHTML='';
   posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');}).slice(0,6)
@@ -789,17 +980,15 @@ function drawArticles(){
   });
   hookPageLinks();
 }
-/* ===== site.json: colours, texts, genres, featured — all editable from the studio app ===== */
-var CFG=null;
+
+/* ---------- site config ---------- */
 function applyColors(c){
   if(!c)return;
-  var st=document.getElementById('cfgCss');
+  var st=$('cfgCss');
   if(!st){st=document.createElement('style');st.id='cfgCss';document.head.appendChild(st);}
   function block(sel,o){
     if(!o)return '';
-    var t=sel+'{';
-    for(var k in o){ if(o[k]) t+='--'+k+':'+o[k]+';'; }
-    return t+'}';
+    var t=sel+'{';for(var k in o){if(o[k])t+='--'+k+':'+o[k]+';';}return t+'}';
   }
   st.textContent=block(':root',c.light)+block('html[data-theme="dark"]',c.dark);
 }
@@ -808,98 +997,28 @@ function applyCfg(d){
   CFG=d;
   applyColors(d.colors);
   if(d.brand&&(d.brand.name1||d.brand.name2)){
-    var lg=document.getElementById('homeBtn');
-    if(lg)lg.innerHTML='<span class="logo-dot"></span>'+(d.brand.name1||'')+
+    $('homeBtn').innerHTML='<span class="logo-dot"></span>'+(d.brand.name1||'')+
       '<span>'+(d.brand.name2||'')+'</span>';
   }
   if(d.hero){
     if(d.hero.h1){I.en.h1=d.hero.h1.en||I.en.h1;I.ar.h1=d.hero.h1.ar||I.ar.h1;}
     if(d.hero.sub){I.en.sub=d.hero.sub.en||I.en.sub;I.ar.sub=d.hero.sub.ar||I.ar.sub;}
   }
-  if(d.genres&&d.genres.length)GENRES=d.genres;
   if(d.defaultTheme&&localStorage.getItem('lr_theme')===null){
     theme=d.defaultTheme==='dark'?'dark':'light';applyTheme();
   }
-  applyLang();
-  drawFeatured();
-  drawPopular();
-}
-
-/* محطات مختارة: أسماء تُحدَّد من التطبيق، تُجلب حيّة */
-var featList=[];
-function drawFeatured(){
-  var names=(CFG&&CFG.featured)||[];
-  var box=document.getElementById('feat'),sec=document.getElementById('featSec');
-  if(!box||!names.length){if(sec)sec.style.display='none';return;}
-  document.getElementById('featTitle').textContent=T('featured');
-  if(featList.length){
-    box.innerHTML='';
-    featList.forEach(function(s){box.appendChild(card(s));});
-    sec.style.display='block';markPlaying();return;
+  if(typeof d.visitors==='number'&&d.visitors>0){
+    $('visNum').textContent=fmtNum(d.visitors);$('visBox').style.display='block';
   }
-  var got=[],left=names.length;
-  names.forEach(function(n){
-    api('/json/stations/search?hidebroken=true&limit=10&order=clickcount&reverse=true&name='
-        +encodeURIComponent(n))
-      .then(function(d){
-        var l=clean(d);
-        if(l.length)got.push(l[0]);
-      }).catch(function(){}).then(function(){
-        if(--left<=0){
-          featList=got;
-          if(!got.length){sec.style.display='none';return;}
-          box.innerHTML='';
-          got.forEach(function(s){box.appendChild(card(s));});
-          sec.style.display='block';markPlaying();
-        }
-      });
-  });
-}
-
-/* الأكثر قراءة: ترتيب يحدده التطبيق في site.json أو stats.json */
-var stats=null;
-function drawPopular(){
-  var sec=document.getElementById('popSec'),box=document.getElementById('popList');
-  if(!sec||!box||!posts.length)return;
-  var order=(CFG&&CFG.popular)||[];
-  if(!order.length&&stats){
-    order=Object.keys(stats).sort(function(a,b){return stats[b]-stats[a];}).slice(0,3);
-  }
-  if(!order.length){sec.style.display='none';return;}
-  box.innerHTML='';
-  var n=0;
-  order.forEach(function(slug){
-    var p=null;
-    for(var i=0;i<posts.length;i++)if(posts[i].slug===slug){p=posts[i];break;}
-    if(!p)return;
-    var a=document.createElement('a');a.className='art';
-    a.href='./articles/'+p.slug+'.html';
-    a.innerHTML='<div class="tag"></div><h3></h3><p></p>';
-    a.querySelector('.tag').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
-    a.querySelector('h3').textContent=p.title[lang]||p.title.en;
-    a.querySelector('p').textContent=p.desc[lang]||p.desc.en;
-    box.appendChild(a);n++;
-  });
-  sec.style.display=n?'block':'none';
-  hookPageLinks();
+  applyLang();drawFeatured();
 }
 
 fetch('./articles.json').then(function(r){return r.json();})
-  .then(function(d){posts=d||[];drawArticles();drawPopular();}).catch(function(){});
-
-fetch('./stats.json').then(function(r){return r.ok?r.json():null;})
-  .then(function(d){stats=d;drawPopular();}).catch(function(){});
-
+  .then(function(d){posts=d||[];drawArticles();}).catch(function(){});
 fetch('./site.json').then(function(r){return r.ok?r.json():null;})
   .then(function(d){applyCfg(d);}).catch(function(){});
 
-function drawStats(){
-  var m=Math.round(mine.sec/60);
-  $('stMin').textContent=m;
-  $('stCount').textContent=(mine.stations||[]).length;
-  $('stData').textContent=Math.round(mine.mb||0);
-}
-
+/* ---------- station info sheet ---------- */
 var iStation=null;
 function showInfo(s){
   iStation=s;
@@ -907,18 +1026,18 @@ function showInfo(s){
   if(s.favicon&&s.favicon.indexOf('https')===0){
     nu=document.createElement('img');nu.src=s.favicon;nu.alt='';
     nu.onerror=function(){var f=document.createElement('div');f.className='pfb';f.id='iArt';
-      f.textContent=ini(s.name);f.style.cssText='width:66px;height:66px;border-radius:50%;background:var(--card2)';
+      f.textContent=ini(s.name);f.style.cssText='width:64px;height:64px;border-radius:50%;background:var(--card2)';
       $('iArt').replaceWith(f);};
   }else{nu=document.createElement('div');nu.className='pfb';nu.textContent=ini(s.name);
-    nu.style.cssText='width:66px;height:66px;border-radius:50%;background:var(--card2)';}
+    nu.style.cssText='width:64px;height:64px;border-radius:50%;background:var(--card2)';}
   nu.id='iArt';old.replaceWith(nu);
   $('iName').textContent=s.name.trim();
-  $('iCountry').textContent=(flag(s.countrycode)+' '+(s.country||T('unknown'))).trim();
+  $('iCountry').textContent=(flagOf(s.countrycode)+' '+cname(s.countrycode,s.country||T('unknown'))).trim();
   $('iBitrate').textContent=s.bitrate?s.bitrate+' kbps':T('unknown');
   $('iCodec').textContent=s.codec||T('unknown');
   $('iLang').textContent=s.language||T('unknown');
   $('iData').textContent='~'+mbPerHour(s.bitrate)+' MB';
-  $('iVotes').textContent=(s.votes||0).toLocaleString(lang==='ar'?'ar':'en');
+  $('iVotes').textContent=fmtNum(s.votes||0);
   var tg=$('iTags');tg.innerHTML='';
   (s.tags||'').split(',').filter(Boolean).slice(0,6).forEach(function(t){
     var e=document.createElement('span');e.className='itag';e.textContent=t.trim();tg.appendChild(e);});
@@ -926,14 +1045,14 @@ function showInfo(s){
     $('iSiteRow').style.display='flex';$('iSite').href=s.homepage;
     $('iSite').textContent=s.homepage.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,30);
   }else $('iSiteRow').style.display='none';
-  $('iFav').style.borderColor=isFav(s.stationuuid)?'var(--red)':'var(--line)';
+  $('iFav').style.borderColor=isFav(s.stationuuid)?'#e11d48':'var(--line)';
   $('iSheet').classList.add('on');
 }
 $('iClose').onclick=function(){$('iSheet').classList.remove('on');};
 $('iSheet').onclick=function(e){if(e.target===this)this.classList.remove('on');};
 $('iPlay').onclick=function(){if(iStation){play(iStation);$('iSheet').classList.remove('on');}};
 $('iFav').onclick=function(){if(iStation){toggleFav(iStation);
-  $('iFav').style.borderColor=isFav(iStation.stationuuid)?'var(--red)':'var(--line)';}};
+  $('iFav').style.borderColor=isFav(iStation.stationuuid)?'#e11d48':'var(--line)';}};
 $('iShare').onclick=function(){if(iStation)shareStation(iStation);};
 function shareStation(s){
   var u=location.origin+location.pathname.replace(/[^\/]*$/,'')+'#s='+s.stationuuid;
@@ -942,10 +1061,9 @@ function shareStation(s){
   if(navigator.clipboard)navigator.clipboard.writeText(u).then(function(){toast(T('copied'));}).catch(function(){});
 }
 
-var audio=$('audio'),player=$('player'),pName=$('pName'),pMeta=$('pMeta'),
-    pIcon=$('pIcon'),bars=$('bars');
-var current=null,queue=[],qi=-1,sleepT=null,sleepMin=0,tickT=null;
-var retries=0,retryT=null,MAXR=3;
+/* ---------- player ---------- */
+var audio=$('audio'),player=$('player'),pName=$('pName'),pMeta=$('pMeta'),pIcon=$('pIcon'),bars=$('bars');
+var current=null,queue=[],qi=-1,sleepT=null,sleepMin=0,tickT=null,retries=0,retryT=null,MAXR=3;
 var PLAY='M8 5v14l11-7z',PAUSE='M6 5h4v14H6zM14 5h4v14h-4z',WAIT='M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z';
 function setIcon(d){pIcon.querySelector('path').setAttribute('d',d);}
 function markPlaying(){
@@ -967,35 +1085,38 @@ function drawUsage(){
   var u=$('usage');
   if(!current){u.innerHTML=T('usage2').replace('{q}',qLabel());return;}
   var br=current.bitrate||128;
-  u.innerHTML=T('usage').replace('{b}',br).replace('{m}',mbPerHour(br))
-    +'<br>'+T('usage2').replace('{q}',qLabel());
+  u.innerHTML=T('usage').replace('{b}',br).replace('{m}',mbPerHour(br))+'<br>'+T('usage2').replace('{q}',qLabel());
 }
 function startTick(){
   clearInterval(tickT);
   tickT=setInterval(function(){
     if(audio.paused||!current)return;
     var br=current.bitrate||128;
-    mine.sec=(mine.sec||0)+1;
-    mine.mb=(mine.mb||0)+(br/8/1024);
+    mine.sec=(mine.sec||0)+1;mine.mb=(mine.mb||0)+(br/8/1024);
     if(mine.sec%15===0){LS.set('lr_mine',mine);drawStats();}
   },1000);
+}
+function currentQueue(){
+  if(view==='fav')return favs;
+  if(view==='country'&&ctryList.length)return ctryList;
+  if(localList.length)return localList;
+  return recent;
 }
 function play(s){
   if(current&&current.stationuuid===s.stationuuid){toggle();return;}
   current=s;retries=0;clearTimeout(retryT);
-  var src=(tab==='fav'?favs:all);
-  queue=src.length?src:(localList.length?localList:recent);
+  queue=currentQueue();
   qi=-1;for(var i=0;i<queue.length;i++)if(queue[i].stationuuid===s.stationuuid){qi=i;break;}
   audio.src=s.url_resolved||s.url;
   var pr=audio.play();if(pr&&pr.catch)pr.catch(function(){});
   pName.textContent=s.name.trim();
-  pMeta.textContent=[flag(s.countrycode)+' '+(s.country||''),(s.tags||'').split(',')[0]]
-    .map(function(x){return (x||'').trim();}).filter(Boolean).join(' • ');
+  pMeta.textContent=[flagOf(s.countrycode)+' '+cname(s.countrycode,s.country||''),
+    (s.tags||'').split(',')[0]].map(function(x){return (x||'').trim();}).filter(Boolean).join(' • ');
   setArt(s);player.classList.add('up');setIcon(WAIT);drawUsage();
   pushRecent(s);refreshHearts();LS.set('lr_last',slim(s));
   if((mine.stations||[]).indexOf(s.stationuuid)<0){
     mine.stations=(mine.stations||[]).concat([s.stationuuid]);LS.set('lr_mine',mine);drawStats();}
-  gaEvent('play_station',{station_name:s.name.trim(),station_country:s.country||''});
+  if(window.gtag)gtag('event','play_station',{station_name:s.name.trim(),station_country:s.country||''});
   if('mediaSession' in navigator){
     try{
       navigator.mediaSession.metadata=new MediaMetadata({title:s.name.trim(),
@@ -1015,8 +1136,7 @@ function failed(){
   if(!current)return;
   setIcon(PLAY);bars.style.display='none';
   if(retries<MAXR){
-    retries++;
-    toast(T('retry').replace('{n}',retries));
+    retries++;toast(T('retry').replace('{n}',retries));
     clearTimeout(retryT);
     retryT=setTimeout(function(){
       if(!current)return;
@@ -1025,8 +1145,7 @@ function failed(){
       setIcon(WAIT);
     },1800*retries);
   }else{
-    toast(queue.length>1?T('skipped'):T('err'));
-    retries=0;
+    toast(queue.length>1?T('skipped'):T('err'));retries=0;
     if(queue.length>1)setTimeout(next,900);
   }
 }
@@ -1060,14 +1179,33 @@ $('aSleep').onclick=function(){
 var vol=$('vol');
 vol.value=LS.get('lr_vol',100);audio.volume=vol.value/100;
 vol.oninput=function(){audio.volume=vol.value/100;LS.set('lr_vol',+vol.value);};
-audio.onplaying=function(){retries=0;clearTimeout(retryT);
-  setIcon(PAUSE);bars.style.display='flex';markPlaying();startTick();};
-audio.onpause=function(){setIcon(PLAY);bars.style.display='none';markPlaying();
-  clearInterval(tickT);LS.set('lr_mine',mine);drawStats();};
+audio.onplaying=function(){retries=0;clearTimeout(retryT);setIcon(PAUSE);bars.style.display='flex';markPlaying();startTick();};
+audio.onpause=function(){setIcon(PLAY);bars.style.display='none';markPlaying();clearInterval(tickT);
+  LS.set('lr_mine',mine);drawStats();};
 audio.onwaiting=function(){setIcon(WAIT);};
-$('randBtn').onclick=function(){var l=all.length?all:favs;
-  if(l.length){goHome();play(l[Math.floor(Math.random()*l.length)]);}};
+$('randBtn').onclick=function(){
+  var l=ctryList.length?ctryList:(localList.length?localList:favs);
+  if(l.length)play(l[Math.floor(Math.random()*l.length)]);
+};
+function playByName(name){
+  if(!name)return;
+  toast(T('finding').replace('{s}',name));
+  return api('/json/stations/search?hidebroken=true&limit=30&order=clickcount&reverse=true&name='+encodeURIComponent(name))
+   .then(function(d){
+     var l=clean(d);
+     if(!l.length){toast(T('notFound').replace('{s}',name));return;}
+     l.sort(function(a,b){return (b.votes||0)-(a.votes||0);});
+     play(l[0]);
+   }).catch(function(){toast(T('err'));});
+}
 
+/* ---------- settings ---------- */
+function drawStats(){
+  var m=Math.round(mine.sec/60);
+  $('stMin').textContent=fmtNum(m);
+  $('stCount').textContent=fmtNum((mine.stations||[]).length);
+  $('stData').textContent=fmtNum(Math.round(mine.mb||0));
+}
 function syncQ(){
   var os=document.querySelectorAll('#qOpts .opt');
   for(var i=0;i<os.length;i++)os[i].classList.toggle('on',os[i].dataset.q===quality);
@@ -1077,8 +1215,11 @@ function syncQ(){
   var os=document.querySelectorAll('#qOpts .opt');
   for(var i=0;i<os.length;i++)os[i].onclick=function(){
     quality=this.dataset.q;LS.set('lr_quality',quality);syncQ();
-    applyQuality();render(true);drawUsage();
-    toast(T('qSet').replace('{q}',qLabel()).replace('{n}',all.length));
+    if(view==='country'&&curCC)openCountry(curCC,curCName);
+    else { localList=capped(localList); drawLocal(); }
+    drawUsage();
+    toast(T('qSet').replace('{q}',qLabel()).replace('{n}',fmtNum(
+      view==='country'?ctryList.length:localList.length)));
   };
 })();
 $('setBtn').onclick=function(){drawStats();syncQ();$('sheet').classList.add('on');};
@@ -1088,11 +1229,11 @@ $('resetBtn').onclick=function(){
   favs=[];recent=[];mine={sec:0,mb:0,stations:[]};
   LS.set('lr_favs',favs);LS.set('lr_recent',recent);LS.set('lr_mine',mine);
   try{localStorage.removeItem('lr_last');}catch(e){}
-  renderRecent();refreshHearts();drawStats();if(tab==='fav')render(true);
+  drawRecent();refreshHearts();drawStats();if(view==='fav')drawFav();
   toast(T('cleared'));
 };
 
-/* ===== in-page navigation ===== */
+/* ---------- in-page navigation: audio never stops ---------- */
 var ROOT=location.origin+location.pathname.replace(/[^\/]*$/,'');
 var pageEl=$('page'),homeEl=$('home');
 function isHome(){return !pageEl.classList.contains('on');}
@@ -1105,19 +1246,36 @@ function trans(root){
 }
 function goHome(push){
   pageEl.classList.remove('on');pageEl.innerHTML='';
-  homeEl.style.display='';$('searchWrap').style.display='';
-  if(tab==='arts')tab='all';
-  syncTabs();
+  homeEl.style.display='';
   document.title='LiveRadio — Free Online Radio Stations Worldwide';
-  if(push){history.pushState({p:''},'',ROOT);gaView(location.pathname,document.title);}
+  $('prog').style.width='0';
+  showView('home');
+  if(push){history.pushState({p:''},'',ROOT);if(window.gtag)gtag('event','page_view',{page_path:'/'});}
   window.scrollTo(0,0);
 }
 $('homeBtn').onclick=function(){goHome(true);};
+
+function hookPlayButtons(){
+  var bs=pageEl.querySelectorAll('.playbtn[data-station]');
+  for(var i=0;i<bs.length;i++){
+    if(bs[i].dataset.hookedp)continue;
+    bs[i].dataset.hookedp='1';
+    bs[i].addEventListener('click',function(e){e.preventDefault();playByName(this.dataset.station);});
+  }
+}
+function navButtons(){
+  var home='<button class="backb" id="backHomeB">'+T('backHome')+'</button>';
+  var arts='<button class="backb" id="backArtsB">'+T('allArts2')+'</button>';
+  return home+arts;
+}
+function wireNav(){
+  var a=$('backHomeB');if(a)a.onclick=function(){goHome(true);};
+  var b=$('backArtsB');if(b)b.onclick=function(){loadPage(ROOT+'articles.html',true);};
+}
 function loadPage(url,push){
-  pageEl.innerHTML='<button class="backb" id="backBtn">'+T('backHome')+'</button>'+
-    '<div id="pLoad">'+T('loading')+'</div>';
-  $('backBtn').onclick=function(){goHome(true);};
-  pageEl.classList.add('on');homeEl.style.display='none';$('searchWrap').style.display='none';
+  pageEl.innerHTML=navButtons()+'<div id="pLoad">'+T('loading')+'</div>';
+  wireNav();
+  pageEl.classList.add('on');homeEl.style.display='none';
   window.scrollTo(0,0);
   fetch(url).then(function(r){if(!r.ok)throw 0;return r.text();})
   .then(function(html){
@@ -1128,21 +1286,19 @@ function loadPage(url,push){
     for(var i=0;i<as.length;i++){try{as[i].href=new URL(as[i].getAttribute('href'),url).href;}catch(e){}}
     var imgs=m.querySelectorAll('img[src]');
     for(var j=0;j<imgs.length;j++){try{imgs[j].src=new URL(imgs[j].getAttribute('src'),url).href;}catch(e){}}
-    pageEl.innerHTML='<button class="backb" id="backBtn"></button>'+m.innerHTML;
-    $('backBtn').innerHTML=T('backHome');
-    $('backBtn').onclick=function(){goHome(true);};
-    trans(pageEl);
+    pageEl.innerHTML=navButtons()+m.innerHTML;
+    wireNav();trans(pageEl);
     var t=doc.querySelector('title');
     document.title=t?t.textContent:'LiveRadio';
     if(push)history.pushState({p:url},'',url);
-    gaView(new URL(url).pathname,document.title);
+    if(window.gtag)gtag('event','page_view',{page_path:new URL(url).pathname,page_title:document.title});
     hookPageLinks();hookPlayButtons();initArticlesList();
   }).catch(function(){
-    pageEl.innerHTML='<button class="backb" id="backBtn">'+T('backHome')+'</button>'+
-      '<div id="pLoad">'+T('pageErr')+'</div>';
-    $('backBtn').onclick=function(){goHome(true);};
+    pageEl.innerHTML=navButtons()+'<div id="pLoad">'+T('pageErr')+'</div>';
+    wireNav();
   });
 }
+/* صفحة المقالات تُعاد بناؤها بعد الحقن */
 function initArticlesList(){
   var list=pageEl.querySelector('#list');
   if(!list)return;
@@ -1216,25 +1372,37 @@ window.addEventListener('popstate',function(){
   else loadPage(h,false);
 });
 
+/* ---------- language ---------- */
 function applyLang(){
   var d=I[lang];
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
   var els=document.querySelectorAll('[data-i]');
   for(var i=0;i<els.length;i++){var k=els[i].dataset.i;if(d[k])els[i].innerHTML=d[k];}
-  search.placeholder=d.search;
-  langBtn.textContent=lang==='en'?'العربية':'English';
-  if(country.options.length)country.options[0].textContent=d.allc;
-  buildGenres();updateTitle();renderRecent();drawArticles();drawStats();drawUsage();syncQ();drawLocal();
-  drawFeatured();drawPopular();
+  $('csearch').placeholder=d.searchC;
+  $('asearch').placeholder=d.searchC;
+  $('stSearch').placeholder=d.searchS;
+  $('langBtn').textContent=lang==='en'?'العربية':'English';
+  drawLocal();drawRecent();drawFeatured();drawArticles();drawStats();drawUsage();syncQ();
+  if(countries.length){drawFlags();if(view==='all')drawAllFlags();}
+  if(view==='fav')drawFav();
+  if(view==='country'&&ctryList.length){ $('ctryTitle').textContent=(flagOf(curCC)+' '+cname(curCC,curCName)).trim();
+    drawCatBar();drawCountryBody(); }
   if(!isHome()){trans(pageEl);hookPlayButtons();initArticlesList();}
   hookPageLinks();
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
 }
-langBtn.onclick=function(){lang=lang==='en'?'ar':'en';applyLang();render(true);};
+$('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';applyLang();};
 
+/* ---------- misc ---------- */
 var topBtn=$('top');
-window.addEventListener('scroll',function(){topBtn.style.display=window.scrollY>600?'grid':'none';});
+window.addEventListener('scroll',function(){
+  topBtn.style.display=window.scrollY>600?'grid':'none';
+  if(!isHome()){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    $('prog').style.width=h>0?Math.min(100,(window.scrollY/h)*100)+'%':'0';
+  }
+});
 topBtn.onclick=function(){window.scrollTo({top:0,behavior:'smooth'});};
 window.addEventListener('keydown',function(e){
   if(e.target.tagName==='INPUT')return;
@@ -1245,35 +1413,10 @@ window.addEventListener('keydown',function(e){
 });
 window.addEventListener('beforeunload',function(){LS.set('lr_mine',mine);});
 
-function playByName(name){
-  if(!name)return;
-  toast(T('finding').replace('{s}',name));
-  return api('/json/stations/search?hidebroken=true&limit=30&order=clickcount&reverse=true&name='
-      +encodeURIComponent(name))
-   .then(function(d){
-     var l=clean(d);
-     if(!l.length){toast(T('notFound').replace('{s}',name));return;}
-     l.sort(function(a,b){return (b.votes||0)-(a.votes||0);});
-     play(l[0]);
-   }).catch(function(){toast(T('err'));});
-}
-function hookPlayButtons(){
-  var bs=pageEl.querySelectorAll('.playbtn[data-station]');
-  for(var i=0;i<bs.length;i++){
-    if(bs[i].dataset.hookedp)continue;
-    bs[i].dataset.hookedp='1';
-    bs[i].addEventListener('click',function(e){
-      e.preventDefault();playByName(this.dataset.station);
-    });
-  }
-}
 function openHash(){
   var h=location.hash||'';
   var q=h.match(/q=([^&]+)/);
-  if(q){
-    var nm='';try{nm=decodeURIComponent(q[1].replace(/\+/g,' '));}catch(e){nm=q[1];}
-    playByName(nm);return;
-  }
+  if(q){var nm='';try{nm=decodeURIComponent(q[1].replace(/\+/g,' '));}catch(e){nm=q[1];}playByName(nm);return;}
   var m=h.match(/s=([0-9a-fA-F-]{10,})/);
   if(!m)return;
   api('/json/stations/byuuid/'+m[1]).then(function(d){
@@ -1283,13 +1426,16 @@ function openHash(){
 }
 window.addEventListener('hashchange',openHash);
 
-applyTheme();syncTabs();applyLang();syncQ();renderRecent();drawStats();drawUsage();hookPageLinks();
+/* ---------- init ---------- */
+applyTheme();applyLang();syncQ();drawRecent();drawStats();drawUsage();hookPageLinks();
 (function(){
   var last=LS.get('lr_last',null);
-  if(last){pName.textContent=last.name;pMeta.textContent=last.country||'';
+  if(last){pName.textContent=last.name;pMeta.textContent=cname(last.countrycode,last.country||'');
     setArt(last);player.classList.add('up');}
 })();
-buildCountries().then(load).then(function(){loadLocal();openHash();});
+loadCountries();
+loadLocal();
+openHash();
 </script>
 </body>
 </html>
