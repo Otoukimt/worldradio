@@ -4,7 +4,8 @@
     "name2": "Radio"
   },
   "defaultTheme": "light",
-  "visitors": 0,
+  "visitors": 356,
+  "logo": "",
   "colors": {
     "light": {
       "bg": "#e4ecf7",
@@ -29,8 +30,8 @@
   },
   "hero": {
     "h1": {
-      "en": "Listen to the world, <em>live</em>.",
-      "ar": "استمع إلى العالم، <em>مباشرةً</em>."
+      "en": "Listen to the world, <em>live<\/em>.",
+      "ar": "استمع إلى العالم، <em>مباشرةً<\/em>."
     },
     "sub": {
       "en": "Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.",
@@ -101,69 +102,31 @@
       "ar": "هيب هوب"
     }
   ],
-  "cats": [
-    {
-      "k": "trending",
-      "en": "Trending news",
-      "ar": "أخبار رائجة"
-    },
-    {
-      "k": "stations",
-      "en": "Stations",
-      "ar": "محطات"
-    },
-    {
-      "k": "countries",
-      "en": "Country guides",
-      "ar": "أدلة الدول"
-    },
-    {
-      "k": "explain",
-      "en": "Explainers",
-      "ar": "شروحات"
-    },
-    {
-      "k": "tips",
-      "en": "Tips",
-      "ar": "نصائح"
-    },
-    {
-      "k": "history",
-      "en": "History & culture",
-      "ar": "تاريخ وثقافة"
-    }
-  ],
-  "logo": "",
   "footer": [
     {
-      "k": "home",
       "en": "Home",
       "ar": "الرئيسية",
-      "href": "./"
+      "href": ".\/"
     },
     {
-      "k": "articles",
       "en": "Articles",
       "ar": "المقالات",
-      "href": "./articles.html"
+      "href": ".\/articles.html"
     },
     {
-      "k": "about",
       "en": "About",
       "ar": "من نحن",
-      "href": "./about.html"
+      "href": ".\/about.html"
     },
     {
-      "k": "privacy",
       "en": "Privacy Policy",
       "ar": "سياسة الخصوصية",
-      "href": "./privacy.html"
+      "href": ".\/privacy.html"
     },
     {
-      "k": "contact",
       "en": "Contact",
       "ar": "اتصل بنا",
-      "href": "./contact.html"
+      "href": ".\/contact.html"
     }
   ]
 }
