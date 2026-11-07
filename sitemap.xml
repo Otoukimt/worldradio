@@ -26,6 +26,11 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://worldliveradio.com/countries/united-states.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://worldliveradio.com/articles/radio-stream-not-working.html</loc>
     <lastmod>2026-11-06</lastmod>
     <priority>0.7</priority>
