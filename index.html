@@ -304,6 +304,54 @@ html[data-theme="dark"] #page .cbanner{opacity:.55;filter:blur(70px) saturate(1.
 #page .sec{margin:16px 0;padding:16px;border-radius:18px;background:var(--cardG);
   border:1px solid var(--line);box-shadow:0 2px 10px var(--shadow)}
 #page .sec h2{font-size:19px;margin:0 0 12px;color:var(--acc2)}
+
+/* ===== المجلة حين تُحقن داخل الهيكل ===== */
+#page .marq{position:relative;overflow:hidden;direction:ltr;margin:0 -16px;padding:4px 0;min-height:118px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+#page .track{display:flex;gap:12px;width:max-content;direction:ltr;
+  animation:slide 60s linear infinite;will-change:transform}
+#page .marq:hover .track,#page .marq:active .track{animation-play-state:paused}
+#page .marq.rev .track{animation-direction:reverse}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){#page .track{animation:none}}
+#page .mcard{flex:0 0 260px;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:13px 15px;box-shadow:0 2px 8px var(--shadow);display:block}
+#page .mcard .t{font-size:11px;color:var(--acc);font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+#page .mcard .h{font-size:14.5px;font-weight:700;line-height:1.4;margin-top:5px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#page .mcard .d{font-size:11px;color:var(--mut);margin-top:6px}
+#page .mhero{text-align:center;padding:10px 8px 18px}
+#page .mhero h1{margin:0 0 10px}
+#page .mhero p{color:var(--mut);margin:0 auto 14px;max-width:620px;font-size:15.5px;line-height:1.65}
+#page .mstats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--mut)}
+#page .mstats b{color:var(--acc);font-size:15px}
+#page .searchbox input{width:100%;background:var(--card);border:1px solid var(--line);color:var(--txt);
+  padding:13px 16px;border-radius:14px;font-family:inherit;font-size:15px;outline:none}
+#page .cats{display:flex;gap:8px;overflow-x:auto;padding:12px 0 4px;scrollbar-width:none}
+#page .cats::-webkit-scrollbar{display:none}
+#page .chip .n{opacity:.75;font-weight:600;font-size:12px}
+#page .feat{display:block;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+  background:var(--cardG);box-shadow:0 4px 16px var(--shadow)}
+#page .feat .band{height:120px;background:linear-gradient(135deg,var(--acc),var(--acc2));display:grid;place-items:center}
+#page .feat .band .wav{display:flex;gap:5px;align-items:flex-end;height:52px}
+#page .feat .band .wav i{width:7px;background:rgba(255,255,255,.9);border-radius:4px;display:block;
+  animation:w 1.4s ease-in-out infinite}
+#page .feat .body{padding:18px}
+#page .feat .tag{font-size:11.5px;color:var(--acc);font-weight:800;text-transform:uppercase}
+#page .feat h3{margin:8px 0;font-size:20px;font-weight:800;line-height:1.3}
+#page .feat p{margin:0;color:var(--mut);font-size:14px;line-height:1.6}
+#page .art.has-thumb{padding:0;overflow:hidden}
+#page .art .thumb{width:100%;height:150px;object-fit:cover;display:block;background:var(--card2)}
+#page .art .inner{padding:15px}
+#page .art .rd{position:absolute;inset-inline-end:14px;top:14px;font-size:11px;color:var(--mut);
+  background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
+#page .pbar{height:4px;background:var(--card2);border-radius:3px;margin-top:10px;overflow:hidden}
+#page .pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+#page .moreb{display:block;width:100%;margin-top:16px;padding:14px;border-radius:14px;
+  border:1px solid var(--line);cursor:pointer;font-family:inherit;font-size:15px;font-weight:800;
+  color:#fff;background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 6px 18px var(--shadow)}
+#page .empty{color:var(--mut);padding:26px 0;text-align:center}
 #pLoad{text-align:center;color:var(--mut);padding:60px 0;font-size:15px}
 .backb{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:9px 16px;
   border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;margin:0 8px 18px 0;
@@ -1139,7 +1187,7 @@ function drawFav(){
   var ts=document.querySelectorAll('.tab');
   for(var i=0;i<ts.length;i++)ts[i].onclick=function(){
     var t=this.dataset.tab;
-    if(t==='arts'){location.href=ROOT+'articles.html';return;}
+    if(t==='arts'){loadPage(ROOT+'articles.html',true);return;}
     if(t==='fav'){showView('fav');drawFav();return;}
     showView('home');
   };
@@ -1212,6 +1260,7 @@ function applyCfg(d){
   if(d.defaultTheme&&localStorage.getItem('lr_theme')===null){
     theme=d.defaultTheme==='dark'?'dark':'light';applyTheme();
   }
+  if(d.cats&&d.cats.length)SITECATS=d.cats;
   if(typeof d.visitors==='number'&&d.visitors>0){
     $('visNum').textContent=fmtNum(d.visitors);$('visBox').style.display='block';
   }
@@ -1258,6 +1307,8 @@ fetch('./countries.json').then(function(r){return r.ok?r.json():[];})
   .then(function(d){guides=d||[];drawGuides();}).catch(function(){});
 fetch('./site.json').then(function(r){return r.ok?r.json():null;})
   .then(function(d){applyCfg(d);}).catch(function(){});
+fetch('./stats.json').then(function(r){return r.ok?r.json():null;})
+  .then(function(d){stats=d;if(inType==='magazine')initMagazine();}).catch(function(){});
 
 /* ---------- station info sheet ---------- */
 var iStation=null;
@@ -1499,6 +1550,178 @@ function trans(root){
   }
 }
 
+
+/* ===== المجلة محقونة: الهيكل يشغّلها فيبقى الصوت ===== */
+var magCat='',magQ='',magShown=10,SITECATS=[];
+function magCatName(k){
+  for(var i=0;i<SITECATS.length;i++)if(SITECATS[i].k===k)return (lang==='ar'?SITECATS[i].ar:SITECATS[i].en);
+  for(var j=0;j<posts.length;j++)if(posts[j].cat===k&&posts[j].tag)return posts[j].tag[lang]||posts[j].tag.en;
+  return k;
+}
+function magDate(d){
+  try{return new Date(d).toLocaleDateString(lang==='ar'?'ar':'en-GB',
+    {year:'numeric',month:'long',day:'numeric'});}catch(e){return d;}
+}
+function magProg(slug){
+  try{var o=JSON.parse(localStorage.getItem('lr_read')||'{}');return o[slug]||0;}catch(e){return 0;}
+}
+function magCard(p,showProg){
+  var a=document.createElement('a');a.className='art';
+  a.href=ROOT+'articles/'+p.slug+'.html';
+  var views=(stats&&stats[p.slug])?Number(stats[p.slug]).toLocaleString('en-US'):'';
+  var meta=magDate(p.date)+(views?(' · '+views+' '+(lang==='ar'?'مشاهدة':'views')):'');
+  if(p.thumb){
+    a.className='art has-thumb';
+    a.innerHTML='<img class="thumb" loading="lazy" alt="" src="'+p.thumb+'">'+
+      '<div class="inner"><div class="tag"></div><h3></h3><p></p><div class="d"></div></div>';
+    a.querySelector('.thumb').onerror=function(){this.style.display='none';};
+  }else{
+    a.innerHTML='<div class="tag"></div><h3></h3><p></p><div class="d"></div>';
+  }
+  a.querySelector('.tag').textContent=magCatName(p.cat||'');
+  a.querySelector('h3').textContent=p.title[lang]||p.title.en;
+  a.querySelector('p').textContent=p.desc[lang]||p.desc.en;
+  a.querySelector('.d').textContent=meta;
+  if(views&&!p.thumb){
+    var rd=document.createElement('div');rd.className='rd';rd.textContent=views;a.appendChild(rd);
+  }
+  var pr=magProg(p.slug);
+  if(showProg&&pr>3&&pr<97){
+    var bar=document.createElement('div');bar.className='pbar';
+    bar.innerHTML='<i style="width:'+pr+'%"></i>';a.appendChild(bar);
+  }
+  return a;
+}
+function magFiltered(){
+  var q=magQ.trim().toLowerCase();
+  return posts.filter(function(p){
+    if(magCat&&p.cat!==magCat)return false;
+    if(!q)return true;
+    var hay=((p.title.en||'')+' '+(p.title.ar||'')+' '+(p.desc.en||'')+' '+
+             (p.desc.ar||'')+' '+p.slug).toLowerCase();
+    return hay.indexOf(q)>-1;
+  }).sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
+}
+function initMagazine(){
+  var E=function(sel){return pageEl.querySelector(sel);};
+  if(!E('#list'))return;
+
+  /* الترويسة */
+  if(E('#nArts'))E('#nArts').textContent=posts.length;
+  if(E('#nCats'))E('#nCats').textContent=SITECATS.length||6;
+  var last=posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');})[0];
+  if(E('#lastUp'))E('#lastUp').textContent=last?magDate(last.date):'—';
+
+  /* الشريط المتحرك */
+  var tr=E('#track'),mq=E('#marq');
+  if(tr&&posts.length){
+    var latest=posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');}).slice(0,10);
+    tr.innerHTML='';
+    for(var pass=0;pass<2;pass++){
+      latest.forEach(function(p){
+        var a=document.createElement('a');a.className='mcard';
+        a.dir=(lang==='ar')?'rtl':'ltr';
+        a.href=ROOT+'articles/'+p.slug+'.html';
+        a.innerHTML='<div class="t"></div><div class="h"></div><div class="d"></div>';
+        a.querySelector('.t').textContent=magCatName(p.cat||'');
+        a.querySelector('.h').textContent=p.title[lang]||p.title.en;
+        a.querySelector('.d').textContent=magDate(p.date);
+        tr.appendChild(a);
+      });
+    }
+    mq.style.direction='ltr';tr.style.direction='ltr';
+    mq.classList.toggle('rev',lang==='ar');
+    E('#newSec').style.display='block';
+    requestAnimationFrame(function(){
+      var w=tr.scrollWidth/2;
+      if(w)tr.style.animationDuration=Math.max(24,Math.round(w/60))+'s';
+    });
+  }
+
+  /* أكمل القراءة */
+  var o={};try{o=JSON.parse(localStorage.getItem('lr_read')||'{}');}catch(e){}
+  var cont=posts.filter(function(p){var v=o[p.slug]||0;return v>3&&v<97;});
+  if(cont.length&&E('#contList')){
+    E('#contList').innerHTML='';
+    cont.slice(0,3).forEach(function(p){E('#contList').appendChild(magCard(p,true));});
+    E('#contSec').style.display='block';
+  }else if(E('#contSec'))E('#contSec').style.display='none';
+
+  /* اختيار المحرّر */
+  if(E('#featBox')&&posts.length){
+    var fp=null,fs=(CFG&&CFG.featuredArticle)||'';
+    if(fs)for(var i=0;i<posts.length;i++)if(posts[i].slug===fs){fp=posts[i];break;}
+    if(!fp)fp=posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');})[0];
+    if(fp){
+      var fa=document.createElement('a');fa.className='feat';
+      fa.href=ROOT+'articles/'+fp.slug+'.html';
+      var band=fp.thumb
+        ? '<img class="band" src="'+fp.thumb+'" alt="" style="width:100%;height:170px;object-fit:cover;display:block">'
+        : '<div class="band"><div class="wav"><i></i><i></i><i></i><i></i><i></i></div></div>';
+      fa.innerHTML=band+'<div class="body"><div class="tag"></div><h3></h3><p></p></div>';
+      fa.querySelector('.tag').textContent=magCatName(fp.cat||'');
+      fa.querySelector('h3').textContent=fp.title[lang]||fp.title.en;
+      fa.querySelector('p').textContent=fp.desc[lang]||fp.desc.en;
+      E('#featBox').innerHTML='';E('#featBox').appendChild(fa);
+      E('#featSec').style.display='block';
+    }
+  }
+
+  /* الأكثر قراءة */
+  if(E('#popList')&&posts.length){
+    var order=(CFG&&CFG.popular&&CFG.popular.length)?CFG.popular:null;
+    if(!order&&stats)order=Object.keys(stats).sort(function(a,b){return stats[b]-stats[a];}).slice(0,3);
+    var n=0;E('#popList').innerHTML='';
+    (order||[]).slice(0,3).forEach(function(sl){
+      for(var i=0;i<posts.length;i++)if(posts[i].slug===sl){E('#popList').appendChild(magCard(posts[i],false));n++;break;}
+    });
+    E('#popSec').style.display=n?'block':'none';
+  }
+
+  /* التصنيفات */
+  function drawMagCats(){
+    var box=E('#cats');if(!box)return;
+    box.innerHTML='';
+    function chip(k,label,n){
+      var b=document.createElement('button');
+      b.className='chip'+(magCat===k?' on':'');
+      b.innerHTML=label+' <span class="n">'+n+'</span>';
+      b.onclick=function(){magCat=k;magShown=10;drawMagCats();drawMagList();};
+      box.appendChild(b);
+    }
+    chip('',lang==='ar'?'الكل':'All',posts.length);
+    SITECATS.forEach(function(c){
+      var n=posts.filter(function(p){return p.cat===c.k;}).length;
+      if(!n&&magCat!==c.k)return;
+      chip(c.k,(lang==='ar'?c.ar:c.en),n);
+    });
+  }
+  /* القائمة */
+  function drawMagList(){
+    var items=magFiltered();
+    if(E('#listTitle'))E('#listTitle').textContent=magCat?magCatName(magCat):(lang==='ar'?'كل المقالات':'All articles');
+    if(E('#listCnt'))E('#listCnt').textContent=(lang==='ar'?(items.length+' نتيجة'):(items.length+' results'));
+    var box=E('#list');box.innerHTML='';
+    items.slice(0,magShown).forEach(function(p){box.appendChild(magCard(p,false));});
+    if(E('#empty'))E('#empty').style.display=items.length?'none':'block';
+    var mb=E('#moreb');
+    if(mb){
+      if(items.length>magShown){
+        mb.style.display='block';
+        mb.textContent=(lang==='ar')
+          ? ('اكتشف المزيد ('+(items.length-magShown)+') \u2190')
+          : ('Discover more ('+(items.length-magShown)+') \u2192');
+        mb.onclick=function(){magShown+=10;drawMagList();};
+      }else mb.style.display='none';
+    }
+    hookPageLinks();
+  }
+  var q=E('#q');
+  if(q){q.placeholder=(lang==='ar')?'ابحث في المقالات...':'Search articles...';
+        q.value=magQ;q.oninput=function(){magQ=this.value;magShown=10;drawMagList();};}
+  drawMagCats();drawMagList();
+}
+
 /* ===== صفحة دولة محقونة: الهيكل يجلب محطاتها ويعرضها ===== */
 var inCC='',inSlug='',inType='',inList=[],inCat='';
 function igrp(s){
@@ -1513,8 +1736,6 @@ function initCountryPage(cc){
   inCC=cc;inList=[];inCat='';inLoading=true;
   var f=flagOf(cc);
   /* الهيكل له أزرار تنقله، فنحذف أزرار الصفحة المحقونة */
-  var nr=pageEl.querySelectorAll('.navrow');
-  for(var k=0;k<nr.length;k++)nr[k].parentNode.removeChild(nr[k]);
   var fg=pageEl.querySelector('#flag');
   if(fg)fg.textContent=f;
   var b=pageEl.querySelector('#cbanner');
@@ -1643,13 +1864,14 @@ function hookPlayButtons(){
   }
 }
 function navButtons(){
-  var home='<button class="backb" id="backHomeB">'+T('backHome')+'</button>';
-  var arts='<button class="backb" id="backArtsB">'+T('allArts2')+'</button>';
-  return home+arts;
+  return '<button class="backb" id="backHomeB" data-en="'+I.en.backHome+'" data-ar="'+I.ar.backHome+'">'
+       + T('backHome')+'</button>'
+       + '<button class="backb" id="backArtsB" data-en="'+I.en.allArts2+'" data-ar="'+I.ar.allArts2+'">'
+       + T('allArts2')+'</button>';
 }
 function wireNav(){
   var a=$('backHomeB');if(a)a.onclick=function(){goHome(true);};
-  var b=$('backArtsB');if(b)b.onclick=function(){location.href=ROOT+'articles.html';};
+  var b=$('backArtsB');if(b)b.onclick=function(){loadPage(ROOT+'articles.html',true);};
 }
 function loadPage(url,push){
   pageEl.innerHTML=navButtons()+'<div id="pLoad">'+T('loading')+'</div>';
@@ -1669,6 +1891,9 @@ function loadPage(url,push){
     var imgs=m.querySelectorAll('img[src]');
     for(var j=0;j<imgs.length;j++){try{imgs[j].src=new URL(imgs[j].getAttribute('src'),url).href;}catch(e){}}
     pageEl.innerHTML=navButtons()+m.innerHTML;
+    /* الهيكل له أزرار تنقله، فنحذف صفّ أزرار الصفحة أياً كان نوعها */
+    var nr=pageEl.querySelectorAll('.navrow');
+    for(var k=0;k<nr.length;k++)nr[k].parentNode.removeChild(nr[k]);
     wireNav();trans(pageEl);
     var t=doc.querySelector('title');
     document.title=t?t.textContent:'LiveRadio';
@@ -1677,6 +1902,7 @@ function loadPage(url,push){
     hookPageLinks();hookPlayButtons();
     if(inType==='country'&&inCC)initCountryPage(inCC);
     if(inType==='article'&&inSlug)initArticlePage(inSlug);
+    if(inType==='magazine'){magCat='';magQ='';magShown=10;initMagazine();}
   }).catch(function(){
     pageEl.innerHTML=navButtons()+'<div id="pLoad">'+T('pageErr')+'</div>';
     wireNav();
@@ -1689,7 +1915,6 @@ function internal(href){
   if(!href)return false;
   if(href.indexOf(location.origin)!==0)return false;
   if(href.indexOf('#')===0)return false;
-  if(/articles\.html$/.test(href))return false;   /* المجلة لها محرّكها الخاص */
   return /\.html$/.test(href)||href===ROOT||href===ROOT.replace(/\/$/,'');
 }
 function hookLink(a){
@@ -1734,6 +1959,7 @@ function applyLang(){
     trans(pageEl);hookPlayButtons();
     if(inType==='country'&&inList.length)drawInCountry();
     if(inType==='article'&&inSlug)drawRelated(inSlug);
+    if(inType==='magazine')initMagazine();
   }
   hookPageLinks();
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
