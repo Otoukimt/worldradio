@@ -100,5 +100,37 @@
       "en": "Hip hop",
       "ar": "هيب هوب"
     }
+  ],
+  "cats": [
+    {
+      "k": "trending",
+      "en": "Trending news",
+      "ar": "أخبار رائجة"
+    },
+    {
+      "k": "stations",
+      "en": "Stations",
+      "ar": "محطات"
+    },
+    {
+      "k": "countries",
+      "en": "Country guides",
+      "ar": "أدلة الدول"
+    },
+    {
+      "k": "explain",
+      "en": "Explainers",
+      "ar": "شروحات"
+    },
+    {
+      "k": "tips",
+      "en": "Tips",
+      "ar": "نصائح"
+    },
+    {
+      "k": "history",
+      "en": "History & culture",
+      "ar": "تاريخ وثقافة"
+    }
   ]
 }

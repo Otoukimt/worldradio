@@ -1035,7 +1035,7 @@ function drawFav(){
   var ts=document.querySelectorAll('.tab');
   for(var i=0;i<ts.length;i++)ts[i].onclick=function(){
     var t=this.dataset.tab;
-    if(t==='arts'){loadPage(ROOT+'articles.html',true);return;}
+    if(t==='arts'){location.href=ROOT+'articles.html';return;}
     if(t==='fav'){showView('fav');drawFav();return;}
     showView('home');
   };
@@ -1346,7 +1346,7 @@ function navButtons(){
 }
 function wireNav(){
   var a=$('backHomeB');if(a)a.onclick=function(){goHome(true);};
-  var b=$('backArtsB');if(b)b.onclick=function(){loadPage(ROOT+'articles.html',true);};
+  var b=$('backArtsB');if(b)b.onclick=function(){location.href=ROOT+'articles.html';};
 }
 function loadPage(url,push){
   pageEl.innerHTML=navButtons()+'<div id="pLoad">'+T('loading')+'</div>';
@@ -1368,62 +1368,20 @@ function loadPage(url,push){
     document.title=t?t.textContent:'LiveRadio';
     if(push)history.pushState({p:url},'',url);
     if(window.gtag)gtag('event','page_view',{page_path:new URL(url).pathname,page_title:document.title});
-    hookPageLinks();hookPlayButtons();initArticlesList();
+    hookPageLinks();hookPlayButtons();
   }).catch(function(){
     pageEl.innerHTML=navButtons()+'<div id="pLoad">'+T('pageErr')+'</div>';
     wireNav();
   });
 }
-/* صفحة المقالات تُعاد بناؤها بعد الحقن */
-function initArticlesList(){
-  var list=pageEl.querySelector('#list');
-  if(!list)return;
-  var chips=pageEl.querySelector('#chips'),empty=pageEl.querySelector('#empty');
-  var filter='';
-  function fmtDate(d){
-    try{return new Date(d).toLocaleDateString(lang==='ar'?'ar':'en-GB',
-      {year:'numeric',month:'long',day:'numeric'});}catch(e){return d;}
-  }
-  function draw(){
-    if(chips){
-      var tags=[],seen={};
-      posts.forEach(function(p){var t=p.tag.en;if(!seen[t]){seen[t]=p.tag;tags.push(t);}});
-      chips.innerHTML='';
-      var ab=document.createElement('button');
-      ab.className='chip'+(filter===''?' on':'');
-      ab.textContent=lang==='ar'?'الكل':'All';
-      ab.onclick=function(){filter='';draw();};chips.appendChild(ab);
-      tags.forEach(function(t){
-        var b=document.createElement('button');
-        b.className='chip'+(filter===t?' on':'');
-        b.textContent=seen[t][lang]||t;
-        b.onclick=function(){filter=t;draw();};chips.appendChild(b);
-      });
-    }
-    list.innerHTML='';
-    var items=posts.filter(function(p){return !filter||p.tag.en===filter;});
-    items.sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
-    if(empty)empty.style.display=items.length?'none':'block';
-    items.forEach(function(p){
-      var a=document.createElement('a');a.className='art';
-      a.href=ROOT+'articles/'+p.slug+'.html';
-      a.innerHTML='<div class="tag"></div><h2></h2><p></p><div class="d" style="font-size:12px;color:var(--mut)"></div>';
-      a.querySelector('.tag').textContent=p.tag[lang]||p.tag.en;
-      a.querySelector('h2').textContent=p.title[lang]||p.title.en;
-      a.querySelector('p').textContent=p.desc[lang]||p.desc.en;
-      a.querySelector('.d').textContent=fmtDate(p.date);
-      list.appendChild(a);
-    });
-    hookPageLinks();
-  }
-  if(posts.length)draw();
-  else fetch('./articles.json').then(function(r){return r.json();})
-        .then(function(d){posts=d||[];draw();}).catch(function(){});
-}
+/* صفحة المقالات لها محرّكها الخاص: نفتحها كصفحة كاملة لا كحقنة */
+function initArticlesList(){ /* لم تعد مستعملة: articles.html صفحة مستقلة */ }
+
 function internal(href){
   if(!href)return false;
   if(href.indexOf(location.origin)!==0)return false;
   if(href.indexOf('#')===0)return false;
+  if(/articles\.html$/.test(href))return false;   /* المجلة صفحة مستقلة */
   return /\.html$/.test(href)||href===ROOT||href===ROOT.replace(/\/$/,'');
 }
 function hookLink(a){
@@ -1464,7 +1422,7 @@ function applyLang(){
   if(view==='fav')drawFav();
   if(view==='country'&&ctryList.length){ $('ctryTitle').textContent=(flagOf(curCC)+' '+cname(curCC,curCName)).trim();
     drawCatBar();drawCountryBody(); }
-  if(!isHome()){trans(pageEl);hookPlayButtons();initArticlesList();}
+  if(!isHome()){trans(pageEl);hookPlayButtons();}
   hookPageLinks();
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
 }

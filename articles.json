@@ -3,8 +3,8 @@
     "slug": "radio-stream-not-working",
     "date": "2026-11-06",
     "tag": {
-      "en": "Troubleshooting",
-      "ar": "حلّ المشكلات"
+      "en": "Tips",
+      "ar": "نصائح"
     },
     "title": {
       "en": "Why a radio stream stops working, and what you can actually do",
@@ -13,14 +13,15 @@
     "desc": {
       "en": "Six causes, how to tell them apart in thirty seconds, and which ones are not your problem.",
       "ar": "ستة أسباب، وكيف تميّز بينها في ثلاثين ثانية، وأيّها ليس مشكلتك."
-    }
+    },
+    "cat": "tips"
   },
   {
     "slug": "gulf-radio-stations-guide",
     "date": "2026-11-06",
     "tag": {
-      "en": "Country guide",
-      "ar": "دليل دولة"
+      "en": "Country guides",
+      "ar": "أدلة الدول"
     },
     "title": {
       "en": "Gulf radio: a listener's guide to Saudi, UAE and the wider region",
@@ -29,14 +30,15 @@
     "desc": {
       "en": "A young dial that skipped several eras — dialect on air, Khaleeji music, and a multilingual UAE.",
       "ar": "مؤشر حديث تخطّى عدة عصور — اللهجة على الهواء، والموسيقى الخليجية، وإمارات متعددة اللغات."
-    }
+    },
+    "cat": "countries"
   },
   {
     "slug": "start-your-own-internet-radio",
     "date": "2026-11-06",
     "tag": {
-      "en": "How-to",
-      "ar": "دليل عملي"
+      "en": "Explainers",
+      "ar": "شروحات"
     },
     "title": {
       "en": "How to start your own internet radio station",
@@ -45,14 +47,15 @@
     "desc": {
       "en": "The four technical pieces, the real bandwidth bill, licensing, and how to actually get heard.",
       "ar": "القطع التقنية الأربع، وفاتورة النطاق الحقيقية، والترخيص، وكيف تُسمَع فعلاً."
-    }
+    },
+    "cat": "explain"
   },
   {
     "slug": "radio-vs-streaming-services",
     "date": "2026-11-06",
     "tag": {
-      "en": "Explainer",
-      "ar": "شرح"
+      "en": "Explainers",
+      "ar": "شروحات"
     },
     "title": {
       "en": "Radio vs streaming: which one should you actually be using",
@@ -61,14 +64,15 @@
     "desc": {
       "en": "Discovery, cost, data and offline listening compared — and why both belong in the same setup.",
       "ar": "مقارنة في الاكتشاف والكلفة والبيانات والاستماع دون اتصال — ولماذا يستحق كلاهما مكاناً."
-    }
+    },
+    "cat": "explain"
   },
   {
     "slug": "uk-radio-stations-guide",
     "date": "2026-11-06",
     "tag": {
-      "en": "Country guide",
-      "ar": "دليل دولة"
+      "en": "Country guides",
+      "ar": "أدلة الدول"
     },
     "title": {
       "en": "UK radio stations: a complete guide to the British dial",
@@ -77,14 +81,15 @@
     "desc": {
       "en": "From Radio 4 to Kiss: the BBC networks, the commercial brands, and what to hear from abroad.",
       "ar": "من راديو 4 إلى Kiss: شبكات BBC والعلامات التجارية وما تسمعه من الخارج."
-    }
+    },
+    "cat": "countries"
   },
   {
     "slug": "quran-radio-stations-guide",
     "date": "2026-11-06",
     "tag": {
-      "en": "Guide",
-      "ar": "دليل"
+      "en": "Stations",
+      "ar": "محطات"
     },
     "title": {
       "en": "Quran radio stations: a complete listening guide",
@@ -93,14 +98,15 @@
     "desc": {
       "en": "Mecca, Cairo and Rabat compared, the Hafs and Warsh readings, and what changes in Ramadan.",
       "ar": "مقارنة بين مكة والقاهرة والرباط، وروايتا حفص وورش، وما يتغير في رمضان."
-    }
+    },
+    "cat": "stations"
   },
   {
     "slug": "jovem-pan-brazil-guide",
     "date": "2026-11-06",
     "tag": {
-      "en": "Station guide",
-      "ar": "دليل محطة"
+      "en": "Stations",
+      "ar": "محطات"
     },
     "title": {
       "en": "Jovem Pan: the network that unified Brazilian pop radio",
@@ -109,14 +115,15 @@
     "desc": {
       "en": "How a 1994 satellite decision gave a continent-sized country one shared pop culture.",
       "ar": "كيف منح قرارٌ ساتليّ سنة 1994 بلداً بحجم قارة ثقافةَ بوب واحدة مشتركة."
-    }
+    },
+    "cat": "stations"
   },
   {
     "slug": "radio-mirchi-india-guide",
     "date": "2026-11-06",
     "tag": {
-      "en": "Station guide",
-      "ar": "دليل محطة"
+      "en": "Stations",
+      "ar": "محطات"
     },
     "title": {
       "en": "Radio Mirchi 98.3: inside India's biggest FM network",
@@ -125,14 +132,15 @@
     "desc": {
       "en": "Why a ban on broadcasting news produced the most personality-driven radio in the world.",
       "ar": "لماذا أنتج منعُ بثّ الأخبار أكثر راديو في العالم اعتماداً على الشخصية."
-    }
+    },
+    "cat": "stations"
   },
   {
     "slug": "nrj-radio-france-guide",
     "date": "2026-11-06",
     "tag": {
-      "en": "Station guide",
-      "ar": "دليل محطة"
+      "en": "Stations",
+      "ar": "محطات"
     },
     "title": {
       "en": "NRJ: the Paris pirate that became Europe's biggest pop network",
@@ -141,14 +149,15 @@
     "desc": {
       "en": "From an illegal frequency in 1981 to stations across a dozen countries — and why French quotas made it better.",
       "ar": "من تردد غير قانوني سنة 1981 إلى محطات في عشرات الدول — ولماذا جعلتها الحصص الفرنسية أفضل."
-    }
+    },
+    "cat": "stations"
   },
   {
     "slug": "npr-public-radio-guide",
     "date": "2026-11-06",
     "tag": {
-      "en": "Station guide",
-      "ar": "دليل محطة"
+      "en": "Stations",
+      "ar": "محطات"
     },
     "title": {
       "en": "NPR: how American public radio holds an audience without shouting",
@@ -157,14 +166,15 @@
     "desc": {
       "en": "A thousand member stations, two defining programmes, and an economic model unlike the rest of the dial.",
       "ar": "ألف محطة عضو، وبرنامجان يحدّدانها، ونموذج اقتصادي يختلف عن بقية المؤشر."
-    }
+    },
+    "cat": "stations"
   },
   {
     "slug": "bbc-radio-1-guide",
     "date": "2026-11-06",
     "tag": {
-      "en": "Station guide",
-      "ar": "دليل محطة"
+      "en": "Stations",
+      "ar": "محطات"
     },
     "title": {
       "en": "BBC Radio 1: the station that invented modern pop radio",
@@ -173,7 +183,8 @@
     "desc": {
       "en": "Born from the 1967 pirate radio ban, still the station labels watch. What to hear and when.",
       "ar": "وُلدت من حظر راديو القراصنة سنة 1967، وما زالت المحطة التي تراقبها شركات الإنتاج. بمَ تستمع ومتى."
-    }
+    },
+    "cat": "stations"
   },
   {
     "slug": "radio-in-the-car",
@@ -189,14 +200,15 @@
     "desc": {
       "en": "Why FM still beats streaming on the road — data, tunnels, traffic reports and RDS settings worth knowing.",
       "ar": "لماذا ما زال FM يتفوّق على البثّ في الطريق — البيانات والأنفاق ونشرات السير وإعدادات RDS التي تستحق المعرفة."
-    }
+    },
+    "cat": "tips"
   },
   {
     "slug": "history-of-radio-ten-stations",
     "date": "2026-10-31",
     "tag": {
-      "en": "History",
-      "ar": "تاريخ"
+      "en": "History & culture",
+      "ar": "تاريخ وثقافة"
     },
     "title": {
       "en": "The history of radio in ten stations",
@@ -205,7 +217,8 @@
     "desc": {
       "en": "From KDKA in 1920 to the first internet streams — ten stations that each changed what radio could do.",
       "ar": "من KDKA سنة 1920 إلى أولى محطات الإنترنت — عشر محطات غيّرت كلٌّ منها ما يستطيع الراديو فعله."
-    }
+    },
+    "cat": "history"
   },
   {
     "slug": "radio-for-focus-and-work",
@@ -221,14 +234,15 @@
     "desc": {
       "en": "What makes a station usable as background for deep work, and the two kinds you should avoid.",
       "ar": "ما الذي يجعل محطة صالحة كخلفية للعمل العميق، والنوعان اللذان ينبغي تجنّبهما."
-    }
+    },
+    "cat": "tips"
   },
   {
     "slug": "fm-dab-internet-radio",
     "date": "2026-10-31",
     "tag": {
-      "en": "Explainer",
-      "ar": "شرح"
+      "en": "Explainers",
+      "ar": "شروحات"
     },
     "title": {
       "en": "FM, DAB or internet radio: which actually sounds better",
@@ -237,14 +251,15 @@
     "desc": {
       "en": "Real sound quality, behaviour on a weak signal, data cost and delay — and which one to use when.",
       "ar": "الجودة الواقعية، والسلوك عند ضعف الإشارة، وكلفة البيانات والتأخير — وأيّها تستعمل ومتى."
-    }
+    },
+    "cat": "explain"
   },
   {
     "slug": "egyptian-radio-guide",
     "date": "2026-10-31",
     "tag": {
-      "en": "Country guide",
-      "ar": "دليل دولة"
+      "en": "Country guides",
+      "ar": "أدلة الدول"
     },
     "title": {
       "en": "Egyptian radio: a guide to the oldest dial in the Arab world",
@@ -253,14 +268,15 @@
     "desc": {
       "en": "Sawt al-Arab, Middle East Radio, Nogoum FM, Nile FM and the Quran channels — the history and how to listen.",
       "ar": "صوت العرب، الشرق الأوسط، نجوم إف إم، نايل إف إم وقنوات القرآن — التاريخ وكيف تستمع."
-    }
+    },
+    "cat": "countries"
   },
   {
     "slug": "moroccan-radio-stations-guide",
     "date": "2026-10-31",
     "tag": {
-      "en": "Country guide",
-      "ar": "دليل دولة"
+      "en": "Country guides",
+      "ar": "أدلة الدول"
     },
     "title": {
       "en": "Moroccan radio stations: a complete listening guide",
@@ -269,14 +285,15 @@
     "desc": {
       "en": "Medi1, Hit Radio, Chada FM, Radio Mars, the SNRT channels and Amazigh radio — who broadcasts what, and how to listen.",
       "ar": "مدي1، هيت راديو، شدى إف إم، راديو مارس، قنوات SNRT والإذاعة الأمازيغية — من يبثّ ماذا، وكيف تستمع."
-    }
+    },
+    "cat": "countries"
   },
   {
     "slug": "best-radio-stations-world",
     "date": "2026-10-30",
     "tag": {
-      "en": "Guide",
-      "ar": "دليل"
+      "en": "Stations",
+      "ar": "محطات"
     },
     "title": {
       "en": "The best radio stations in the world",
@@ -285,14 +302,15 @@
     "desc": {
       "en": "A handpicked tour of the stations worth your evening, from BBC to Radio Nova.",
       "ar": "جولة مختارة في المحطات التي تستحق سهرتك، من BBC إلى راديو نوفا."
-    }
+    },
+    "cat": "stations"
   },
   {
     "slug": "how-online-radio-works",
     "date": "2026-10-30",
     "tag": {
-      "en": "Explainer",
-      "ar": "شرح"
+      "en": "Explainers",
+      "ar": "شروحات"
     },
     "title": {
       "en": "How online radio streaming works",
@@ -301,7 +319,8 @@
     "desc": {
       "en": "Bitrates, codecs and buffering, explained simply for everyday listeners.",
       "ar": "معدل البت والترميز والتخزين المؤقت، مشروحة ببساطة لكل مستمع."
-    }
+    },
+    "cat": "explain"
   },
   {
     "slug": "listen-radio-data-saving",
@@ -317,6 +336,7 @@
     "desc": {
       "en": "Practical settings that cut mobile data use while keeping the sound clean.",
       "ar": "إعدادات عملية تقلّل استهلاك الإنترنت مع الحفاظ على نقاء الصوت."
-    }
+    },
+    "cat": "tips"
   }
 ]
