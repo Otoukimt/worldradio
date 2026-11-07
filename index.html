@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
+<!-- يثبّت أساس الروابط النسبية مهما تغيّر العنوان أثناء التصفح -->
+<base href="/">
 <meta name="google-site-verification" content="yX25szfjBSoo35hZI9DG4jLp4pah3fZ07GVtTvfX_qk" />
 <!-- Google tag (gtag.js) -->
 <script>
@@ -704,6 +706,8 @@ var lang=(function(){
 })();
 function T(k){return I[lang][k];}
 function $(id){return document.getElementById(id);}
+/* أساس الموقع: يُحسب مرة واحدة عند التحميل ولا يتأثر بتغيّر العنوان لاحقاً */
+var ROOT=location.origin+'/';
 $('yr').textContent=new Date().getFullYear();
 
 var LS={get:function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v===null?d:v}catch(e){return d}},
@@ -1160,7 +1164,7 @@ function drawFooter(items){
   FOOTER.forEach(function(it){
     if(!it||!it.href)return;
     var a=document.createElement('a');
-    a.href=it.href;
+    try{a.href=new URL(it.href,ROOT).href;}catch(e){a.href=it.href;}
     a.textContent=(lang==='ar'?(it.ar||it.en):(it.en||it.ar))||'';
     nav.appendChild(a);
   });
@@ -1459,7 +1463,7 @@ $('resetBtn').onclick=function(){
 };
 
 /* ---------- in-page navigation: audio never stops ---------- */
-var ROOT=location.origin+location.pathname.replace(/[^\/]*$/,'');
+/* ROOT عُرّف مبكراً في أعلى السكربت */
 var pageEl=$('page'),homeEl=$('home');
 function isHome(){return !pageEl.classList.contains('on');}
 function trans(root){
