@@ -752,7 +752,7 @@ function card(s){
   var b=document.createElement('button');b.className='st';b.dataset.uuid=s.stationuuid;
   var ring=document.createElement('div');ring.className='ring';
   if(s.favicon&&s.favicon.indexOf('https')===0){
-    var im=document.createElement('img');im.src=s.favicon;im.alt=s.name;im.loading='lazy';
+    var im=document.createElement('img');im.loading='lazy';im.decoding='async';im.src=s.favicon;im.alt=s.name;
     im.onerror=function(){var f=document.createElement('div');f.className='fb';f.textContent=ini(s.name);ring.replaceChild(f,im);};
     ring.appendChild(im);
   }else{var f=document.createElement('div');f.className='fb';f.textContent=ini(s.name);ring.appendChild(f);}
@@ -819,7 +819,7 @@ function loadLocal(){
     if(!cc)return;
     myCC=cc;
     skel($('local'),6);$('localSec').style.display='block';
-    api('/json/stations/search?hidebroken=true&limit=60&order=clickcount&reverse=true&countrycode='+cc)
+    api('/json/stations/search?hidebroken=true&limit=40&order=clickcount&reverse=true&countrycode='+cc)
       .then(function(d){
         localList=capped(clean(d));
         if(!localList.length){$('localSec').style.display='none';return;}
@@ -948,7 +948,7 @@ function groupOf(s){
   return 'other';
 }
 var ctryList=[],ctryCat='',ctrySeen=null,ctryOff=0,ctryDone=false,ctryBusy=false;
-var PAGE=700;
+var PAGE=250;
 
 /* الكثير من المحطات يبثّ على http ويحجبه المتصفح، لذا نواصل سحب الصفحات
    حتى نجمع عدداً مفيداً من المحطات القابلة للتشغيل فعلاً */
@@ -970,7 +970,7 @@ function fetchPage(){
         ctryList=ctryList.concat(capped(clean(raw,ctrySeen)));
         tries++;
         var gained=ctryList.length-before;
-        if(!ctryDone && gained<60 && tries<8){ step(); return; }
+        if(!ctryDone && gained<40 && tries<5){ step(); return; }
         finish();
       }).catch(function(){ ctryDone=true; finish(); });
   }
@@ -1024,7 +1024,7 @@ function drawCountryBody(){
 
   if(ctryCat){
     var g=document.createElement('div');g.className='grid';
-    list.forEach(function(s){g.appendChild(card(s));});
+    list.slice(0,120).forEach(function(s){g.appendChild(card(s));});
     body.appendChild(g);
   }else{
     var order=GROUPS.map(function(x){return x.k;}).concat(['other']);
@@ -1036,7 +1036,7 @@ function drawCountryBody(){
       h.innerHTML=(gg?T(gg.t):T('gOther'))+' · '+fmtNum(sub.length);
       body.appendChild(h);
       var g2=document.createElement('div');g2.className='grid';
-      sub.slice(0,60).forEach(function(s){g2.appendChild(card(s));});
+      sub.slice(0,18).forEach(function(s){g2.appendChild(card(s));});
       body.appendChild(g2);
     });
   }
