@@ -194,7 +194,16 @@ footer nav a:hover{color:var(--acc)}
 .vis{font-size:13px;margin-bottom:10px}
 .vis b{color:var(--acc);font-size:16px}
 
-#page{display:none;max-width:760px;margin:0 auto;padding:22px 18px 30px}
+#page{display:none;max-width:760px;margin:0 auto;padding:22px 18px 30px;position:relative}
+#page .cbanner{position:absolute;left:-24px;right:-24px;top:-70px;height:340px;z-index:0;
+overflow:hidden;pointer-events:none;user-select:none;display:flex;justify-content:center;
+align-items:flex-start;filter:blur(64px) saturate(1.55);opacity:.85;
+-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.55) 48%,transparent 100%);
+mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.55) 48%,transparent 100%)}
+#page .cbanner i{font-style:normal;font-size:230px;line-height:1;transform:translateY(-26px)}
+@media(max-width:620px){#page .cbanner{top:-60px;height:280px}#page .cbanner i{font-size:160px}}
+html[data-theme="dark"] #page .cbanner{opacity:.55;filter:blur(70px) saturate(1.2) brightness(.85)}
+#page>*:not(.cbanner){position:relative;z-index:1}
 #page.on{display:block}
 #page .crumb{font-size:13px;color:var(--mut);margin-bottom:14px}
 #page .crumb a{color:var(--acc)}
@@ -241,6 +250,32 @@ footer nav a:hover{color:var(--acc)}
 #page .mail .ad{font-size:18px;font-weight:800;color:var(--acc);direction:ltr;word-break:break-all}
 #page .lead{color:var(--mut);font-size:16px;line-height:1.7;margin:0 0 26px;max-width:620px}
 #page .art h2{margin:8px 0 6px;font-size:17px;font-weight:700;line-height:1.35}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+#page .navrow a{background:var(--cardG);border:1px solid var(--line);padding:9px 15px;
+  border-radius:999px;font-size:13.5px;font-weight:700;box-shadow:0 1px 3px var(--shadow)}
+#page .sharerow{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 8px}
+#page .sharerow button{flex:1;min-width:110px;background:var(--cardG);border:1px solid var(--line);
+  color:var(--txt);padding:11px;border-radius:12px;font-weight:700;cursor:pointer;
+  font-family:inherit;font-size:13.5px}
+#page .sharerow button:hover{border-color:var(--acc);color:var(--acc)}
+#page .related{margin:34px 0 10px}
+#page .rgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+#page .rcard{background:var(--cardG);border:1px solid var(--line);border-radius:14px;padding:15px;
+  display:block;box-shadow:0 2px 8px var(--shadow)}
+#page .rcard:hover{border-color:var(--acc)}
+#page .rcard .t{font-size:11.5px;color:var(--acc);font-weight:700;text-transform:uppercase}
+#page .rcard .h{font-size:15px;font-weight:700;margin-top:6px;line-height:1.35}
+#page .chead{text-align:center;padding:22px 10px 14px}
+#page .chead .fg{font-size:56px;line-height:1}
+#page .chead h1{margin:10px 0 8px}
+#page .chead .sub{color:var(--mut);font-size:14px}
+#page .catbar{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+#page .catbar::-webkit-scrollbar{display:none}
+#page .grouphead{font-size:15px;font-weight:800;margin:16px 0 10px;color:var(--acc2)}
+#page .grid{display:grid;gap:16px 8px;grid-template-columns:repeat(auto-fill,minmax(98px,1fr))}
+#page .sec{margin:16px 0;padding:16px;border-radius:18px;background:var(--cardG);
+  border:1px solid var(--line);box-shadow:0 2px 10px var(--shadow)}
+#page .sec h2{font-size:19px;margin:0 0 12px;color:var(--acc2)}
 #pLoad{text-align:center;color:var(--mut);padding:60px 0;font-size:15px}
 .backb{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:9px 16px;
   border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;margin:0 8px 18px 0;
@@ -595,6 +630,7 @@ var I={
   unknown:'Unknown',pageErr:'Could not load that page.',
   finding:'Finding {s}…',notFound:'Could not find {s} right now.',
   navTip:'Station saved — tap play to resume when you come back.',
+  showAll:'Show all {n}',
   gNews:'News &amp; talk',gMusic:'Music',gRelig:'Religious',gSport:'Sport',
   gCulture:'Culture',gOther:'Other',gAll:'All'},
  ar:{h1:'استمع إلى العالم، <em>مباشرةً</em>.',
@@ -628,6 +664,7 @@ var I={
   unknown:'غير معروف',pageErr:'تعذّر تحميل الصفحة.',
   finding:'جارٍ البحث عن {s}…',notFound:'تعذّر العثور على {s} الآن.',
   navTip:'حُفظت المحطة — اضغط تشغيل لاستئنافها عند عودتك.',
+  showAll:'عرض كل {n}',
   gNews:'أخبار وحوار',gMusic:'موسيقى',gRelig:'ديني',gSport:'رياضة',
   gCulture:'ثقافة',gOther:'منوّعات',gAll:'الكل'}
 };
@@ -1393,8 +1430,138 @@ function trans(root){
     var v=els[i].getAttribute('data-'+lang);
     if(v)els[i].innerHTML=v;
   }
+  /* كتل اللغة في صفحات الدول والمقالات بوضع HTML الجاهز */
+  var en=root.querySelector('.lang-en'), ar=root.querySelector('.lang-ar');
+  if(en||ar){
+    var hasEn=en?((en.textContent||'').trim().length>20):false;
+    var hasAr=ar?((ar.textContent||'').trim().length>20):false;
+    var showEn=(lang==='en')?hasEn:(!hasAr&&hasEn);
+    var showAr=(lang==='ar')?hasAr:(!hasEn&&hasAr);
+    if(en)en.style.display=showEn?'block':'none';
+    if(ar)ar.style.display=showAr?'block':'none';
+    var ab=root.querySelector('#aboutSec');
+    if(ab)ab.style.display=(showEn||showAr)?'block':'none';
+  }
+}
+
+/* ===== صفحة دولة محقونة: الهيكل يجلب محطاتها ويعرضها ===== */
+var inCC='',inSlug='',inType='',inList=[],inCat='';
+function igrp(s){
+  var t=((s.tags||'')+' '+(s.name||'')).toLowerCase();
+  for(var i=0;i<GROUPS.length;i++)
+    for(var j=0;j<GROUPS[i].m.length;j++)
+      if(t.indexOf(GROUPS[i].m[j])>-1)return GROUPS[i].k;
+  return 'other';
+}
+function initCountryPage(cc){
+  inCC=cc;inList=[];inCat='';
+  var b=pageEl.querySelector('#cbanner');
+  if(b){
+    b.innerHTML='';
+    var f=flagOf(cc);
+    for(var i=0;i<3;i++){var e=document.createElement('i');e.textContent=f;b.appendChild(e);}
+  }
+  var st=pageEl.querySelector('#status');
+  if(st)st.textContent=T('loading');
+  api('/json/stations/search?hidebroken=true&limit=250&order=clickcount&reverse=true&countrycode='+cc)
+    .then(function(d){
+      inList=capped(clean(d));
+      drawInCountry();
+    }).catch(function(){ if(st)st.textContent=T('empty'); });
+}
+function drawInCountry(){
+  var bar=pageEl.querySelector('#catbar'),
+      body=pageEl.querySelector('#body'),
+      st=pageEl.querySelector('#status'),
+      cn=pageEl.querySelector('#cnt');
+  if(!bar||!body)return;
+
+  var present={};inList.forEach(function(s){present[igrp(s)]=1;});
+  var cats=[{k:'',t:'gAll'}];
+  GROUPS.forEach(function(g){if(present[g.k])cats.push({k:g.k,t:g.t});});
+  if(present['other'])cats.push({k:'other',t:'gOther'});
+  bar.innerHTML='';
+  cats.forEach(function(c){
+    var b=document.createElement('button');
+    b.className='chip'+(inCat===c.k?' on':'');
+    b.innerHTML=T(c.t);
+    b.onclick=function(){inCat=c.k;drawInCountry();};
+    bar.appendChild(b);
+  });
+
+  var sel=inList.filter(function(s){return !inCat||igrp(s)===inCat;});
+  if(cn)cn.textContent=T('found').replace('{n}',fmtNum(sel.length));
+  body.innerHTML='';
+  if(!sel.length){if(st)st.textContent=T('empty');return;}
+  if(st)st.textContent='';
+
+  if(inCat){
+    var g=document.createElement('div');g.className='grid';
+    sel.slice(0,120).forEach(function(s){g.appendChild(card(s));});
+    body.appendChild(g);
+  }else{
+    GROUPS.concat([{k:'other',t:'gOther'}]).forEach(function(gr){
+      var sub=sel.filter(function(s){return igrp(s)===gr.k;});
+      if(!sub.length)return;
+      var h=document.createElement('div');h.className='grouphead';
+      h.innerHTML=T(gr.t)+' · '+fmtNum(sub.length);
+      body.appendChild(h);
+      var g2=document.createElement('div');g2.className='grid';
+      sub.slice(0,18).forEach(function(s){g2.appendChild(card(s));});
+      body.appendChild(g2);
+      if(sub.length>18){
+        var mb=document.createElement('button');mb.className='chip';
+        mb.style.cssText='margin:8px 0 4px';
+        mb.textContent=T('showAll').replace('{n}',fmtNum(sub.length));
+        mb.onclick=function(){inCat=gr.k;drawInCountry();};
+        body.appendChild(mb);
+      }
+    });
+  }
+  markPlaying();
+}
+
+/* ===== مقال محقون: مشاركة ومقالات ذات صلة وحفظ موضع القراءة ===== */
+function initArticlePage(slug){
+  inSlug=slug;
+  var url=location.origin+'/articles/'+slug+'.html';
+  var ttl=document.title;
+  function on(id,fn){var b=pageEl.querySelector('#'+id);if(b)b.onclick=fn;}
+  on('shNative',function(){
+    if(navigator.share)navigator.share({title:ttl,url:url}).catch(function(){});
+    else if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){toast(T('copied'));});
+  });
+  on('shWhats',function(){window.open('https://wa.me/?text='+encodeURIComponent(ttl+' '+url),'_blank');});
+  on('shX',function(){window.open('https://twitter.com/intent/tweet?text='+
+      encodeURIComponent(ttl)+'&url='+encodeURIComponent(url),'_blank');});
+  on('shCopy',function(){
+    if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){toast(T('copied'));});
+  });
+  drawRelated(slug);
+}
+function drawRelated(slug){
+  var box=pageEl.querySelector('#relGrid'),sec=pageEl.querySelector('#relSec');
+  if(!box||!sec||!posts.length)return;
+  var me=null;
+  for(var i=0;i<posts.length;i++)if(posts[i].slug===slug){me=posts[i];break;}
+  if(!me)return;
+  var same=posts.filter(function(p){return p.slug!==slug&&p.cat===me.cat;});
+  var rest=posts.filter(function(p){return p.slug!==slug&&p.cat!==me.cat;});
+  var pick=same.concat(rest).slice(0,3);
+  box.innerHTML='';
+  pick.forEach(function(p){
+    var a=document.createElement('a');a.className='rcard';
+    a.href=ROOT+'articles/'+p.slug+'.html';
+    a.innerHTML='<div class="t"></div><div class="h"></div>';
+    a.querySelector('.t').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
+    a.querySelector('.h').textContent=p.title[lang]||p.title.en;
+    box.appendChild(a);
+  });
+  sec.style.display=pick.length?'block':'none';
+  hookPageLinks();
 }
 function goHome(push){
+  inType='';inCC='';inSlug='';inList=[];
   pageEl.classList.remove('on');pageEl.innerHTML='';
   homeEl.style.display='';
   document.title='LiveRadio — Free Online Radio Stations Worldwide';
@@ -1432,6 +1599,9 @@ function loadPage(url,push){
     var doc=new DOMParser().parseFromString(html,'text/html');
     var m=doc.querySelector('main');
     if(!m)throw 0;
+    inType=m.getAttribute('data-type')||'';
+    inCC=m.getAttribute('data-cc')||'';
+    inSlug=m.getAttribute('data-slug')||'';
     var as=m.querySelectorAll('a[href]');
     for(var i=0;i<as.length;i++){try{as[i].href=new URL(as[i].getAttribute('href'),url).href;}catch(e){}}
     var imgs=m.querySelectorAll('img[src]');
@@ -1443,6 +1613,8 @@ function loadPage(url,push){
     if(push)history.pushState({p:url},'',url);
     if(window.gtag)gtag('event','page_view',{page_path:new URL(url).pathname,page_title:document.title});
     hookPageLinks();hookPlayButtons();
+    if(inType==='country'&&inCC)initCountryPage(inCC);
+    if(inType==='article'&&inSlug)initArticlePage(inSlug);
   }).catch(function(){
     pageEl.innerHTML=navButtons()+'<div id="pLoad">'+T('pageErr')+'</div>';
     wireNav();
@@ -1455,10 +1627,7 @@ function internal(href){
   if(!href)return false;
   if(href.indexOf(location.origin)!==0)return false;
   if(href.indexOf('#')===0)return false;
-  /* هذه الصفحات لها سكربتها الخاص ولا يعمل عند الحقن، فتُفتح كصفحات حقيقية */
-  if(/articles\.html$/.test(href))return false;
-  if(href.indexOf('/articles/')>-1)return false;
-  if(href.indexOf('/countries/')>-1)return false;
+  if(/articles\.html$/.test(href))return false;   /* المجلة لها محرّكها الخاص */
   return /\.html$/.test(href)||href===ROOT||href===ROOT.replace(/\/$/,'');
 }
 function hookLink(a){
@@ -1466,15 +1635,6 @@ function hookLink(a){
   a.dataset.hooked='1';
   a.addEventListener('click',function(e){
     var href=a.href;
-    /* الانتقال إلى مقال أو صفحة دولة يوقف الصوت: نحفظ المحطة ليستأنفها بضغطة */
-    if(!internal(href)&&current&&!audio.paused&&
-       (href.indexOf('/articles/')>-1||href.indexOf('/countries/')>-1||
-        /articles\.html$/.test(href))){
-      LS.set('lr_last',slim(current));
-      try{if(!sessionStorage.getItem('lr_navtip')){
-        sessionStorage.setItem('lr_navtip','1');toast(T('navTip'));
-      }}catch(e){}
-    }
     if(!internal(href))return;
     if(e.metaKey||e.ctrlKey||e.shiftKey||a.target==='_blank')return;
     e.preventDefault();
@@ -1508,19 +1668,34 @@ function applyLang(){
   if(view==='fav')drawFav();
   if(view==='country'&&ctryList.length){ $('ctryTitle').textContent=(flagOf(curCC)+' '+cname(curCC,curCName)).trim();
     drawCatBar();drawCountryBody(); }
-  if(!isHome()){trans(pageEl);hookPlayButtons();}
+  if(!isHome()){
+    trans(pageEl);hookPlayButtons();
+    if(inType==='country'&&inList.length)drawInCountry();
+    if(inType==='article'&&inSlug)drawRelated(inSlug);
+  }
   hookPageLinks();
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
 }
 $('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';applyLang();};
 
 /* ---------- misc ---------- */
+var readT=null;
 var topBtn=$('top');
 window.addEventListener('scroll',function(){
   topBtn.style.display=window.scrollY>600?'grid':'none';
   if(!isHome()){
     var h=document.documentElement.scrollHeight-window.innerHeight;
-    $('prog').style.width=h>0?Math.min(100,(window.scrollY/h)*100)+'%':'0';
+    var pc=h>0?Math.min(100,Math.round((window.scrollY/h)*100)):0;
+    $('prog').style.width=pc+'%';
+    if(inType==='article'&&inSlug){
+      clearTimeout(readT);
+      readT=setTimeout(function(){
+        try{
+          var o=JSON.parse(localStorage.getItem('lr_read')||'{}');
+          o[inSlug]=pc;localStorage.setItem('lr_read',JSON.stringify(o));
+        }catch(e){}
+      },400);
+    }
   }
 });
 topBtn.onclick=function(){window.scrollTo({top:0,behavior:'smooth'});};
