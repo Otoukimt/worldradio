@@ -949,6 +949,7 @@ function loadCountries(){
     });
     $('cstatus').textContent='';
     drawFlags();
+    drawGuides();      /* عدد المحطات صار معروفاً الآن */
   }).catch(function(){$('cstatus').textContent=T('empty');});
 }
 function matchCountry(c,q){
@@ -1216,13 +1217,21 @@ function drawGuides(){
                 '<div class="ds"></div><div class="nb"></div></div>';
     a.querySelector('.fg').textContent=flagOf(c.cc);
     a.querySelector('.nm').textContent=(lang==='ar'?(c.ar||c.en):c.en);
-    /* مقتطف حقيقي من نص الصفحة إن توفّر */
+    /* مقتطف من نص الصفحة إن توفّر، وإلا سطر وصفي مفيد */
     var ex=(lang==='ar'?c.descAr:c.descEn)||'';
-    a.querySelector('.ds').textContent=ex;
+    var ds=a.querySelector('.ds');
+    if(ex){ds.textContent=ex;}
+    else{
+      ds.textContent=(lang==='ar')
+        ? ('أخبار وموسيقى ورياضة وقرآن — مرتّبة حسب التصنيف.')
+        : ('News, music, sport and more — grouped by category.');
+    }
     /* عدد المحطات من قائمة الدول الحيّة */
     var n=0;
     for(var i=0;i<countries.length;i++)if(countries[i].cc===c.cc){n=countries[i].n;break;}
-    a.querySelector('.nb').textContent=n?T('nStations').replace('{n}',fmtNum(n)):'';
+    var nb=a.querySelector('.nb');
+    if(n)nb.textContent=T('nStations').replace('{n}',fmtNum(n));
+    else nb.style.display='none';
     box.appendChild(a);
   });
   sec.style.display='block';
