@@ -31,7 +31,8 @@
       "en": "A young dial that skipped several eras — dialect on air, Khaleeji music, and a multilingual UAE.",
       "ar": "مؤشر حديث تخطّى عدة عصور — اللهجة على الهواء، والموسيقى الخليجية، وإمارات متعددة اللغات."
     },
-    "cat": "countries"
+    "cat": "countries",
+    "cc": "SA"
   },
   {
     "slug": "start-your-own-internet-radio",
@@ -82,7 +83,8 @@
       "en": "From Radio 4 to Kiss: the BBC networks, the commercial brands, and what to hear from abroad.",
       "ar": "من راديو 4 إلى Kiss: شبكات BBC والعلامات التجارية وما تسمعه من الخارج."
     },
-    "cat": "countries"
+    "cat": "countries",
+    "cc": "GB"
   },
   {
     "slug": "quran-radio-stations-guide",
@@ -116,7 +118,8 @@
       "en": "How a 1994 satellite decision gave a continent-sized country one shared pop culture.",
       "ar": "كيف منح قرارٌ ساتليّ سنة 1994 بلداً بحجم قارة ثقافةَ بوب واحدة مشتركة."
     },
-    "cat": "stations"
+    "cat": "stations",
+    "cc": "BR"
   },
   {
     "slug": "radio-mirchi-india-guide",
@@ -133,7 +136,8 @@
       "en": "Why a ban on broadcasting news produced the most personality-driven radio in the world.",
       "ar": "لماذا أنتج منعُ بثّ الأخبار أكثر راديو في العالم اعتماداً على الشخصية."
     },
-    "cat": "stations"
+    "cat": "stations",
+    "cc": "IN"
   },
   {
     "slug": "nrj-radio-france-guide",
@@ -150,7 +154,8 @@
       "en": "From an illegal frequency in 1981 to stations across a dozen countries — and why French quotas made it better.",
       "ar": "من تردد غير قانوني سنة 1981 إلى محطات في عشرات الدول — ولماذا جعلتها الحصص الفرنسية أفضل."
     },
-    "cat": "stations"
+    "cat": "stations",
+    "cc": "FR"
   },
   {
     "slug": "npr-public-radio-guide",
@@ -167,7 +172,8 @@
       "en": "A thousand member stations, two defining programmes, and an economic model unlike the rest of the dial.",
       "ar": "ألف محطة عضو، وبرنامجان يحدّدانها، ونموذج اقتصادي يختلف عن بقية المؤشر."
     },
-    "cat": "stations"
+    "cat": "stations",
+    "cc": "US"
   },
   {
     "slug": "bbc-radio-1-guide",
@@ -184,7 +190,8 @@
       "en": "Born from the 1967 pirate radio ban, still the station labels watch. What to hear and when.",
       "ar": "وُلدت من حظر راديو القراصنة سنة 1967، وما زالت المحطة التي تراقبها شركات الإنتاج. بمَ تستمع ومتى."
     },
-    "cat": "stations"
+    "cat": "stations",
+    "cc": "GB"
   },
   {
     "slug": "radio-in-the-car",
@@ -269,7 +276,8 @@
       "en": "Sawt al-Arab, Middle East Radio, Nogoum FM, Nile FM and the Quran channels — the history and how to listen.",
       "ar": "صوت العرب، الشرق الأوسط، نجوم إف إم، نايل إف إم وقنوات القرآن — التاريخ وكيف تستمع."
     },
-    "cat": "countries"
+    "cat": "countries",
+    "cc": "EG"
   },
   {
     "slug": "moroccan-radio-stations-guide",
@@ -286,7 +294,8 @@
       "en": "Medi1, Hit Radio, Chada FM, Radio Mars, the SNRT channels and Amazigh radio — who broadcasts what, and how to listen.",
       "ar": "مدي1، هيت راديو، شدى إف إم، راديو مارس، قنوات SNRT والإذاعة الأمازيغية — من يبثّ ماذا، وكيف تستمع."
     },
-    "cat": "countries"
+    "cat": "countries",
+    "cc": "MA"
   },
   {
     "slug": "best-radio-stations-world",
