@@ -118,7 +118,7 @@ main{max-width:1000px;margin:0 auto;padding:0 16px 60px}
 .feat p{margin:0;color:var(--mut);font-size:14px;line-height:1.6}
 
 /* ===== الشريط المتحرك ===== */
-.marq{position:relative;overflow:hidden;margin:0 -16px;padding:4px 0;
+.marq{position:relative;overflow:hidden;direction:ltr;margin:0 -16px;padding:4px 0;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .track{display:flex;gap:12px;width:max-content;direction:ltr;
@@ -348,11 +348,16 @@ function drawMarquee(){
   }
   /* الشريط يُرتَّب دائماً من اليسار ليبقى الفيض في جهة واحدة،
      والاتجاه المرئي يُضبط بعكس الحركة، ونص كل بطاقة يأخذ اتجاه لغته */
+  m.style.direction='ltr';
+  box.style.direction='ltr';
   m.classList.toggle('rev',lang==='ar');
-  /* سرعة مناسبة: نحو 55 بكسل في الثانية */
-  var w=box.scrollWidth/2;
-  box.style.animationDuration=Math.max(28,Math.round(w/55))+'s';
   sec.style.display='block';
+  /* السرعة تُحسب بعد الرسم حتى يكون العرض الحقيقي معروفاً */
+  requestAnimationFrame(function(){
+    var w=box.scrollWidth/2;
+    if(!w)return;
+    box.style.animationDuration=Math.max(24,Math.round(w/60))+'s';
+  });
 }
 
 function drawCats(){
