@@ -3,8 +3,8 @@
     "slug": "radio-stream-not-working",
     "date": "2026-11-06",
     "tag": {
-      "en": "Tips",
-      "ar": "نصائح"
+      "en": "Tips & explainers",
+      "ar": "نصائح وشروحات"
     },
     "title": {
       "en": "Why a radio stream stops working, and what you can actually do",
@@ -14,7 +14,7 @@
       "en": "Six causes, how to tell them apart in thirty seconds, and which ones are not your problem.",
       "ar": "ستة أسباب، وكيف تميّز بينها في ثلاثين ثانية، وأيّها ليس مشكلتك."
     },
-    "cat": "tips"
+    "cat": "guides"
   },
   {
     "slug": "gulf-radio-stations-guide",
@@ -38,8 +38,8 @@
     "slug": "start-your-own-internet-radio",
     "date": "2026-11-06",
     "tag": {
-      "en": "Explainers",
-      "ar": "شروحات"
+      "en": "Tips & explainers",
+      "ar": "نصائح وشروحات"
     },
     "title": {
       "en": "How to start your own internet radio station",
@@ -49,14 +49,14 @@
       "en": "The four technical pieces, the real bandwidth bill, licensing, and how to actually get heard.",
       "ar": "القطع التقنية الأربع، وفاتورة النطاق الحقيقية، والترخيص، وكيف تُسمَع فعلاً."
     },
-    "cat": "explain"
+    "cat": "guides"
   },
   {
     "slug": "radio-vs-streaming-services",
     "date": "2026-11-06",
     "tag": {
-      "en": "Explainers",
-      "ar": "شروحات"
+      "en": "Tips & explainers",
+      "ar": "نصائح وشروحات"
     },
     "title": {
       "en": "Radio vs streaming: which one should you actually be using",
@@ -66,7 +66,7 @@
       "en": "Discovery, cost, data and offline listening compared — and why both belong in the same setup.",
       "ar": "مقارنة في الاكتشاف والكلفة والبيانات والاستماع دون اتصال — ولماذا يستحق كلاهما مكاناً."
     },
-    "cat": "explain"
+    "cat": "guides"
   },
   {
     "slug": "uk-radio-stations-guide",
@@ -197,8 +197,8 @@
     "slug": "radio-in-the-car",
     "date": "2026-10-31",
     "tag": {
-      "en": "Tips",
-      "ar": "نصائح"
+      "en": "Tips & explainers",
+      "ar": "نصائح وشروحات"
     },
     "title": {
       "en": "Radio in the car: why it refuses to die",
@@ -208,14 +208,14 @@
       "en": "Why FM still beats streaming on the road — data, tunnels, traffic reports and RDS settings worth knowing.",
       "ar": "لماذا ما زال FM يتفوّق على البثّ في الطريق — البيانات والأنفاق ونشرات السير وإعدادات RDS التي تستحق المعرفة."
     },
-    "cat": "tips"
+    "cat": "guides"
   },
   {
     "slug": "history-of-radio-ten-stations",
     "date": "2026-10-31",
     "tag": {
-      "en": "History & culture",
-      "ar": "تاريخ وثقافة"
+      "en": "Arts & culture",
+      "ar": "فن وثقافة"
     },
     "title": {
       "en": "The history of radio in ten stations",
@@ -225,14 +225,14 @@
       "en": "From KDKA in 1920 to the first internet streams — ten stations that each changed what radio could do.",
       "ar": "من KDKA سنة 1920 إلى أولى محطات الإنترنت — عشر محطات غيّرت كلٌّ منها ما يستطيع الراديو فعله."
     },
-    "cat": "history"
+    "cat": "culture"
   },
   {
     "slug": "radio-for-focus-and-work",
     "date": "2026-10-31",
     "tag": {
-      "en": "Tips",
-      "ar": "نصائح"
+      "en": "Tips & explainers",
+      "ar": "نصائح وشروحات"
     },
     "title": {
       "en": "Radio for focus: why it beats a playlist every time",
@@ -242,14 +242,14 @@
       "en": "What makes a station usable as background for deep work, and the two kinds you should avoid.",
       "ar": "ما الذي يجعل محطة صالحة كخلفية للعمل العميق، والنوعان اللذان ينبغي تجنّبهما."
     },
-    "cat": "tips"
+    "cat": "guides"
   },
   {
     "slug": "fm-dab-internet-radio",
     "date": "2026-10-31",
     "tag": {
-      "en": "Explainers",
-      "ar": "شروحات"
+      "en": "Tips & explainers",
+      "ar": "نصائح وشروحات"
     },
     "title": {
       "en": "FM, DAB or internet radio: which actually sounds better",
@@ -259,7 +259,7 @@
       "en": "Real sound quality, behaviour on a weak signal, data cost and delay — and which one to use when.",
       "ar": "الجودة الواقعية، والسلوك عند ضعف الإشارة، وكلفة البيانات والتأخير — وأيّها تستعمل ومتى."
     },
-    "cat": "explain"
+    "cat": "guides"
   },
   {
     "slug": "egyptian-radio-guide",
@@ -318,8 +318,8 @@
     "slug": "how-online-radio-works",
     "date": "2026-10-30",
     "tag": {
-      "en": "Explainers",
-      "ar": "شروحات"
+      "en": "Tips & explainers",
+      "ar": "نصائح وشروحات"
     },
     "title": {
       "en": "How online radio streaming works",
@@ -329,14 +329,14 @@
       "en": "Bitrates, codecs and buffering, explained simply for everyday listeners.",
       "ar": "معدل البت والترميز والتخزين المؤقت، مشروحة ببساطة لكل مستمع."
     },
-    "cat": "explain"
+    "cat": "guides"
   },
   {
     "slug": "listen-radio-data-saving",
     "date": "2026-10-30",
     "tag": {
-      "en": "Tips",
-      "ar": "نصائح"
+      "en": "Tips & explainers",
+      "ar": "نصائح وشروحات"
     },
     "title": {
       "en": "Listen to radio without burning your data",
@@ -346,6 +346,6 @@
       "en": "Practical settings that cut mobile data use while keeping the sound clean.",
       "ar": "إعدادات عملية تقلّل استهلاك الإنترنت مع الحفاظ على نقاء الصوت."
     },
-    "cat": "tips"
+    "cat": "guides"
   }
 ]

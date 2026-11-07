@@ -4,8 +4,7 @@
     "name2": "Radio"
   },
   "defaultTheme": "light",
-  "visitors": 356,
-  "logo": "",
+  "visitors": 0,
   "colors": {
     "light": {
       "bg": "#e4ecf7",
@@ -30,8 +29,8 @@
   },
   "hero": {
     "h1": {
-      "en": "Listen to the world, <em>live<\/em>.",
-      "ar": "استمع إلى العالم، <em>مباشرةً<\/em>."
+      "en": "Listen to the world, <em>live</em>.",
+      "ar": "استمع إلى العالم، <em>مباشرةً</em>."
     },
     "sub": {
       "en": "Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.",
@@ -102,31 +101,79 @@
       "ar": "هيب هوب"
     }
   ],
+  "cats": [
+    {
+      "k": "breaking",
+      "en": "Breaking news",
+      "ar": "أخبار عاجلة"
+    },
+    {
+      "k": "politics",
+      "en": "Politics",
+      "ar": "سياسة"
+    },
+    {
+      "k": "sport",
+      "en": "Sport",
+      "ar": "رياضة"
+    },
+    {
+      "k": "culture",
+      "en": "Arts & culture",
+      "ar": "فن وثقافة"
+    },
+    {
+      "k": "tech",
+      "en": "Technology",
+      "ar": "تقنية"
+    },
+    {
+      "k": "stations",
+      "en": "Stations",
+      "ar": "محطات"
+    },
+    {
+      "k": "countries",
+      "en": "Country guides",
+      "ar": "أدلة الدول"
+    },
+    {
+      "k": "guides",
+      "en": "Tips & explainers",
+      "ar": "نصائح وشروحات"
+    }
+  ],
+  "logo": "",
   "footer": [
     {
+      "k": "home",
       "en": "Home",
       "ar": "الرئيسية",
-      "href": ".\/"
+      "href": "./"
     },
     {
+      "k": "articles",
       "en": "Articles",
       "ar": "المقالات",
-      "href": ".\/articles.html"
+      "href": "./articles.html"
     },
     {
+      "k": "about",
       "en": "About",
       "ar": "من نحن",
-      "href": ".\/about.html"
+      "href": "./about.html"
     },
     {
+      "k": "privacy",
       "en": "Privacy Policy",
       "ar": "سياسة الخصوصية",
-      "href": ".\/privacy.html"
+      "href": "./privacy.html"
     },
     {
+      "k": "contact",
       "en": "Contact",
       "ar": "اتصل بنا",
-      "href": ".\/contact.html"
+      "href": "./contact.html"
     }
   ]
 }

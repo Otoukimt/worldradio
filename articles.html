@@ -59,20 +59,22 @@ header{position:sticky;top:0;z-index:30;background:var(--headG);border-bottom:1p
 .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px}
 .logo img{height:30px;width:auto;max-width:112px;object-fit:contain;display:block;border-radius:7px}
 @media(min-width:620px){.logo img{height:34px;max-width:140px}}
-#langBtn{font-size:12.5px;padding:8px 11px;line-height:1;min-height:37px}
-@media(max-width:400px){
+#langBtn{font-size:13px;padding:0 13px}
+@media(max-width:420px){
   .hrow{gap:5px;padding:10px 12px}
   .logo{font-size:17px}.logo img{height:26px;max-width:88px}
-  .ibtn{width:34px;height:34px;font-size:14px}
-  #langBtn{font-size:11.5px;padding:7px 9px;min-height:34px}
+  .btn{height:34px;padding:0 11px;font-size:12.5px}
+  .ibtn{width:34px;height:34px;font-size:14px;padding:0}
 }
 .logo-dot{width:11px;height:11px;border-radius:50%;background:var(--acc)}
 .logo span{color:var(--acc)}
 .spacer{flex:1}
-.btn{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
-  border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px var(--shadow)}
+.btn{background:var(--cardG);border:1px solid var(--line);color:var(--txt);
+  display:inline-flex;align-items:center;justify-content:center;
+  height:38px;padding:0 14px;border-radius:999px;font-size:13.5px;font-weight:700;
+  cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px var(--shadow);line-height:1}
 .btn:hover{border-color:var(--acc)}
-.ibtn{width:37px;height:37px;border-radius:50%;display:grid;place-items:center;padding:0;font-size:15px}
+.ibtn{width:38px;height:38px;border-radius:50%;padding:0;font-size:15px}
 
 .herowrap{background:var(--heroG);border-bottom:1px solid var(--line)}
 main{max-width:1000px;margin:0 auto;padding:0 16px 60px}
@@ -307,6 +309,7 @@ function drawCats(){
   chip('',T('all'),posts.length);
   cats.forEach(function(c){
     var n=posts.filter(function(p){return p.cat===c.k;}).length;
+    if(!n&&cat!==c.k)return;          /* تصنيف بلا مقالات لا يُعرض */
     chip(c.k,(lang==='ar'?c.ar:c.en),n);
   });
 }
@@ -430,7 +433,14 @@ Promise.all([
     st.textContent=blk(':root',cfg.colors.light)+blk('html[data-theme="dark"]',cfg.colors.dark);
     document.head.appendChild(st);
   }
-  cats=(cfg&&cfg.cats)||[];
+  cats=(cfg&&cfg.cats&&cfg.cats.length)?cfg.cats:(function(){
+    var seen={},out=[];
+    posts.forEach(function(p){
+      var k=p.cat||'';if(!k||seen[k])return;seen[k]=1;
+      out.push({k:k,en:(p.tag&&p.tag.en)||k,ar:(p.tag&&p.tag.ar)||k});
+    });
+    return out;
+  })();
   $('nArts').textContent=posts.length;
   $('nCats').textContent=cats.length||6;
   var last=posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');})[0];
