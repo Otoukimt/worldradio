@@ -1,5 +1,14 @@
 [
   {
+    "cc": "FR",
+    "slug": "france",
+    "en": "France",
+    "ar": "فرنسا",
+    "date": "2026-11-07",
+    "descEn": "France put its first transmitter on the most obvious structure in the country.",
+    "descAr": "وضعت فرنسا أول مرسل لها على أوضح بناء في البلاد. فقد نجا برج إيفل من الهدم لأن الجيش وجده مفيداً للاتصال اللاسلكي، ومنه جاء أول بثّ عام في فرنسا أواخر…"
+  },
+  {
     "cc": "US",
     "slug": "united-states",
     "en": "United States",
