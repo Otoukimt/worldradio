@@ -970,7 +970,12 @@ function drawLocal(){
   localList.slice(0,6).forEach(function(s){box.appendChild(card(s));});
   $('localSec').style.display='block';markPlaying();
 }
-$('localMore').onclick=function(){ if(myCC)openCountry(myCC,myName); };
+$('localMore').onclick=function(){
+  if(myCC){
+    var slug = myName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    location.href = './countries/' + slug + '.html';
+  }
+};
 
 /* ---------- recently played: last three ---------- */
 function drawRecent(){
@@ -1036,10 +1041,8 @@ function flagBtn(c){
   var nu=document.createElement('div');nu.className='fnum';nu.textContent=T('nStations').replace('{n}',fmtNum(c.n));
   b.appendChild(cir);b.appendChild(nm);b.appendChild(nu);
   b.onclick=function(){
-    for(var i=0;i<guides.length;i++){
-      if(guides[i].cc===c.cc){location.href='./countries/'+guides[i].slug+'.html';return;}
-    }
-    openCountry(c.cc,lang==='ar'?c.ar:c.en);
+    var slug = c.en.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    location.href = './countries/' + slug + '.html';
   };
   return b;
 }
