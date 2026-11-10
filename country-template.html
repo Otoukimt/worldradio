@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="yX25szfjBSoo35hZI9DG4jLp4pah3fZ07GVtTvfX_qk" />
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date()); gtag('config', 'G-LKJTP0YVEN');
+  addEventListener('load', function(){
+    var s=document.createElement('script');
+    s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN';
+    document.head.appendChild(s);
+  });
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{en}} Radio Online — Live Stations | LiveRadio</title>
+<meta name="description" content="Listen to live radio from {{en}} online: news, music, sport and Quran stations, free and without an app.">
+<link rel="canonical" href="https://worldliveradio.com/countries/{{slug}}.html">
+<meta name="theme-color" content="#e4ecf7">
+<link rel="icon" href="../icon-192.png">
+<meta property="og:title" content="{{en}} Radio Online — Live Stations">
+<meta property="og:description" content="Listen to live radio from {{en}} online: news, music, sport and Quran stations, free and without an app.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap"></noscript>
+<!-- ملاحظة: قمت باختصار الـ CSS هنا لتقليل حجم الرد، انسخ نفس الـ CSS الموجود في صفحة أمريكا وضعه هنا -->
+<link rel="stylesheet" href="../style.css"> <!-- يُفضل وضع الستايل في ملف خارجي لتسريع الصفحة وتقليل حجم الكود -->
+<script>
+(function(){
+  var t='light';
+  try{var v=JSON.parse(localStorage.getItem('lr_theme'));if(v==='dark'||v==='light')t=v;}catch(e){}
+  document.documentElement.setAttribute('data-theme',t);
+})();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <a class="logo" href="../"><span class="logo-dot"></span>Live<span>Radio</span></a>
+    <div class="spacer"></div>
+    <a class="btn" href="../" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
+    <button class="btn" id="langBtn">Arabic</button>
+  </div>
+</header>
+
+<main data-type="country" data-cc="{{cc}}" data-slug="{{slug}}">
+  <div class="cbanner" aria-hidden="true" id="cbanner"></div>
+  <div class="navrow">
+    <a href="../" data-en="&larr; Home" data-ar="&rarr; الرئيسية">&larr; Home</a>
+    <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a>
+  </div>
+
+  <div class="chead">
+    <div class="fg" id="flag">🌐</div>
+    <h1 data-en="{{en}} radio online" data-ar="إذاعات {{ar}} مباشرة">{{en}} radio online</h1>
+    <div class="sub"><span id="cnt">—</span> · <span data-en="updated {{date}}" data-ar="تحديث {{date}}">updated {{date}}</span></div>
+  </div>
+
+  <div class="sec">
+    <h2 data-en="Live stations" data-ar="المحطات المباشرة">Live stations</h2>
+    <div class="catbar" id="catbar"></div>
+    <div id="body"></div>
+    <div class="load" id="status">Loading…</div>
+  </div>
+
+  <div class="sec" id="aboutSec">
+    <h2 data-en="About radio in {{en}}" data-ar="عن الإذاعة في {{ar}}">About radio in {{en}}</h2>
+    <div class="lang-en" id="inEn">{{descEn}}</div>
+    <div class="lang-ar" id="inAr">{{descAr}}</div>
+  </div>
+
+  <div class="sec" id="relSec" style="display:none">
+    <h2 data-en="Read more" data-ar="اقرأ أيضاً">Read more</h2>
+    <div class="arts" id="relGrid"></div>
+  </div>
+</main>
+
+<footer>
+  <nav>
+    <a href="../" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a>
+    <a href="../about.html" data-en="About" data-ar="من نحن">About</a>
+    <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy</a>
+    <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+  </nav>
+  <div>&copy; <span id="yr"></span> LiveRadio</div>
+</footer>
+
+<!-- السكربتات (نفس السكربت الموجود في أسفل صفحة أمريكا تماماً، مع تغيير السطر الأول فقط) -->
+<script>
+var CC='{{cc}}', SLUG='{{slug}}';
+// ... بقية كود الجافاسكربت الخاص بك هنا ...
+</script>
+</body>
+</html>
