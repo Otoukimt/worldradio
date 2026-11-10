@@ -2,14 +2,14 @@ name: Generate Country Pages
 
 on:
   push:
-    paths:
-      - 'countries.json'
-      - 'country-template.html'
-      - 'build.js'
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -23,7 +23,7 @@ jobs:
         run: node build.js
 
       - name: Commit generated HTML files
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "توليد صفحات الدول أوتوماتيكياً"
           file_pattern: "countries/*.html"
