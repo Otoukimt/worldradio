@@ -110,6 +110,16 @@
     "descAr": "تحتفل الأرجنتين بيوم وطني للراديو في 27 غشت من كل عام، تكريماً لأربعة شبان صعدوا إلى سطح مسرح في بوينس آيرس سنة 1920 وأذاعوا أوبرا على الأثير. ومغامرت"
   },
   {
+    "cc": "IN",
+    "slug": "india",
+    "en": "India",
+    "ar": "الهند",
+    "date": "2026-11-11",
+    "n": 746,
+    "descEn": "In India, the national broadcaster has a poetic name: Akashvani , \"the voice from the sky.\" Few countries have depended on radio as heavily to reach p",
+    "descAr": "في الهند، للهيئة الإذاعية الوطنية اسم شاعري: «أكاشفاني»، أي «الصوت الآتي من السماء». وقليلة هي الدول التي اعتمدت على الراديو بهذا القدر للوصول إلى الن"
+  },
+  {
     "cc": "AE",
     "slug": "the-united-arab-emirates",
     "en": "The United Arab Emirates",
@@ -226,16 +236,6 @@
     "ar": "رومانيا",
     "date": "2026-11-11",
     "n": 856,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "IN",
-    "slug": "india",
-    "en": "India",
-    "ar": "الهند",
-    "date": "2026-11-11",
-    "n": 746,
     "descEn": "",
     "descAr": ""
   },
