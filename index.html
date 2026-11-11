@@ -128,6 +128,8 @@ header{position:sticky;top:0;z-index:30;background:var(--headG);
 @media(min-width:560px){.grid6{min-height:150px}}
 @media(min-width:560px){.grid6{grid-template-columns:repeat(6,1fr)}}
 .grid{display:grid;gap:18px 8px;grid-template-columns:repeat(auto-fill,minmax(98px,1fr))}
+@media(min-width:620px){.grid{grid-template-columns:repeat(6,1fr)}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(8,1fr)}}
 .row{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;min-height:124px}
 .row::-webkit-scrollbar{display:none}
 .row .st{flex:0 0 92px}
@@ -302,6 +304,8 @@ html[data-theme="dark"] #page .cbanner{opacity:.55;filter:blur(70px) saturate(1.
 #page .catbar::-webkit-scrollbar{display:none}
 #page .grouphead{font-size:15px;font-weight:800;margin:16px 0 10px;color:var(--acc2)}
 #page .grid{display:grid;gap:16px 8px;grid-template-columns:repeat(auto-fill,minmax(98px,1fr))}
+@media(min-width:620px){#page .grid{grid-template-columns:repeat(6,1fr)}}
+@media(min-width:1000px){#page .grid{grid-template-columns:repeat(8,1fr)}}
 #page .sec{margin:16px 0;padding:16px;border-radius:18px;background:var(--cardG);
   border:1px solid var(--line);box-shadow:0 2px 10px var(--shadow)}
 #page .sec h2{font-size:19px;margin:0 0 12px;color:var(--acc2)}
@@ -432,9 +436,12 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
   padding:12px;border-radius:12px;font-weight:700;cursor:pointer;font-size:14px}
 .ibtns .main{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none}
 
-#top{position:fixed;inset-inline-end:16px;bottom:calc(104px + env(safe-area-inset-bottom,0px));
-  z-index:40;width:42px;height:42px;border-radius:50%;background:var(--cardG);border:1px solid var(--line);
-  color:var(--txt);cursor:pointer;display:none;place-items:center;font-size:18px;box-shadow:0 4px 12px var(--shadow)}
+#top,#bot{position:fixed;inset-inline-end:16px;z-index:40;width:42px;height:42px;border-radius:50%;
+  background:var(--cardG);border:1px solid var(--line);color:var(--txt);cursor:pointer;display:none;
+  place-items:center;font-size:18px;box-shadow:0 4px 12px var(--shadow)}
+#top{bottom:calc(152px + env(safe-area-inset-bottom,0px))}
+#bot{bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+#top:hover,#bot:hover{border-color:var(--acc);color:var(--acc)}
 #toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);
   bottom:calc(110px + env(safe-area-inset-bottom,0px));z-index:80;background:var(--pbg);
   border:1px solid var(--line);color:var(--txt);padding:10px 18px;border-radius:999px;
@@ -569,6 +576,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 </footer>
 
 <button id="top" title="Top">&#8593;</button>
+<button id="bot" title="Bottom">&#8595;</button>
 <div id="toast"></div>
 
 <div class="sheet" id="sheet">
@@ -692,7 +700,7 @@ var I={
   searchC:'Search a country...',searchS:'Search a station...',
   guides:'Radio guides &amp; articles',allArts:'See all &rarr;',allArts2:'Articles',
   about:'About',privacy:'Privacy Policy',contact:'Contact',visitors:'Total visitors',
-  backHome:'&larr; Back',empty:'Nothing found.',loading:'Loading…',
+  backHome:'&larr; Home',empty:'Nothing found.',loading:'Loading…',
   nStations:'{n} stations',found:'{n} playable',
   scanning:'Scanning {n} entries · {m} playable so far…',
   settings:'Settings',setSub:'Saved on this device only.',
@@ -726,7 +734,7 @@ var I={
   searchC:'ابحث عن دولة...',searchS:'ابحث عن محطة...',
   guides:'مقالات وأدلة الراديو',allArts:'عرض الكل &larr;',allArts2:'المقالات',
   about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',visitors:'إجمالي الزوار',
-  backHome:'&rarr; رجوع',empty:'لا نتائج.',loading:'جارٍ التحميل…',
+  backHome:'&rarr; الرئيسية',empty:'لا نتائج.',loading:'جارٍ التحميل…',
   nStations:'{n} محطة',found:'{n} قابلة للتشغيل',
   scanning:'فحص {n} مدخلاً · {m} قابلة للتشغيل حتى الآن…',
   settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',
@@ -776,7 +784,7 @@ var favs=LS.get('lr_favs',[]),recent=LS.get('lr_recent',[]);
   }
   if(out.length!==recent.length){recent=out;LS.set('lr_recent',recent);}
 })();
-var quality=LS.get('lr_quality','mid');
+var quality=LS.get('lr_quality','high');
 var mine=LS.get('lr_mine',{sec:0,mb:0,stations:[]});
 var theme=LS.get('lr_theme','light');
 var CFG=null,posts=[],stats=null;
@@ -1752,7 +1760,14 @@ function igrp(s){
   return 'other';
 }
 var inLoading=false,inExpand=false,inOff=0,inDone=false,inBusy=false,inSeen=null;
-var IN_PAGE=600, IN_SHOW=12;
+var IN_PAGE=600;
+/* الجوال 12، وسطح المكتب أكثر حتى لا تبقى فراغات في الشبكة */
+function inShow(){
+  var w=window.innerWidth||360;
+  if(w>=1000)return 24;
+  if(w>=620)return 18;
+  return 12;
+}
 function initCountryPage(cc){
   inCC=cc;inList=[];inCat='';inLoading=true;inExpand=false;
   inOff=0;inDone=false;inBusy=false;inSeen={u:{},id:{}};
@@ -1816,7 +1831,7 @@ function drawInCountry(){
   if(st)st.textContent='';
 
   /* اثنتا عشرة محطة فقط، ليصل القارئ إلى المقال التعريفي بسرعة */
-  var LIM=inExpand?sel.length:IN_SHOW;
+  var LIM=inExpand?sel.length:inShow();
   var g=document.createElement('div');g.className='grid';
   sel.slice(0,LIM).forEach(function(s){g.appendChild(card(s));});
   body.appendChild(g);
@@ -2002,8 +2017,13 @@ $('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';applyLang();};
 /* ---------- misc ---------- */
 var readT=null;
 var topBtn=$('top');
+var botBtn=$('bot');
+botBtn.onclick=function(){window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});};
 window.addEventListener('scroll',function(){
+  var h=document.documentElement.scrollHeight-window.innerHeight;
   topBtn.style.display=window.scrollY>600?'grid':'none';
+  /* زر النزول يظهر في الصفحات الطويلة فقط */
+  botBtn.style.display=(h>2500&&(h-window.scrollY)>800)?'grid':'none';
   if(!isHome()){
     var h=document.documentElement.scrollHeight-window.innerHeight;
     var pc=h>0?Math.min(100,Math.round((window.scrollY/h)*100)):0;
