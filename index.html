@@ -456,7 +456,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
   text-align:center;box-shadow:0 6px 20px var(--shadow)}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 /* ===== المشغل بملء الشاشة ===== */
-#fs{position:fixed;inset:0;z-index:65;display:none;overflow-y:auto;overscroll-behavior:contain;
+#fs{position:fixed;inset:0;z-index:65;display:none;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
   color:var(--ftx);font-family:var(--font);-webkit-tap-highlight-color:transparent;
   background:var(--fbg);
   padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
@@ -475,11 +475,11 @@ html[dir="rtl"] #fs{font-family:'Cairo',var(--font)}
 
 .fsTop{position:sticky;top:0;z-index:3;display:flex;align-items:center;gap:8px;padding:12px 16px;
   background:linear-gradient(180deg,var(--fbg) 55%,transparent)}
-.fsBack{display:flex;align-items:center;gap:8px;background:var(--fcd);border:1px solid var(--fln);
+.fsBack{display:flex;align-items:center;gap:8px;white-space:nowrap;flex:none;background:var(--fcd);border:1px solid var(--fln);
   border-radius:999px;padding:9px 16px 9px 12px;font-size:14.5px;font-weight:700}
 html[dir="rtl"] .fsBack{padding:9px 12px 9px 16px}
 html[dir="rtl"] .fsBack svg{transform:scaleX(-1)}
-.fsAir{display:flex;align-items:center;gap:7px;margin-inline-start:auto;font-size:13px;color:var(--fmu);font-weight:600}
+.fsAir{display:flex;align-items:center;gap:7px;margin-inline-start:auto;white-space:nowrap;font-size:13px;color:var(--fmu);font-weight:600}
 .fsAir i{width:9px;height:9px;border-radius:50%;background:var(--fmu);transition:background .3s,box-shadow .3s}
 #fs.playing .fsAir i{background:var(--fa);box-shadow:0 0 0 4px color-mix(in srgb,var(--fa) 28%,transparent)}
 #fs.playing .fsAir{color:var(--ftx)}
@@ -487,8 +487,8 @@ html[dir="rtl"] .fsBack svg{transform:scaleX(-1)}
   display:grid;place-items:center;flex:none}
 .fsIco:hover{border-color:var(--fln)}
 
-.fsBody{max-width:1180px;margin:0 auto;padding:4px 18px 40px}
-.fsStage{display:flex;flex-direction:column;align-items:center;text-align:center}
+.fsBody{max-width:1180px;margin:0 auto;padding:4px 18px 40px;box-sizing:border-box;width:100%}
+.fsStage{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0;width:100%}
 .fsRec{position:relative;width:min(70vw,300px);aspect-ratio:1;margin:10px auto 22px;
   touch-action:pan-y;user-select:none}
 .fsLbl{position:absolute;inset:0;border-radius:28px;overflow:hidden;background:var(--fcd);
@@ -535,14 +535,14 @@ html[dir="rtl"] .fsBack svg{transform:scaleX(-1)}
 .fsVol b{font-size:13px;font-weight:600;color:var(--fmu);min-width:38px;text-align:end;font-variant-numeric:tabular-nums}
 
 .fsTools{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:18px 0 6px}
-.fsTool{display:flex;align-items:center;gap:7px;background:var(--fcd);border:1px solid var(--fln);
+.fsTool{display:flex;align-items:center;gap:7px;white-space:nowrap;background:var(--fcd);border:1px solid var(--fln);
   border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600}
 .fsTool svg{width:17px!important;height:17px!important}
 .fsTool.on{border-color:var(--fa);color:var(--fa)}
 
 /* مؤشر الضبط: شريط المحطات تحت إبرة ثابتة */
-.fsDial{position:relative;margin:26px 0 8px;direction:ltr}
-.fsBand{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+.fsDial{position:relative;margin:26px 0 8px;direction:ltr;align-self:stretch;width:100%;max-width:100%;min-width:0;overflow:hidden}
+.fsBand{display:flex;width:100%;box-sizing:border-box;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
   padding:0 calc(50% - 58px);height:84px;align-items:flex-end;
   background:
     repeating-linear-gradient(90deg,var(--fln) 0 1px,transparent 1px 12px) 0 10px/100% 14px no-repeat,
@@ -558,7 +558,7 @@ html[dir="rtl"] .fsBack svg{transform:scaleX(-1)}
 .fsNeedle::before{content:"";position:absolute;top:-4px;left:-5px;border:6px solid transparent;border-top-color:var(--fa)}
 .fsHint{font-size:12px;color:var(--fmu);text-align:center;margin:0}
 
-.fsPanel{margin-top:22px}
+.fsPanel{margin-top:22px;min-width:0}
 .fsTabs{display:flex;flex-wrap:wrap;gap:6px}
 .fsTab{flex:none;background:none;border:1px solid var(--fln);border-radius:999px;padding:8px 15px;font-size:14px;font-weight:600;color:var(--fmu)!important}
 .fsTab.on{background:var(--ftx);color:var(--fbg)!important;border-color:var(--ftx)}
