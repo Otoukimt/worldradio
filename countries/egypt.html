@@ -480,6 +480,11 @@ fetch('../articles.json').then(function(r){return r.json();})
     tb.style.display=window.scrollY>600?'grid':'none';
     bb.style.display=(h>2500&&(h-window.scrollY)>800)?'grid':'none';
   });
+  /* تغيير حجم النافذة يغيّر عدد الأعمدة فنعيد الرسم */
+  var rsT=null;
+  window.addEventListener('resize',function(){
+    clearTimeout(rsT);rsT=setTimeout(function(){if(list.length)draw();},250);
+  });
 })();
 
 fetchPage();
