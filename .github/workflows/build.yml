@@ -34,4 +34,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "توليد صفحات الدول والخريطة أوتوماتيكياً"
-          file_pattern: "countries/*.html countries-index.json sitemap.xml"
+          file_pattern: "countries/*.html countries-index.json sitemap.xml articles/*.html"
