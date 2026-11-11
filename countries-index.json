@@ -40,6 +40,16 @@
     "descAr": "تملك إيطاليا واحداً من أكثر المؤشرات الإذاعية ازدحاماً في أوروبا، والسبب حكم قضائي وجيل من الشباب وضعوا مرسلات في مرائبهم. وما زالت تلك الطاقة تحدّد ش"
   },
   {
+    "cc": "ES",
+    "slug": "spain",
+    "en": "Spain",
+    "ar": "إسبانيا",
+    "date": "2026-11-11",
+    "n": 1233,
+    "descEn": "In Spain, radio is where the country goes when something happens — a goal, an election night, or a crisis that stops everyone in their tracks. Spanish",
+    "descAr": "في إسبانيا، الراديو هو المكان الذي تذهب إليه البلاد حين يحدث شيء — هدف، أو ليلة انتخابات، أو أزمة توقف الجميع. الإذاعة الإسبانية كثيرة الكلام، مهووسة "
+  },
+  {
     "cc": "AE",
     "slug": "the-united-arab-emirates",
     "en": "The United Arab Emirates",
@@ -176,16 +186,6 @@
     "ar": "كندا",
     "date": "2026-11-11",
     "n": 1384,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "ES",
-    "slug": "spain",
-    "en": "Spain",
-    "ar": "إسبانيا",
-    "date": "2026-11-11",
-    "n": 1233,
     "descEn": "",
     "descAr": ""
   },
