@@ -697,8 +697,8 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
     <p data-i="sub">Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.</p>
     <div class="gs" role="search">
       <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/></svg>
-      <input id="gq" type="search" autocomplete="off" enterkeyhint="search" aria-label="Search" aria-controls="gRes" aria-expanded="false" placeholder="Search a station, country or article">
-      <div class="gsRes" id="gRes" role="listbox"></div>
+      <input id="gq" type="search" autocomplete="off" enterkeyhint="search" aria-label="Search" placeholder="Search a station, country or article">
+      <div class="gsRes" id="gRes" role="region" aria-live="polite" aria-label="Search results"></div>
     </div>
   </section></div>
 
@@ -2960,7 +2960,7 @@ function norm(t){
   return (t||'').toLowerCase().replace(/[\u064B-\u0652\u0640]/g,'')
     .replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').trim();
 }
-function hide(){box.classList.remove('on');gq.setAttribute('aria-expanded','false');sel=-1;}
+function hide(){box.classList.remove('on');sel=-1;}
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;}
 function logoBox(s){
   var w=el('div','lg');
@@ -2993,7 +2993,7 @@ function draw(q,stations,state){
   else if(state==='fail')box.appendChild(el('div','gsMsg',T('gsFail')));
   else if(!stations.length)box.appendChild(el('div','gsMsg',T('gsNone').replace('{q}',q)));
   else stations.slice(0,12).forEach(function(s){
-    var b=el('button','gsRow');b.setAttribute('role','option');
+    var b=el('button','gsRow');
     b.appendChild(logoBox(s));
     var tx=el('div','tx');
     tx.appendChild(el('div','nm',(s.name||'').trim()));
@@ -3021,7 +3021,7 @@ function draw(q,stations,state){
       box.appendChild(b);rows.push(b);
     });
   }
-  box.classList.add('on');gq.setAttribute('aria-expanded','true');
+  box.classList.add('on');
 }
 function fetchStations(q){
   var key=norm(q);
