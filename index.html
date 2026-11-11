@@ -71,7 +71,7 @@ body{margin:0;min-height:100%;overflow-x:hidden;max-width:100%;color:var(--txt);
   background:var(--bg);background-image:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
   background-attachment:fixed;
   padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:calc(100px + env(safe-area-inset-bottom,0px));
+  padding-bottom:calc(100px + var(--adB,0px) + env(safe-area-inset-bottom,0px));
   -webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
 html[dir="rtl"] body{font-family:'Cairo',var(--font)}
 a{color:inherit;text-decoration:none}
@@ -377,7 +377,7 @@ html[data-theme="dark"] #page .cbanner{opacity:.55;filter:blur(70px) saturate(1.
 #prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
   background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .1s}
 
-.player{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--pbg);
+.player{position:fixed;left:0;right:0;bottom:var(--adB,0px);z-index:50;background:var(--pbg);
   border-top:1px solid var(--line);box-shadow:0 -8px 28px var(--shadow);
   padding-bottom:env(safe-area-inset-bottom,0px);
   transform:translateY(130%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
@@ -456,7 +456,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
   text-align:center;box-shadow:0 6px 20px var(--shadow)}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 /* ===== المشغل بملء الشاشة ===== */
-#fs{position:fixed;inset:0;z-index:65;display:none;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
+#fs{position:fixed;inset:0;bottom:var(--adB,0px);z-index:65;display:none;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
   color:var(--ftx);font-family:var(--font);-webkit-tap-highlight-color:transparent;
   background:var(--fbg);
   padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
@@ -730,6 +730,7 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
       <div class="load" id="cstatus"></div>
       <button class="bigbtn" id="allCountries2" data-i="allCountriesBtn">Browse all countries &rarr;</button>
     </section>
+    <div data-ad-spot="home-1"></div>
     <section class="sec" id="recentSec" style="display:none">
       <div class="sechead"><h2 data-i="recent">Recently played</h2></div>
       <div class="row" id="recent"></div>
@@ -783,6 +784,7 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
     </section>
   </div>
 
+  <div data-ad-spot="home-2"></div>
   <section class="sec" id="articles">
     <div class="sechead">
       <h2 data-i="guides">Radio guides &amp; articles</h2>
@@ -2409,6 +2411,7 @@ function loadPage(url,push){
     if(inType==='country'&&inCC)initCountryPage(inCC);
     if(inType==='article'&&inSlug)initArticlePage(inSlug);
     if(inType==='magazine'){magCat='';magQ='';magShown=10;initMagazine();}
+    if(window.lrAds)window.lrAds.scan(pageEl);
   }).catch(function(){
     pageEl.innerHTML=navButtons()+'<div id="pLoad">'+T('pageErr')+'</div>';
     wireNav();
@@ -3079,5 +3082,6 @@ Promise.race([loadBlock(),new Promise(function(r){setTimeout(r,2500);})]).then(f
   openHash();
 });
 </script>
+<script src="/assets/ads.js" defer></script>
 </body>
 </html>
