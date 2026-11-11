@@ -279,6 +279,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bo
     <a href="../about.html" data-en="About" data-ar="من نحن">About</a>
     <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy</a>
     <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+    <a href="../broadcasters.html" data-en="For broadcasters" data-ar="للمذيعين">For broadcasters</a>
   </nav>
   <div>&copy; <span id="yr"></span> LiveRadio</div>
 </footer>
@@ -350,6 +351,14 @@ function playableUrl(s){
 }
 
 var PAGE=600, off=0, done=false, busy=false, loading=true;
+/* المحطات المحذوفة بطلب أصحابها */
+var BLK={u:{},h:[]};
+function blocked(s){
+  if(s.stationuuid&&BLK.u[String(s.stationuuid).toLowerCase()])return true;
+  var t=((s.url||'')+' '+(s.url_resolved||'')+' '+(s.homepage||'')).toLowerCase();
+  for(var i=0;i<BLK.h.length;i++)if(t.indexOf(BLK.h[i])>-1)return true;
+  return false;
+}
 /* الجوال 12، وسطح المكتب أكثر حتى تمتلئ الشبكة بلا فراغات */
 function shown(){
   var w=window.innerWidth||360;
@@ -444,6 +453,7 @@ function fetchPage(){
         if(a.length<PAGE)done=true;
         var raw=a.concat(b);
         raw.forEach(function(s){
+          if(blocked(s))return;
           var u=playableUrl(s);
           if(!u||!s.name||s.name.trim().length<2)return;
           if(seen.id[s.stationuuid])return;
@@ -529,7 +539,16 @@ fetch('../articles.json').then(function(r){return r.json();})
   });
 })();
 
-fetchPage();
+/* القائمة أولاً، بمهلة قصيرة حتى لا تؤخّر الصفحة إن فشلت */
+Promise.race([
+  fetch('../blocked-stations.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;})
+    .then(function(d){
+      if(!d)return;
+      (d.uuids||[]).forEach(function(x){if(x)BLK.u[String(x).toLowerCase()]=1;});
+      BLK.h=(d.hosts||[]).map(function(x){return String(x).toLowerCase();}).filter(Boolean);
+    }).catch(function(){}),
+  new Promise(function(r){setTimeout(r,2500);})
+]).then(fetchPage);
 apply();
 </script>
 </body>
