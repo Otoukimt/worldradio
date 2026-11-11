@@ -130,6 +130,16 @@
     "descAr": "أدِر موجة FM في دبي وستسمع العربية والإنجليزية والهندية والأردية والمالايالامية والتاميلية والتاغالوغية والفارسية والروسية في دقائق قليلة. قلّة من الأ"
   },
   {
+    "cc": "JP",
+    "slug": "japan",
+    "en": "Japan",
+    "ar": "اليابان",
+    "date": "2026-11-11",
+    "n": 120,
+    "descEn": "Japanese radio holds a moment no other country's radio can match: the day an entire nation heard its emperor's voice for the first time, announcing th",
+    "descAr": "تملك الإذاعة اليابانية لحظة لا يملكها راديو أي بلد آخر: اليوم الذي سمعت فيه أمة كاملة صوت إمبراطورها للمرة الأولى، وهو يعلن نهاية حرب. وتملك أيضاً واح"
+  },
+  {
     "cc": "DZ",
     "slug": "algeria",
     "en": "Algeria",
@@ -596,16 +606,6 @@
     "ar": "النرويج",
     "date": "2026-11-11",
     "n": 121,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "JP",
-    "slug": "japan",
-    "en": "Japan",
-    "ar": "اليابان",
-    "date": "2026-11-11",
-    "n": 120,
     "descEn": "",
     "descAr": ""
   },
