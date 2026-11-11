@@ -200,6 +200,16 @@
     "descAr": "في الحادية عشرة إلا خمس دقائق من ليلة 24 أبريل 1974، بثّت محطة إذاعية في لشبونة أغنية حب كانت قد مثّلت البرتغال للتوّ في مسابقة الأغنية الأوروبية. ولم"
   },
   {
+    "cc": "KW",
+    "slug": "kuwait",
+    "en": "Kuwait",
+    "ar": "الكويت",
+    "date": "2026-11-11",
+    "n": 202,
+    "descEn": "On 2 August 1990, Iraqi forces occupied Kuwait and took over its radio building and Ministry of Information. Within days, the voice of Kuwait was back",
+    "descAr": "في الثاني من غشت/أغسطس 1990، احتلت القوات العراقية الكويت، وسيطرت على مبنى الإذاعة ووزارة الإعلام. وخلال أيام قليلة عاد صوت الكويت إلى الهواء، يبثّ من"
+  },
+  {
     "cc": "ZA",
     "slug": "south-africa",
     "en": "South Africa",
@@ -526,16 +536,6 @@
     "ar": "أيرلندا",
     "date": "2026-11-11",
     "n": 204,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "KW",
-    "slug": "kuwait",
-    "en": "Kuwait",
-    "ar": "الكويت",
-    "date": "2026-11-11",
-    "n": 202,
     "descEn": "",
     "descAr": ""
   },
