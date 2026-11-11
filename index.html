@@ -321,12 +321,7 @@ html[data-theme="dark"] #page .cbanner{opacity:.55;filter:blur(70px) saturate(1.
 #page .marq{position:relative;overflow:hidden;direction:ltr;margin:0 -18px;padding:4px 0;min-height:118px;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-#page .track{display:flex;gap:12px;width:max-content;direction:ltr;
-  animation:slide 60s linear infinite;will-change:transform}
-#page .marq:hover .track,#page .marq:active .track{animation-play-state:paused}
-#page .marq.rev .track{animation-direction:reverse}
-@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){#page .track{animation:none}}
+#page .track{display:flex;gap:12px;width:max-content;direction:ltr;will-change:transform}
 #page .mcard{flex:0 0 260px;background:var(--card);border:1px solid var(--line);border-radius:14px;
   padding:13px 15px;box-shadow:0 2px 8px var(--shadow);display:block}
 #page .mcard .t{font-size:11px;color:var(--acc);font-weight:800;text-transform:uppercase;letter-spacing:.5px}
@@ -1627,6 +1622,40 @@ function trans(root){
 }
 
 
+/* شريط بنسخة واحدة من البطاقات: تتحرك، وكلما خرجت بطاقة من الإطار
+   نُقلت إلى الطرف الآخر. فلا يتكرر أي مقال في الصفحة لمن يقرأ نصّها. */
+function runMarquee(m,track,rev){
+  if(m._raf)cancelAnimationFrame(m._raf);
+  var pos=0,last=0,paused=false,SPEED=40;
+  track.style.transform='';
+  try{if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){m.style.overflowX='auto';return;}}catch(e){}
+  m.onmouseenter=function(){paused=true;};
+  m.onmouseleave=function(){paused=false;};
+  m.ontouchstart=function(){paused=true;};
+  m.ontouchend=function(){setTimeout(function(){paused=false;},1800);};
+  function gap(){var c=getComputedStyle(track);return parseFloat(c.columnGap||c.gap)||12;}
+  function step(t){
+    if(!document.body.contains(track))return;
+    var dt=last?Math.min(0.05,(t-last)/1000):0;last=t;
+    if(!paused&&track.children.length>1){
+      if(!rev){
+        pos-=SPEED*dt;
+        var f=track.firstElementChild,w=f.offsetWidth+gap();
+        if(-pos>=w){pos+=w;track.appendChild(f);}
+      }else{
+        pos+=SPEED*dt;
+        if(pos>0){
+          var l=track.lastElementChild,w2=l.offsetWidth+gap();
+          track.insertBefore(l,track.firstElementChild);pos-=w2;
+        }
+      }
+      track.style.transform='translateX('+pos.toFixed(1)+'px)';
+    }
+    m._raf=requestAnimationFrame(step);
+  }
+  m._raf=requestAnimationFrame(step);
+}
+
 /* ===== المجلة محقونة: الهيكل يشغّلها فيبقى الصوت ===== */
 var magCat='',magQ='',magShown=10,SITECATS=[];
 function magCatName(k){
@@ -1688,30 +1717,24 @@ function initMagazine(){
   var last=posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');})[0];
   if(E('#lastUp'))E('#lastUp').textContent=last?magDate(last.date):'—';
 
-  /* الشريط المتحرك */
+  /* الشريط المتحرك: نسخة واحدة */
   var tr=E('#track'),mq=E('#marq');
   if(tr&&posts.length){
     var latest=posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');}).slice(0,10);
     tr.innerHTML='';
-    for(var pass=0;pass<2;pass++){
-      latest.forEach(function(p){
-        var a=document.createElement('a');a.className='mcard';
-        a.dir=(lang==='ar')?'rtl':'ltr';
-        a.href=ROOT+'articles/'+p.slug+'.html';
-        a.innerHTML='<div class="t"></div><div class="h"></div><div class="d"></div>';
-        a.querySelector('.t').textContent=magCatName(p.cat||'');
-        a.querySelector('.h').textContent=p.title[lang]||p.title.en;
-        a.querySelector('.d').textContent=magDate(p.date);
-        tr.appendChild(a);
-      });
-    }
-    mq.style.direction='ltr';tr.style.direction='ltr';
-    mq.classList.toggle('rev',lang==='ar');
-    E('#newSec').style.display='block';
-    requestAnimationFrame(function(){
-      var w=tr.scrollWidth/2;
-      if(w)tr.style.animationDuration=Math.max(24,Math.round(w/60))+'s';
+    latest.forEach(function(p){
+      var a=document.createElement('a');a.className='mcard';
+      a.dir=(lang==='ar')?'rtl':'ltr';
+      a.href=ROOT+'articles/'+p.slug+'.html';
+      a.innerHTML='<div class="t"></div><div class="h"></div><div class="d"></div>';
+      a.querySelector('.t').textContent=magCatName(p.cat||'');
+      a.querySelector('.h').textContent=p.title[lang]||p.title.en;
+      a.querySelector('.d').textContent=magDate(p.date);
+      tr.appendChild(a);
     });
+    mq.style.direction='ltr';tr.style.direction='ltr';
+    E('#newSec').style.display='block';
+    runMarquee(mq,tr,lang==='ar');
   }
 
   /* أكمل القراءة */

@@ -128,12 +128,7 @@ main{max-width:1000px;margin:0 auto;padding:0 16px 60px}
 .marq{position:relative;overflow:hidden;direction:ltr;margin:0 -16px;padding:4px 0;min-height:118px;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.track{display:flex;gap:12px;width:max-content;direction:ltr;
-  animation:slide 60s linear infinite;will-change:transform}
-.marq:hover .track,.marq:active .track{animation-play-state:paused}
-.marq.rev .track{animation-direction:reverse}
-@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.track{animation:none}}
+.track{display:flex;gap:12px;width:max-content;direction:ltr;will-change:transform}
 .mcard{flex:0 0 260px;background:var(--card);border:1px solid var(--line);border-radius:14px;
   padding:13px 15px;box-shadow:0 2px 8px var(--shadow);display:block}
 .mcard:hover{border-color:var(--acc)}
@@ -333,6 +328,40 @@ function cardOf(p,showProg){
 }
 
 /* شريط أحدث المقالات: ينزلق تلقائياً ويتوقف عند اللمس */
+/* شريط بنسخة واحدة من البطاقات: تتحرك، وكلما خرجت بطاقة من الإطار
+   نُقلت إلى الطرف الآخر. فلا يتكرر أي مقال في الصفحة لمن يقرأ نصّها. */
+function runMarquee(m,track,rev){
+  if(m._raf)cancelAnimationFrame(m._raf);
+  var pos=0,last=0,paused=false,SPEED=40;
+  track.style.transform='';
+  try{if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){m.style.overflowX='auto';return;}}catch(e){}
+  m.onmouseenter=function(){paused=true;};
+  m.onmouseleave=function(){paused=false;};
+  m.ontouchstart=function(){paused=true;};
+  m.ontouchend=function(){setTimeout(function(){paused=false;},1800);};
+  function gap(){var c=getComputedStyle(track);return parseFloat(c.columnGap||c.gap)||12;}
+  function step(t){
+    if(!document.body.contains(track))return;
+    var dt=last?Math.min(0.05,(t-last)/1000):0;last=t;
+    if(!paused&&track.children.length>1){
+      if(!rev){
+        pos-=SPEED*dt;
+        var f=track.firstElementChild,w=f.offsetWidth+gap();
+        if(-pos>=w){pos+=w;track.appendChild(f);}
+      }else{
+        pos+=SPEED*dt;
+        if(pos>0){
+          var l=track.lastElementChild,w2=l.offsetWidth+gap();
+          track.insertBefore(l,track.firstElementChild);pos-=w2;
+        }
+      }
+      track.style.transform='translateX('+pos.toFixed(1)+'px)';
+    }
+    m._raf=requestAnimationFrame(step);
+  }
+  m._raf=requestAnimationFrame(step);
+}
+
 function drawMarquee(){
   var sec=$('newSec'),box=$('track'),m=$('marq');
   if(!box||!posts.length)return;
@@ -340,32 +369,19 @@ function drawMarquee(){
     return (b.date||'').localeCompare(a.date||'');}).slice(0,10);
   if(!latest.length){sec.style.display='none';return;}
   box.innerHTML='';
-  /* نسختان متتاليتان ليبدو الانزلاق بلا نهاية */
-  for(var pass=0;pass<2;pass++){
-    latest.forEach(function(p){
-      var a=document.createElement('a');a.className='mcard';
-      a.dir=(lang==='ar')?'rtl':'ltr';
-      a.href='./articles/'+p.slug+'.html';
-      if(pass)a.setAttribute('aria-hidden','true');
-      a.innerHTML='<div class="t"></div><div class="h"></div><div class="d"></div>';
-      a.querySelector('.t').textContent=catName(p.cat||'');
-      a.querySelector('.h').textContent=p.title[lang]||p.title.en;
-      a.querySelector('.d').textContent=fmtDate(p.date);
-      box.appendChild(a);
-    });
-  }
-  /* الشريط يُرتَّب دائماً من اليسار ليبقى الفيض في جهة واحدة،
-     والاتجاه المرئي يُضبط بعكس الحركة، ونص كل بطاقة يأخذ اتجاه لغته */
-  m.style.direction='ltr';
-  box.style.direction='ltr';
-  m.classList.toggle('rev',lang==='ar');
-  sec.style.display='block';
-  /* السرعة تُحسب بعد الرسم حتى يكون العرض الحقيقي معروفاً */
-  requestAnimationFrame(function(){
-    var w=box.scrollWidth/2;
-    if(!w)return;
-    box.style.animationDuration=Math.max(24,Math.round(w/60))+'s';
+  latest.forEach(function(p){
+    var a=document.createElement('a');a.className='mcard';
+    a.dir=(lang==='ar')?'rtl':'ltr';
+    a.href='./articles/'+p.slug+'.html';
+    a.innerHTML='<div class="t"></div><div class="h"></div><div class="d"></div>';
+    a.querySelector('.t').textContent=catName(p.cat||'');
+    a.querySelector('.h').textContent=p.title[lang]||p.title.en;
+    a.querySelector('.d').textContent=fmtDate(p.date);
+    box.appendChild(a);
   });
+  m.style.direction='ltr';box.style.direction='ltr';
+  sec.style.display='block';
+  runMarquee(m,box,lang==='ar');
 }
 
 function drawCats(){
