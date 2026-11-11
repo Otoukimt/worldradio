@@ -120,6 +120,16 @@
     "descAr": "في إسبانيا، الراديو هو المكان الذي تذهب إليه البلاد حين يحدث شيء — هدف، أو ليلة انتخابات، أو أزمة توقف الجميع. الإذاعة الإسبانية كثيرة الكلام، مهووسة "
   },
   {
+    "cc": "NL",
+    "slug": "the-netherlands",
+    "en": "The Netherlands",
+    "ar": "هولندا",
+    "date": "2026-11-11",
+    "n": 1217,
+    "descEn": "On 5 November 1919, a Dutch newspaper carried a small advertisement: the next evening, music would be broadcast by wireless from The Hague. It was ann",
+    "descAr": "في 5 نوفمبر 1919، نشرت صحيفة هولندية إعلاناً صغيراً: في مساء اليوم التالي ستُبثّ موسيقى لاسلكياً من لاهاي. أُعلن عن البثّ مسبقاً وبموعد محدد، ولهذا يع"
+  },
+  {
     "cc": "AR",
     "slug": "argentina",
     "en": "Argentina",
@@ -286,16 +296,6 @@
     "ar": "أستراليا",
     "date": "2026-11-11",
     "n": 1615,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "NL",
-    "slug": "the-netherlands",
-    "en": "The Netherlands",
-    "ar": "هولندا",
-    "date": "2026-11-11",
-    "n": 1217,
     "descEn": "",
     "descAr": ""
   },
