@@ -50,6 +50,16 @@
     "descAr": "تملك إيطاليا واحداً من أكثر المؤشرات الإذاعية ازدحاماً في أوروبا، والسبب حكم قضائي وجيل من الشباب وضعوا مرسلات في مرائبهم. وما زالت تلك الطاقة تحدّد ش"
   },
   {
+    "cc": "BR",
+    "slug": "brazil",
+    "en": "Brazil",
+    "ar": "البرازيل",
+    "date": "2026-11-11",
+    "n": 1432,
+    "descEn": "Brazilian radio was born as a national show and grew into the country's great storyteller. Long before television, Brazilians followed radio soap oper",
+    "descAr": "وُلد الراديو البرازيلي عرضاً وطنياً، ثم صار الراوي الأكبر في البلاد. فقبل التلفزيون بزمن طويل، تابع البرازيليون المسلسلات الإذاعية حلقة بحلقة، واستمر "
+  },
+  {
     "cc": "ES",
     "slug": "spain",
     "en": "Spain",
@@ -166,16 +176,6 @@
     "ar": "المكسيك",
     "date": "2026-11-11",
     "n": 1557,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "BR",
-    "slug": "brazil",
-    "en": "Brazil",
-    "ar": "البرازيل",
-    "date": "2026-11-11",
-    "n": 1432,
     "descEn": "",
     "descAr": ""
   },
