@@ -57,6 +57,99 @@ function esc(s) {
     .replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+/* ===== البيانات المنظمة (JSON-LD) =====
+   أنواع يدعمها جوجل فعلاً: مسار التنقل (Breadcrumb)، المقال (Article)، واسم الموقع.
+   لا تقييمات ولا نجوم: جوجل يمنع التقييمات التي يكتبها الموقع عن نفسه. */
+const SITE_URL = 'https://worldliveradio.com';
+const ORG = { '@type': 'Organization', '@id': SITE_URL + '/#org', name: 'LiveRadio', url: SITE_URL + '/',
+  logo: { '@type': 'ImageObject', url: SITE_URL + '/icon-512.png', width: 512, height: 512 } };
+function ldScript(graph) {
+  /* "</" داخل النص قد يُغلق الوسم مبكراً */
+  const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 1)
+    .replace(/</g, '\\u003c');
+  return '<script type="application/ld+json">\n' + json + '\n</script>';
+}
+function plain(html, n) {
+  const t = String(html || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
+    .replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
+  if (!n || t.length <= n) return t;
+  const cut = t.slice(0, n); return cut.slice(0, Math.max(cut.lastIndexOf(' '), n - 20)).trim() + '…';
+}
+function countryLd(o) {
+  const url = `${SITE_URL}/countries/${o.slug}.html`;
+  const g = [];
+  const page = {
+    '@type': 'CollectionPage', '@id': url + '#page', url,
+    name: `${o.en} Radio Live — Free Online Radio Stations`,
+    description: `Listen to ${o.en} radio live online, free. News, music, sport and talk stations from ${o.en}.`,
+    inLanguage: ['en', 'ar'], isPartOf: { '@id': SITE_URL + '/#website' },
+    about: { '@type': 'Country', name: o.en }, breadcrumb: { '@id': url + '#crumbs' }, dateModified: o.date
+  };
+  g.push(page);
+  g.push({ '@type': 'BreadcrumbList', '@id': url + '#crumbs', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'LiveRadio', item: SITE_URL + '/' },
+    { '@type': 'ListItem', position: 2, name: `${o.en} Radio`, item: url } ] });
+  if (o.descEn || o.descAr) {
+    const words = plain(o.descEn || o.descAr).split(' ').length;
+    const art = {
+      '@type': 'Article', '@id': url + '#article', mainEntityOfPage: { '@id': url + '#page' },
+      headline: `Radio in ${o.en}: history and main stations`.slice(0, 110),
+      alternativeHeadline: `الإذاعة في ${o.ar}: التاريخ وأبرز المحطات`,
+      description: plain(o.descEn || o.descAr, 160),
+      inLanguage: ['en', 'ar'], wordCount: words,
+      datePublished: o.date, dateModified: o.date,
+      author: { '@id': SITE_URL + '/#org' }, publisher: { '@id': SITE_URL + '/#org' },
+      about: { '@type': 'Country', name: o.en }
+    };
+    if (o.sources && o.sources.length)
+      art.citation = o.sources.map(x => ({ '@type': 'CreativeWork', name: x.t || x.u, url: x.u }));
+    g.push(art);
+    page.mainEntity = { '@id': url + '#article' };
+  }
+  g.push(ORG);
+  return ldScript(g);
+}
+function articleLd(a) {
+  const url = `${SITE_URL}/articles/${a.slug}.html`;
+  const t = a.title || {}, d = a.desc || {};
+  const art = {
+    '@type': 'Article', '@id': url + '#article', url, mainEntityOfPage: url,
+    headline: String(t.en || t.ar || a.slug).slice(0, 110),
+    description: plain(d.en || d.ar, 160), inLanguage: ['en', 'ar'],
+    datePublished: a.date, dateModified: a.updated || a.date,
+    author: { '@id': SITE_URL + '/#org' }, publisher: { '@id': SITE_URL + '/#org' },
+    isPartOf: { '@id': SITE_URL + '/#website' }
+  };
+  if (t.ar && t.en) art.alternativeHeadline = String(t.ar);
+  if (a.tag && a.tag.en) art.articleSection = a.tag.en;
+  return ldScript([art,
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'LiveRadio', item: SITE_URL + '/' },
+      { '@type': 'ListItem', position: 2, name: 'Articles', item: SITE_URL + '/articles.html' },
+      { '@type': 'ListItem', position: 3, name: String(t.en || t.ar || a.slug).slice(0, 110), item: url } ] },
+    ORG]);
+}
+/* صفحات المقالات يكتبها التطبيق؛ نضيف إليها الكتلة بين علامتين، فإن أعاد التطبيق
+   كتابة المقال، تعود الكتلة في البناء التالي. لا نكتب الملف إلا إن تغيّر. */
+function injectArticles(root) {
+  let arts = [];
+  try { arts = JSON.parse(fs.readFileSync(path.join(root, 'articles.json'), 'utf8')); } catch (e) { return 0; }
+  let n = 0;
+  arts.forEach(a => {
+    if (!a || !a.slug || !/^[a-z0-9-]+$/.test(a.slug)) return;
+    const f = path.join(root, 'articles', a.slug + '.html');
+    if (!fs.existsSync(f)) return;
+    const html = fs.readFileSync(f, 'utf8');
+    const block = '<!--ld:start-->\n' + articleLd(a) + '\n<!--ld:end-->';
+    let out;
+    if (html.includes('<!--ld:start-->')) out = html.replace(/<!--ld:start-->[\s\S]*?<!--ld:end-->/, () => block);
+    else if (html.includes('</head>')) out = html.replace('</head>', () => block + '\n</head>');
+    else return;
+    if (out !== html) { fs.writeFileSync(f, out); n++; }
+  });
+  return n;
+}
+
 async function generatePages() {
   const root = __dirname;
   const template = fs.readFileSync(path.join(root, 'country-template.html'), 'utf8');
@@ -112,6 +205,7 @@ async function generatePages() {
       .replace(/\{\{descEn\}\}/g, () => descEn)
       .replace(/\{\{descAr\}\}/g, () => descAr)
       .replace(/\{\{sources\}\}/g, () => sourcesHtml)
+      .replace(/\{\{jsonld\}\}/g, () => countryLd({ slug, en, ar, date, descEn, descAr, sources: srcs }))
       .replace('id="aboutSec"', 'id="aboutSec"' + hide);
 
     fs.writeFileSync(path.join(outDir, slug + '.html'), html);
@@ -131,6 +225,8 @@ async function generatePages() {
   fs.writeFileSync(path.join(root, 'countries-index.json'), JSON.stringify(index, null, 2));
 
   /* خريطة الموقع: الصفحات التي فيها مقال أعلى أولوية */
+  const nArt = injectArticles(root);
+  console.log('البيانات المنظمة: حُدّث ' + nArt + ' مقالاً.');
   const before = OLD;
   const after = buildSitemap(root, pages, OLD);
   await notifyIndexNow(before, after);
