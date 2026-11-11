@@ -629,6 +629,10 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
 .gsRow .pl{width:34px;height:34px;border-radius:50%;background:var(--acc);display:grid;place-items:center;flex:none}
 .gsRow .pl svg{width:16px;height:16px;fill:#fff}
 .gsMsg{padding:14px 16px;color:var(--mut);font-size:14px}
+.irep{display:block;width:100%;margin-top:12px;background:none;border:1px dashed var(--line);border-radius:12px;
+  padding:11px;font:inherit;font-size:14px;color:var(--mut);cursor:pointer}
+.irep:hover{border-color:var(--acc);color:var(--txt)}
+.irep.done{border-style:solid;color:var(--acc);cursor:default}
 </style>
 <script type="application/ld+json">
 {
@@ -851,6 +855,7 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
       <button id="iFav" data-i="iFav">Favourite</button>
       <button id="iShare" data-i="iShare">Share</button>
     </div>
+    <button class="irep" id="iReport" data-i="iReport">Report a problem with this station</button>
     <button class="close" id="iClose" data-i="done">Done</button>
   </div>
 </div>
@@ -985,6 +990,7 @@ var I={
   backHome:'&larr; Home',empty:'Nothing found.',loading:'Loading…',
   nStations:'{n} stations',found:'{n} playable',
   contTitle:'Radio across {c}',yourCountry:'your country',
+  iReport:'Report a problem with this station',reportThanks:'Thanks — we will check this station.',
   gsPh:'Search a station, country or article',gsCountries:'Countries',gsStations:'Stations worldwide',gsArticles:'Articles',
   gsSearching:'Searching stations…',gsNone:'No station found for “{q}”. Try another spelling.',gsFail:'Search is unavailable right now. Check your connection and try again.',
   contAF:'Africa',contAS:'Asia',contEU:'Europe',contNA:'North America',contSA:'South America',contOC:'Oceania',
@@ -1023,6 +1029,7 @@ var I={
   backHome:'&rarr; الرئيسية',empty:'لا نتائج.',loading:'جارٍ التحميل…',
   nStations:'{n} محطة',found:'{n} قابلة للتشغيل',
   contTitle:'إذاعات {c}',yourCountry:'بلدك',
+  iReport:'الإبلاغ عن مشكلة في هذه المحطة',reportThanks:'شكراً، سنراجع هذه المحطة.',
   gsPh:'ابحث عن محطة أو دولة أو مقال',gsCountries:'الدول',gsStations:'محطات من العالم',gsArticles:'المقالات',
   gsSearching:'جارٍ البحث عن المحطات…',gsNone:'لا محطة باسم «{q}». جرّب كتابة أخرى.',gsFail:'البحث غير متاح الآن. تحقّق من الاتصال وأعد المحاولة.',
   contAF:'إفريقيا',contAS:'آسيا',contEU:'أوروبا',contNA:'أمريكا الشمالية',contSA:'أمريكا الجنوبية',contOC:'أوقيانوسيا',
@@ -1711,6 +1718,8 @@ function showInfo(s){
     $('iSite').textContent=s.homepage.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,30);
   }else $('iSiteRow').style.display='none';
   $('iFav').style.borderColor=isFav(s.stationuuid)?'#e11d48':'var(--line)';
+  var rb=$('iReport'),done=!!reported['user:'+s.stationuuid];
+  rb.classList.toggle('done',done);rb.textContent=done?T('reportThanks'):T('iReport');
   $('iSheet').classList.add('on');
 }
 $('iClose').onclick=function(){$('iSheet').classList.remove('on');};
@@ -1726,6 +1735,35 @@ function shareStation(s){
   if(navigator.clipboard)navigator.clipboard.writeText(u).then(function(){toast(T('copied'));}).catch(function(){});
 }
 
+/* ---------- بلاغات المحطات المعطلة (إلى Google Analytics) ----------
+   تلقائي: حين تفشل المحطة بعد 3 محاولات. يدوي: من زر نافذة التفاصيل.
+   مرة واحدة لكل محطة في الزيارة، ولا شيء إن كان الزائر بلا إنترنت. */
+var reported={};
+function hostOf(u){try{return new URL(u).host;}catch(e){return '';}}
+function reportStation(s,kind,reason){
+  if(!s||!window.gtag)return false;
+  var key=kind+':'+s.stationuuid;
+  if(reported[key])return false;
+  if(kind==='auto'&&navigator.onLine===false)return false;
+  reported[key]=1;
+  gtag('event',kind==='auto'?'station_failed':'station_report',{
+    station_name:(s.name||'').trim().slice(0,100),
+    station_uuid:s.stationuuid,
+    station_country:s.countrycode||'',
+    stream_host:hostOf(s.url_resolved||s.url||''),
+    fail_reason:reason||''
+  });
+  return true;
+}
+function failReason(){
+  var e=audio.error;if(!e)return 'stalled';
+  return e.code===2?'network':e.code===3?'decode':e.code===4?'unsupported':'other';
+}
+$('iReport').onclick=function(){
+  if(!iStation)return;
+  reportStation(iStation,'user','user');
+  this.classList.add('done');this.textContent=T('reportThanks');
+};
 /* ---------- player ---------- */
 var audio=$('audio'),player=$('player'),pName=$('pName'),pMeta=$('pMeta'),pIcon=$('pIcon'),bars=$('bars');
 var current=null,queue=[],qi=-1,sleepT=null,sleepMin=0,tickT=null,retries=0,retryT=null,MAXR=3;
@@ -1813,6 +1851,7 @@ function failed(){
       setIcon(WAIT);
     },1800*retries);
   }else{
+    reportStation(current,'auto',failReason());
     toast(queue.length>1?T('skipped'):T('err'));retries=0;
     if(queue.length>1)setTimeout(next,900);
   }
