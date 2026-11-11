@@ -16,7 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <title>Malaysia Radio Live — Listen Free Online Radio Stations | LiveRadio</title>
-<meta name="description" content="Listen to Malaysia radio live online, free and without an app. Stream FM and AM stations from Malaysia: news, music, sport, talk and Quran — all working links, updated daily.">
+<meta name="description" content="Listen to Malaysia radio live online, free and without an app. Stream FM and AM stations from Malaysia: news, music, sport, talk and religious stations — working links, updated daily.">
 <meta name="keywords" content="Malaysia radio live, Malaysia radio online, listen Malaysia radio, free radio Malaysia, Malaysia FM stations, Malaysia AM radio, radio ماليزيا مباشر">
 <link rel="canonical" href="https://worldliveradio.com/countries/malaysia.html">
 <meta name="theme-color" content="#e4ecf7">
@@ -191,8 +191,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bo
     <h1 data-en="Malaysia Radio Live — Free Online Stations"
         data-ar="راديو ماليزيا مباشر — بث مجاني أونلاين">Malaysia Radio Live — Free Online Stations</h1>
     <p class="tag"
-       data-en="Listen to live FM and AM radio from Malaysia free in your browser — news, music, sport, talk and Quran."
-       data-ar="استمع إلى إذاعات ماليزيا مباشرة على FM وAM مجاناً من المتصفح — أخبار وموسيقى ورياضة وحوار وقرآن.">
+       data-en="Listen to live FM and AM radio from Malaysia free in your browser — news, music, sport, talk and religious programmes."
+       data-ar="استمع إلى إذاعات ماليزيا مباشرة على FM وAM مجاناً من المتصفح — أخبار وموسيقى ورياضة وحوار وبرامج دينية.">
        Listen to live FM and AM radio from Malaysia free in your browser.</p>
     <div class="sub"><span id="cnt">—</span> · <span data-en="updated 2026-11-11" data-ar="تحديث 2026-11-11">updated 2026-11-11</span></div>
   </div>
@@ -313,7 +313,7 @@ function card(s){
   var n=document.createElement('div');n.className='nm';n.textContent=(s.name||'').trim();
   b.appendChild(r);b.appendChild(n);
   if(s.bitrate){var br=document.createElement('div');br.className='br';br.textContent=s.bitrate+' kbps';b.appendChild(br);}
-  b.onclick=function(){location.href='../#s='+s.stationuuid;};
+  b.onclick=function(){location.href='../#s='+s.stationuuid;};  /* للزائر القادم من جوجل مباشرة */
   b.title=(s.name||'');
   return b;
 }
@@ -339,32 +339,29 @@ function draw(){
   }
   $('status').textContent='';
 
-  if(cat){
-    var lim=expanded[cat]?sel.length:SHOWN;
-    var g=document.createElement('div');g.className='grid';
-    sel.slice(0,lim).forEach(function(s){g.appendChild(card(s));});
-    body.appendChild(g);
-    if(sel.length>lim)addMore(body,function(){expanded[cat]=1;draw();},sel.length-lim);
+  /* نفس السلوك في كل التصنيفات بما فيها «الكل» */
+  var key=cat||'_all';
+  var lim=expanded[key]?sel.length:SHOWN;
+  var g=document.createElement('div');g.className='grid';
+  sel.slice(0,lim).forEach(function(s){g.appendChild(card(s));});
+  body.appendChild(g);
+
+  if(sel.length>lim){
+    /* ما زال في المخزون: نوسّع المعروض */
+    $('moreb').style.display='block';
+    $('moreb').textContent=(lang==='ar')
+      ? ('اكتشف '+(sel.length-lim)+' محطة أخرى ←')
+      : ('Discover '+(sel.length-lim)+' more stations →');
+    $('moreb').onclick=function(){expanded[key]=1;draw();};
+  }else if(!done){
+    /* نفد المخزون: نجلب دفعة جديدة من الخادم */
+    $('moreb').style.display='block';
+    $('moreb').textContent=busy?((lang==='ar')?'جارٍ التحميل…':'Loading…')
+      :((lang==='ar')?'تحميل مزيد من المحطات':'Load more stations');
+    $('moreb').onclick=fetchPage;
   }else{
-    /* العرض الموحّد: 12 محطة فقط ليصل القارئ إلى المقال بسرعة */
-    var g0=document.createElement('div');g0.className='grid';
-    sel.slice(0,SHOWN).forEach(function(s){g0.appendChild(card(s));});
-    body.appendChild(g0);
-    if(sel.length>SHOWN){
-      var h=document.createElement('div');
-      h.style.cssText='text-align:center;color:var(--mut);font-size:13px;margin-top:10px';
-      h.textContent=(lang==='ar')
-        ? ('و'+(sel.length-SHOWN)+' محطة أخرى في التصنيفات أعلاه')
-        : (sel.length-SHOWN)+' more stations in the categories above';
-      body.appendChild(h);
-    }
+    $('moreb').style.display='none';
   }
-  $('moreb').style.display=done?'none':'block';
-}
-function addMore(parent,fn,n){
-  var b=document.createElement('button');b.className='moreb';
-  b.textContent=(lang==='ar')?('عرض '+n+' محطة أخرى'):('Show '+n+' more');
-  b.onclick=fn;parent.appendChild(b);
 }
 
 function fetchPage(){
@@ -392,14 +389,11 @@ function fetchPage(){
         tries++;
         if(!done && (list.length-before)<60 && tries<4){step();return;}
         busy=false;loading=false;
-        $('moreb').textContent=(lang==='ar')?'اكتشف المزيد من المحطات ←':'Discover more stations →';
         bar();draw();
       }).catch(function(){busy=false;loading=false;done=true;bar();draw();});
   }
   step();
 }
-$('moreb').onclick=fetchPage;
-
 function apply(){
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
