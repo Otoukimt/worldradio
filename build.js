@@ -75,6 +75,7 @@ async function generatePages() {
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
 
   const today = new Date().toISOString().split('T')[0];
+  const OLD = readOldSitemap(root);
   const pages = [];
 
   all.forEach(c => {
@@ -90,7 +91,8 @@ async function generatePages() {
     const my = custom.find(a => (a.cc || '').toUpperCase() === cc) || {};
     const descEn = my.descEn || '';
     const descAr = my.descAr || '';
-    const date = my.date || today;
+    /* بلا مقال: نحتفظ بالتاريخ السابق، حتى لا تبدو كل الصفحات «معدّلة» كل أسبوع */
+    const date = my.date || OLD[`https://worldliveradio.com/countries/${slug}.html`] || today;
     const hide = (!descEn && !descAr) ? ' style="display:none"' : '';
     const srcs = (Array.isArray(my.sources) ? my.sources : [])
       .filter(x => x && /^https?:\/\//.test(x.u || ''));
@@ -129,33 +131,86 @@ async function generatePages() {
   fs.writeFileSync(path.join(root, 'countries-index.json'), JSON.stringify(index, null, 2));
 
   /* خريطة الموقع: الصفحات التي فيها مقال أعلى أولوية */
-  buildSitemap(root, pages);
+  const before = OLD;
+  const after = buildSitemap(root, pages, OLD);
+  await notifyIndexNow(before, after);
 
   console.log('تم توليد ' + pages.length + ' صفحة دولة.');
   console.log('منها ' + pages.filter(p => p.hasArticle).length + ' صفحة تحمل مقالاً.');
 }
 
-function buildSitemap(root, pages) {
+function readOldSitemap(root) {
+  const map = {};
+  try {
+    const x = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+    const re = /<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g;
+    let m;
+    while ((m = re.exec(x))) map[m[1]] = m[2];
+  } catch (e) {}
+  return map;
+}
+
+function buildSitemap(root, pages, OLD) {
   const SITE = 'https://worldliveradio.com';
   const today = new Date().toISOString().split('T')[0];
   let arts = [];
   try { arts = JSON.parse(fs.readFileSync(path.join(root, 'articles.json'), 'utf8')); } catch (e) {}
 
-  const rows = [];
-  const add = (loc, mod, pr) => rows.push(
-    `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${mod}</lastmod>\n    <priority>${pr}</priority>\n  </url>`);
+  /* الرئيسية وصفحة المقالات تتغيّران حين يُنشر مقال أو مقال دولة */
+  const dates = arts.map(a => a.date).concat(pages.filter(p => p.hasArticle).map(p => p.date))
+    .filter(d => /^\d{4}-\d{2}-\d{2}$/.test(d || '')).sort();
+  const newest = dates.length ? dates[dates.length - 1] : today;
 
-  add(SITE + '/', today, '1.0');
-  add(SITE + '/articles.html', today, '0.9');
-  ['about', 'privacy', 'contact', 'broadcasters'].forEach(p => add(`${SITE}/${p}.html`, today, '0.3'));
+  const rows = [], out = {};
+  const add = (loc, mod, pr) => {
+    out[loc] = mod;
+    rows.push(`  <url>\n    <loc>${loc}</loc>\n    <lastmod>${mod}</lastmod>\n    <priority>${pr}</priority>\n  </url>`);
+  };
+
+  add(SITE + '/', newest, '1.0');
+  add(SITE + '/articles.html', newest, '0.9');
+  ['about', 'privacy', 'contact', 'broadcasters'].forEach(p => {
+    const u = `${SITE}/${p}.html`; add(u, OLD[u] || today, '0.3');
+  });
   pages.forEach(p => add(`${SITE}/countries/${p.slug}.html`, p.date, p.hasArticle ? '0.8' : '0.6'));
-  arts.forEach(a => add(`${SITE}/articles/${a.slug}.html`, a.date || today, '0.7'));
+  arts.forEach(a => {
+    const u = `${SITE}/articles/${a.slug}.html`; add(u, a.date || OLD[u] || today, '0.7');
+  });
 
   fs.writeFileSync(path.join(root, 'sitemap.xml'),
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     rows.join('\n') + '\n</urlset>\n');
   console.log('خريطة الموقع: ' + rows.length + ' رابطاً.');
+  return out;
+}
+
+/* IndexNow: نُبلغ Bing وYandex وغيرهما بالروابط الجديدة أو المعدّلة فقط.
+   جوجل لا يدعمه، فيبقى معتمداً على خريطة الموقع. */
+const INDEXNOW_KEY = 'd63e1b6e11aa22adbc5ee329ad282a2c';
+async function notifyIndexNow(before, after) {
+  const changed = Object.keys(after).filter(u => before[u] !== after[u]);
+  if (!changed.length) { console.log('IndexNow: لا روابط جديدة أو معدّلة.'); return; }
+  if (!process.env.GITHUB_ACTIONS) { console.log('IndexNow: ' + changed.length + ' رابطاً (لا إرسال خارج GitHub Actions).'); return; }
+  /* لو لم تكن هناك خريطة سابقة أصلاً، فهذه أول مرة: لا نُغرق المحركات بكل الموقع */
+  if (!Object.keys(before).length) { console.log('IndexNow: أول تشغيل، الخريطة تكفي هذه المرة.'); return; }
+  /* ننتظر قليلاً حتى ينشر GitHub Pages الصفحات الجديدة، فلا يجد المحرك 404 */
+  await new Promise(r => setTimeout(r, 90000));
+  try {
+    const res = await fetch('https://api.indexnow.org/indexnow', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      body: JSON.stringify({
+        host: 'worldliveradio.com',
+        key: INDEXNOW_KEY,
+        keyLocation: 'https://worldliveradio.com/' + INDEXNOW_KEY + '.txt',
+        urlList: changed.slice(0, 10000)
+      })
+    });
+    console.log('IndexNow: أُرسل ' + changed.length + ' رابطاً — الرد ' + res.status);
+  } catch (e) {
+    console.log('IndexNow: تعذّر الإرسال (' + e.message + ') — لا يؤثر على البناء.');
+  }
 }
 
 generatePages();
