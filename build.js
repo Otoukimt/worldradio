@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// قائمة تعريب أسماء الدول التي تستخدمها في موقعك
+/* ===== أسماء الدول بالعربية ===== */
 const CN_AR = {
 AF:'أفغانستان',AL:'ألبانيا',DZ:'الجزائر',AD:'أندورا',AO:'أنغولا',AR:'الأرجنتين',AM:'أرمينيا',
 AU:'أستراليا',AT:'النمسا',AZ:'أذربيجان',BH:'البحرين',BD:'بنغلاديش',BY:'بيلاروسيا',BE:'بلجيكا',
@@ -27,68 +27,126 @@ GB:'المملكة المتحدة',US:'الولايات المتحدة',UY:'أو
 YE:'اليمن',ZM:'زامبيا',ZW:'زيمبابوي'
 };
 
+/* مرايا متعددة: إن تعثّرت واحدة نجرّب التالية */
+const MIRRORS = [
+  'https://de2.api.radio-browser.info',
+  'https://nl1.api.radio-browser.info',
+  'https://at1.api.radio-browser.info'
+];
+
+async function fetchCountries() {
+  for (const m of MIRRORS) {
+    try {
+      const res = await fetch(m + '/json/countries?order=stationcount&reverse=true&limit=300', {
+        headers: { 'User-Agent': 'worldliveradio-ssg/1.0' }
+      });
+      if (!res.ok) continue;
+      const d = await res.json();
+      if (Array.isArray(d) && d.length) return d;
+    } catch (e) {}
+  }
+  return [];
+}
+
+function slugify(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+function esc(s) {
+  return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 async function generatePages() {
-    const dataPath = path.join(__dirname, 'countries.json');
-    const templatePath = path.join(__dirname, 'country-template.html');
-    const outDir = path.join(__dirname, 'countries');
+  const root = __dirname;
+  const template = fs.readFileSync(path.join(root, 'country-template.html'), 'utf8');
 
-    // 1. قراءة قالب HTML
-    const template = fs.readFileSync(templatePath, 'utf8');
+  let custom = [];
+  const dataPath = path.join(root, 'countries.json');
+  if (fs.existsSync(dataPath)) {
+    try { custom = JSON.parse(fs.readFileSync(dataPath, 'utf8')); } catch (e) {}
+  }
 
-    // 2. قراءة المقالات التي كتبتها (إن وجدت)
-    let customArticles = [];
-    if (fs.existsSync(dataPath)) {
-        try {
-            customArticles = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-        } catch(e) {}
-    }
+  console.log('جاري جلب الدول...');
+  const all = await fetchCountries();
+  if (!all.length) { console.error('تعذّر جلب الدول — تم إيقاف التوليد'); process.exit(1); }
 
-    // 3. جلب جميع دول العالم التي بها محطات راديو أوتوماتيكياً من الـ API
-    console.log("جاري جلب الدول من الخادم...");
-    const res = await fetch('https://de1.api.radio-browser.info/json/countries?limit=250');
-    const allCountries = await res.json();
+  const outDir = path.join(root, 'countries');
+  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
 
-    if (!fs.existsSync(outDir)){
-        fs.mkdirSync(outDir);
-    }
+  const today = new Date().toISOString().split('T')[0];
+  const pages = [];
 
-    let count = 0;
-    const today = new Date().toISOString().split('T')[0];
+  all.forEach(c => {
+    if (!c.iso_3166_1 || c.iso_3166_1.length !== 2) return;
+    if ((c.stationcount || 0) < 5) return;
 
-    // 4. توليد صفحة HTML لكل دولة في العالم
-    allCountries.forEach(apiCountry => {
-        // نتجاهل الدول التي ليس لها محطات أو رمزها غير صحيح
-        if (!apiCountry.iso_3166_1 || apiCountry.stationcount < 3) return;
+    const cc = c.iso_3166_1.toUpperCase();
+    const en = c.name;
+    const ar = CN_AR[cc] || en;
+    const slug = slugify(en);
+    if (!slug) return;
 
-        let cc = apiCountry.iso_3166_1.toUpperCase();
-        let enName = apiCountry.name;
-        let arName = CN_AR[cc] || enName; // جلب الاسم العربي إذا توفر
-        let slug = enName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const my = custom.find(a => (a.cc || '').toUpperCase() === cc) || {};
+    const descEn = my.descEn || '';
+    const descAr = my.descAr || '';
+    const date = my.date || today;
+    const hide = (!descEn && !descAr) ? ' style="display:none"' : '';
 
-        // البحث عما إذا كنت قد كتبت مقالة لهذه الدولة في countries.json
-        let customData = customArticles.find(a => a.cc === cc) || {};
-        let descEn = customData.descEn || '';
-        let descAr = customData.descAr || '';
-        
-        // إخفاء قسم المقالة إذا لم تكن قد كتبتها بعد
-        let aboutDisplay = (descEn === '' && descAr === '') ? 'style="display:none"' : '';
+    const html = template
+      .replace(/\{\{cc\}\}/g, cc)
+      .replace(/\{\{slug\}\}/g, slug)
+      .replace(/\{\{en\}\}/g, esc(en))
+      .replace(/\{\{ar\}\}/g, esc(ar))
+      .replace(/\{\{date\}\}/g, date)
+      .replace(/\{\{descEn\}\}/g, descEn)
+      .replace(/\{\{descAr\}\}/g, descAr)
+      .replace('id="aboutSec"', 'id="aboutSec"' + hide);
 
-        // دمج البيانات في القالب
-        let html = template
-            .replace(/{{cc}}/g, cc)
-            .replace(/{{slug}}/g, slug)
-            .replace(/{{en}}/g, enName)
-            .replace(/{{ar}}/g, arName)
-            .replace(/{{date}}/g, today)
-            .replace(/{{descEn}}/g, descEn)
-            .replace(/{{descAr}}/g, descAr)
-            .replace('id="aboutSec"', `id="aboutSec" ${aboutDisplay}`);
-        
-        fs.writeFileSync(path.join(outDir, `${slug}.html`), html);
-        count++;
-    });
+    fs.writeFileSync(path.join(outDir, slug + '.html'), html);
+    pages.push({ cc, slug, en, ar, n: c.stationcount, hasArticle: !!(descEn || descAr), date });
+  });
 
-    console.log(`تم توليد ${count} صفحة دولة بنجاح!`);
+  /* فهرس تقرؤه الصفحة الرئيسية: الدول التي لها مقال أولاً */
+  pages.sort((a, b) => (b.hasArticle - a.hasArticle) || (b.n - a.n));
+  const index = pages.map(p => {
+    const my = custom.find(a => (a.cc || '').toUpperCase() === p.cc) || {};
+    const strip = t => String(t || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 150);
+    return {
+      cc: p.cc, slug: p.slug, en: p.en, ar: p.ar, date: p.date, n: p.n,
+      descEn: strip(my.descEn), descAr: strip(my.descAr)
+    };
+  });
+  fs.writeFileSync(path.join(root, 'countries-index.json'), JSON.stringify(index, null, 2));
+
+  /* خريطة الموقع: الصفحات التي فيها مقال أعلى أولوية */
+  buildSitemap(root, pages);
+
+  console.log('تم توليد ' + pages.length + ' صفحة دولة.');
+  console.log('منها ' + pages.filter(p => p.hasArticle).length + ' صفحة تحمل مقالاً.');
+}
+
+function buildSitemap(root, pages) {
+  const SITE = 'https://worldliveradio.com';
+  const today = new Date().toISOString().split('T')[0];
+  let arts = [];
+  try { arts = JSON.parse(fs.readFileSync(path.join(root, 'articles.json'), 'utf8')); } catch (e) {}
+
+  const rows = [];
+  const add = (loc, mod, pr) => rows.push(
+    `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${mod}</lastmod>\n    <priority>${pr}</priority>\n  </url>`);
+
+  add(SITE + '/', today, '1.0');
+  add(SITE + '/articles.html', today, '0.9');
+  ['about', 'privacy', 'contact'].forEach(p => add(`${SITE}/${p}.html`, today, '0.3'));
+  pages.forEach(p => add(`${SITE}/countries/${p.slug}.html`, p.date, p.hasArticle ? '0.8' : '0.6'));
+  arts.forEach(a => add(`${SITE}/articles/${a.slug}.html`, a.date || today, '0.7'));
+
+  fs.writeFileSync(path.join(root, 'sitemap.xml'),
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    rows.join('\n') + '\n</urlset>\n');
+  console.log('خريطة الموقع: ' + rows.length + ' رابطاً.');
 }
 
 generatePages();

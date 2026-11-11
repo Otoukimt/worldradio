@@ -712,7 +712,7 @@ var I={
   unknown:'Unknown',pageErr:'Could not load that page.',
   finding:'Finding {s}…',notFound:'Could not find {s} right now.',
   navTip:'Station saved — tap play to resume when you come back.',
-  showAll:'Show all {n}',
+  showAll:'Discover {n} more stations &rarr;',
   gNews:'News &amp; talk',gMusic:'Music',gRelig:'Religious',gSport:'Sport',
   gCulture:'Culture',gOther:'Other',gAll:'All'},
  ar:{h1:'استمع إلى العالم، <em>مباشرةً</em>.',
@@ -746,7 +746,7 @@ var I={
   unknown:'غير معروف',pageErr:'تعذّر تحميل الصفحة.',
   finding:'جارٍ البحث عن {s}…',notFound:'تعذّر العثور على {s} الآن.',
   navTip:'حُفظت المحطة — اضغط تشغيل لاستئنافها عند عودتك.',
-  showAll:'عرض كل {n}',
+  showAll:'اكتشف {n} محطة أخرى &larr;',
   gNews:'أخبار وحوار',gMusic:'موسيقى',gRelig:'ديني',gSport:'رياضة',
   gCulture:'ثقافة',gOther:'منوّعات',gAll:'الكل'}
 };
@@ -821,25 +821,31 @@ function api(p){
 var QCAP={low:64,mid:128,high:0};
 /* نفس رابط البث يعني المحطة نفسها مهما اختلف الاسم في قاعدة البيانات */
 function normUrl(u){
-  var t=(u||'').toLowerCase()
+  return (u||'').toLowerCase()
     .replace(/^https?:\/\//,'')
     .replace(/[?#].*$/,'')
-    .replace(/:(80|443)(?=\/|$)/,'')
-    .replace(/\/+$/,'')
-    .replace(/;+$/,'')
-    .replace(/\/(listen|stream|live|play)(\.(mp3|aac|m3u8?|pls))?$/,'')
-    .replace(/\.(mp3|aac|m3u8?|pls)$/,'');
-  return t;
+    .replace(/\/+$/,'');
+}
+/* المتصفح يحجب http داخل صفحة https، لكن كثيراً من الخوادم تقبل https
+   على المسار نفسه — فنرقّي بدل إسقاط المحطة، وهذا يضاعف العدد العامل */
+function playableUrl(s){
+  var u=s.url_resolved||s.url||'';
+  if(!u)return '';
+  if(u.indexOf('https://')===0)return u;
+  if(u.indexOf('http://')===0)return 'https://'+u.slice(7);
+  return '';
 }
 function clean(d,seen){
   seen=seen||{u:{},id:{}};
   return (d||[]).filter(function(s){
-    var u=s.url_resolved||s.url||'';
-    if(u.indexOf('https://')!==0||!s.name||s.name.trim().length<2)return false;
+    var u=playableUrl(s);
+    if(!u||!s.name||s.name.trim().length<2)return false;
     if(seen.id[s.stationuuid])return false;
     var k=normUrl(u);
     if(!k||seen.u[k])return false;
-    seen.u[k]=1;seen.id[s.stationuuid]=1;return true;});
+    seen.u[k]=1;seen.id[s.stationuuid]=1;
+    s.url_resolved=u;
+    return true;});
 }
 function capped(list){
   var cap=QCAP[quality];
@@ -954,7 +960,7 @@ function loadLocal(){
   detectCountry().then(function(cc){
     if(!cc){$('localSec').style.display='none';return;}
     myCC=cc;
-    api('/json/stations/search?hidebroken=true&limit=40&order=clickcount&reverse=true&countrycode='+cc)
+    api('/json/stations/search?hidebroken=true&limit=120&order=clickcount&reverse=true&countrycode='+cc)
       .then(function(d){
         localList=capped(clean(d));
         if(!localList.length){$('localSec').style.display='none';return;}
@@ -970,12 +976,7 @@ function drawLocal(){
   localList.slice(0,6).forEach(function(s){box.appendChild(card(s));});
   $('localSec').style.display='block';markPlaying();
 }
-$('localMore').onclick=function(){
-  if(myCC){
-    var slug = myName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-    location.href = './countries/' + slug + '.html';
-  }
-};
+$('localMore').onclick=function(){ if(myCC)openCountry(myCC,myName); };
 
 /* ---------- recently played: last three ---------- */
 function drawRecent(){
@@ -1041,8 +1042,10 @@ function flagBtn(c){
   var nu=document.createElement('div');nu.className='fnum';nu.textContent=T('nStations').replace('{n}',fmtNum(c.n));
   b.appendChild(cir);b.appendChild(nm);b.appendChild(nu);
   b.onclick=function(){
-    var slug = c.en.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-    location.href = './countries/' + slug + '.html';
+    for(var i=0;i<guides.length;i++){
+      if(guides[i].cc===c.cc){location.href='./countries/'+guides[i].slug+'.html';return;}
+    }
+    openCountry(c.cc,lang==='ar'?c.ar:c.en);
   };
   return b;
 }
@@ -1283,9 +1286,10 @@ fetch('./articles.json').then(function(r){return r.json();})
 var guides=[];
 function drawGuides(){
   var sec=$('guideSec'),box=$('guideList');
-  if(!guides.length){sec.style.display='none';return;}
+  var withText=guides.filter(function(c){return (c.descAr||c.descEn);});
+  if(!withText.length){sec.style.display='none';return;}
   box.innerHTML='';
-  guides.slice(0,6).forEach(function(c){
+  guides.filter(function(c){return (c.descAr||c.descEn);}).slice(0,6).forEach(function(c){
     var a=document.createElement('a');a.className='gcard';
     a.href='./countries/'+c.slug+'.html';
     a.innerHTML='<div class="fg"></div><div class="tx"><div class="nm"></div>'+
@@ -1301,9 +1305,9 @@ function drawGuides(){
         ? ('أخبار وموسيقى ورياضة وقرآن — مرتّبة حسب التصنيف.')
         : ('News, music, sport and more — grouped by category.');
     }
-    /* عدد المحطات من قائمة الدول الحيّة */
-    var n=0;
-    for(var i=0;i<countries.length;i++)if(countries[i].cc===c.cc){n=countries[i].n;break;}
+    /* عدد المحطات: من الفهرس المولّد أو من القائمة الحيّة */
+    var n=c.n||0;
+    if(!n)for(var i=0;i<countries.length;i++)if(countries[i].cc===c.cc){n=countries[i].n;break;}
     var nb=a.querySelector('.nb');
     if(n)nb.textContent=T('nStations').replace('{n}',fmtNum(n));
     else nb.style.display='none';
@@ -1312,7 +1316,7 @@ function drawGuides(){
   sec.style.display='block';
   hookPageLinks();
 }
-fetch('./countries.json').then(function(r){return r.ok?r.json():[];})
+fetch('./countries-index.json').then(function(r){return r.ok?r.json():[];})
   .then(function(d){guides=d||[];drawGuides();}).catch(function(){});
 fetch('./site.json').then(function(r){return r.ok?r.json():null;})
   .then(function(d){applyCfg(d);}).catch(function(){});
@@ -1740,9 +1744,9 @@ function igrp(s){
       if(t.indexOf(GROUPS[i].m[j])>-1)return GROUPS[i].k;
   return 'other';
 }
-var inLoading=false;
+var inLoading=false,inExpand=false;
 function initCountryPage(cc){
-  inCC=cc;inList=[];inCat='';inLoading=true;
+  inCC=cc;inList=[];inCat='';inLoading=true;inExpand=false;
   var f=flagOf(cc);
   /* الهيكل له أزرار تنقله، فنحذف أزرار الصفحة المحقونة */
   var fg=pageEl.querySelector('#flag');
@@ -1777,7 +1781,7 @@ function drawInCountry(){
     var b=document.createElement('button');
     b.className='chip'+(inCat===c.k?' on':'');
     b.innerHTML=T(c.t);
-    b.onclick=function(){inCat=c.k;drawInCountry();};
+    b.onclick=function(){inCat=c.k;inExpand=false;drawInCountry();};
     bar.appendChild(b);
   });
 
@@ -1787,28 +1791,16 @@ function drawInCountry(){
   if(!sel.length){if(st)st.textContent=inLoading?T('loading'):T('empty');return;}
   if(st)st.textContent='';
 
-  if(inCat){
-    var g=document.createElement('div');g.className='grid';
-    sel.slice(0,120).forEach(function(s){g.appendChild(card(s));});
-    body.appendChild(g);
-  }else{
-    GROUPS.concat([{k:'other',t:'gOther'}]).forEach(function(gr){
-      var sub=sel.filter(function(s){return igrp(s)===gr.k;});
-      if(!sub.length)return;
-      var h=document.createElement('div');h.className='grouphead';
-      h.innerHTML=T(gr.t)+' · '+fmtNum(sub.length);
-      body.appendChild(h);
-      var g2=document.createElement('div');g2.className='grid';
-      sub.slice(0,18).forEach(function(s){g2.appendChild(card(s));});
-      body.appendChild(g2);
-      if(sub.length>18){
-        var mb=document.createElement('button');mb.className='chip';
-        mb.style.cssText='margin:8px 0 4px';
-        mb.textContent=T('showAll').replace('{n}',fmtNum(sub.length));
-        mb.onclick=function(){inCat=gr.k;drawInCountry();};
-        body.appendChild(mb);
-      }
-    });
+  /* اثنتا عشرة محطة فقط، ليصل القارئ إلى المقال التعريفي بسرعة */
+  var LIM=inExpand?sel.length:12;
+  var g=document.createElement('div');g.className='grid';
+  sel.slice(0,LIM).forEach(function(s){g.appendChild(card(s));});
+  body.appendChild(g);
+  if(sel.length>LIM){
+    var mb=document.createElement('button');mb.className='bigbtn';
+    mb.textContent=T('showAll').replace('{n}',fmtNum(sel.length-LIM));
+    mb.onclick=function(){inExpand=true;drawInCountry();};
+    body.appendChild(mb);
   }
   markPlaying();
 }
