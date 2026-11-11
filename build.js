@@ -48,8 +48,24 @@ async function fetchCountries() {
   return [];
 }
 
+/* الحروف المزيّنة تتحول إلى أصلها: Côte → cote، Türkiye → turkiye، Réunion → reunion */
 function slugify(name) {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  return String(name || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+/* الطريقة القديمة كانت تحذف هذه الحروف (c-te-d-ivoire). نبقي روابطها القديمة
+   صفحاتِ تحويل فورية، حتى لا يجد من يفتحها — أو جوجل — صفحة خطأ */
+function oldSlugify(name) {
+  return String(name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+function redirectPage(slug, en) {
+  const to = '/countries/' + slug + '.html';
+  return '<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8">\n' +
+    '<title>' + esc(en) + ' Radio Live | LiveRadio</title>\n' +
+    '<link rel="canonical" href="https://worldliveradio.com' + to + '">\n' +
+    '<meta http-equiv="refresh" content="0; url=' + to + '">\n' +
+    '<script>location.replace(' + JSON.stringify(to) + '+location.search+location.hash);</script>\n' +
+    '</head><body><p>This page has moved to <a href="' + to + '">' + esc(en) + ' radio</a>.</p></body></html>\n';
 }
 
 function esc(s) {
@@ -319,6 +335,8 @@ async function generatePages() {
 
     fs.writeFileSync(path.join(outDir, slug + '.html'), html);
     pages.push({ cc, slug, en, ar, n: c.stationcount, hasArticle: !!(descEn || descAr), date });
+    const legacy = oldSlugify(en);
+    if (legacy && legacy !== slug) fs.writeFileSync(path.join(outDir, legacy + '.html'), redirectPage(slug, en));
   });
 
   /* فهرس تقرؤه الصفحة الرئيسية: الدول التي لها مقال أولاً */

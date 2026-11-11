@@ -1399,7 +1399,8 @@ function flagBtn(c){
 function ccSlug(cc,en){
   for(var i=0;i<guides.length;i++)if(guides[i].cc===cc&&guides[i].slug)return guides[i].slug;
   for(var j=0;j<countries.length;j++)if(countries[j].cc===cc){en=countries[j].en;break;}
-  return (en||cc).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+  var t=String(en||cc);try{t=t.normalize('NFD').replace(/[\u0300-\u036f]/g,'');}catch(e){}
+  return t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
 }
 
 function flagCount(){
