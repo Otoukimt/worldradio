@@ -140,6 +140,16 @@
     "descAr": "تحتفل الأرجنتين بيوم وطني للراديو في 27 غشت من كل عام، تكريماً لأربعة شبان صعدوا إلى سطح مسرح في بوينس آيرس سنة 1920 وأذاعوا أوبرا على الأثير. ومغامرت"
   },
   {
+    "cc": "PL",
+    "slug": "poland",
+    "en": "Poland",
+    "ar": "بولندا",
+    "date": "2026-11-11",
+    "n": 911,
+    "descEn": "At five in the afternoon on 18 April 1926, a woman's voice in Warsaw spoke the words that every Pole of that generation would remember: \"Halo, halo, P",
+    "descAr": "في الخامسة مساء 18 أبريل 1926، نطق صوت امرأة في وارسو بكلمات سيتذكرها كل بولندي من ذلك الجيل: «ألو، ألو، هنا الإذاعة البولندية وارسو، الموجة 480» . وج"
+  },
+  {
     "cc": "IN",
     "slug": "india",
     "en": "India",
@@ -296,16 +306,6 @@
     "ar": "أستراليا",
     "date": "2026-11-11",
     "n": 1615,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "PL",
-    "slug": "poland",
-    "en": "Poland",
-    "ar": "بولندا",
-    "date": "2026-11-11",
-    "n": 911,
     "descEn": "",
     "descAr": ""
   },
