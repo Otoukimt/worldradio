@@ -11,7 +11,7 @@ The site is bilingual (English and Arabic). Each country has its own page with t
 - [About](https://worldliveradio.com/about.html): what LiveRadio is and how it works
 - [For broadcasters](https://worldliveradio.com/broadcasters.html): how stations are listed and how to request a correction or removal
 - [Privacy policy](https://worldliveradio.com/privacy.html)
-- [Contact](https://worldliveradio.com/contact.html)
+- [Contact](https://worldliveradio.com/contact.html): contact@worldliveradio.com
 
 ## Country pages
 
