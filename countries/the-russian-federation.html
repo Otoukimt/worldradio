@@ -33,22 +33,61 @@
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"CollectionPage",
-  "name":"The Russian Federation Radio Live — Free Online Radio Stations",
-  "description":"Listen to The Russian Federation radio live online, free. News, music, sport and talk stations from The Russian Federation.",
-  "url":"https://worldliveradio.com/countries/the-russian-federation.html",
-  "inLanguage":["en","ar"],
-  "isPartOf":{"@type":"WebSite","name":"LiveRadio","url":"https://worldliveradio.com/"},
-  "about":{"@type":"Country","name":"The Russian Federation"},
-  "breadcrumb":{
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://worldliveradio.com/"},
-      {"@type":"ListItem","position":2,"name":"Countries","item":"https://worldliveradio.com/"},
-      {"@type":"ListItem","position":3,"name":"The Russian Federation Radio","item":"https://worldliveradio.com/countries/the-russian-federation.html"}
-    ]
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "CollectionPage",
+   "@id": "https://worldliveradio.com/countries/the-russian-federation.html#page",
+   "url": "https://worldliveradio.com/countries/the-russian-federation.html",
+   "name": "The Russian Federation Radio Live — Free Online Radio Stations",
+   "description": "Listen to The Russian Federation radio live online, free. News, music, sport and talk stations from The Russian Federation.",
+   "inLanguage": [
+    "en",
+    "ar"
+   ],
+   "isPartOf": {
+    "@id": "https://worldliveradio.com/#website"
+   },
+   "about": {
+    "@type": "Country",
+    "name": "The Russian Federation"
+   },
+   "breadcrumb": {
+    "@id": "https://worldliveradio.com/countries/the-russian-federation.html#crumbs"
+   },
+   "dateModified": "2026-11-11"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://worldliveradio.com/countries/the-russian-federation.html#crumbs",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LiveRadio",
+     "item": "https://worldliveradio.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "The Russian Federation Radio",
+     "item": "https://worldliveradio.com/countries/the-russian-federation.html"
+    }
+   ]
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://worldliveradio.com/#org",
+   "name": "LiveRadio",
+   "url": "https://worldliveradio.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://worldliveradio.com/icon-512.png",
+    "width": 512,
+    "height": 512
+   }
   }
+ ]
 }
 </script>
 

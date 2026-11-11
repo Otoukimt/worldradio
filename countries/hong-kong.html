@@ -33,22 +33,61 @@
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"CollectionPage",
-  "name":"Hong Kong Radio Live — Free Online Radio Stations",
-  "description":"Listen to Hong Kong radio live online, free. News, music, sport and talk stations from Hong Kong.",
-  "url":"https://worldliveradio.com/countries/hong-kong.html",
-  "inLanguage":["en","ar"],
-  "isPartOf":{"@type":"WebSite","name":"LiveRadio","url":"https://worldliveradio.com/"},
-  "about":{"@type":"Country","name":"Hong Kong"},
-  "breadcrumb":{
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://worldliveradio.com/"},
-      {"@type":"ListItem","position":2,"name":"Countries","item":"https://worldliveradio.com/"},
-      {"@type":"ListItem","position":3,"name":"Hong Kong Radio","item":"https://worldliveradio.com/countries/hong-kong.html"}
-    ]
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "CollectionPage",
+   "@id": "https://worldliveradio.com/countries/hong-kong.html#page",
+   "url": "https://worldliveradio.com/countries/hong-kong.html",
+   "name": "Hong Kong Radio Live — Free Online Radio Stations",
+   "description": "Listen to Hong Kong radio live online, free. News, music, sport and talk stations from Hong Kong.",
+   "inLanguage": [
+    "en",
+    "ar"
+   ],
+   "isPartOf": {
+    "@id": "https://worldliveradio.com/#website"
+   },
+   "about": {
+    "@type": "Country",
+    "name": "Hong Kong"
+   },
+   "breadcrumb": {
+    "@id": "https://worldliveradio.com/countries/hong-kong.html#crumbs"
+   },
+   "dateModified": "2026-11-11"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://worldliveradio.com/countries/hong-kong.html#crumbs",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "LiveRadio",
+     "item": "https://worldliveradio.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Hong Kong Radio",
+     "item": "https://worldliveradio.com/countries/hong-kong.html"
+    }
+   ]
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://worldliveradio.com/#org",
+   "name": "LiveRadio",
+   "url": "https://worldliveradio.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://worldliveradio.com/icon-512.png",
+    "width": 512,
+    "height": 512
+   }
   }
+ ]
 }
 </script>
 
