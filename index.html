@@ -784,7 +784,8 @@ var favs=LS.get('lr_favs',[]),recent=LS.get('lr_recent',[]);
   }
   if(out.length!==recent.length){recent=out;LS.set('lr_recent',recent);}
 })();
-var quality=LS.get('lr_quality','high');
+/* مفتاح جديد: الإعداد القديم المحفوظ كان يحجب كل ما فوق 128 kbps */
+var quality=LS.get('lr_q2','high');
 var mine=LS.get('lr_mine',{sec:0,mb:0,stations:[]});
 var theme=LS.get('lr_theme','light');
 var CFG=null,posts=[],stats=null;
@@ -968,7 +969,7 @@ function loadLocal(){
   detectCountry().then(function(cc){
     if(!cc){$('localSec').style.display='none';return;}
     myCC=cc;
-    api('/json/stations/search?hidebroken=true&limit=120&order=clickcount&reverse=true&countrycode='+cc)
+    api('/json/stations/search?hidebroken=true&limit=200&order=clickcount&reverse=true&countrycode='+cc)
       .then(function(d){
         localList=capped(clean(d));
         if(!localList.length){$('localSec').style.display='none';return;}
@@ -1535,7 +1536,7 @@ function syncQ(){
 (function(){
   var os=document.querySelectorAll('#qOpts .opt');
   for(var i=0;i<os.length;i++)os[i].onclick=function(){
-    quality=this.dataset.q;LS.set('lr_quality',quality);syncQ();
+    quality=this.dataset.q;LS.set('lr_q2',quality);syncQ();
     if(view==='country'&&curCC)openCountry(curCC,curCName);
     else { localList=capped(localList); drawLocal(); }
     drawUsage();
@@ -1759,7 +1760,7 @@ function igrp(s){
       if(t.indexOf(GROUPS[i].m[j])>-1)return GROUPS[i].k;
   return 'other';
 }
-var inLoading=false,inExpand=false,inOff=0,inDone=false,inBusy=false,inSeen=null;
+var inLoading=false,inExpand=false,inOff=0,inDone=false,inBusy=false,inSeen=null,inCName='';
 var IN_PAGE=600;
 /* الجوال 12، وسطح المكتب أكثر حتى لا تبقى فراغات في الشبكة */
 function inShow(){
@@ -1771,6 +1772,9 @@ function inShow(){
 function initCountryPage(cc){
   inCC=cc;inList=[];inCat='';inLoading=true;inExpand=false;
   inOff=0;inDone=false;inBusy=false;inSeen={u:{},id:{}};
+  inCName='';
+  for(var q=0;q<countries.length;q++)if(countries[q].cc===cc){inCName=countries[q].en;break;}
+  if(!inCName)for(var g2=0;g2<guides.length;g2++)if(guides[g2].cc===cc){inCName=guides[g2].en;break;}
   var f=flagOf(cc);
   /* الهيكل له أزرار تنقله، فنحذف أزرار الصفحة المحقونة */
   var fg=pageEl.querySelector('#flag');
@@ -1790,17 +1794,22 @@ function inFetch(){
   inBusy=true;inLoading=true;
   var before=inList.length,tries=0;
   function step(){
-    api('/json/stations/search?hidebroken=true&limit='+IN_PAGE+'&offset='+inOff+
-        '&order=clickcount&reverse=true&countrycode='+inCC)
-      .then(function(d){
-        var raw=d||[];
-        inOff+=raw.length;
-        if(raw.length<IN_PAGE)inDone=true;
-        inList=inList.concat(capped(clean(raw,inSeen)));
-        tries++;
-        if(!inDone && (inList.length-before)<60 && tries<4){step();return;}
-        inBusy=false;inLoading=false;drawInCountry();
-      }).catch(function(){inBusy=false;inLoading=false;inDone=true;drawInCountry();});
+    /* استعلامان معاً: بالرمز وباسم الدولة، فكثير من المحطات بلا رمز */
+    var byCode=api('/json/stations/search?hidebroken=true&limit='+IN_PAGE+'&offset='+inOff+
+        '&order=clickcount&reverse=true&countrycode='+inCC);
+    var byName=(inOff===0&&inCName)
+      ? api('/json/stations/search?hidebroken=true&limit='+IN_PAGE+
+            '&order=clickcount&reverse=true&country='+encodeURIComponent(inCName))
+      : Promise.resolve(null);
+    Promise.all([byCode,byName]).then(function(r){
+      var a=r[0]||[], b=r[1]||[];
+      inOff+=a.length;
+      if(a.length<IN_PAGE)inDone=true;
+      inList=inList.concat(capped(clean(a.concat(b),inSeen)));
+      tries++;
+      if(!inDone && (inList.length-before)<60 && tries<4){step();return;}
+      inBusy=false;inLoading=false;drawInCountry();
+    }).catch(function(){inBusy=false;inLoading=false;inDone=true;drawInCountry();});
   }
   step();
 }
