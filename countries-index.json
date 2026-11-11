@@ -1,5 +1,25 @@
 [
   {
+    "cc": "DE",
+    "slug": "germany",
+    "en": "Germany",
+    "ar": "ألمانيا",
+    "date": "2026-11-11",
+    "n": 5630,
+    "descEn": "German radio is the only major broadcasting system in the world designed, quite deliberately, to be hard to control. To understand why, you have to st",
+    "descAr": "الإذاعة الألمانية هي النظام الإذاعي الكبير الوحيد في العالم الذي صُمّم عمداً ليكون صعب السيطرة. ولفهم السبب يجب أن نبدأ من عليّة في برلين ومن جهاز است"
+  },
+  {
+    "cc": "FR",
+    "slug": "france",
+    "en": "France",
+    "ar": "فرنسا",
+    "date": "2026-11-11",
+    "n": 2810,
+    "descEn": "French radio is a story of listeners who kept finding ways around the state. For decades the government held a monopoly, and for decades the French tu",
+    "descAr": "قصة الإذاعة الفرنسية قصة مستمعين ظلّوا يجدون طرقاً للالتفاف على الدولة. فلعقود احتكرت الحكومة البثّ، ولعقود ضبط الفرنسيون أجهزتهم على محطات تبثّ من خا"
+  },
+  {
     "cc": "AE",
     "slug": "the-united-arab-emirates",
     "en": "The United Arab Emirates",
@@ -66,26 +86,6 @@
     "ar": "الولايات المتحدة",
     "date": "2026-11-11",
     "n": 7038,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "DE",
-    "slug": "germany",
-    "en": "Germany",
-    "ar": "ألمانيا",
-    "date": "2026-11-11",
-    "n": 5630,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "FR",
-    "slug": "france",
-    "en": "France",
-    "ar": "فرنسا",
-    "date": "2026-11-11",
-    "n": 2810,
     "descEn": "",
     "descAr": ""
   },
