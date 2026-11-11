@@ -1,5 +1,25 @@
 [
   {
+    "cc": "AE",
+    "slug": "the-united-arab-emirates",
+    "en": "The United Arab Emirates",
+    "ar": "الإمارات",
+    "date": "2026-11-11",
+    "n": 634,
+    "descEn": "Scan the FM band in Dubai and you will hear Arabic, English, Hindi, Urdu, Malayalam, Tamil, Tagalog, Persian and Russian within a few minutes. Few pla",
+    "descAr": "أدِر موجة FM في دبي وستسمع العربية والإنجليزية والهندية والأردية والمالايالامية والتاميلية والتاغالوغية والفارسية والروسية في دقائق قليلة. قلّة من الأ"
+  },
+  {
+    "cc": "DZ",
+    "slug": "algeria",
+    "en": "Algeria",
+    "ar": "الجزائر",
+    "date": "2026-11-11",
+    "n": 92,
+    "descEn": "In Algeria, radio is remembered as a weapon before it was a pastime. During the war of independence, a clandestine transmitter carried the voice of th",
+    "descAr": "في الجزائر، يُذكر الراديو سلاحاً قبل أن يكون وسيلة تسلية. ففي أثناء حرب التحرير، حمل مرسل سري صوت الثورة إلى بيوت لم تستطع السلطات الاستعمارية الوصول "
+  },
+  {
     "cc": "EG",
     "slug": "egypt",
     "en": "Egypt",
@@ -18,6 +38,16 @@
     "n": 58,
     "descEn": "Few countries change language as often on a single dial as Morocco. Turn the tuner slowly through Casablanca or Rabat and you will hear Moroccan Darij",
     "descAr": "قلّما تجد بلداً يتنقّل فيه مؤشر الراديو بين اللغات كما يحدث في المغرب. أدِر الموجة ببطء في الدار البيضاء أو الرباط وستسمع الدارجة والعربية الفصحى والف"
+  },
+  {
+    "cc": "TN",
+    "slug": "tunisia",
+    "en": "Tunisia",
+    "ar": "تونس",
+    "date": "2026-11-11",
+    "n": 56,
+    "descEn": "No North African country shows how closely radio follows politics as clearly as Tunisia. For decades the dial was narrow and controlled; after 2011 it",
+    "descAr": "لا يُظهر بلد في شمال إفريقيا قرب الراديو من السياسة كما تُظهره تونس. فلعقود ظلّ المؤشر ضيقاً ومراقباً، وبعد 2011 انفتح بين ليلة وضحاها تقريباً. قصة ال"
   },
   {
     "cc": "SA",
@@ -236,16 +266,6 @@
     "ar": "تركيا",
     "date": "2026-11-11",
     "n": 668,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "AE",
-    "slug": "the-united-arab-emirates",
-    "en": "The United Arab Emirates",
-    "ar": "الإمارات",
-    "date": "2026-11-11",
-    "n": 634,
     "descEn": "",
     "descAr": ""
   },
@@ -650,16 +670,6 @@
     "descAr": ""
   },
   {
-    "cc": "DZ",
-    "slug": "algeria",
-    "en": "Algeria",
-    "ar": "الجزائر",
-    "date": "2026-11-11",
-    "n": 92,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "KR",
     "slug": "the-republic-of-korea",
     "en": "The Republic Of Korea",
@@ -854,16 +864,6 @@
     "slug": "kenya",
     "en": "Kenya",
     "ar": "كينيا",
-    "date": "2026-11-11",
-    "n": 56,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "TN",
-    "slug": "tunisia",
-    "en": "Tunisia",
-    "ar": "تونس",
     "date": "2026-11-11",
     "n": 56,
     "descEn": "",

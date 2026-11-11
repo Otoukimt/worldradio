@@ -26,12 +26,27 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://worldliveradio.com/countries/the-united-arab-emirates.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/algeria.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://worldliveradio.com/countries/egypt.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/morocco.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/tunisia.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.8</priority>
   </url>
@@ -142,11 +157,6 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/t-rkiye.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/the-united-arab-emirates.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -351,11 +361,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/algeria.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://worldliveradio.com/countries/the-republic-of-korea.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
@@ -452,11 +457,6 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/kenya.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/tunisia.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
