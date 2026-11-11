@@ -1,0 +1,1722 @@
+[
+  {
+    "cc": "US",
+    "slug": "the-united-states-of-america",
+    "en": "The United States Of America",
+    "ar": "الولايات المتحدة",
+    "date": "2026-11-10",
+    "n": 7029,
+    "descEn": "American radio did not begin with a plan. It began in a Pittsburgh garage in 1920, when a Westinghouse engineer named Frank Conrad started playing rec",
+    "descAr": "لم يبدأ الراديو الأمريكي بخطة. بدأ في مرآب بمدينة بيتسبرغ سنة 1920، حين شرع مهندس في «وستنغهاوس» اسمه فرانك كونراد في تشغيل أسطوانات عبر مرسل ليسلّي ه"
+  },
+  {
+    "cc": "CN",
+    "slug": "china",
+    "en": "China",
+    "ar": "الصين",
+    "date": "2026-11-10",
+    "n": 1974,
+    "descEn": "Radio reached China early and through the foreign concessions. The first stations appeared in Shanghai in the early 1920s.",
+    "descAr": "وصل الراديو إلى الصين مبكراً وعبر الامتيازات الأجنبية. ظهرت أولى المحطات في شنغهاي في أوائل العشرينيات."
+  },
+  {
+    "cc": "DE",
+    "slug": "germany",
+    "en": "Germany",
+    "ar": "ألمانيا",
+    "date": "2026-11-11",
+    "n": 5630,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "FR",
+    "slug": "france",
+    "en": "France",
+    "ar": "فرنسا",
+    "date": "2026-11-11",
+    "n": 2810,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "RU",
+    "slug": "the-russian-federation",
+    "en": "The Russian Federation",
+    "ar": "روسيا",
+    "date": "2026-11-11",
+    "n": 2530,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GB",
+    "slug": "the-united-kingdom-of-great-britain-and-northern-ireland",
+    "en": "The United Kingdom Of Great Britain And Northern Ireland",
+    "ar": "المملكة المتحدة",
+    "date": "2026-11-11",
+    "n": 1988,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GR",
+    "slug": "greece",
+    "en": "Greece",
+    "ar": "اليونان",
+    "date": "2026-11-11",
+    "n": 1890,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AU",
+    "slug": "australia",
+    "en": "Australia",
+    "ar": "أستراليا",
+    "date": "2026-11-11",
+    "n": 1615,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "IT",
+    "slug": "italy",
+    "en": "Italy",
+    "ar": "إيطاليا",
+    "date": "2026-11-11",
+    "n": 1599,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MX",
+    "slug": "mexico",
+    "en": "Mexico",
+    "ar": "المكسيك",
+    "date": "2026-11-11",
+    "n": 1555,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BR",
+    "slug": "brazil",
+    "en": "Brazil",
+    "ar": "البرازيل",
+    "date": "2026-11-11",
+    "n": 1430,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CA",
+    "slug": "canada",
+    "en": "Canada",
+    "ar": "كندا",
+    "date": "2026-11-11",
+    "n": 1383,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "ES",
+    "slug": "spain",
+    "en": "Spain",
+    "ar": "إسبانيا",
+    "date": "2026-11-11",
+    "n": 1232,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "NL",
+    "slug": "the-netherlands",
+    "en": "The Netherlands",
+    "ar": "هولندا",
+    "date": "2026-11-11",
+    "n": 1212,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AR",
+    "slug": "argentina",
+    "en": "Argentina",
+    "ar": "الأرجنتين",
+    "date": "2026-11-11",
+    "n": 1045,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PL",
+    "slug": "poland",
+    "en": "Poland",
+    "ar": "بولندا",
+    "date": "2026-11-11",
+    "n": 910,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "RO",
+    "slug": "romania",
+    "en": "Romania",
+    "ar": "رومانيا",
+    "date": "2026-11-11",
+    "n": 856,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "IN",
+    "slug": "india",
+    "en": "India",
+    "ar": "الهند",
+    "date": "2026-11-11",
+    "n": 746,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PH",
+    "slug": "the-philippines",
+    "en": "The Philippines",
+    "ar": "الفلبين",
+    "date": "2026-11-11",
+    "n": 722,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "TR",
+    "slug": "t-rkiye",
+    "en": "Türkiye",
+    "ar": "تركيا",
+    "date": "2026-11-11",
+    "n": 668,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CO",
+    "slug": "colombia",
+    "en": "Colombia",
+    "ar": "كولومبيا",
+    "date": "2026-11-11",
+    "n": 668,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AE",
+    "slug": "the-united-arab-emirates",
+    "en": "The United Arab Emirates",
+    "ar": "الإمارات",
+    "date": "2026-11-11",
+    "n": 634,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CH",
+    "slug": "switzerland",
+    "en": "Switzerland",
+    "ar": "سويسرا",
+    "date": "2026-11-11",
+    "n": 541,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "ID",
+    "slug": "indonesia",
+    "en": "Indonesia",
+    "ar": "إندونيسيا",
+    "date": "2026-11-11",
+    "n": 522,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CL",
+    "slug": "chile",
+    "en": "Chile",
+    "ar": "تشيلي",
+    "date": "2026-11-11",
+    "n": 506,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BE",
+    "slug": "belgium",
+    "en": "Belgium",
+    "ar": "بلجيكا",
+    "date": "2026-11-11",
+    "n": 461,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "RS",
+    "slug": "serbia",
+    "en": "Serbia",
+    "ar": "صربيا",
+    "date": "2026-11-11",
+    "n": 374,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "HU",
+    "slug": "hungary",
+    "en": "Hungary",
+    "ar": "المجر",
+    "date": "2026-11-11",
+    "n": 339,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PT",
+    "slug": "portugal",
+    "en": "Portugal",
+    "ar": "البرتغال",
+    "date": "2026-11-11",
+    "n": 335,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BG",
+    "slug": "bulgaria",
+    "en": "Bulgaria",
+    "ar": "بلغاريا",
+    "date": "2026-11-11",
+    "n": 330,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AT",
+    "slug": "austria",
+    "en": "Austria",
+    "ar": "النمسا",
+    "date": "2026-11-11",
+    "n": 320,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "UA",
+    "slug": "ukraine",
+    "en": "Ukraine",
+    "ar": "أوكرانيا",
+    "date": "2026-11-11",
+    "n": 285,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CZ",
+    "slug": "czechia",
+    "en": "Czechia",
+    "ar": "التشيك",
+    "date": "2026-11-11",
+    "n": 267,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "HR",
+    "slug": "croatia",
+    "en": "Croatia",
+    "ar": "كرواتيا",
+    "date": "2026-11-11",
+    "n": 262,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PE",
+    "slug": "peru",
+    "en": "Peru",
+    "ar": "بيرو",
+    "date": "2026-11-11",
+    "n": 255,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SE",
+    "slug": "sweden",
+    "en": "Sweden",
+    "ar": "السويد",
+    "date": "2026-11-11",
+    "n": 240,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "DK",
+    "slug": "denmark",
+    "en": "Denmark",
+    "ar": "الدنمارك",
+    "date": "2026-11-11",
+    "n": 224,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "NZ",
+    "slug": "new-zealand",
+    "en": "New Zealand",
+    "ar": "نيوزيلندا",
+    "date": "2026-11-11",
+    "n": 216,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "IE",
+    "slug": "ireland",
+    "en": "Ireland",
+    "ar": "أيرلندا",
+    "date": "2026-11-11",
+    "n": 204,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "KW",
+    "slug": "kuwait",
+    "en": "Kuwait",
+    "ar": "الكويت",
+    "date": "2026-11-11",
+    "n": 202,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "ZA",
+    "slug": "south-africa",
+    "en": "South Africa",
+    "ar": "جنوب إفريقيا",
+    "date": "2026-11-11",
+    "n": 199,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "TW",
+    "slug": "taiwan-republic-of-china",
+    "en": "Taiwan, Republic Of China",
+    "ar": "تايوان",
+    "date": "2026-11-11",
+    "n": 170,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "VE",
+    "slug": "bolivarian-republic-of-venezuela",
+    "en": "Bolivarian Republic Of Venezuela",
+    "ar": "فنزويلا",
+    "date": "2026-11-11",
+    "n": 170,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "EC",
+    "slug": "ecuador",
+    "en": "Ecuador",
+    "ar": "الإكوادور",
+    "date": "2026-11-11",
+    "n": 158,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "LV",
+    "slug": "latvia",
+    "en": "Latvia",
+    "ar": "لاتفيا",
+    "date": "2026-11-11",
+    "n": 157,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "UG",
+    "slug": "uganda",
+    "en": "Uganda",
+    "ar": "أوغندا",
+    "date": "2026-11-11",
+    "n": 150,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "NP",
+    "slug": "nepal",
+    "en": "Nepal",
+    "ar": "نيبال",
+    "date": "2026-11-11",
+    "n": 148,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BA",
+    "slug": "bosnia-and-herzegovina",
+    "en": "Bosnia And Herzegovina",
+    "ar": "البوسنة والهرسك",
+    "date": "2026-11-11",
+    "n": 142,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SK",
+    "slug": "slovakia",
+    "en": "Slovakia",
+    "ar": "سلوفاكيا",
+    "date": "2026-11-11",
+    "n": 141,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "FI",
+    "slug": "finland",
+    "en": "Finland",
+    "ar": "فنلندا",
+    "date": "2026-11-11",
+    "n": 136,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "EE",
+    "slug": "estonia",
+    "en": "Estonia",
+    "ar": "إستونيا",
+    "date": "2026-11-11",
+    "n": 134,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "UY",
+    "slug": "uruguay",
+    "en": "Uruguay",
+    "ar": "أوروغواي",
+    "date": "2026-11-11",
+    "n": 131,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "IL",
+    "slug": "israel",
+    "en": "Israel",
+    "ar": "إسرائيل",
+    "date": "2026-11-11",
+    "n": 129,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SI",
+    "slug": "slovenia",
+    "en": "Slovenia",
+    "ar": "سلوفينيا",
+    "date": "2026-11-11",
+    "n": 128,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "NO",
+    "slug": "norway",
+    "en": "Norway",
+    "ar": "النرويج",
+    "date": "2026-11-11",
+    "n": 121,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "JP",
+    "slug": "japan",
+    "en": "Japan",
+    "ar": "اليابان",
+    "date": "2026-11-11",
+    "n": 120,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "LB",
+    "slug": "lebanon",
+    "en": "Lebanon",
+    "ar": "لبنان",
+    "date": "2026-11-11",
+    "n": 118,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "DO",
+    "slug": "the-dominican-republic",
+    "en": "The Dominican Republic",
+    "ar": "الدومينيكان",
+    "date": "2026-11-11",
+    "n": 114,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "LT",
+    "slug": "lithuania",
+    "en": "Lithuania",
+    "ar": "ليتوانيا",
+    "date": "2026-11-11",
+    "n": 113,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "TH",
+    "slug": "thailand",
+    "en": "Thailand",
+    "ar": "تايلاند",
+    "date": "2026-11-11",
+    "n": 104,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AL",
+    "slug": "albania",
+    "en": "Albania",
+    "ar": "ألبانيا",
+    "date": "2026-11-11",
+    "n": 100,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GH",
+    "slug": "ghana",
+    "en": "Ghana",
+    "ar": "غانا",
+    "date": "2026-11-11",
+    "n": 92,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "DZ",
+    "slug": "algeria",
+    "en": "Algeria",
+    "ar": "الجزائر",
+    "date": "2026-11-11",
+    "n": 92,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "KR",
+    "slug": "the-republic-of-korea",
+    "en": "The Republic Of Korea",
+    "ar": "كوريا الجنوبية",
+    "date": "2026-11-11",
+    "n": 85,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MD",
+    "slug": "the-republic-of-moldova",
+    "en": "The Republic Of Moldova",
+    "ar": "مولدوفا",
+    "date": "2026-11-11",
+    "n": 84,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "ZM",
+    "slug": "zambia",
+    "en": "Zambia",
+    "ar": "زامبيا",
+    "date": "2026-11-11",
+    "n": 82,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AF",
+    "slug": "afghanistan",
+    "en": "Afghanistan",
+    "ar": "أفغانستان",
+    "date": "2026-11-11",
+    "n": 79,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MY",
+    "slug": "malaysia",
+    "en": "Malaysia",
+    "ar": "ماليزيا",
+    "date": "2026-11-11",
+    "n": 77,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "NG",
+    "slug": "nigeria",
+    "en": "Nigeria",
+    "ar": "نيجيريا",
+    "date": "2026-11-11",
+    "n": 75,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GT",
+    "slug": "guatemala",
+    "en": "Guatemala",
+    "ar": "غواتيمالا",
+    "date": "2026-11-11",
+    "n": 72,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BO",
+    "slug": "bolivia",
+    "en": "Bolivia",
+    "ar": "بوليفيا",
+    "date": "2026-11-11",
+    "n": 69,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PY",
+    "slug": "paraguay",
+    "en": "Paraguay",
+    "ar": "باراغواي",
+    "date": "2026-11-11",
+    "n": 69,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "HK",
+    "slug": "hong-kong",
+    "en": "Hong Kong",
+    "ar": "هونغ كونغ",
+    "date": "2026-11-11",
+    "n": 67,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AO",
+    "slug": "angola",
+    "en": "Angola",
+    "ar": "أنغولا",
+    "date": "2026-11-11",
+    "n": 64,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SG",
+    "slug": "singapore",
+    "en": "Singapore",
+    "ar": "سنغافورة",
+    "date": "2026-11-11",
+    "n": 63,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "LK",
+    "slug": "sri-lanka",
+    "en": "Sri Lanka",
+    "ar": "سريلانكا",
+    "date": "2026-11-11",
+    "n": 63,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SV",
+    "slug": "el-salvador",
+    "en": "El Salvador",
+    "ar": "السلفادور",
+    "date": "2026-11-11",
+    "n": 61,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CI",
+    "slug": "coted-ivoire",
+    "en": "Coted Ivoire",
+    "ar": "ساحل العاج",
+    "date": "2026-11-11",
+    "n": 61,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CY",
+    "slug": "cyprus",
+    "en": "Cyprus",
+    "ar": "قبرص",
+    "date": "2026-11-11",
+    "n": 61,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "EG",
+    "slug": "egypt",
+    "en": "Egypt",
+    "ar": "مصر",
+    "date": "2026-11-11",
+    "n": 60,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MW",
+    "slug": "malawi",
+    "en": "Malawi",
+    "ar": "مالاوي",
+    "date": "2026-11-11",
+    "n": 59,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PK",
+    "slug": "pakistan",
+    "en": "Pakistan",
+    "ar": "باكستان",
+    "date": "2026-11-11",
+    "n": 59,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BY",
+    "slug": "belarus",
+    "en": "Belarus",
+    "ar": "بيلاروسيا",
+    "date": "2026-11-11",
+    "n": 59,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MA",
+    "slug": "morocco",
+    "en": "Morocco",
+    "ar": "المغرب",
+    "date": "2026-11-11",
+    "n": 58,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "KE",
+    "slug": "kenya",
+    "en": "Kenya",
+    "ar": "كينيا",
+    "date": "2026-11-11",
+    "n": 56,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "TN",
+    "slug": "tunisia",
+    "en": "Tunisia",
+    "ar": "تونس",
+    "date": "2026-11-11",
+    "n": 56,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CM",
+    "slug": "cameroon",
+    "en": "Cameroon",
+    "ar": "الكاميرون",
+    "date": "2026-11-11",
+    "n": 55,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CR",
+    "slug": "costa-rica",
+    "en": "Costa Rica",
+    "ar": "كوستاريكا",
+    "date": "2026-11-11",
+    "n": 53,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SA",
+    "slug": "saudi-arabia",
+    "en": "Saudi Arabia",
+    "ar": "السعودية",
+    "date": "2026-11-11",
+    "n": 50,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PR",
+    "slug": "puerto-rico",
+    "en": "Puerto Rico",
+    "ar": "بورتوريكو",
+    "date": "2026-11-11",
+    "n": 49,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MK",
+    "slug": "republic-of-north-macedonia",
+    "en": "Republic Of North Macedonia",
+    "ar": "مقدونيا الشمالية",
+    "date": "2026-11-11",
+    "n": 46,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "ME",
+    "slug": "montenegro",
+    "en": "Montenegro",
+    "ar": "الجبل الأسود",
+    "date": "2026-11-11",
+    "n": 43,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "JM",
+    "slug": "jamaica",
+    "en": "Jamaica",
+    "ar": "جامايكا",
+    "date": "2026-11-11",
+    "n": 41,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "KZ",
+    "slug": "kazakhstan",
+    "en": "Kazakhstan",
+    "ar": "كازاخستان",
+    "date": "2026-11-11",
+    "n": 39,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "HN",
+    "slug": "honduras",
+    "en": "Honduras",
+    "ar": "هندوراس",
+    "date": "2026-11-11",
+    "n": 39,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AZ",
+    "slug": "azerbaijan",
+    "en": "Azerbaijan",
+    "ar": "أذربيجان",
+    "date": "2026-11-11",
+    "n": 36,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "RE",
+    "slug": "reunion",
+    "en": "Reunion",
+    "ar": "Reunion",
+    "date": "2026-11-11",
+    "n": 35,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SN",
+    "slug": "senegal",
+    "en": "Senegal",
+    "ar": "السنغال",
+    "date": "2026-11-11",
+    "n": 33,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "LU",
+    "slug": "luxembourg",
+    "en": "Luxembourg",
+    "ar": "لوكسمبورغ",
+    "date": "2026-11-11",
+    "n": 32,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PA",
+    "slug": "panama",
+    "en": "Panama",
+    "ar": "بنما",
+    "date": "2026-11-11",
+    "n": 32,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "HT",
+    "slug": "haiti",
+    "en": "Haiti",
+    "ar": "هايتي",
+    "date": "2026-11-11",
+    "n": 31,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "JO",
+    "slug": "jordan",
+    "en": "Jordan",
+    "ar": "الأردن",
+    "date": "2026-11-11",
+    "n": 30,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "VN",
+    "slug": "vietnam",
+    "en": "Vietnam",
+    "ar": "فيتنام",
+    "date": "2026-11-11",
+    "n": 30,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GE",
+    "slug": "georgia",
+    "en": "Georgia",
+    "ar": "جورجيا",
+    "date": "2026-11-11",
+    "n": 28,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "IS",
+    "slug": "iceland",
+    "en": "Iceland",
+    "ar": "آيسلندا",
+    "date": "2026-11-11",
+    "n": 27,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BD",
+    "slug": "bangladesh",
+    "en": "Bangladesh",
+    "ar": "بنغلاديش",
+    "date": "2026-11-11",
+    "n": 26,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "NI",
+    "slug": "nicaragua",
+    "en": "Nicaragua",
+    "ar": "نيكاراغوا",
+    "date": "2026-11-11",
+    "n": 26,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "UM",
+    "slug": "the-united-states-minor-outlying-islands",
+    "en": "The United States Minor Outlying Islands",
+    "ar": "The United States Minor Outlying Islands",
+    "date": "2026-11-11",
+    "n": 26,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "ZW",
+    "slug": "zimbabwe",
+    "en": "Zimbabwe",
+    "ar": "زيمبابوي",
+    "date": "2026-11-11",
+    "n": 25,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CU",
+    "slug": "cuba",
+    "en": "Cuba",
+    "ar": "كوبا",
+    "date": "2026-11-11",
+    "n": 24,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "IR",
+    "slug": "islamic-republic-of-iran",
+    "en": "Islamic Republic Of Iran",
+    "ar": "إيران",
+    "date": "2026-11-11",
+    "n": 22,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SY",
+    "slug": "syrian-arab-republic",
+    "en": "Syrian Arab Republic",
+    "ar": "سوريا",
+    "date": "2026-11-11",
+    "n": 22,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "ET",
+    "slug": "ethiopia",
+    "en": "Ethiopia",
+    "ar": "إثيوبيا",
+    "date": "2026-11-11",
+    "n": 22,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "TT",
+    "slug": "trinidad-and-tobago",
+    "en": "Trinidad And Tobago",
+    "ar": "Trinidad And Tobago",
+    "date": "2026-11-11",
+    "n": 21,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CD",
+    "slug": "the-democratic-republic-of-the-congo",
+    "en": "The Democratic Republic Of The Congo",
+    "ar": "الكونغو الديمقراطية",
+    "date": "2026-11-11",
+    "n": 21,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MO",
+    "slug": "macao",
+    "en": "Macao",
+    "ar": "Macao",
+    "date": "2026-11-11",
+    "n": 20,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "IQ",
+    "slug": "iraq",
+    "en": "Iraq",
+    "ar": "العراق",
+    "date": "2026-11-11",
+    "n": 20,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CW",
+    "slug": "curacao",
+    "en": "Curacao",
+    "ar": "Curacao",
+    "date": "2026-11-11",
+    "n": 20,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MG",
+    "slug": "madagascar",
+    "en": "Madagascar",
+    "ar": "مدغشقر",
+    "date": "2026-11-11",
+    "n": 19,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "QA",
+    "slug": "qatar",
+    "en": "Qatar",
+    "ar": "قطر",
+    "date": "2026-11-11",
+    "n": 18,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "TZ",
+    "slug": "united-republic-of-tanzania",
+    "en": "United Republic Of Tanzania",
+    "ar": "تنزانيا",
+    "date": "2026-11-11",
+    "n": 17,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CV",
+    "slug": "cabo-verde",
+    "en": "Cabo Verde",
+    "ar": "الرأس الأخضر",
+    "date": "2026-11-11",
+    "n": 17,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "XK",
+    "slug": "kosovo",
+    "en": "Kosovo",
+    "ar": "Kosovo",
+    "date": "2026-11-11",
+    "n": 15,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MT",
+    "slug": "malta",
+    "en": "Malta",
+    "ar": "مالطا",
+    "date": "2026-11-11",
+    "n": 14,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BB",
+    "slug": "barbados",
+    "en": "Barbados",
+    "ar": "Barbados",
+    "date": "2026-11-11",
+    "n": 14,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MZ",
+    "slug": "mozambique",
+    "en": "Mozambique",
+    "ar": "موزمبيق",
+    "date": "2026-11-11",
+    "n": 14,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "NA",
+    "slug": "namibia",
+    "en": "Namibia",
+    "ar": "ناميبيا",
+    "date": "2026-11-11",
+    "n": 14,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MU",
+    "slug": "mauritius",
+    "en": "Mauritius",
+    "ar": "موريشيوس",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "FO",
+    "slug": "the-faroe-islands",
+    "en": "The Faroe Islands",
+    "ar": "The Faroe Islands",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GP",
+    "slug": "guadeloupe",
+    "en": "Guadeloupe",
+    "ar": "Guadeloupe",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "FJ",
+    "slug": "fiji",
+    "en": "Fiji",
+    "ar": "Fiji",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "VA",
+    "slug": "the-holy-see",
+    "en": "The Holy See",
+    "ar": "The Holy See",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "ML",
+    "slug": "mali",
+    "en": "Mali",
+    "ar": "مالي",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "LC",
+    "slug": "saint-lucia",
+    "en": "Saint Lucia",
+    "ar": "Saint Lucia",
+    "date": "2026-11-11",
+    "n": 12,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "YE",
+    "slug": "yemen",
+    "en": "Yemen",
+    "ar": "اليمن",
+    "date": "2026-11-11",
+    "n": 12,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MQ",
+    "slug": "martinique",
+    "en": "Martinique",
+    "ar": "Martinique",
+    "date": "2026-11-11",
+    "n": 12,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "UZ",
+    "slug": "uzbekistan",
+    "en": "Uzbekistan",
+    "ar": "أوزبكستان",
+    "date": "2026-11-11",
+    "n": 12,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BH",
+    "slug": "bahrain",
+    "en": "Bahrain",
+    "ar": "البحرين",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BJ",
+    "slug": "benin",
+    "en": "Benin",
+    "ar": "بنين",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "VC",
+    "slug": "saint-vincent-and-the-grenadines",
+    "en": "Saint Vincent And The Grenadines",
+    "ar": "Saint Vincent And The Grenadines",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AM",
+    "slug": "armenia",
+    "en": "Armenia",
+    "ar": "أرمينيا",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BQ",
+    "slug": "bonaire",
+    "en": "Bonaire",
+    "ar": "Bonaire",
+    "date": "2026-11-11",
+    "n": 10,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AS",
+    "slug": "american-samoa",
+    "en": "American Samoa",
+    "ar": "American Samoa",
+    "date": "2026-11-11",
+    "n": 10,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GY",
+    "slug": "guyana",
+    "en": "Guyana",
+    "ar": "Guyana",
+    "date": "2026-11-11",
+    "n": 9,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "KH",
+    "slug": "cambodia",
+    "en": "Cambodia",
+    "ar": "كمبوديا",
+    "date": "2026-11-11",
+    "n": 9,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AQ",
+    "slug": "antarctica",
+    "en": "Antarctica",
+    "ar": "Antarctica",
+    "date": "2026-11-11",
+    "n": 9,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MN",
+    "slug": "mongolia",
+    "en": "Mongolia",
+    "ar": "منغوليا",
+    "date": "2026-11-11",
+    "n": 9,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AW",
+    "slug": "aruba",
+    "en": "Aruba",
+    "ar": "Aruba",
+    "date": "2026-11-11",
+    "n": 8,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PS",
+    "slug": "state-of-palestine",
+    "en": "State Of Palestine",
+    "ar": "فلسطين",
+    "date": "2026-11-11",
+    "n": 8,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "VI",
+    "slug": "us-virgin-islands",
+    "en": "US Virgin Islands",
+    "ar": "US Virgin Islands",
+    "date": "2026-11-11",
+    "n": 8,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "KY",
+    "slug": "the-cayman-islands",
+    "en": "The Cayman Islands",
+    "ar": "The Cayman Islands",
+    "date": "2026-11-11",
+    "n": 8,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "OM",
+    "slug": "oman",
+    "en": "Oman",
+    "ar": "عُمان",
+    "date": "2026-11-11",
+    "n": 8,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "RW",
+    "slug": "rwanda",
+    "en": "Rwanda",
+    "ar": "رواندا",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "KG",
+    "slug": "kyrgyzstan",
+    "en": "Kyrgyzstan",
+    "ar": "قيرغيزستان",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BS",
+    "slug": "the-bahamas",
+    "en": "The Bahamas",
+    "ar": "The Bahamas",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "KP",
+    "slug": "the-democratic-peoples-republic-of-korea",
+    "en": "The Democratic Peoples Republic Of Korea",
+    "ar": "كوريا الشمالية",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "NC",
+    "slug": "new-caledonia",
+    "en": "New Caledonia",
+    "ar": "New Caledonia",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PF",
+    "slug": "french-polynesia",
+    "en": "French Polynesia",
+    "ar": "French Polynesia",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "IM",
+    "slug": "isle-of-man",
+    "en": "Isle Of Man",
+    "ar": "Isle Of Man",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "LY",
+    "slug": "libya",
+    "en": "Libya",
+    "ar": "ليبيا",
+    "date": "2026-11-11",
+    "n": 6,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SR",
+    "slug": "suriname",
+    "en": "Suriname",
+    "ar": "Suriname",
+    "date": "2026-11-11",
+    "n": 6,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GI",
+    "slug": "gibraltar",
+    "en": "Gibraltar",
+    "ar": "Gibraltar",
+    "date": "2026-11-11",
+    "n": 6,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "TG",
+    "slug": "togo",
+    "en": "Togo",
+    "ar": "توغو",
+    "date": "2026-11-11",
+    "n": 6,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AG",
+    "slug": "antigua-and-barbuda",
+    "en": "Antigua And Barbuda",
+    "ar": "Antigua And Barbuda",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SM",
+    "slug": "san-marino",
+    "en": "San Marino",
+    "ar": "San Marino",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "DM",
+    "slug": "dominica",
+    "en": "Dominica",
+    "ar": "Dominica",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BM",
+    "slug": "bermuda",
+    "en": "Bermuda",
+    "ar": "Bermuda",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GU",
+    "slug": "guam",
+    "en": "Guam",
+    "ar": "Guam",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AD",
+    "slug": "andorra",
+    "en": "Andorra",
+    "ar": "أندورا",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MC",
+    "slug": "monaco",
+    "en": "Monaco",
+    "ar": "Monaco",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AI",
+    "slug": "anguilla",
+    "en": "Anguilla",
+    "ar": "Anguilla",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GD",
+    "slug": "grenada",
+    "en": "Grenada",
+    "ar": "Grenada",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  }
+]
