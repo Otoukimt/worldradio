@@ -1,5 +1,15 @@
 [
   {
+    "cc": "MA",
+    "slug": "morocco",
+    "en": "Morocco",
+    "ar": "المغرب",
+    "date": "2026-11-11",
+    "n": 58,
+    "descEn": "Few countries change language as often on a single dial as Morocco. Turn the tuner slowly through Casablanca or Rabat and you will hear Moroccan Darij",
+    "descAr": "قلّما تجد بلداً يتنقّل فيه مؤشر الراديو بين اللغات كما يحدث في المغرب. أدِر الموجة ببطء في الدار البيضاء أو الرباط وستسمع الدارجة والعربية الفصحى والف"
+  },
+  {
     "cc": "US",
     "slug": "the-united-states-of-america",
     "en": "The United States Of America",
@@ -826,16 +836,6 @@
     "ar": "بيلاروسيا",
     "date": "2026-11-11",
     "n": 59,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "MA",
-    "slug": "morocco",
-    "en": "Morocco",
-    "ar": "المغرب",
-    "date": "2026-11-11",
-    "n": 58,
     "descEn": "",
     "descAr": ""
   },
