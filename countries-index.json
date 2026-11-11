@@ -190,6 +190,16 @@
     "descAr": "في معظم البلدان وصل الراديو أولاً ثم تبعته السياسة. أما في إندونيسيا فانقلب الترتيب: فقد تأسست الإذاعة الوطنية في الأسابيع التي تلت إعلان الاستقلال، ع"
   },
   {
+    "cc": "PT",
+    "slug": "portugal",
+    "en": "Portugal",
+    "ar": "البرتغال",
+    "date": "2026-11-11",
+    "n": 335,
+    "descEn": "At five to eleven on the night of 24 April 1974, a Lisbon radio station played a love song that had just represented Portugal at Eurovision. Most list",
+    "descAr": "في الحادية عشرة إلا خمس دقائق من ليلة 24 أبريل 1974، بثّت محطة إذاعية في لشبونة أغنية حب كانت قد مثّلت البرتغال للتوّ في مسابقة الأغنية الأوروبية. ولم"
+  },
+  {
     "cc": "ZA",
     "slug": "south-africa",
     "en": "South Africa",
@@ -386,16 +396,6 @@
     "ar": "المجر",
     "date": "2026-11-11",
     "n": 344,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "PT",
-    "slug": "portugal",
-    "en": "Portugal",
-    "ar": "البرتغال",
-    "date": "2026-11-11",
-    "n": 335,
     "descEn": "",
     "descAr": ""
   },

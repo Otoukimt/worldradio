@@ -131,6 +131,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://worldliveradio.com/countries/portugal.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://worldliveradio.com/countries/south-africa.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.8</priority>
@@ -227,11 +232,6 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/hungary.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/portugal.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
