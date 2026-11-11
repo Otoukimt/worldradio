@@ -99,8 +99,9 @@ async function generatePages() {
       .replace(/\{\{en\}\}/g, esc(en))
       .replace(/\{\{ar\}\}/g, esc(ar))
       .replace(/\{\{date\}\}/g, date)
-      .replace(/\{\{descEn\}\}/g, descEn)
-      .replace(/\{\{descAr\}\}/g, descAr)
+      /* دالة بدل نص: حتى لا تُفسَّر علامة $ داخل المقال كرمز استبدال */
+      .replace(/\{\{descEn\}\}/g, () => descEn)
+      .replace(/\{\{descAr\}\}/g, () => descAr)
       .replace('id="aboutSec"', 'id="aboutSec"' + hide);
 
     fs.writeFileSync(path.join(outDir, slug + '.html'), html);

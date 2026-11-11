@@ -102,7 +102,7 @@ header{position:sticky;top:0;z-index:30;background:var(--headG);
 .btn:hover{border-color:var(--acc)}
 .ibtn{width:38px;height:38px;border-radius:50%;padding:0;font-size:15px}
 .pgnav{display:none}
-header.inpage #randBtn,header.inpage #setBtn{display:none}
+header.inpage #randBtn,header.inpage #setBtn,header.inpage #themeBtn{display:none}
 header.inpage .pgnav{display:inline-flex}
 
 .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
@@ -715,7 +715,7 @@ var I={
   settings:'Settings',setSub:'Saved on this device only.',
   quality:'Audio quality &amp; data use',qLow:'Saver',qLowS:'&le;64 kbps',
   qMid:'Balanced',qMidS:'&le;128 kbps',qHigh:'Best',qHighS:'No limit',
-  qNote:'Applies to the station list. The station playing now keeps its own bitrate until you pick another.',
+  qNote:'Stations within your chosen quality are listed first. No station is hidden.',
   myStats:'Your listening stats',kMinutes:'minutes',kStations:'stations',kData:'MB used',
   reset:'Clear my saved data',done:'Done',
   vol:'Volume',fav:'Favourite',share:'Share',sleep:'Sleep timer',close:'Close',infoB:'Details',
@@ -723,7 +723,7 @@ var I={
   kVotes:'Listener votes',kSite:'Website',kStream:'Stream',iPlay:'Play',iFav:'Favourite',iShare:'Share',
   added:'Added to favourites',removed:'Removed from favourites',copied:'Link copied',
   sleepOn:'Sleep timer: {n} min',sleepOff:'Sleep timer off',
-  err:'This station is unavailable',qSet:'{q} — {n} stations match',cleared:'Saved data cleared',
+  err:'This station is unavailable',qSet:'{q} — matching stations first',cleared:'Saved data cleared',
   usage:'Playing at <b>{b} kbps</b> · about <b>{m} MB</b> per hour',usage2:'Quality setting: {q}',
   hrs:'h',retry:'Connection lost — reconnecting ({n}/3)…',skipped:'Station failed, moving to the next one',
   unknown:'Unknown',pageErr:'Could not load that page.',
@@ -749,7 +749,7 @@ var I={
   settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',
   quality:'جودة الصوت واستهلاك البيانات',qLow:'توفير',qLowS:'&le;64 kbps',
   qMid:'متوازن',qMidS:'&le;128 kbps',qHigh:'الأفضل',qHighS:'بلا حدّ',
-  qNote:'يسري على قائمة المحطات. أما المحطة العاملة الآن فتبقى بمعدل بتها حتى تختار غيرها.',
+  qNote:'المحطات المطابقة للجودة المختارة تظهر أولاً، ولا تُخفى أي محطة.',
   myStats:'إحصاءات استماعك',kMinutes:'دقيقة',kStations:'محطة',kData:'م.ب مستهلكة',
   reset:'مسح بياناتي المحفوظة',done:'تم',
   vol:'الصوت',fav:'مفضلة',share:'مشاركة',sleep:'مؤقت النوم',close:'إغلاق',infoB:'تفاصيل',
@@ -757,7 +757,7 @@ var I={
   kVotes:'أصوات المستمعين',kSite:'الموقع',kStream:'رابط البث',iPlay:'تشغيل',iFav:'مفضلة',iShare:'مشاركة',
   added:'أُضيفت إلى المفضلة',removed:'أُزيلت من المفضلة',copied:'تم نسخ الرابط',
   sleepOn:'مؤقت النوم: {n} دقيقة',sleepOff:'أُلغي مؤقت النوم',
-  err:'تعذّر تشغيل هذه المحطة',qSet:'{q} — {n} محطة مطابقة',cleared:'مُسحت البيانات المحفوظة',
+  err:'تعذّر تشغيل هذه المحطة',qSet:'{q} — المطابقة أولاً',cleared:'مُسحت البيانات المحفوظة',
   usage:'يعمل بـ <b>{b} kbps</b> · نحو <b>{m} م.ب</b> في الساعة',usage2:'إعداد الجودة: {q}',
   hrs:'س',retry:'انقطع الاتصال — إعادة المحاولة ({n}/3)…',skipped:'تعذّرت المحطة، الانتقال إلى التالية',
   unknown:'غير معروف',pageErr:'تعذّر تحميل الصفحة.',
@@ -822,7 +822,7 @@ function api(p){
     MIRRORS.forEach(function(m){
       var ctl=null,t=null;
       try{ctl=new AbortController();}catch(e){}
-      t=setTimeout(function(){if(ctl)try{ctl.abort();}catch(e){}},8000);
+      t=setTimeout(function(){if(ctl)try{ctl.abort();}catch(e){}},15000);
       fetch(m+p,ctl?{signal:ctl.signal}:undefined)
         .then(function(r){ if(!r.ok)throw 0; return r.json(); })
         .then(function(d){
@@ -865,10 +865,17 @@ function clean(d,seen){
     s.url_resolved=u;
     return true;});
 }
+/* إعداد الجودة لا يحذف أي محطة: يقدّم المطابقة له ويؤخّر الباقي.
+   الحذف كان يجعل العدد هنا أقل من الصفحة المستقلة للدولة نفسها. */
 function capped(list){
   var cap=QCAP[quality];
   if(!cap)return list;
-  return list.filter(function(s){return !s.bitrate||s.bitrate<=cap;});
+  var a=[],b=[];
+  for(var i=0;i<list.length;i++){
+    var s=list[i];
+    if(!s.bitrate||s.bitrate<=cap)a.push(s);else b.push(s);
+  }
+  return a.concat(b);
 }
 function ini(n){return (n||'?').trim().charAt(0).toUpperCase();}
 function mbPerHour(br){return Math.round((br||128)*3600/8/1024);}
@@ -1552,6 +1559,7 @@ function syncQ(){
     quality=this.dataset.q;LS.set('lr_q2',quality);syncQ();
     if(view==='country'&&curCC)openCountry(curCC,curCName);
     else { localList=capped(localList); drawLocal(); }
+    if(inType==='country'&&inList.length){inList=capped(inList);drawInCountry();}
     drawUsage();
     toast(T('qSet').replace('{q}',qLabel()).replace('{n}',fmtNum(
       view==='country'?ctryList.length:localList.length)));
