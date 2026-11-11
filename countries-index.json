@@ -50,6 +50,16 @@
     "descAr": "تملك إيطاليا واحداً من أكثر المؤشرات الإذاعية ازدحاماً في أوروبا، والسبب حكم قضائي وجيل من الشباب وضعوا مرسلات في مرائبهم. وما زالت تلك الطاقة تحدّد ش"
   },
   {
+    "cc": "MX",
+    "slug": "mexico",
+    "en": "Mexico",
+    "ar": "المكسيك",
+    "date": "2026-11-11",
+    "n": 1557,
+    "descEn": "For decades, one Mexican station opened its broadcasts with a slogan that described a whole continent: \"XEW, the voice of Latin America from Mexico.\" ",
+    "descAr": "لعقود، كانت محطة مكسيكية واحدة تفتتح بثّها بشعار يصف قارة كاملة: «XEW، صوت أمريكا اللاتينية من المكسيك». لم يكتفِ الراديو المكسيكي بتسلية المكسيكيين؛ "
+  },
+  {
     "cc": "BR",
     "slug": "brazil",
     "en": "Brazil",
@@ -166,16 +176,6 @@
     "ar": "أستراليا",
     "date": "2026-11-11",
     "n": 1615,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "MX",
-    "slug": "mexico",
-    "en": "Mexico",
-    "ar": "المكسيك",
-    "date": "2026-11-11",
-    "n": 1557,
     "descEn": "",
     "descAr": ""
   },
