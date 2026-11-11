@@ -455,6 +455,149 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
   font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;max-width:88vw;
   text-align:center;box-shadow:0 6px 20px var(--shadow)}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* ===== المشغل بملء الشاشة ===== */
+#fs{position:fixed;inset:0;z-index:65;display:none;overflow-y:auto;overscroll-behavior:contain;
+  color:var(--ftx);font-family:var(--font);-webkit-tap-highlight-color:transparent;
+  background:var(--fbg);
+  padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+#fs.on{display:block}
+html[dir="rtl"] #fs{font-family:'Cairo',var(--font)}
+#fs[data-theme="studio"]{--fbg:#08111f;--fbg2:#14294a;--fa:#ff4d3d;--fb:#ffd166;--ftx:#f3f6fb;--fmu:rgba(243,246,251,.66);--fln:rgba(255,255,255,.14);--fcd:rgba(255,255,255,.07)}
+#fs[data-theme="transistor"]{--fbg:#0d3533;--fbg2:#1f5e57;--fa:#ff7a1a;--fb:#efe8d2;--ftx:#f7f2e4;--fmu:rgba(247,242,228,.7);--fln:rgba(239,232,210,.22);--fcd:rgba(239,232,210,.09)}
+#fs[data-theme="vinyl"]{--fbg:#150e0a;--fbg2:#3d2414;--fa:#f2a541;--fb:#e85d3a;--ftx:#fff3e4;--fmu:rgba(255,243,228,.64);--fln:rgba(255,243,228,.14);--fcd:rgba(255,243,228,.07)}
+.fsBg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  background:radial-gradient(120% 80% at 50% 0%,var(--fbg2) 0%,var(--fbg) 70%)}
+.fsBg img{position:absolute;inset:-15%;width:130%;height:130%;object-fit:cover;filter:blur(60px) saturate(1.5);opacity:.32}
+.fsBg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,var(--fbg) 92%)}
+#fs button{font-family:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#fs button:focus-visible,#fs input:focus-visible{outline:2px solid var(--fb);outline-offset:3px}
+#fs svg{width:22px;height:22px;fill:currentColor;display:block}
+
+.fsTop{position:sticky;top:0;z-index:3;display:flex;align-items:center;gap:8px;padding:12px 16px;
+  background:linear-gradient(180deg,var(--fbg) 55%,transparent)}
+.fsBack{display:flex;align-items:center;gap:8px;background:var(--fcd);border:1px solid var(--fln);
+  border-radius:999px;padding:9px 16px 9px 12px;font-size:14.5px;font-weight:700}
+html[dir="rtl"] .fsBack{padding:9px 12px 9px 16px}
+html[dir="rtl"] .fsBack svg{transform:scaleX(-1)}
+.fsAir{display:flex;align-items:center;gap:7px;margin-inline-start:auto;font-size:13px;color:var(--fmu);font-weight:600}
+.fsAir i{width:9px;height:9px;border-radius:50%;background:var(--fmu);transition:background .3s,box-shadow .3s}
+#fs.playing .fsAir i{background:var(--fa);box-shadow:0 0 0 4px color-mix(in srgb,var(--fa) 28%,transparent)}
+#fs.playing .fsAir{color:var(--ftx)}
+.fsIco{background:none;border:1px solid transparent;border-radius:50%;width:42px;height:42px;
+  display:grid;place-items:center;flex:none}
+.fsIco:hover{border-color:var(--fln)}
+
+.fsBody{max-width:1180px;margin:0 auto;padding:4px 18px 40px}
+.fsStage{display:flex;flex-direction:column;align-items:center;text-align:center}
+.fsRec{position:relative;width:min(70vw,300px);aspect-ratio:1;margin:10px auto 22px;
+  touch-action:pan-y;user-select:none}
+.fsLbl{position:absolute;inset:0;border-radius:28px;overflow:hidden;background:var(--fcd);
+  display:grid;place-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);border:1px solid var(--fln)}
+.fsLbl img{width:100%;height:100%;object-fit:cover;background:#fff}
+.fsLbl .ini{font-size:96px;font-weight:800;color:var(--fb)}
+/* الأسطوانة: الشعار يصير ملصقاً في وسط قرص يدور */
+#fs[data-theme="vinyl"] .fsRec{border-radius:50%;
+  background:radial-gradient(circle,#2a1d16 0 21%,transparent 21.5%),
+    repeating-radial-gradient(circle,#0c0806 0 2px,#1d1410 2px 4px);
+  box-shadow:0 30px 70px -18px rgba(0,0,0,.8),inset 0 0 0 6px #0c0806}
+#fs[data-theme="vinyl"] .fsLbl{inset:30%;border-radius:50%;box-shadow:none;border:3px solid var(--fa)}
+#fs[data-theme="vinyl"] .fsLbl .ini{font-size:34px}
+#fs[data-theme="vinyl"].playing .fsRec{animation:fsSpin 4.8s linear infinite}
+@keyframes fsSpin{to{transform:rotate(360deg)}}
+/* الترانزستور: إطار معدني مثقّب حول الشعار */
+#fs[data-theme="transistor"] .fsLbl{border-radius:22px;border:10px solid var(--fb);
+  box-shadow:0 0 0 1px rgba(0,0,0,.25),0 28px 50px -18px rgba(0,0,0,.55)}
+
+.fsName{font-size:clamp(24px,5.4vw,38px);font-weight:800;line-height:1.15;margin:0 0 6px;
+  max-width:22ch;overflow-wrap:anywhere}
+.fsMeta{font-size:15px;color:var(--fmu);margin:0}
+.fsTech{display:inline-flex;direction:ltr;gap:8px;margin-top:10px;font-size:12.5px;color:var(--fmu);font-variant-numeric:tabular-nums}
+.fsTech span{border:1px solid var(--fln);border-radius:999px;padding:3px 10px}
+.fsTech span:empty{display:none}
+
+.fsEq{display:flex;align-items:flex-end;justify-content:center;gap:3px;height:30px;margin:20px 0 6px;width:min(80vw,320px)}
+.fsEq i{flex:1;height:100%;background:linear-gradient(180deg,var(--fb),var(--fa));border-radius:2px;
+  transform-origin:bottom;transform:scaleY(.12);opacity:.85}
+#fs.playing .fsEq i{animation:fsEq var(--d,1s) ease-in-out infinite alternate;animation-delay:var(--l,0s)}
+@keyframes fsEq{0%{transform:scaleY(.12)}100%{transform:scaleY(var(--h,.9))}}
+
+.fsCtl{display:flex;align-items:center;justify-content:center;gap:clamp(10px,3.5vw,26px);margin:18px 0 8px;direction:ltr}
+.fsCtl .fsIco{width:48px;height:48px}
+.fsCtl .fsIco svg{width:26px;height:26px}
+.fsPlay{width:78px;height:78px;border-radius:50%;border:none;background:var(--fa);color:var(--fbg)!important;
+  display:grid;place-items:center;box-shadow:0 14px 34px -10px var(--fa)}
+.fsPlay svg{width:36px!important;height:36px!important}
+.fsPlay.wait svg{animation:fsSpin 1s linear infinite}
+#fsFav.on{color:var(--fa)}
+
+.fsVol{display:flex;align-items:center;gap:10px;width:min(86vw,360px);margin:8px auto 0;direction:ltr}
+.fsVol input{flex:1;accent-color:var(--fa);height:28px}
+.fsVol b{font-size:13px;font-weight:600;color:var(--fmu);min-width:38px;text-align:end;font-variant-numeric:tabular-nums}
+
+.fsTools{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:18px 0 6px}
+.fsTool{display:flex;align-items:center;gap:7px;background:var(--fcd);border:1px solid var(--fln);
+  border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600}
+.fsTool svg{width:17px!important;height:17px!important}
+.fsTool.on{border-color:var(--fa);color:var(--fa)}
+
+/* مؤشر الضبط: شريط المحطات تحت إبرة ثابتة */
+.fsDial{position:relative;margin:26px 0 8px;direction:ltr}
+.fsBand{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:0 calc(50% - 58px);height:84px;align-items:flex-end;
+  background:
+    repeating-linear-gradient(90deg,var(--fln) 0 1px,transparent 1px 12px) 0 10px/100% 14px no-repeat,
+    repeating-linear-gradient(90deg,var(--fmu) 0 1px,transparent 1px 60px) 0 6px/100% 22px no-repeat;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.fsBand::-webkit-scrollbar{display:none}
+.fsTick{flex:0 0 116px;scroll-snap-align:center;background:none;border:none;padding:0 6px 10px;
+  font-size:12.5px;color:var(--fmu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.fsTick.cur{color:var(--ftx);font-weight:800}
+.fsNeedle{position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--fa);
+  pointer-events:none;box-shadow:0 0 12px var(--fa)}
+.fsNeedle::before{content:"";position:absolute;top:-4px;left:-5px;border:6px solid transparent;border-top-color:var(--fa)}
+.fsHint{font-size:12px;color:var(--fmu);text-align:center;margin:0}
+
+.fsPanel{margin-top:22px}
+.fsTabs{display:flex;flex-wrap:wrap;gap:6px}
+.fsTab{flex:none;background:none;border:1px solid var(--fln);border-radius:999px;padding:8px 15px;font-size:14px;font-weight:600;color:var(--fmu)!important}
+.fsTab.on{background:var(--ftx);color:var(--fbg)!important;border-color:var(--ftx)}
+.fsSearch{width:100%;box-sizing:border-box;margin:12px 0 6px;background:var(--fcd);border:1px solid var(--fln);
+  border-radius:14px;padding:12px 14px;font:inherit;font-size:15px;color:var(--ftx)}
+.fsSearch::placeholder{color:var(--fmu)}
+.fsList{list-style:none;margin:0;padding:0}
+.fsRow{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;border-bottom:1px solid var(--fln);
+  padding:10px 4px;text-align:start}
+.fsRow .lg{width:44px;height:44px;border-radius:11px;flex:none;overflow:hidden;background:var(--fcd);display:grid;place-items:center;font-weight:800;color:var(--fb)}
+.fsRow .lg img{width:100%;height:100%;object-fit:cover;background:#fff}
+.fsRow .tx{flex:1;min-width:0}
+.fsRow .nm{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fsRow .mt{font-size:12.5px;color:var(--fmu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fsRow.cur .nm{color:var(--fa)}
+.fsEmpty{color:var(--fmu);padding:26px 4px;font-size:14px}
+
+/* وضع التركيز: ساعة كبيرة وشعار، والشاشة تبقى مضاءة */
+.fsClock{display:none;font-size:clamp(64px,18vw,150px);font-weight:300;letter-spacing:-.02em;line-height:1;
+  font-variant-numeric:tabular-nums;margin:4vh 0 2vh}
+#fs.focus .fsClock{display:block}
+#fs.focus .fsTop .fsIco,#fs.focus .fsTop .fsBack,#fs.focus .fsCtl,#fs.focus .fsVol,#fs.focus .fsTools,
+#fs.focus .fsDial,#fs.focus .fsHint,#fs.focus .fsPanel,#fs.focus .fsTech{display:none}
+#fs.focus .fsRec{width:min(46vw,220px)}
+.fsFocusHint{display:none;font-size:13px;color:var(--fmu);margin-top:3vh}
+#fs.focus .fsFocusHint{display:block}
+
+@media(min-width:960px){
+  .fsBody{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:46px;align-items:start;padding-top:10px}
+  .fsPanel{margin-top:0;position:sticky;top:76px;max-height:calc(100vh - 100px);display:flex;flex-direction:column}
+  .fsList{overflow-y:auto;flex:1}
+  #fs.focus .fsBody{display:block}
+  .fsRec{width:300px}
+}
+@media(prefers-reduced-motion:reduce){
+  #fs.playing .fsEq i,#fs[data-theme="vinyl"].playing .fsRec{animation:none}
+  #fs.playing .fsEq i{transform:scaleY(.5)}
+}
+.player .nav svg{width:19px;height:19px;fill:currentColor;display:block}
 </style>
 </head>
 <body>
@@ -649,6 +792,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     <button class="nav" id="pPrev">&#9198;</button>
     <button class="pbtn" id="pBtn" aria-label="Play"><svg id="pIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
     <button class="nav" id="pNext">&#9197;</button>
+    <button class="nav" id="pExp" aria-label="Full-screen player" title="Full-screen player"><svg viewBox="0 0 24 24"><path d="M5 5h5V3H3v7h2zm9-2v2h5v5h2V3zm5 16h-5v2h7v-7h-2zM5 14H3v7h7v-2H5z"/></svg></button>
   </div>
   <div class="pext">
     <div class="prow">
@@ -663,6 +807,59 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
       <button class="pact" id="aClose">&times; <span data-i="close">Close</span></button>
     </div>
     <div class="usage" id="usage"></div>
+  </div>
+</div>
+
+<div id="fs" role="dialog" aria-modal="true" aria-labelledby="fsName" data-theme="studio">
+  <div class="fsBg" aria-hidden="true"><img id="fsBgImg" alt="" hidden></div>
+  <div class="fsTop">
+    <button class="fsBack" id="fsBack"><svg viewBox="0 0 24 24"><path d="M15.4 5.4 14 4l-8 8 8 8 1.4-1.4L8.8 12z"/></svg><span id="fsBackT">Back to site</span></button>
+    <div class="fsAir"><i></i><span id="fsAirT">On air</span></div>
+    <button class="fsIco" id="fsTheme" aria-label="Theme"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18c.8 0 1.5-.7 1.5-1.5 0-.4-.2-.7-.4-1-.2-.3-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.4-4-8-9-8zM6.5 12a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
+    <button class="fsIco" id="fsFocus" aria-label="Focus"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7z"/></svg></button>
+  </div>
+  <div class="fsBody">
+    <section class="fsStage">
+      <div class="fsClock" id="fsClock" aria-hidden="true">00:00</div>
+      <div class="fsRec" id="fsRec"><div class="fsLbl" id="fsLbl"><span class="ini">♪</span></div></div>
+      <h2 class="fsName" id="fsName">—</h2>
+      <p class="fsMeta" id="fsMeta"></p>
+      <div class="fsTech"><span id="fsBr"></span><span id="fsCodec"></span></div>
+      <div class="fsEq" id="fsEq" aria-hidden="true"></div>
+      <div class="fsCtl">
+        <button class="fsIco" id="fsFav" aria-label="Favourite"><svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1C13.1 3.8 14.8 3 16.5 3 19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg></button>
+        <button class="fsIco" id="fsPrev" aria-label="Previous station"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg></button>
+        <button class="fsPlay" id="fsPlay" aria-label="Play"><svg viewBox="0 0 24 24"><path id="fsIcon" d="M8 5v14l11-7z"/></svg></button>
+        <button class="fsIco" id="fsNext" aria-label="Next station"><svg viewBox="0 0 24 24"><path d="m6 18 8.5-6L6 6zm10-12v12h2V6z"/></svg></button>
+        <button class="fsIco" id="fsRand" aria-label="Random station"><svg viewBox="0 0 24 24"><path d="M10.6 9.2 5.4 4 4 5.4l5.2 5.2zM14.5 4l2 2L4 18.6 5.4 20 18 7.5l2 2V4zm.3 9.4-1.4 1.4 3.1 3.1-2 2H20v-5.5l-2 2z"/></svg></button>
+      </div>
+      <div class="fsVol">
+        <button class="fsIco" id="fsMute" aria-label="Mute"><svg viewBox="0 0 24 24"><path id="fsVolIco" d="M3 9v6h4l5 5V4L7 9zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></button>
+        <input type="range" id="fsVolR" min="0" max="100" aria-label="Volume">
+        <b id="fsVolT">100%</b>
+      </div>
+      <div class="fsTools">
+        <button class="fsTool" id="fsSleep"><svg viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 1 0 9.7 12.4A8 8 0 0 1 12.3 2z"/></svg><span id="fsSleepT">Sleep timer</span></button>
+        <button class="fsTool" id="fsShare"><svg viewBox="0 0 24 24"><path d="M18 16a3 3 0 0 0-2.1.9l-7-4.1a3 3 0 0 0 0-1.6l7-4A3 3 0 1 0 15 5l-7 4.1a3 3 0 1 0 0 5.8l7 4.1A3 3 0 1 0 18 16z"/></svg><span id="fsShareT">Share</span></button>
+        <button class="fsTool" id="fsInfo"><svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg><span id="fsInfoT">Details</span></button>
+      </div>
+      <div class="fsDial" id="fsDial">
+        <div class="fsBand" id="fsBand" aria-label="Station dial"></div>
+        <div class="fsNeedle" aria-hidden="true"></div>
+      </div>
+      <p class="fsHint" id="fsHint">Slide the dial to tune</p>
+      <p class="fsFocusHint" id="fsFocusHint">Tap anywhere to exit</p>
+    </section>
+    <section class="fsPanel">
+      <div class="fsTabs" role="tablist">
+        <button class="fsTab" data-t="country" id="fsTabC" role="tab">Country</button>
+        <button class="fsTab" data-t="world" id="fsTabW" role="tab">Worldwide</button>
+        <button class="fsTab" data-t="fav" id="fsTabF" role="tab">Favourites</button>
+        <button class="fsTab" data-t="recent" id="fsTabR" role="tab">Recent</button>
+      </div>
+      <input class="fsSearch" id="fsSearch" type="search" placeholder="Search stations" autocomplete="off">
+      <ul class="fsList" id="fsList"></ul>
+    </section>
   </div>
 </div>
 
@@ -818,27 +1015,37 @@ function toast(m){var t=$('toast');t.innerHTML=m;t.classList.add('show');
   clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2400);}
 
 /* ---------- data helpers ---------- */
-var MIRRORS=['https://de2.api.radio-browser.info','https://nl1.api.radio-browser.info','https://at1.api.radio-browser.info'];
-/* تُطلَق المرايا الثلاث في وقت واحد ويفوز أسرعها، بمهلة 8 ثوانٍ لكل منها.
-   التسلسل القديم كان ينتظر كل مرآة بطيئة حتى تنتهي مهلتها. */
+/* المرايا بالتتابع لا معاً: نبدأ بآخر مرآة نجحت، ولا نطلق التالية إلا إن فشلت
+   الأولى أو تأخرت 4 ثوانٍ. هكذا لا تُطرق مرآة معطّلة في الزيارة العادية،
+   فلا تظهر أخطاء في وحدة التحكم. ولا نلغي أي طلب، فالإلغاء يسجّل خطأ أيضاً. */
+var MIRRORS=['https://de2.api.radio-browser.info','https://de1.api.radio-browser.info',
+             'https://nl1.api.radio-browser.info','https://at1.api.radio-browser.info'];
+var mirGood=(function(){try{return localStorage.getItem('lr_mir')||'';}catch(e){return '';}})();
 function api(p){
+  var order=MIRRORS.slice(),k=order.indexOf(mirGood);
+  if(k>0){order.splice(k,1);order.unshift(mirGood);}
   return new Promise(function(resolve){
-    var done=false,left=MIRRORS.length;
-    MIRRORS.forEach(function(m){
-      var ctl=null,t=null;
-      try{ctl=new AbortController();}catch(e){}
-      t=setTimeout(function(){if(ctl)try{ctl.abort();}catch(e){}},15000);
-      fetch(m+p,ctl?{signal:ctl.signal}:undefined)
-        .then(function(r){ if(!r.ok)throw 0; return r.json(); })
+    var done=false,i=0,live=0;
+    var cap=setTimeout(function(){fin(null);},20000);
+    function fin(d){if(done)return;done=true;clearTimeout(cap);resolve(d);}
+    function launch(){
+      if(done||i>=order.length)return;
+      var m=order[i++];live++;
+      var hedge=setTimeout(launch,4000);
+      fetch(m+p)
+        .then(function(r){if(!r.ok)throw 0;return r.json();})
         .then(function(d){
-          clearTimeout(t);
-          if(!done){done=true;resolve(d);}
+          clearTimeout(hedge);live--;
+          if(!done){mirGood=m;try{localStorage.setItem('lr_mir',m);}catch(e){}}
+          fin(d);
         })
         .catch(function(){
-          clearTimeout(t);
-          if(--left<=0&&!done){done=true;resolve(null);}
+          clearTimeout(hedge);live--;
+          if(done)return;
+          if(i<order.length)launch();else if(live<=0)fin(null);
         });
-    });
+    }
+    launch();
   });
 }
 var QCAP={low:64,mid:128,high:0};
@@ -1485,7 +1692,7 @@ function currentQueue(){
 function play(s){
   if(current&&current.stationuuid===s.stationuuid){toggle();return;}
   current=s;retries=0;clearTimeout(retryT);
-  queue=currentQueue();
+  queue=(window.fsQueueFor&&window.fsQueueFor(s))||currentQueue();
   qi=-1;for(var i=0;i<queue.length;i++)if(queue[i].stationuuid===s.stationuuid){qi=i;break;}
   audio.src=s.url_resolved||s.url;
   var pr=audio.play();if(pr&&pr.catch)pr.catch(function(){});
@@ -1508,6 +1715,7 @@ function play(s){
       navigator.mediaSession.setActionHandler('nexttrack',next);
     }catch(e){}
   }
+  if(window.fsSync)window.fsSync();
 }
 function toggle(){if(audio.paused){var p=audio.play();if(p&&p.catch)p.catch(function(){});}else audio.pause();}
 function next(){if(queue.length){qi=(qi+1)%queue.length;play(queue[qi]);}}
@@ -1547,12 +1755,13 @@ $('aShare').onclick=function(){
   if(navigator.share){navigator.share({title:'LiveRadio',url:u}).catch(function(){});return;}
   if(navigator.clipboard)navigator.clipboard.writeText(u).then(function(){toast(T('copied'));}).catch(function(){});
 };
-var SLEEPS=[0,15,30,60,90];
+var SLEEPS=[0,15,30,60,90],sleepEnd=0;
 $('aSleep').onclick=function(){
   var i=SLEEPS.indexOf(sleepMin);sleepMin=SLEEPS[(i+1)%SLEEPS.length];
   clearTimeout(sleepT);
   var b=$('aSleep');b.classList.toggle('on',sleepMin>0);
-  if(sleepMin>0){sleepT=setTimeout(function(){audio.pause();b.classList.remove('on');sleepMin=0;},sleepMin*60000);
+  sleepEnd=sleepMin>0?Date.now()+sleepMin*60000:0;
+  if(sleepMin>0){sleepT=setTimeout(function(){audio.pause();b.classList.remove('on');sleepMin=0;sleepEnd=0;},sleepMin*60000);
     toast(T('sleepOn').replace('{n}',sleepMin));}
   else toast(T('sleepOff'));
 };
@@ -2112,6 +2321,7 @@ function hookPageLinks(){
   for(var i=0;i<as.length;i++)hookLink(as[i]);
 }
 window.addEventListener('popstate',function(){
+  if(window.fsOnPop&&window.fsOnPop())return;
   var h=location.href.split('#')[0];
   if(h===ROOT||h===ROOT+'index.html')goHome(false);
   else loadPage(h,false);
@@ -2201,6 +2411,337 @@ function openHash(){
   }).catch(function(){});
 }
 window.addEventListener('hashchange',openHash);
+
+/* ===== المشغل بملء الشاشة =====
+   يعيد استعمال المحرك نفسه (audio وplay وnext وprev)، فالصوت لا ينقطع
+   حين يُفتح أو يُغلق. القائمة المختارة فيه تصير قائمة التشغيل التالي/السابق. */
+(function(){
+var FT={
+ en:{back:'Back to site',air:'On air',off:'Paused',tC:'Country',tW:'Worldwide',tF:'Favourites',tR:'Recent',
+   search:'Search stations',loading:'Loading stations…',emptyF:'No favourites yet. Tap the heart on any station to add it.',
+   emptyR:'Stations you play will appear here.',emptyS:'No station matches this search.',failed:'Could not load stations. Check your connection and try again.',
+   sleep:'Sleep timer',sleepIn:'Sleep in {n} min',share:'Share',info:'Details',hint:'Slide the dial to tune',
+   focusHint:'Tap anywhere to exit',theme:'Theme',focus:'Focus mode',fav:'Favourite',prev:'Previous station',
+   next:'Next station',rand:'Random station',play:'Play',pause:'Pause',mute:'Mute',unmute:'Unmute',vol:'Volume',
+   themes:{studio:'Studio',transistor:'Transistor',vinyl:'Vinyl'},themeSet:'Theme: {t}',exp:'Full-screen player',
+   none:'Choose a station to start'},
+ ar:{back:'العودة إلى الموقع',air:'على الهواء',off:'متوقف',tC:'البلد',tW:'العالم',tF:'المفضلة',tR:'الأخيرة',
+   search:'ابحث عن محطة',loading:'جارٍ تحميل المحطات…',emptyF:'لا مفضلة بعد. اضغط القلب على أي محطة لإضافتها.',
+   emptyR:'ستظهر هنا المحطات التي تستمع إليها.',emptyS:'لا محطة تطابق هذا البحث.',failed:'تعذّر تحميل المحطات. تحقّق من الاتصال وأعد المحاولة.',
+   sleep:'مؤقت النوم',sleepIn:'إيقاف بعد {n} د',share:'مشاركة',info:'التفاصيل',hint:'حرّك المؤشر لضبط المحطة',
+   focusHint:'المس الشاشة للخروج',theme:'المظهر',focus:'وضع التركيز',fav:'المفضلة',prev:'المحطة السابقة',
+   next:'المحطة التالية',rand:'محطة عشوائية',play:'تشغيل',pause:'إيقاف مؤقت',mute:'كتم الصوت',unmute:'إعادة الصوت',vol:'مستوى الصوت',
+   themes:{studio:'الاستوديو',transistor:'الترانزستور',vinyl:'الأسطوانة'},themeSet:'المظهر: {t}',exp:'المشغل بملء الشاشة',
+   none:'اختر محطة للبدء'}
+};
+function t(k){var d=FT[lang]||FT.en;return d[k]!==undefined?d[k]:FT.en[k];}
+var THEMES=['studio','transistor','vinyl'];
+var fs=$('fs'),band=$('fsBand'),list=$('fsList');
+var open=false,tab=LS.get('lr_fsTab','country'),theme=LS.get('lr_fsTheme','studio');
+if(THEMES.indexOf(theme)<0)theme='studio';
+var data={country:[],world:[]},ccCache={},worldReq=null,shownUid='',filterQ='',pushed=false;
+var dialUser=false,dialT=null,clockT=null,wake=null,lastVol=100;
+
+/* أعمدة الموجة: زخرفية، تتحرك مع التشغيل فقط */
+(function(){var eq=$('fsEq'),h='';
+  for(var i=0;i<32;i++)h+='<i style="--d:'+(0.45+Math.random()*0.7).toFixed(2)+'s;--l:-'+(Math.random()).toFixed(2)+'s;--h:'+(0.35+Math.random()*0.65).toFixed(2)+'"></i>';
+  eq.innerHTML=h;})();
+
+function st(){return current||LS.get('lr_last',null);}
+function logo(s,cls){
+  var w=document.createElement('div');w.className=cls||'';
+  if(s&&s.favicon&&s.favicon.indexOf('https')===0){
+    var im=document.createElement('img');im.alt='';im.loading='lazy';im.src=s.favicon;
+    im.onerror=function(){w.innerHTML='';var f=document.createElement('span');f.className='ini';f.textContent=ini(s.name);w.appendChild(f);};
+    w.appendChild(im);
+  }else{var f=document.createElement('span');f.className='ini';f.textContent=ini(s?s.name:'♪');w.appendChild(f);}
+  return w;
+}
+function meta(s){
+  return [flagOf(s.countrycode)+' '+cname(s.countrycode,s.country||''),(s.tags||'').split(',')[0]]
+    .map(function(x){return (x||'').trim();}).filter(Boolean).join(lang==='ar'?'، ':', ');
+}
+
+/* ---------- النصوص ---------- */
+function labels(){
+  fs.setAttribute('lang',lang);
+  $('fsBackT').textContent=t('back');
+  $('fsShareT').textContent=t('share');$('fsInfoT').textContent=t('info');
+  $('fsHint').textContent=t('hint');$('fsFocusHint').textContent=t('focusHint');
+  $('fsSearch').placeholder=t('search');
+  $('fsTheme').setAttribute('aria-label',t('theme'));$('fsFocus').setAttribute('aria-label',t('focus'));
+  $('fsFav').setAttribute('aria-label',t('fav'));$('fsPrev').setAttribute('aria-label',t('prev'));
+  $('fsNext').setAttribute('aria-label',t('next'));$('fsRand').setAttribute('aria-label',t('rand'));
+  $('fsVolR').setAttribute('aria-label',t('vol'));
+  $('fsTabW').textContent=t('tW');$('fsTabF').textContent=t('tF');$('fsTabR').textContent=t('tR');
+  var s=st();
+  $('fsTabC').textContent=s&&s.countrycode?(flagOf(s.countrycode)+' '+cname(s.countrycode,s.country||'')):t('tC');
+  sleepLabel();state();
+}
+
+/* ---------- المحطة الحالية ---------- */
+function sync(first){
+  if(!open)return;
+  var s=st();
+  if(!s){$('fsName').textContent=t('none');$('fsMeta').textContent='';return;}
+  $('fsName').textContent=(s.name||'').trim();
+  $('fsMeta').textContent=meta(s);
+  $('fsBr').textContent=s.bitrate?s.bitrate+' kbps':'';
+  $('fsCodec').textContent=(s.codec&&s.codec!=='UNKNOWN')?s.codec:'';
+  $('fsFav').classList.toggle('on',isFav(s.stationuuid));
+  if(shownUid!==s.stationuuid){
+    shownUid=s.stationuuid;
+    var old=$('fsLbl'),nu=logo(s,'fsLbl');nu.id='fsLbl';old.replaceWith(nu);
+    var bg=$('fsBgImg');
+    if(s.favicon&&s.favicon.indexOf('https')===0){bg.src=s.favicon;bg.hidden=false;bg.onerror=function(){bg.hidden=true;};}
+    else bg.hidden=true;
+    labels();
+    if(first)return;
+    if(tab==='country'&&(data.country.cc!==s.countrycode))loadTab();
+    else if(tab==='recent')drawAll();
+    else{markCur();centerDial(true);}
+  }else{markCur();}
+}
+function state(){
+  var playing=!!current&&!audio.paused;
+  fs.classList.toggle('playing',playing);
+  $('fsAirT').textContent=playing?t('air'):t('off');
+  var waiting=$('pIcon').querySelector('path').getAttribute('d')===WAIT&&!!current;
+  $('fsIcon').setAttribute('d',waiting?WAIT:(playing?PAUSE:PLAY));
+  $('fsPlay').classList.toggle('wait',waiting);
+  $('fsPlay').setAttribute('aria-label',playing?t('pause'):t('play'));
+}
+
+/* ---------- القوائم ---------- */
+function activeList(){
+  if(tab==='fav')return favs;
+  if(tab==='recent')return recent;
+  if(tab==='world')return data.world;
+  return data.country;
+}
+function loadTab(){
+  var tabs=document.querySelectorAll('.fsTab');
+  for(var i=0;i<tabs.length;i++){var on=tabs[i].dataset.t===tab;tabs[i].classList.toggle('on',on);tabs[i].setAttribute('aria-selected',on?'true':'false');}
+  if(tab==='country'){
+    var s=st(),cc=(s&&s.countrycode)||myCC||'';
+    if(!cc){data.country=[];data.country.cc='';drawAll();return;}
+    if(ccCache[cc]){data.country=ccCache[cc];drawAll();return;}
+    var seed=(cc===curCC&&ctryList.length)?ctryList:((cc===inCC&&inList.length)?inList:((cc===myCC&&localList.length)?localList:null));
+    if(seed&&seed.length>=30){ccCache[cc]=seed.slice();ccCache[cc].cc=cc;data.country=ccCache[cc];drawAll();return;}
+    loading();
+    api('/json/stations/search?countrycode='+cc+'&hidebroken=true&order=clickcount&reverse=true&limit=200')
+      .then(function(d){
+        if(!d){failedList();return;}
+        var l=capped(clean(d));l.cc=cc;ccCache[cc]=l;
+        if(tab==='country'){data.country=l;drawAll();}
+      });
+    return;
+  }
+  if(tab==='world'){
+    if(data.world.length){drawAll();return;}
+    loading();
+    if(!worldReq)worldReq=api('/json/stations/search?hidebroken=true&order=clickcount&reverse=true&limit=200');
+    worldReq.then(function(d){
+      if(!d){worldReq=null;failedList();return;}
+      data.world=capped(clean(d));if(tab==='world')drawAll();
+    });
+    return;
+  }
+  drawAll();
+}
+function loading(){list.innerHTML='<li class="fsEmpty">'+t('loading')+'</li>';band.innerHTML='';}
+function failedList(){list.innerHTML='<li class="fsEmpty">'+t('failed')+'</li>';band.innerHTML='';}
+function drawAll(){drawList();drawDial(true);}
+function drawList(){
+  var l=activeList(),q=filterQ.toLowerCase(),out=document.createDocumentFragment(),n=0;
+  list.innerHTML='';
+  for(var i=0;i<l.length&&n<200;i++){
+    var s=l[i];
+    if(q&&(s.name||'').toLowerCase().indexOf(q)<0&&(s.tags||'').toLowerCase().indexOf(q)<0)continue;
+    n++;
+    var li=document.createElement('li'),b=document.createElement('button');
+    b.className='fsRow';b.dataset.i=i;b.dataset.u=s.stationuuid;
+    b.appendChild(logo(s,'lg'));
+    var tx=document.createElement('div');tx.className='tx';
+    var nm=document.createElement('div');nm.className='nm';nm.textContent=(s.name||'').trim();
+    var mt=document.createElement('div');mt.className='mt';mt.textContent=meta(s)+(s.bitrate?(lang==='ar'?'، ':', ')+s.bitrate+' kbps':'');
+    tx.appendChild(nm);tx.appendChild(mt);b.appendChild(tx);
+    b.onclick=function(){pick(+this.dataset.i);};
+    li.appendChild(b);out.appendChild(li);
+  }
+  if(!n){
+    var msg=q?t('emptyS'):(tab==='fav'?t('emptyF'):(tab==='recent'?t('emptyR'):t('loading')));
+    list.innerHTML='<li class="fsEmpty"></li>';list.firstChild.textContent=msg;return;
+  }
+  list.appendChild(out);markCur();
+}
+function drawDial(center){
+  var l=activeList(),f=document.createDocumentFragment();
+  band.innerHTML='';
+  for(var i=0;i<l.length&&i<200;i++){
+    var b=document.createElement('button');b.className='fsTick';b.dataset.i=i;b.dataset.u=l[i].stationuuid;
+    b.textContent=(l[i].name||'').trim();b.tabIndex=-1;
+    b.onclick=function(){dialUser=false;pick(+this.dataset.i);};
+    f.appendChild(b);
+  }
+  band.appendChild(f);
+  $('fsDial').style.display=l.length?'':'none';$('fsHint').style.display=l.length?'':'none';
+  markCur();if(center)centerDial(false);
+}
+function markCur(){
+  var u=current?current.stationuuid:'';
+  var rs=list.querySelectorAll('.fsRow');for(var i=0;i<rs.length;i++)rs[i].classList.toggle('cur',rs[i].dataset.u===u);
+  var ts=band.children;for(var j=0;j<ts.length;j++)ts[j].classList.toggle('cur',ts[j].dataset.u===u);
+}
+function centerDial(smooth){
+  var u=current?current.stationuuid:'',el=null;
+  for(var i=0;i<band.children.length;i++)if(band.children[i].dataset.u===u){el=band.children[i];break;}
+  if(!el)return;
+  var left=el.offsetLeft-(band.clientWidth-el.offsetWidth)/2;
+  try{band.scrollTo({left:left,behavior:smooth?'smooth':'auto'});}catch(e){band.scrollLeft=left;}
+}
+function pick(i){
+  var l=activeList();if(!l[i])return;
+  if(current&&current.stationuuid===l[i].stationuuid){toggle();return;}
+  play(l[i]);
+}
+/* حين يتوقف الإصبع عن تحريك المؤشر، تُضبط المحطة التي تحت الإبرة */
+function dialSettle(){
+  if(!dialUser)return;dialUser=false;
+  var mid=band.getBoundingClientRect().left+band.clientWidth/2,best=null,bd=1e9;
+  for(var i=0;i<band.children.length;i++){
+    var r=band.children[i].getBoundingClientRect(),d=Math.abs(r.left+r.width/2-mid);
+    if(d<bd){bd=d;best=band.children[i];}
+  }
+  if(best&&(!current||best.dataset.u!==current.stationuuid))pick(+best.dataset.i);
+}
+['pointerdown','touchstart','wheel'].forEach(function(ev){band.addEventListener(ev,function(){dialUser=true;},{passive:true});});
+band.addEventListener('scroll',function(){clearTimeout(dialT);dialT=setTimeout(dialSettle,450);},{passive:true});
+
+/* ---------- الفتح والإغلاق ---------- */
+function show(){
+  if(open)return;
+  open=true;fs.dataset.theme=theme;fs.classList.add('on');
+  document.documentElement.style.overflow='hidden';
+  try{history.pushState({lrfs:1},'');pushed=true;}catch(e){pushed=false;}
+  shownUid='';labels();syncVol();sync(true);loadTab();
+  clearInterval(clockT);clockT=setInterval(tick,15000);tick();
+  setTimeout(function(){$('fsBack').focus();},50);
+  if(window.gtag)gtag('event','fullscreen_player_open',{theme:theme});
+}
+function hide(){
+  if(!open)return;
+  open=false;fs.classList.remove('on','focus');
+  document.documentElement.style.overflow='';
+  clearInterval(clockT);releaseWake();
+  var b=$('pExp');if(b)b.focus();
+}
+function close(){
+  if(!open)return;
+  if(pushed&&history.state&&history.state.lrfs){pushed=false;history.back();}  /* popstate يكمل الإغلاق */
+  else hide();
+}
+window.fsOnPop=function(){if(open){pushed=false;hide();return true;}return false;};
+window.fsSync=function(){sync();state();};
+/* القائمة المعروضة في المشغل الكبير تصير قائمة التالي/السابق */
+window.fsQueueFor=function(s){
+  if(!open)return null;var l=activeList();
+  for(var i=0;i<l.length;i++)if(l[i].stationuuid===s.stationuuid)return l;
+  return null;
+};
+window.fsClose=hide;
+
+/* ---------- الأزرار ---------- */
+$('pExp').onclick=function(e){e.stopPropagation();show();};
+$('fsBack').onclick=close;
+$('fsPlay').onclick=function(){if(!current){var s=st();if(s){play(s);return;}}toggle();};
+$('fsPrev').onclick=function(){step(-1);};
+$('fsNext').onclick=function(){step(1);};
+function step(d){
+  var l=activeList();if(!l.length){d>0?next():prev();return;}
+  var i=-1,u=current?current.stationuuid:'';
+  for(var k=0;k<l.length;k++)if(l[k].stationuuid===u){i=k;break;}
+  pick(((i<0?(d>0?-1:0):i)+d+l.length)%l.length);
+}
+$('fsRand').onclick=function(){var l=activeList();if(l.length)pick(Math.floor(Math.random()*l.length));};
+$('fsFav').onclick=function(){var s=st();if(s){toggleFav(s);$('fsFav').classList.toggle('on',isFav(s.stationuuid));if(tab==='fav')drawAll();}};
+$('fsShare').onclick=function(){var s=st();if(s)shareStation(s);};
+$('fsInfo').onclick=function(){var s=st();if(s)showInfo(s);};
+$('fsSleep').onclick=function(){$('aSleep').onclick();sleepLabel();};
+$('fsTheme').onclick=function(){
+  theme=THEMES[(THEMES.indexOf(theme)+1)%THEMES.length];
+  fs.dataset.theme=theme;LS.set('lr_fsTheme',theme);
+  toast(t('themeSet').replace('{t}',t('themes')[theme]));
+};
+var tabs=document.querySelectorAll('.fsTab');
+for(var i=0;i<tabs.length;i++)tabs[i].onclick=function(){
+  tab=this.dataset.t;LS.set('lr_fsTab',tab);filterQ='';$('fsSearch').value='';loadTab();
+};
+$('fsSearch').oninput=function(){filterQ=this.value.trim();drawList();};
+
+/* ---------- الصوت ---------- */
+function syncVol(){
+  var v=+vol.value;$('fsVolR').value=v;$('fsVolT').textContent=v+'%';
+  $('fsVolIco').setAttribute('d',v===0?'M16.5 12A4.5 4.5 0 0 0 14 8v2.2l2.4 2.4.1-.6zM19 12c0 .9-.2 1.8-.5 2.6l1.5 1.5A9 9 0 0 0 14 3.2v2.1a7 7 0 0 1 5 6.7zM4.3 3 3 4.3 7.7 9H3v6h4l5 5v-6.7l4.3 4.3a7 7 0 0 1-2.3 1.2v2.1a9 9 0 0 0 3.7-1.8L19.7 21 21 19.7l-9-9zM12 4 9.9 6.1 12 8.2z'
+    :'M3 9v6h4l5 5V4L7 9zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z');
+  $('fsMute').setAttribute('aria-label',v===0?t('unmute'):t('mute'));
+}
+function setVol(v){v=Math.max(0,Math.min(100,Math.round(v)));vol.value=v;vol.oninput();syncVol();}
+$('fsVolR').oninput=function(){setVol(+this.value);};
+$('fsMute').onclick=function(){var v=+vol.value;if(v>0){lastVol=v;setVol(0);}else setVol(lastVol||80);};
+
+/* ---------- مؤقت النوم ---------- */
+function sleepLabel(){
+  var b=$('fsSleep');
+  if(sleepMin>0&&window.sleepEnd){
+    var left=Math.max(1,Math.ceil((sleepEnd-Date.now())/60000));
+    $('fsSleepT').textContent=t('sleepIn').replace('{n}',left);b.classList.add('on');
+  }else{$('fsSleepT').textContent=t('sleep');b.classList.remove('on');}
+}
+function tick(){
+  var d=new Date(),h=d.getHours(),m=d.getMinutes();
+  $('fsClock').textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m;
+  sleepLabel();
+}
+
+/* ---------- وضع التركيز: الشاشة تبقى مضاءة ---------- */
+function releaseWake(){if(wake){try{wake.release();}catch(e){}wake=null;}}
+$('fsFocus').onclick=function(e){
+  e.stopPropagation();fs.classList.add('focus');tick();
+  if(navigator.wakeLock&&navigator.wakeLock.request)
+    navigator.wakeLock.request('screen').then(function(w){wake=w;}).catch(function(){});
+};
+fs.addEventListener('click',function(e){
+  if(fs.classList.contains('focus')&&e.target.closest('#fsFocus')===null){fs.classList.remove('focus');releaseWake();}
+});
+document.addEventListener('visibilitychange',function(){
+  if(document.visibilityState==='visible'&&open&&fs.classList.contains('focus')&&!wake&&navigator.wakeLock)
+    navigator.wakeLock.request('screen').then(function(w){wake=w;}).catch(function(){});
+});
+
+/* ---------- السحب على الشعار ---------- */
+(function(){var x0=null,y0=0,rec=$('fsRec');
+  rec.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  rec.addEventListener('touchend',function(e){
+    if(x0===null)return;var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;
+    if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)step(dx<0?1:-1);
+  },{passive:true});
+})();
+
+/* ---------- لوحة المفاتيح ---------- */
+window.addEventListener('keydown',function(e){
+  if(!open||e.target.tagName==='INPUT')return;
+  if(e.code==='Escape'){if(fs.classList.contains('focus')){fs.classList.remove('focus');releaseWake();}else close();}
+  else if(e.code==='ArrowUp'){e.preventDefault();setVol(+vol.value+5);}
+  else if(e.code==='ArrowDown'){e.preventDefault();setVol(+vol.value-5);}
+  else if(e.code==='KeyM')$('fsMute').onclick();
+  else if(e.code==='KeyT')$('fsTheme').onclick();
+  else if(e.code==='KeyF')$('fsFocus').onclick(e);
+});
+
+['playing','pause','waiting','play'].forEach(function(ev){audio.addEventListener(ev,function(){if(open){state();markCur();}});});
+var _syncRT;window.addEventListener('resize',function(){if(!open)return;clearTimeout(_syncRT);_syncRT=setTimeout(function(){centerDial(false);},200);});
+})();
 
 /* ---------- init ---------- */
 applyTheme();applyLang();syncQ();drawRecent();drawStats();drawUsage();hookPageLinks();

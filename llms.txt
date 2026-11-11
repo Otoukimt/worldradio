@@ -1,0 +1,23 @@
+# LiveRadio
+
+> LiveRadio (worldliveradio.com) is a free directory of live internet radio from around the world. Visitors can browse thousands of stations by country and category — news, music, sport, talk and religious programming — and play them in the browser without an app or an account. The site does not host or rebroadcast audio: the visitor's browser connects directly to each station's own public stream.
+
+The site is bilingual (English and Arabic). Each country has its own page with the stations of that country and, for many countries, an original article about the history and role of radio there.
+
+## Main pages
+
+- [Home](https://worldliveradio.com/): stations near the visitor, favourites, recently played and browse by country
+- [Articles](https://worldliveradio.com/articles.html): guides, explainers and country radio histories
+- [About](https://worldliveradio.com/about.html): what LiveRadio is and how it works
+- [For broadcasters](https://worldliveradio.com/broadcasters.html): how stations are listed and how to request a correction or removal
+- [Privacy policy](https://worldliveradio.com/privacy.html)
+- [Contact](https://worldliveradio.com/contact.html)
+
+## Country pages
+
+- Country pages live at https://worldliveradio.com/countries/<country-name>.html, for example [Morocco](https://worldliveradio.com/countries/morocco.html), [Egypt](https://worldliveradio.com/countries/egypt.html) and [France](https://worldliveradio.com/countries/france.html)
+- The full list is in the [sitemap](https://worldliveradio.com/sitemap.xml)
+
+## Data
+
+- Station names, logos and stream addresses come from [Radio Browser](https://www.radio-browser.info/), an open community database of public radio streams
