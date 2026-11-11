@@ -20,6 +20,16 @@
     "descAr": "قلّما تجد بلداً يتنقّل فيه مؤشر الراديو بين اللغات كما يحدث في المغرب. أدِر الموجة ببطء في الدار البيضاء أو الرباط وستسمع الدارجة والعربية الفصحى والف"
   },
   {
+    "cc": "SA",
+    "slug": "saudi-arabia",
+    "en": "Saudi Arabia",
+    "ar": "السعودية",
+    "date": "2026-11-11",
+    "n": 50,
+    "descEn": "Few radio services can say they were born for pilgrims. Saudi radio's first regular broadcast went on air from Jeddah on 1 October 1949, the Day of Ar",
+    "descAr": "قلّة من الإذاعات في العالم يمكنها القول إنها وُلدت من أجل الحجاج. فقد انطلق أول بثّ منتظم للإذاعة السعودية من جدة في الأول من أكتوبر 1949، يوم عرفة، ب"
+  },
+  {
     "cc": "US",
     "slug": "the-united-states-of-america",
     "en": "The United States Of America",
@@ -876,16 +886,6 @@
     "ar": "كوستاريكا",
     "date": "2026-11-11",
     "n": 53,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "SA",
-    "slug": "saudi-arabia",
-    "en": "Saudi Arabia",
-    "ar": "السعودية",
-    "date": "2026-11-11",
-    "n": 50,
     "descEn": "",
     "descAr": ""
   },
