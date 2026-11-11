@@ -220,6 +220,16 @@
     "descAr": "لا يُظهر بلد في شمال إفريقيا قرب الراديو من السياسة كما تُظهره تونس. فلعقود ظلّ المؤشر ضيقاً ومراقباً، وبعد 2011 انفتح بين ليلة وضحاها تقريباً. قصة ال"
   },
   {
+    "cc": "KE",
+    "slug": "kenya",
+    "en": "Kenya",
+    "ar": "كينيا",
+    "date": "2026-11-11",
+    "n": 56,
+    "descEn": "Kenyan radio is a story about who gets to speak, and in which language. It began as a service for colonial settlers, became a single state voice after",
+    "descAr": "قصة الراديو الكيني قصة من يحقّ له الكلام، وبأي لغة. بدأ خدمةً للمستوطنين الاستعماريين، ثم صار صوت الدولة الوحيد بعد الاستقلال، وبعدها، في سنوات قليلة "
+  },
+  {
     "cc": "SA",
     "slug": "saudi-arabia",
     "en": "Saudi Arabia",
@@ -856,16 +866,6 @@
     "ar": "بيلاروسيا",
     "date": "2026-11-11",
     "n": 59,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "KE",
-    "slug": "kenya",
-    "en": "Kenya",
-    "ar": "كينيا",
-    "date": "2026-11-11",
-    "n": 56,
     "descEn": "",
     "descAr": ""
   },
