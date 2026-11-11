@@ -140,6 +140,16 @@
     "descAr": "أدِر موجة FM في دبي وستسمع العربية والإنجليزية والهندية والأردية والمالايالامية والتاميلية والتاغالوغية والفارسية والروسية في دقائق قليلة. قلّة من الأ"
   },
   {
+    "cc": "ID",
+    "slug": "indonesia",
+    "en": "Indonesia",
+    "ar": "إندونيسيا",
+    "date": "2026-11-11",
+    "n": 522,
+    "descEn": "In most countries radio arrived first and politics followed. In Indonesia the order was reversed: the national radio was founded in the weeks after in",
+    "descAr": "في معظم البلدان وصل الراديو أولاً ثم تبعته السياسة. أما في إندونيسيا فانقلب الترتيب: فقد تأسست الإذاعة الوطنية في الأسابيع التي تلت إعلان الاستقلال، ع"
+  },
+  {
     "cc": "JP",
     "slug": "japan",
     "en": "Japan",
@@ -286,16 +296,6 @@
     "ar": "سويسرا",
     "date": "2026-11-11",
     "n": 541,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "ID",
-    "slug": "indonesia",
-    "en": "Indonesia",
-    "ar": "إندونيسيا",
-    "date": "2026-11-11",
-    "n": 522,
     "descEn": "",
     "descAr": ""
   },

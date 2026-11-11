@@ -96,6 +96,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://worldliveradio.com/countries/indonesia.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://worldliveradio.com/countries/japan.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.8</priority>
@@ -167,11 +172,6 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/switzerland.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/indonesia.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
