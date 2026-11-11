@@ -1,7 +1,18 @@
 تقرير الروابط — LiveRadio
-آخر بناء: 2026-11-11 22:05 UTC  |  الصفحات المفحوصة: 227
+آخر بناء: 2026-11-11 22:13 UTC  |  الصفحات المفحوصة: 227
 
 == الروابط الداخلية المعطلة: 0 ==
   ✓ لا شيء
 
-== الروابط الخارجية: تُفحص أسبوعياً، أو حين تشغّل الأتمتة يدوياً من Actions ==
+== الروابط الخارجية (آخر فحص: 2026-11-11 22:13 UTC — 95 رابطاً) ==
+
+معطلة فعلاً (3) — استبدلها:
+  ✗ https://www.ensjsi.dz/sites/default/files/fichiers/fichier-838-.pdf  [404]  في: countries/algeria.html
+  ✗ https://www.mediadb.eu/en/data-base/international-media-corporations/nippon-hoso-kyokai.html  [404]  في: countries/japan.html
+  ✗ https://digfir-published.macmillanusa.com/mediaculture10e/mediaculture10e_ch5_3.html  [ENOTFOUND]  في: countries/the-united-states-of-america.html، countries/united-states.html
+
+لم يُتح فحصها (4) — غالباً تعمل، لكن الموقع يمنع البرامج الآلية. افتحها يدوياً إن شئت:
+  ? https://www.goethe.de/ins/ca/en/kul/met/raw/24929619.html  [403]
+  ? https://rri.co.id/en/national/2714877/the-first-radio-station-in-indonesia-how-bataviase-radio-vereniging-brv-began  [403]
+  ? https://www.ofcom.org.uk/tv-radio-and-on-demand/analogue-radio/100-years-of-radio  [403]
+  ? https://www.npr.org/2005/11/30/3059095/conrads-garage  [AbortError]

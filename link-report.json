@@ -1,6 +1,65 @@
 {
- "built": "2026-11-11 22:05 UTC",
+ "built": "2026-11-11 22:13 UTC",
  "pages": 227,
  "internal": [],
- "external": null
+ "external": {
+  "checked": "2026-11-11 22:13 UTC",
+  "total": 95,
+  "broken": [
+   {
+    "url": "https://www.ensjsi.dz/sites/default/files/fichiers/fichier-838-.pdf",
+    "why": "404",
+    "pages": [
+     "countries/algeria.html"
+    ]
+   },
+   {
+    "url": "https://www.mediadb.eu/en/data-base/international-media-corporations/nippon-hoso-kyokai.html",
+    "why": "404",
+    "pages": [
+     "countries/japan.html"
+    ]
+   },
+   {
+    "url": "https://digfir-published.macmillanusa.com/mediaculture10e/mediaculture10e_ch5_3.html",
+    "why": "ENOTFOUND",
+    "pages": [
+     "countries/the-united-states-of-america.html",
+     "countries/united-states.html"
+    ]
+   }
+  ],
+  "blocked": [
+   {
+    "url": "https://www.goethe.de/ins/ca/en/kul/met/raw/24929619.html",
+    "why": "403",
+    "pages": [
+     "countries/germany.html"
+    ]
+   },
+   {
+    "url": "https://rri.co.id/en/national/2714877/the-first-radio-station-in-indonesia-how-bataviase-radio-vereniging-brv-began",
+    "why": "403",
+    "pages": [
+     "countries/indonesia.html"
+    ]
+   },
+   {
+    "url": "https://www.ofcom.org.uk/tv-radio-and-on-demand/analogue-radio/100-years-of-radio",
+    "why": "403",
+    "pages": [
+     "countries/the-united-kingdom-of-great-britain-and-northern-ireland.html",
+     "countries/united-kingdom.html"
+    ]
+   },
+   {
+    "url": "https://www.npr.org/2005/11/30/3059095/conrads-garage",
+    "why": "AbortError",
+    "pages": [
+     "countries/the-united-states-of-america.html",
+     "countries/united-states.html"
+    ]
+   }
+  ]
+ }
 }
