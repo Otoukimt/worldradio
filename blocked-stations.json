@@ -1,0 +1,8 @@
+{
+  "note": "Stations removed at the broadcaster's request or whose terms forbid listing. Match by Radio Browser stationuuid, or by text found in the stream URL or homepage.",
+  "uuids": [],
+  "hosts": [
+    "rnz.co.nz",
+    "radionz"
+  ]
+}

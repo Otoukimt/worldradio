@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="yX25szfjBSoo35hZI9DG4jLp4pah3fZ07GVtTvfX_qk" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LKJTP0YVEN');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Broadcasters — Station Listing and Removal | LiveRadio</title>
+<meta name="description" content="How LiveRadio lists radio stations, why it never hosts or rebroadcasts audio, and how broadcasters can correct a listing or request removal within 48 hours.">
+<link rel="canonical" href="https://worldliveradio.com/broadcasters.html">
+<meta name="theme-color" content="#eef3fb">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0f1a;--card:#161d31;--line:#232c45;--txt:#eef2ff;--mut:#93a0c0;
+--acc:#22d3a6;--acc2:#6366f1;--font:'Outfit','Cairo',system-ui,sans-serif;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--txt);font-family:var(--font);
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Cairo',var(--font)}
+a{color:var(--acc);text-decoration:none}
+button{font-family:inherit}
+header{position:sticky;top:0;z-index:30;background:rgba(11,15,26,.93);backdrop-filter:blur(14px);
+border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.hrow{display:flex;align-items:center;gap:10px;padding:12px 16px;max-width:760px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--txt)}
+.logo-dot{width:11px;height:11px;border-radius:50%;background:var(--acc)}
+.logo span{color:var(--acc)}
+.spacer{flex:1}
+.btn{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+main{max-width:760px;margin:0 auto;padding:26px 18px 60px}
+h1{font-size:clamp(26px,6vw,36px);line-height:1.25;margin:0 0 20px;font-weight:800}
+h2{font-size:21px;margin:32px 0 10px;font-weight:800}
+p{line-height:1.8;color:#dbe2f7;margin:0 0 16px;font-size:16.5px}
+ul{line-height:1.85;color:#dbe2f7;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
+li{margin-bottom:8px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:26px 0}
+.box h2{margin-top:0;font-size:18px}
+footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;color:var(--mut);font-size:14px}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
+footer nav a{color:var(--mut)}
+footer nav a:hover{color:var(--acc)}
+.mail .lbl{font-size:13px;color:var(--mut);font-weight:600;margin-bottom:8px}
+.mail .ad{font-size:18px;font-weight:800;color:var(--acc);direction:ltr;word-break:break-all}
+</style>
+
+<style>
+/* light theme is the default; dark is opt-in */
+:root{
+  --bg:#f3f6fc; --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
+  --txt:#111a2e; --mut:#5a6880; --acc:#0d9488; --acc2:#5b53e0; --red:#e11d48;
+  --shadow:rgba(23,38,74,.09);
+  --headG:linear-gradient(120deg,#e8f1ff 0%,#eeeafd 48%,#fdeef4 100%);
+  --footG:linear-gradient(120deg,#fdeef4 0%,#eeeafd 52%,#e8f1ff 100%);
+  --cardG:linear-gradient(170deg,#ffffff 0%,#f6f9ff 100%);
+}
+html[data-theme="dark"]{
+  --bg:#0b0f1a; --card:#161d31; --card2:#1c2440; --line:#232c45;
+  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1; --red:#f43f5e;
+  --shadow:rgba(0,0,0,.35);
+  --headG:linear-gradient(120deg,#0e1526,#121a2e 60%,#17132a);
+  --footG:linear-gradient(120deg,#17132a,#121a2e 48%,#0e1526);
+  --cardG:linear-gradient(170deg,#161d31,#141b2d);
+}
+body{background:var(--bg)}
+header{background:var(--headG);backdrop-filter:blur(10px)}
+footer{background:var(--footG)}
+.btn{background:var(--cardG);box-shadow:0 1px 2px var(--shadow)}
+.box,.art,.mail{background:var(--cardG);box-shadow:0 2px 8px var(--shadow)}
+.chip{background:var(--cardG)}
+.chip.on{background:linear-gradient(135deg,var(--acc),var(--acc2));border-color:transparent;color:#fff}
+th{background:var(--card2)}
+code{background:var(--card2)}
+p,ul,ol{color:var(--txt);opacity:.93}
+.cta{color:#fff;box-shadow:0 6px 18px var(--shadow)}
+</style>
+
+<script>
+(function(){
+  var t='light';
+  try{var v=JSON.parse(localStorage.getItem('lr_theme'));if(v==='dark'||v==='light')t=v;}catch(e){}
+  document.documentElement.setAttribute('data-theme',t);
+  var m=document.querySelector('meta[name=theme-color]');
+  if(m)m.setAttribute('content',t==='dark'?'#0e1526':'#eef3fb');
+})();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <a class="logo" href="./"><span class="logo-dot"></span>Live<span>Radio</span></a>
+    <div class="spacer"></div>
+    <a class="btn" href="./" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
+    <button class="btn" id="langBtn">العربية</button>
+  </div>
+</header>
+
+<main>
+  <h1 data-en="For broadcasters" data-ar="للمذيعين ومالكي المحطات">For broadcasters</h1>
+  <p data-en="LiveRadio is a free directory that helps listeners find radio stations that are already broadcasting publicly on the internet. This page explains how stations appear here and how a broadcaster can change or remove a listing." data-ar="LiveRadio دليل مجاني يساعد المستمعين على العثور على محطات إذاعية تبثّ أصلاً بشكل علني عبر الإنترنت. توضّح هذه الصفحة كيف تظهر المحطات هنا، وكيف يمكن للمذيع تعديل إدراج محطته أو حذفه.">LiveRadio is a free directory that helps listeners find radio stations that are already broadcasting publicly on the internet. This page explains how stations appear here and how a broadcaster can change or remove a listing.</p>
+  <h2 data-en="We do not host or rebroadcast audio" data-ar="لا نستضيف الصوت ولا نعيد بثّه">We do not host or rebroadcast audio</h2>
+  <p data-en="LiveRadio never stores, records, relays or re-encodes any audio. When a listener presses play, their own browser connects directly to the stream address published by the station, on the station&#39;s own server or its streaming provider. The station keeps full control of its stream at all times: if a stream is changed, restricted by region or switched off, it changes here immediately too." data-ar="لا يخزّن LiveRadio أي صوت ولا يسجّله ولا يمرّره ولا يعيد ترميزه. فحين يضغط المستمع زرّ التشغيل، يتصل متصفحه مباشرة بعنوان البثّ الذي نشرته المحطة، على خادمها أو لدى مزوّد البثّ الذي تتعامل معه. وتحتفظ المحطة بالسيطرة الكاملة على بثّها في كل وقت: فإن غيّرته أو قيّدته جغرافياً أو أوقفته، تغيّر هنا فوراً أيضاً.">LiveRadio never stores, records, relays or re-encodes any audio. When a listener presses play, their own browser connects directly to the stream address published by the station, on the station&#39;s own server or its streaming provider. The station keeps full control of its stream at all times: if a stream is changed, restricted by region or switched off, it changes here immediately too.</p>
+  <h2 data-en="Where the listings come from" data-ar="من أين تأتي الإدراجات">Where the listings come from</h2>
+  <p data-en="Station names, logos and stream addresses come from Radio Browser, an open, community-maintained database of public radio streams. We show each station under its own name and logo and, where available, link to its official website. We do not claim any partnership with or endorsement by the stations listed." data-ar="تأتي أسماء المحطات وشعاراتها وعناوين بثّها من Radio Browser، وهي قاعدة بيانات مفتوحة يحدّثها مجتمع من المتطوعين وتضم روابط البثّ العلنية. ونعرض كل محطة باسمها وشعارها، ونضع رابط موقعها الرسمي حين يتوفّر. ولا ندّعي أي شراكة مع المحطات المدرجة أو تزكية منها.">Station names, logos and stream addresses come from Radio Browser, an open, community-maintained database of public radio streams. We show each station under its own name and logo and, where available, link to its official website. We do not claim any partnership with or endorsement by the stations listed.</p>
+  <h2 data-en="Removal or correction within 48 hours" data-ar="الحذف أو التصحيح خلال 48 ساعة">Removal or correction within 48 hours</h2>
+  <p data-en="If you own or manage a station and do not want it listed, or if its name, logo or stream is wrong, write to us from an address connected to the station. Include the station name, its country and, if possible, a link to its page on our site. We remove or correct the listing within 48 hours, and a removed station is blocked so it does not reappear when the directory updates." data-ar="إن كنت تملك محطة أو تديرها ولا تريد إدراجها، أو كان اسمها أو شعارها أو رابط بثّها خاطئاً، راسلنا من عنوان مرتبط بالمحطة. واذكر اسم المحطة وبلدها، ورابط صفحتها على موقعنا إن أمكن. نحذف الإدراج أو نصحّحه خلال 48 ساعة، وتُضاف المحطة المحذوفة إلى قائمة حظر حتى لا تعود للظهور عند تحديث الدليل.">If you own or manage a station and do not want it listed, or if its name, logo or stream is wrong, write to us from an address connected to the station. Include the station name, its country and, if possible, a link to its page on our site. We remove or correct the listing within 48 hours, and a removed station is blocked so it does not reappear when the directory updates.</p>
+  <a class="mail" href="mailto:otoukimt07@gmail.com?subject=LiveRadio%20station%20listing">
+    <div class="lbl" data-en="Broadcaster requests" data-ar="طلبات المذيعين">Broadcaster requests</div>
+    <div class="ad">otoukimt07@gmail.com</div>
+  </a>
+  <h2 data-en="Sports and restricted content" data-ar="الرياضة والمحتوى المقيّد">Sports and restricted content</h2>
+  <p data-en="Some broadcasts, especially live sport, are covered by rights agreements that limit where they may be streamed. If your agreements require a station or a stream to be unavailable through directories like ours, tell us and we will remove it." data-ar="بعض البثوث، وخاصة الرياضة المباشرة، تخضع لاتفاقيات حقوق تحدّد أين يجوز بثّها. إن كانت اتفاقياتك تقتضي ألا تُتاح محطة أو بثّ ما عبر أدلّة مثل دليلنا، أخبرنا وسنحذفها.">Some broadcasts, especially live sport, are covered by rights agreements that limit where they may be streamed. If your agreements require a station or a stream to be unavailable through directories like ours, tell us and we will remove it.</p>
+  <h2 data-en="Adding or promoting your station" data-ar="إضافة محطتك">Adding or promoting your station</h2>
+  <p data-en="To add a station, submit it to Radio Browser; it will usually appear here after the next update. If you would like a station page or article on LiveRadio, contact us at the same address." data-ar="لإضافة محطة، سجّلها في Radio Browser، وغالباً ستظهر هنا بعد التحديث التالي. وإن رغبت في صفحة أو مقال عن محطتك على LiveRadio، راسلنا على العنوان نفسه.">To add a station, submit it to Radio Browser; it will usually appear here after the next update. If you would like a station page or article on LiveRadio, contact us at the same address.</p>
+</main>
+
+
+<footer>
+  <nav>
+    <a href="./" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="./about.html" data-en="About" data-ar="من نحن">About</a>
+    <a href="./privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+    <a href="./contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+    <a href="./broadcasters.html" data-en="For broadcasters" data-ar="للمذيعين">For broadcasters</a>
+  </nav>
+  <div>© <span id="yr"></span> LiveRadio</div>
+</footer>
+
+<script>
+var lang=(function(){
+  var s=null;try{s=localStorage.getItem('lr_lang');}catch(e){}
+  if(s==='ar'||s==='en')return s;
+  var ls=[];try{ls=[navigator.language||''].concat(navigator.languages||[]);}catch(e){}
+  for(var i=0;i<ls.length;i++){if((ls[i]||'').toLowerCase().indexOf('ar')===0)return 'ar';}
+  return 'en';
+})();
+function apply(){
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
+  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  try{localStorage.setItem('lr_lang',lang);}catch(e){}
+}
+document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
+document.getElementById('yr').textContent=new Date().getFullYear();
+apply();
+</script>
+</body>
+</html>

@@ -580,6 +580,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     <a href="./about.html" data-i="about">About</a>
     <a href="./privacy.html" data-i="privacy">Privacy Policy</a>
     <a href="./contact.html" data-i="contact">Contact</a>
+    <a href="./broadcasters.html" data-i="forBroad">For broadcasters</a>
   </nav>
   <div>© <span id="yr"></span> LiveRadio</div>
 </footer>
@@ -708,7 +709,7 @@ var I={
   favs:'Your favourites',noFav:'No favourites yet. Tap the heart on any station.',
   searchC:'Search a country...',searchS:'Search a station...',
   guides:'Radio guides &amp; articles',allArts:'See all &rarr;',allArts2:'Articles',
-  about:'About',privacy:'Privacy Policy',contact:'Contact',visitors:'Total visitors',
+  about:'About',privacy:'Privacy Policy',contact:'Contact',forBroad:'For broadcasters',visitors:'Total visitors',
   backHome:'&larr; Home',empty:'Nothing found.',loading:'Loading…',
   nStations:'{n} stations',found:'{n} playable',
   scanning:'Scanning {n} entries · {m} playable so far…',
@@ -742,7 +743,7 @@ var I={
   favs:'محطاتك المفضلة',noFav:'لا توجد مفضلة بعد. اضغط على القلب في أي محطة.',
   searchC:'ابحث عن دولة...',searchS:'ابحث عن محطة...',
   guides:'مقالات وأدلة الراديو',allArts:'عرض الكل &larr;',allArts2:'المقالات',
-  about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',visitors:'إجمالي الزوار',
+  about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',forBroad:'للمذيعين',visitors:'إجمالي الزوار',
   backHome:'&rarr; الرئيسية',empty:'لا نتائج.',loading:'جارٍ التحميل…',
   nStations:'{n} محطة',found:'{n} قابلة للتشغيل',
   scanning:'فحص {n} مدخلاً · {m} قابلة للتشغيل حتى الآن…',
@@ -853,9 +854,29 @@ function playableUrl(s){
   if(u.indexOf('http://')===0)return 'https://'+u.slice(7);
   return '';
 }
+/* المحطات المحذوفة بطلب أصحابها أو التي تمنع شروطها الإدراج */
+var BLOCK={u:{},h:[]};
+function loadBlock(){
+  return fetch('./blocked-stations.json',{cache:'no-cache'})
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(d){
+      if(!d)return;
+      (d.uuids||[]).forEach(function(x){if(x)BLOCK.u[String(x).toLowerCase()]=1;});
+      BLOCK.h=(d.hosts||[]).map(function(x){return String(x).toLowerCase();}).filter(Boolean);
+    }).catch(function(){});
+}
+function isBlocked(s){
+  if(!s)return false;
+  if(s.stationuuid&&BLOCK.u[String(s.stationuuid).toLowerCase()])return true;
+  if(!BLOCK.h.length)return false;
+  var t=((s.url||'')+' '+(s.url_resolved||'')+' '+(s.homepage||'')).toLowerCase();
+  for(var i=0;i<BLOCK.h.length;i++)if(t.indexOf(BLOCK.h[i])>-1)return true;
+  return false;
+}
 function clean(d,seen){
   seen=seen||{u:{},id:{}};
   return (d||[]).filter(function(s){
+    if(isBlocked(s))return false;
     var u=playableUrl(s);
     if(!u||!s.name||s.name.trim().length<2)return false;
     if(seen.id[s.stationuuid])return false;
@@ -1009,7 +1030,7 @@ $('localMore').onclick=function(){
 function drawRecent(){
   var r=$('recent');r.innerHTML='';
   $('recentSec').style.display=recent.length?'block':'none';
-  recent.slice(0,3).forEach(function(s){r.appendChild(card(s));});
+  recent.filter(function(s){return !isBlocked(s);}).slice(0,3).forEach(function(s){r.appendChild(card(s));});
   markPlaying();
 }
 
@@ -1224,7 +1245,7 @@ $('stSearch').oninput=function(){drawCountryBody();};
 /* ---------- favourites view ---------- */
 function drawFav(){
   var box=$('favGrid');box.innerHTML='';
-  favs.forEach(function(s){box.appendChild(card(s));});
+  favs.filter(function(s){return !isBlocked(s);}).forEach(function(s){box.appendChild(card(s));});
   $('favCnt').textContent=favs.length?T('found').replace('{n}',fmtNum(favs.length)):'';
   $('favEmpty').style.display=favs.length?'none':'block';
   $('favEmpty').textContent=T('noFav');
@@ -1276,6 +1297,11 @@ function drawFooter(items){
     a.textContent=(lang==='ar'?(it.ar||it.en):(it.en||it.ar))||'';
     nav.appendChild(a);
   });
+  if(!nav.querySelector('a[href$="broadcasters.html"]')){
+    var b=document.createElement('a');b.href=ROOT+'broadcasters.html';
+    b.textContent=(lang==='ar')?'للمذيعين':'For broadcasters';
+    nav.appendChild(b);
+  }
   hookPageLinks();
 }
 function applyColors(c){
@@ -2143,9 +2169,13 @@ applyTheme();applyLang();syncQ();drawRecent();drawStats();drawUsage();hookPageLi
   if(last){pName.textContent=last.name;pMeta.textContent=cname(last.countrycode,last.country||'');
     setArt(last);player.classList.add('up');}
 })();
-loadCountries();
-loadLocal();
-openHash();
+/* القائمة صغيرة: ننتظرها قليلاً قبل جلب المحطات، ولا نتأخر إن فشلت */
+Promise.race([loadBlock(),new Promise(function(r){setTimeout(r,2500);})]).then(function(){
+  drawRecent();
+  loadCountries();
+  loadLocal();
+  openHash();
+});
 </script>
 </body>
 </html>

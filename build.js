@@ -139,7 +139,7 @@ function buildSitemap(root, pages) {
 
   add(SITE + '/', today, '1.0');
   add(SITE + '/articles.html', today, '0.9');
-  ['about', 'privacy', 'contact'].forEach(p => add(`${SITE}/${p}.html`, today, '0.3'));
+  ['about', 'privacy', 'contact', 'broadcasters'].forEach(p => add(`${SITE}/${p}.html`, today, '0.3'));
   pages.forEach(p => add(`${SITE}/countries/${p.slug}.html`, p.date, p.hasArticle ? '0.8' : '0.6'));
   arts.forEach(a => add(`${SITE}/articles/${a.slug}.html`, a.date || today, '0.7'));
 
