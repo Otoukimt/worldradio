@@ -65,7 +65,7 @@
     "en": "Mexico",
     "ar": "المكسيك",
     "date": "2026-11-11",
-    "n": 1558,
+    "n": 1559,
     "descEn": "For decades, one Mexican station opened its broadcasts with a slogan that described a whole continent: \"XEW, the voice of Latin America from Mexico.\" ",
     "descAr": "لعقود، كانت محطة مكسيكية واحدة تفتتح بثّها بشعار يصف قارة كاملة: «XEW، صوت أمريكا اللاتينية من المكسيك». لم يكتفِ الراديو المكسيكي بتسلية المكسيكيين؛ "
   },
@@ -365,7 +365,7 @@
     "en": "Belgium",
     "ar": "بلجيكا",
     "date": "2026-11-11",
-    "n": 461,
+    "n": 460,
     "descEn": "",
     "descAr": ""
   },
@@ -800,20 +800,20 @@
     "descAr": ""
   },
   {
-    "cc": "LK",
-    "slug": "sri-lanka",
-    "en": "Sri Lanka",
-    "ar": "سريلانكا",
+    "cc": "SG",
+    "slug": "singapore",
+    "en": "Singapore",
+    "ar": "سنغافورة",
     "date": "2026-11-11",
     "n": 63,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "SG",
-    "slug": "singapore",
-    "en": "Singapore",
-    "ar": "سنغافورة",
+    "cc": "LK",
+    "slug": "sri-lanka",
+    "en": "Sri Lanka",
+    "ar": "سريلانكا",
     "date": "2026-11-11",
     "n": 63,
     "descEn": "",
@@ -850,16 +850,6 @@
     "descAr": ""
   },
   {
-    "cc": "BY",
-    "slug": "belarus",
-    "en": "Belarus",
-    "ar": "بيلاروسيا",
-    "date": "2026-11-11",
-    "n": 59,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "MW",
     "slug": "malawi",
     "en": "Malawi",
@@ -874,6 +864,16 @@
     "slug": "pakistan",
     "en": "Pakistan",
     "ar": "باكستان",
+    "date": "2026-11-11",
+    "n": 59,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BY",
+    "slug": "belarus",
+    "en": "Belarus",
+    "ar": "بيلاروسيا",
     "date": "2026-11-11",
     "n": 59,
     "descEn": "",
@@ -940,20 +940,20 @@
     "descAr": ""
   },
   {
-    "cc": "HN",
-    "slug": "honduras",
-    "en": "Honduras",
-    "ar": "هندوراس",
+    "cc": "KZ",
+    "slug": "kazakhstan",
+    "en": "Kazakhstan",
+    "ar": "كازاخستان",
     "date": "2026-11-11",
     "n": 39,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "KZ",
-    "slug": "kazakhstan",
-    "en": "Kazakhstan",
-    "ar": "كازاخستان",
+    "cc": "HN",
+    "slug": "honduras",
+    "en": "Honduras",
+    "ar": "هندوراس",
     "date": "2026-11-11",
     "n": 39,
     "descEn": "",
@@ -990,20 +990,20 @@
     "descAr": ""
   },
   {
-    "cc": "HT",
-    "slug": "haiti",
-    "en": "Haiti",
-    "ar": "هايتي",
+    "cc": "LU",
+    "slug": "luxembourg",
+    "en": "Luxembourg",
+    "ar": "لوكسمبورغ",
     "date": "2026-11-11",
     "n": 31,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "LU",
-    "slug": "luxembourg",
-    "en": "Luxembourg",
-    "ar": "لوكسمبورغ",
+    "cc": "HT",
+    "slug": "haiti",
+    "en": "Haiti",
+    "ar": "هايتي",
     "date": "2026-11-11",
     "n": 31,
     "descEn": "",
@@ -1100,16 +1100,6 @@
     "descAr": ""
   },
   {
-    "cc": "SY",
-    "slug": "syrian-arab-republic",
-    "en": "Syrian Arab Republic",
-    "ar": "سوريا",
-    "date": "2026-11-11",
-    "n": 22,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "ET",
     "slug": "ethiopia",
     "en": "Ethiopia",
@@ -1124,6 +1114,16 @@
     "slug": "islamic-republic-of-iran",
     "en": "Islamic Republic Of Iran",
     "ar": "إيران",
+    "date": "2026-11-11",
+    "n": 22,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SY",
+    "slug": "syrian-arab-republic",
+    "en": "Syrian Arab Republic",
+    "ar": "سوريا",
     "date": "2026-11-11",
     "n": 22,
     "descEn": "",
@@ -1150,16 +1150,6 @@
     "descAr": ""
   },
   {
-    "cc": "CW",
-    "slug": "curacao",
-    "en": "Curacao",
-    "ar": "Curacao",
-    "date": "2026-11-11",
-    "n": 20,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "MO",
     "slug": "macao",
     "en": "Macao",
@@ -1174,6 +1164,16 @@
     "slug": "iraq",
     "en": "Iraq",
     "ar": "العراق",
+    "date": "2026-11-11",
+    "n": 20,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CW",
+    "slug": "curacao",
+    "en": "Curacao",
+    "ar": "Curacao",
     "date": "2026-11-11",
     "n": 20,
     "descEn": "",
@@ -1200,20 +1200,20 @@
     "descAr": ""
   },
   {
-    "cc": "CV",
-    "slug": "cabo-verde",
-    "en": "Cabo Verde",
-    "ar": "الرأس الأخضر",
+    "cc": "TZ",
+    "slug": "united-republic-of-tanzania",
+    "en": "United Republic Of Tanzania",
+    "ar": "تنزانيا",
     "date": "2026-11-11",
     "n": 17,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "TZ",
-    "slug": "united-republic-of-tanzania",
-    "en": "United Republic Of Tanzania",
-    "ar": "تنزانيا",
+    "cc": "CV",
+    "slug": "cabo-verde",
+    "en": "Cabo Verde",
+    "ar": "الرأس الأخضر",
     "date": "2026-11-11",
     "n": 17,
     "descEn": "",
@@ -1226,6 +1226,16 @@
     "ar": "Kosovo",
     "date": "2026-11-11",
     "n": 15,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MT",
+    "slug": "malta",
+    "en": "Malta",
+    "ar": "مالطا",
+    "date": "2026-11-11",
+    "n": 14,
     "descEn": "",
     "descAr": ""
   },
@@ -1260,16 +1270,6 @@
     "descAr": ""
   },
   {
-    "cc": "MT",
-    "slug": "malta",
-    "en": "Malta",
-    "ar": "مالطا",
-    "date": "2026-11-11",
-    "n": 14,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "VA",
     "slug": "the-holy-see",
     "en": "The Holy See",
@@ -1280,20 +1280,20 @@
     "descAr": ""
   },
   {
-    "cc": "GP",
-    "slug": "guadeloupe",
-    "en": "Guadeloupe",
-    "ar": "Guadeloupe",
+    "cc": "ML",
+    "slug": "mali",
+    "en": "Mali",
+    "ar": "مالي",
     "date": "2026-11-11",
     "n": 13,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "ML",
-    "slug": "mali",
-    "en": "Mali",
-    "ar": "مالي",
+    "cc": "GP",
+    "slug": "guadeloupe",
+    "en": "Guadeloupe",
+    "ar": "Guadeloupe",
     "date": "2026-11-11",
     "n": 13,
     "descEn": "",
@@ -1330,16 +1330,6 @@
     "descAr": ""
   },
   {
-    "cc": "YE",
-    "slug": "yemen",
-    "en": "Yemen",
-    "ar": "اليمن",
-    "date": "2026-11-11",
-    "n": 12,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "MQ",
     "slug": "martinique",
     "en": "Martinique",
@@ -1370,12 +1360,12 @@
     "descAr": ""
   },
   {
-    "cc": "AM",
-    "slug": "armenia",
-    "en": "Armenia",
-    "ar": "أرمينيا",
+    "cc": "YE",
+    "slug": "yemen",
+    "en": "Yemen",
+    "ar": "اليمن",
     "date": "2026-11-11",
-    "n": 11,
+    "n": 12,
     "descEn": "",
     "descAr": ""
   },
@@ -1404,6 +1394,16 @@
     "slug": "saint-vincent-and-the-grenadines",
     "en": "Saint Vincent And The Grenadines",
     "ar": "Saint Vincent And The Grenadines",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AM",
+    "slug": "armenia",
+    "en": "Armenia",
+    "ar": "أرمينيا",
     "date": "2026-11-11",
     "n": 11,
     "descEn": "",
@@ -1520,26 +1520,6 @@
     "descAr": ""
   },
   {
-    "cc": "KP",
-    "slug": "the-democratic-peoples-republic-of-korea",
-    "en": "The Democratic Peoples Republic Of Korea",
-    "ar": "كوريا الشمالية",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "NC",
-    "slug": "new-caledonia",
-    "en": "New Caledonia",
-    "ar": "New Caledonia",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "PF",
     "slug": "french-polynesia",
     "en": "French Polynesia",
@@ -1584,6 +1564,26 @@
     "slug": "the-bahamas",
     "en": "The Bahamas",
     "ar": "The Bahamas",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "KP",
+    "slug": "the-democratic-peoples-republic-of-korea",
+    "en": "The Democratic Peoples Republic Of Korea",
+    "ar": "كوريا الشمالية",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "NC",
+    "slug": "new-caledonia",
+    "en": "New Caledonia",
+    "ar": "New Caledonia",
     "date": "2026-11-11",
     "n": 7,
     "descEn": "",
