@@ -3071,6 +3071,14 @@ gq.addEventListener('keydown',function(e){
 });
 gq.addEventListener('focus',function(){if(gq.value.trim().length>=2&&box.children.length)box.classList.add('on');});
 document.addEventListener('click',function(e){if(!e.target.closest('.gs'))hide();});
+/* قادم من صفحة 404 أو من رابط بحث: ?q=كلمة تفتح البحث جاهزاً */
+(function(){
+  var q0='';try{q0=(new URLSearchParams(location.search).get('q')||'').trim();}catch(e){}
+  if(!q0)return;
+  try{history.replaceState(history.state,'',location.pathname+location.hash);}catch(e){}
+  gq.value=q0.slice(0,80);
+  setTimeout(function(){gq.dispatchEvent(new Event('input'));gq.focus();},700);
+})();
 })();
 
 /* ---------- init ---------- */
