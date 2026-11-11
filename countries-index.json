@@ -55,7 +55,7 @@
     "en": "Italy",
     "ar": "إيطاليا",
     "date": "2026-11-11",
-    "n": 1601,
+    "n": 1602,
     "descEn": "Italy has one of the most crowded radio dials in Europe, and the reason is a court ruling and a generation of young people with transmitters in their ",
     "descAr": "تملك إيطاليا واحداً من أكثر المؤشرات الإذاعية ازدحاماً في أوروبا، والسبب حكم قضائي وجيل من الشباب وضعوا مرسلات في مرائبهم. وما زالت تلك الطاقة تحدّد ش"
   },
@@ -510,20 +510,20 @@
     "descAr": ""
   },
   {
-    "cc": "TW",
-    "slug": "taiwan-republic-of-china",
-    "en": "Taiwan, Republic Of China",
-    "ar": "تايوان",
+    "cc": "VE",
+    "slug": "bolivarian-republic-of-venezuela",
+    "en": "Bolivarian Republic Of Venezuela",
+    "ar": "فنزويلا",
     "date": "2026-11-11",
     "n": 170,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "VE",
-    "slug": "bolivarian-republic-of-venezuela",
-    "en": "Bolivarian Republic Of Venezuela",
-    "ar": "فنزويلا",
+    "cc": "TW",
+    "slug": "taiwan-republic-of-china",
+    "en": "Taiwan, Republic Of China",
+    "ar": "تايوان",
     "date": "2026-11-11",
     "n": 170,
     "descEn": "",
@@ -760,20 +760,20 @@
     "descAr": ""
   },
   {
-    "cc": "BO",
-    "slug": "bolivia",
-    "en": "Bolivia",
-    "ar": "بوليفيا",
+    "cc": "PY",
+    "slug": "paraguay",
+    "en": "Paraguay",
+    "ar": "باراغواي",
     "date": "2026-11-11",
     "n": 69,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "PY",
-    "slug": "paraguay",
-    "en": "Paraguay",
-    "ar": "باراغواي",
+    "cc": "BO",
+    "slug": "bolivia",
+    "en": "Bolivia",
+    "ar": "بوليفيا",
     "date": "2026-11-11",
     "n": 69,
     "descEn": "",
@@ -820,16 +820,6 @@
     "descAr": ""
   },
   {
-    "cc": "SV",
-    "slug": "el-salvador",
-    "en": "El Salvador",
-    "ar": "السلفادور",
-    "date": "2026-11-11",
-    "n": 61,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "CI",
     "slug": "coted-ivoire",
     "en": "Coted Ivoire",
@@ -844,6 +834,16 @@
     "slug": "cyprus",
     "en": "Cyprus",
     "ar": "قبرص",
+    "date": "2026-11-11",
+    "n": 61,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SV",
+    "slug": "el-salvador",
+    "en": "El Salvador",
+    "ar": "السلفادور",
     "date": "2026-11-11",
     "n": 61,
     "descEn": "",
@@ -980,20 +980,20 @@
     "descAr": ""
   },
   {
-    "cc": "LU",
-    "slug": "luxembourg",
-    "en": "Luxembourg",
-    "ar": "لوكسمبورغ",
+    "cc": "PA",
+    "slug": "panama",
+    "en": "Panama",
+    "ar": "بنما",
     "date": "2026-11-11",
     "n": 32,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "PA",
-    "slug": "panama",
-    "en": "Panama",
-    "ar": "بنما",
+    "cc": "LU",
+    "slug": "luxembourg",
+    "en": "Luxembourg",
+    "ar": "لوكسمبورغ",
     "date": "2026-11-11",
     "n": 32,
     "descEn": "",
@@ -1130,20 +1130,20 @@
     "descAr": ""
   },
   {
-    "cc": "CD",
-    "slug": "the-democratic-republic-of-the-congo",
-    "en": "The Democratic Republic Of The Congo",
-    "ar": "الكونغو الديمقراطية",
+    "cc": "TT",
+    "slug": "trinidad-and-tobago",
+    "en": "Trinidad And Tobago",
+    "ar": "Trinidad And Tobago",
     "date": "2026-11-11",
     "n": 21,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "TT",
-    "slug": "trinidad-and-tobago",
-    "en": "Trinidad And Tobago",
-    "ar": "Trinidad And Tobago",
+    "cc": "CD",
+    "slug": "the-democratic-republic-of-the-congo",
+    "en": "The Democratic Republic Of The Congo",
+    "ar": "الكونغو الديمقراطية",
     "date": "2026-11-11",
     "n": 21,
     "descEn": "",
@@ -1270,16 +1270,6 @@
     "descAr": ""
   },
   {
-    "cc": "ML",
-    "slug": "mali",
-    "en": "Mali",
-    "ar": "مالي",
-    "date": "2026-11-11",
-    "n": 13,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "MU",
     "slug": "mauritius",
     "en": "Mauritius",
@@ -1330,12 +1320,12 @@
     "descAr": ""
   },
   {
-    "cc": "UZ",
-    "slug": "uzbekistan",
-    "en": "Uzbekistan",
-    "ar": "أوزبكستان",
+    "cc": "ML",
+    "slug": "mali",
+    "en": "Mali",
+    "ar": "مالي",
     "date": "2026-11-11",
-    "n": 12,
+    "n": 13,
     "descEn": "",
     "descAr": ""
   },
@@ -1370,22 +1360,12 @@
     "descAr": ""
   },
   {
-    "cc": "BH",
-    "slug": "bahrain",
-    "en": "Bahrain",
-    "ar": "البحرين",
+    "cc": "UZ",
+    "slug": "uzbekistan",
+    "en": "Uzbekistan",
+    "ar": "أوزبكستان",
     "date": "2026-11-11",
-    "n": 11,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "BJ",
-    "slug": "benin",
-    "en": "Benin",
-    "ar": "بنين",
-    "date": "2026-11-11",
-    "n": 11,
+    "n": 12,
     "descEn": "",
     "descAr": ""
   },
@@ -1410,6 +1390,26 @@
     "descAr": ""
   },
   {
+    "cc": "BH",
+    "slug": "bahrain",
+    "en": "Bahrain",
+    "ar": "البحرين",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BJ",
+    "slug": "benin",
+    "en": "Benin",
+    "ar": "بنين",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "BQ",
     "slug": "bonaire",
     "en": "Bonaire",
@@ -1426,16 +1426,6 @@
     "ar": "American Samoa",
     "date": "2026-11-11",
     "n": 10,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "GY",
-    "slug": "guyana",
-    "en": "Guyana",
-    "ar": "Guyana",
-    "date": "2026-11-11",
-    "n": 9,
     "descEn": "",
     "descAr": ""
   },
@@ -1470,6 +1460,36 @@
     "descAr": ""
   },
   {
+    "cc": "GY",
+    "slug": "guyana",
+    "en": "Guyana",
+    "ar": "Guyana",
+    "date": "2026-11-11",
+    "n": 9,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "KY",
+    "slug": "the-cayman-islands",
+    "en": "The Cayman Islands",
+    "ar": "The Cayman Islands",
+    "date": "2026-11-11",
+    "n": 8,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "OM",
+    "slug": "oman",
+    "en": "Oman",
+    "ar": "عُمان",
+    "date": "2026-11-11",
+    "n": 8,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "AW",
     "slug": "aruba",
     "en": "Aruba",
@@ -1496,56 +1516,6 @@
     "ar": "US Virgin Islands",
     "date": "2026-11-11",
     "n": 8,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "KY",
-    "slug": "the-cayman-islands",
-    "en": "The Cayman Islands",
-    "ar": "The Cayman Islands",
-    "date": "2026-11-11",
-    "n": 8,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "OM",
-    "slug": "oman",
-    "en": "Oman",
-    "ar": "عُمان",
-    "date": "2026-11-11",
-    "n": 8,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "PF",
-    "slug": "french-polynesia",
-    "en": "French Polynesia",
-    "ar": "French Polynesia",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "IM",
-    "slug": "isle-of-man",
-    "en": "Isle Of Man",
-    "ar": "Isle Of Man",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "RW",
-    "slug": "rwanda",
-    "en": "Rwanda",
-    "ar": "رواندا",
-    "date": "2026-11-11",
-    "n": 7,
     "descEn": "",
     "descAr": ""
   },
@@ -1590,6 +1560,36 @@
     "descAr": ""
   },
   {
+    "cc": "PF",
+    "slug": "french-polynesia",
+    "en": "French Polynesia",
+    "ar": "French Polynesia",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "IM",
+    "slug": "isle-of-man",
+    "en": "Isle Of Man",
+    "ar": "Isle Of Man",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "RW",
+    "slug": "rwanda",
+    "en": "Rwanda",
+    "ar": "رواندا",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "LY",
     "slug": "libya",
     "en": "Libya",
@@ -1626,36 +1626,6 @@
     "ar": "توغو",
     "date": "2026-11-11",
     "n": 6,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "GD",
-    "slug": "grenada",
-    "en": "Grenada",
-    "ar": "Grenada",
-    "date": "2026-11-11",
-    "n": 5,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "AG",
-    "slug": "antigua-and-barbuda",
-    "en": "Antigua And Barbuda",
-    "ar": "Antigua And Barbuda",
-    "date": "2026-11-11",
-    "n": 5,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "SM",
-    "slug": "san-marino",
-    "en": "San Marino",
-    "ar": "San Marino",
-    "date": "2026-11-11",
-    "n": 5,
     "descEn": "",
     "descAr": ""
   },
@@ -1714,6 +1684,36 @@
     "slug": "anguilla",
     "en": "Anguilla",
     "ar": "Anguilla",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GD",
+    "slug": "grenada",
+    "en": "Grenada",
+    "ar": "Grenada",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AG",
+    "slug": "antigua-and-barbuda",
+    "en": "Antigua And Barbuda",
+    "ar": "Antigua And Barbuda",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SM",
+    "slug": "san-marino",
+    "en": "San Marino",
+    "ar": "San Marino",
     "date": "2026-11-11",
     "n": 5,
     "descEn": "",
