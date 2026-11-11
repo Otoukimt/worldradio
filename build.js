@@ -92,6 +92,13 @@ async function generatePages() {
     const descAr = my.descAr || '';
     const date = my.date || today;
     const hide = (!descEn && !descAr) ? ' style="display:none"' : '';
+    const srcs = (Array.isArray(my.sources) ? my.sources : [])
+      .filter(x => x && /^https?:\/\//.test(x.u || ''));
+    const sourcesHtml = srcs.length
+      ? '<div class="srcs"><h3 data-en="Sources" data-ar="المصادر">Sources</h3><ol>' +
+        srcs.map(x => '<li><a href="' + esc(x.u) + '" target="_blank" rel="noopener nofollow">' +
+          esc(x.t || x.u) + '</a></li>').join('') + '</ol></div>'
+      : '';
 
     const html = template
       .replace(/\{\{cc\}\}/g, cc)
@@ -102,6 +109,7 @@ async function generatePages() {
       /* دالة بدل نص: حتى لا تُفسَّر علامة $ داخل المقال كرمز استبدال */
       .replace(/\{\{descEn\}\}/g, () => descEn)
       .replace(/\{\{descAr\}\}/g, () => descAr)
+      .replace(/\{\{sources\}\}/g, () => sourcesHtml)
       .replace('id="aboutSec"', 'id="aboutSec"' + hide);
 
     fs.writeFileSync(path.join(outDir, slug + '.html'), html);
