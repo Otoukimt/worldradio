@@ -310,6 +310,16 @@
     "descAr": "في مارس 2000 عرفت السنغال أول تداول للسلطة عبر صناديق الاقتراع، ويرى كثير من السنغاليين أن الراديو ساعد على تحقيقه. ففي تلك الليلة، بثّت المحطات الخاص"
   },
   {
+    "cc": "JO",
+    "slug": "jordan",
+    "en": "Jordan",
+    "ar": "الأردن",
+    "date": "2026-11-11",
+    "n": 30,
+    "descEn": "Every morning for half a century, Jordanians have picked up the phone to call a radio programme and complain: about a broken water pipe, a road full o",
+    "descAr": "كل صباح منذ نصف قرن، يرفع أردنيون سماعة الهاتف ليتصلوا ببرنامج إذاعي ويشكوا: أنبوب ماء مكسور، أو طريق مليء بالحفر، أو راتب تقاعد تأخّر. ويجيب المسؤولو"
+  },
+  {
     "cc": "IQ",
     "slug": "iraq",
     "en": "Iraq",
@@ -1016,16 +1026,6 @@
     "ar": "هايتي",
     "date": "2026-11-11",
     "n": 31,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "JO",
-    "slug": "jordan",
-    "en": "Jordan",
-    "ar": "الأردن",
-    "date": "2026-11-11",
-    "n": 30,
     "descEn": "",
     "descAr": ""
   },
