@@ -350,6 +350,16 @@
     "descAr": "في السادسة والنصف من مساء الأربعاء الأول من يوليو/تموز 1936، نطق المذيع عبد الستار فوزي بكلمتين سيسمعهما العراقيون أجيالاً: «هنا بغداد» . وصار العراق "
   },
   {
+    "cc": "QA",
+    "slug": "qatar",
+    "en": "Qatar",
+    "ar": "قطر",
+    "date": "2026-11-11",
+    "n": 18,
+    "descEn": "Qatar's first radio station broadcast only on Fridays. In 1965 it carried Quranic recitation, religious programmes and news, one day a week. Today Qat",
+    "descAr": "كانت أول محطة إذاعية في قطر تبثّ يوم الجمعة فقط. ففي 1965 كانت تحمل تلاوات القرآن والبرامج الدينية والأخبار، يوماً واحداً في الأسبوع. واليوم تبثّ إذاع"
+  },
+  {
     "cc": "AU",
     "slug": "australia",
     "en": "Australia",
@@ -1186,16 +1196,6 @@
     "ar": "مدغشقر",
     "date": "2026-11-11",
     "n": 19,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "QA",
-    "slug": "qatar",
-    "en": "Qatar",
-    "ar": "قطر",
-    "date": "2026-11-11",
-    "n": 18,
     "descEn": "",
     "descAr": ""
   },
