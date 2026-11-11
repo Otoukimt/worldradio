@@ -364,6 +364,11 @@ html[data-theme="dark"] #page .cbanner{opacity:.55;filter:blur(70px) saturate(1.
   border:1px solid var(--line);cursor:pointer;font-family:inherit;font-size:15px;font-weight:800;
   color:#fff;background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 6px 18px var(--shadow)}
 #page .empty{color:var(--mut);padding:26px 0;text-align:center}
+#page .srcs{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+#page .srcs h3{font-size:14px;margin:0 0 8px;color:var(--mut);font-weight:800}
+#page .srcs ol{margin:0;padding-inline-start:20px;font-size:13px;line-height:1.7;color:var(--mut)}
+#page .srcs a{color:var(--acc);word-break:break-word;text-decoration:underline;text-underline-offset:2px}
+#page .lang-en a,#page .lang-ar a{color:var(--acc);text-decoration:underline;text-underline-offset:2px}
 #pLoad{text-align:center;color:var(--mut);padding:60px 0;font-size:15px}
 .backb{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:9px 16px;
   border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;margin:0 8px 18px 0;
@@ -515,7 +520,7 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
     </section>
 
     <section class="sec" id="guideSec" style="display:none">
-      <div class="sechead"><h2 data-i="cguides">Country guides</h2></div>
+      <div class="sechead"><h2 id="guideTitle">Country guides</h2></div>
       <div class="arts" id="guideList"></div>
     </section>
 
@@ -707,6 +712,8 @@ var I={
   about:'About',privacy:'Privacy Policy',contact:'Contact',forBroad:'For broadcasters',visitors:'Total visitors',
   backHome:'&larr; Home',empty:'Nothing found.',loading:'Loading…',
   nStations:'{n} stations',found:'{n} playable',
+  contTitle:'Radio across {c}',yourCountry:'your country',
+  contAF:'Africa',contAS:'Asia',contEU:'Europe',contNA:'North America',contSA:'South America',contOC:'Oceania',
   scanning:'Scanning {n} entries · {m} playable so far…',
   settings:'Settings',setSub:'Saved on this device only.',
   quality:'Audio quality &amp; data use',qLow:'Saver',qLowS:'&le;64 kbps',
@@ -741,6 +748,8 @@ var I={
   about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',forBroad:'للمذيعين',visitors:'إجمالي الزوار',
   backHome:'&rarr; الرئيسية',empty:'لا نتائج.',loading:'جارٍ التحميل…',
   nStations:'{n} محطة',found:'{n} قابلة للتشغيل',
+  contTitle:'إذاعات {c}',yourCountry:'بلدك',
+  contAF:'إفريقيا',contAS:'آسيا',contEU:'أوروبا',contNA:'أمريكا الشمالية',contSA:'أمريكا الجنوبية',contOC:'أوقيانوسيا',
   scanning:'فحص {n} مدخلاً · {m} قابلة للتشغيل حتى الآن…',
   settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',
   quality:'جودة الصوت واستهلاك البيانات',qLow:'توفير',qLowS:'&le;64 kbps',
@@ -999,8 +1008,9 @@ function detectCountry(){
 }
 function loadLocal(){
   detectCountry().then(function(cc){
-    if(!cc){$('localSec').style.display='none';return;}
+    if(!cc){$('localSec').style.display='none';drawGuides();return;}
     myCC=cc;
+    drawGuides();
     api('/json/stations/search?hidebroken=true&limit=200&order=clickcount&reverse=true&countrycode='+cc)
       .then(function(d){
         localList=capped(clean(d));
@@ -1338,35 +1348,42 @@ function applyCfg(d){
 fetch('./articles.json').then(function(r){return r.json();})
   .then(function(d){posts=d||[];drawArticles();}).catch(function(){});
 
+/* القارة لكل رمز دولة: لعرض بلد الزائر وجيرانه في قارته */
+var CONT={};
+(function(){var m={"AF": "DZ AO BJ BW BF BI CV CM CF TD KM CG CD CI DJ EG GQ ER SZ ET GA GM GH GN GW KE LS LR LY MG MW ML MR MU YT MA MZ NA NE NG RE RW SH ST SN SC SL SO ZA SS SD TZ TG TN UG EH ZM ZW", "AS": "AF AM AZ BH BD BT BN KH CN CY GE HK IN ID IR IQ IL JP JO KZ KW KG LA LB MO MY MV MN MM NP KP OM PK PS PH QA SA SG KR LK SY TW TJ TH TL TR TM AE UZ VN YE", "EU": "AL AD AT BY BE BA BG HR CZ DK EE FO FI FR DE GI GR GG HU IS IE IM IT JE XK LV LI LT LU MT MD MC ME NL MK NO PL PT RO RU SM RS SK SI ES SE CH UA GB VA", "NA": "AI AG AW BS BB BZ BM BQ CA KY CR CU CW DM DO SV GL GD GP GT HT HN JM MQ MX MS NI PA PR BL KN LC MF PM VC SX TT TC US VG VI", "SA": "AR BO BR CL CO EC FK GF GY PY PE SR UY VE", "OC": "AS AU CK FJ PF GU KI MH FM NR NC NZ NU NF MP PW PG PN WS SB TK TO TV UM VU WF"};for(var k in m)m[k].split(' ').forEach(function(c){CONT[c]=k;});})();
 /* صفحات الدول: روابط حقيقية تفهرسها جوجل */
 var guides=[];
 function drawGuides(){
   var sec=$('guideSec'),box=$('guideList');
-  var withText=guides.filter(function(c){return (c.descAr||c.descEn);});
-  if(!withText.length){sec.style.display='none';return;}
+  if(!guides.length){sec.style.display='none';return;}
+  var cont=myCC?CONT[myCC]:null;
+  /* بلد الزائر أولاً، ثم أكبر خمس دول في قارته من حيث عدد المحطات */
+  var pick=[];
+  if(myCC)for(var q=0;q<guides.length;q++)if(guides[q].cc===myCC){pick.push(guides[q]);break;}
+  var pool=guides.filter(function(g){return g.cc!==myCC&&(!cont||CONT[g.cc]===cont);})
+    .sort(function(a,b){return (b.n||0)-(a.n||0);});
+  pick=pick.concat(pool.slice(0,6-pick.length));
+  if(!pick.length){sec.style.display='none';return;}
+
+  var h=$('guideTitle');
+  if(h)h.textContent=cont?T('contTitle').replace('{c}',T('cont'+cont)):T('cguides');
+
   box.innerHTML='';
-  guides.filter(function(c){return (c.descAr||c.descEn);}).slice(0,6).forEach(function(c){
+  pick.forEach(function(c){
     var a=document.createElement('a');a.className='gcard';
     a.href='./countries/'+c.slug+'.html';
     a.innerHTML='<div class="fg"></div><div class="tx"><div class="nm"></div>'+
                 '<div class="ds"></div><div class="nb"></div></div>';
     a.querySelector('.fg').textContent=flagOf(c.cc);
-    a.querySelector('.nm').textContent=(lang==='ar'?(c.ar||c.en):c.en);
-    /* مقتطف من نص الصفحة إن توفّر، وإلا سطر وصفي مفيد */
+    a.querySelector('.nm').textContent=(lang==='ar'?(c.ar||c.en):c.en)+(c.cc===myCC?' · '+T('yourCountry'):'');
     var ex=(lang==='ar'?c.descAr:c.descEn)||'';
-    var ds=a.querySelector('.ds');
-    if(ex){ds.textContent=ex;}
-    else{
-      ds.textContent=(lang==='ar')
-        ? ('أخبار وموسيقى ورياضة وقرآن — مرتّبة حسب التصنيف.')
-        : ('News, music, sport and more — grouped by category.');
-    }
-    /* عدد المحطات: من الفهرس المولّد أو من القائمة الحيّة */
+    a.querySelector('.ds').textContent=ex||((lang==='ar')
+      ? 'أخبار وموسيقى ورياضة وحوار — مرتّبة حسب التصنيف.'
+      : 'News, music, sport and talk — grouped by category.');
     var n=c.n||0;
     if(!n)for(var i=0;i<countries.length;i++)if(countries[i].cc===c.cc){n=countries[i].n;break;}
     var nb=a.querySelector('.nb');
-    if(n)nb.textContent=T('nStations').replace('{n}',fmtNum(n));
-    else nb.style.display='none';
+    if(n)nb.textContent=T('nStations').replace('{n}',fmtNum(n));else nb.style.display='none';
     box.appendChild(a);
   });
   sec.style.display='block';
