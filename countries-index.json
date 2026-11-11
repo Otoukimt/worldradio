@@ -4,20 +4,10 @@
     "slug": "the-united-states-of-america",
     "en": "The United States Of America",
     "ar": "الولايات المتحدة",
-    "date": "2026-11-10",
+    "date": "2026-11-11",
     "n": 7038,
-    "descEn": "American radio did not begin with a plan. It began in a Pittsburgh garage in 1920, when a Westinghouse engineer named Frank Conrad started playing rec",
-    "descAr": "لم يبدأ الراديو الأمريكي بخطة. بدأ في مرآب بمدينة بيتسبرغ سنة 1920، حين شرع مهندس في «وستنغهاوس» اسمه فرانك كونراد في تشغيل أسطوانات عبر مرسل ليسلّي ه"
-  },
-  {
-    "cc": "CN",
-    "slug": "china",
-    "en": "China",
-    "ar": "الصين",
-    "date": "2026-11-10",
-    "n": 1974,
-    "descEn": "Radio reached China early and through the foreign concessions. The first stations appeared in Shanghai in the early 1920s.",
-    "descAr": "وصل الراديو إلى الصين مبكراً وعبر الامتيازات الأجنبية. ظهرت أولى المحطات في شنغهاي في أوائل العشرينيات."
+    "descEn": "",
+    "descAr": ""
   },
   {
     "cc": "DE",
@@ -60,6 +50,16 @@
     "descAr": ""
   },
   {
+    "cc": "CN",
+    "slug": "china",
+    "en": "China",
+    "ar": "الصين",
+    "date": "2026-11-11",
+    "n": 1974,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "GR",
     "slug": "greece",
     "en": "Greece",
@@ -95,7 +95,7 @@
     "en": "Mexico",
     "ar": "المكسيك",
     "date": "2026-11-11",
-    "n": 1556,
+    "n": 1557,
     "descEn": "",
     "descAr": ""
   },
@@ -105,7 +105,7 @@
     "en": "Brazil",
     "ar": "البرازيل",
     "date": "2026-11-11",
-    "n": 1431,
+    "n": 1432,
     "descEn": "",
     "descAr": ""
   },

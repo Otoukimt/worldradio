@@ -27,13 +27,8 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/the-united-states-of-america.html</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/china.html</loc>
-    <lastmod>2026-11-10</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/germany.html</loc>
@@ -52,6 +47,11 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/the-united-kingdom-of-great-britain-and-northern-ireland.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/china.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
