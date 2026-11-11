@@ -146,8 +146,9 @@ function injectArticles(root) {
     else if (html.includes('</head>')) out = html.replace('</head>', () => block + '\n</head>');
     else return;
     /* محرك الإعلانات (مطفأ حتى يُشغَّل ads.json) */
-    if (!out.includes('/assets/ads.js') && out.includes('</body>'))
-      out = out.replace('</body>', () => '<script src="/assets/ads.js" defer></script>\n</body>');
+    out = out.replace('<script src="/assets/ads.js" defer></script>', '<script src="/ads.js" defer></script>');
+    if (!out.includes('/ads.js"') && out.includes('</body>'))
+      out = out.replace('</body>', () => '<script src="/ads.js" defer></script>\n</body>');
     if (out !== html) { fs.writeFileSync(f, out); n++; }
   });
   return n;
