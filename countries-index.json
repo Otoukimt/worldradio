@@ -250,6 +250,16 @@
     "descAr": "قلّة من الإذاعات في العالم يمكنها القول إنها وُلدت من أجل الحجاج. فقد انطلق أول بثّ منتظم للإذاعة السعودية من جدة في الأول من أكتوبر 1949، يوم عرفة، ب"
   },
   {
+    "cc": "SN",
+    "slug": "senegal",
+    "en": "Senegal",
+    "ar": "السنغال",
+    "date": "2026-11-11",
+    "n": 33,
+    "descEn": "In March 2000, Senegal experienced its first change of power at the ballot box, and many Senegalese credit radio for helping to make it happen. That n",
+    "descAr": "في مارس 2000 عرفت السنغال أول تداول للسلطة عبر صناديق الاقتراع، ويرى كثير من السنغاليين أن الراديو ساعد على تحقيقه. ففي تلك الليلة، بثّت المحطات الخاص"
+  },
+  {
     "cc": "RU",
     "slug": "the-russian-federation",
     "en": "The Russian Federation",
@@ -966,16 +976,6 @@
     "ar": "Reunion",
     "date": "2026-11-11",
     "n": 35,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "SN",
-    "slug": "senegal",
-    "en": "Senegal",
-    "ar": "السنغال",
-    "date": "2026-11-11",
-    "n": 33,
     "descEn": "",
     "descAr": ""
   },

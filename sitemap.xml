@@ -156,6 +156,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://worldliveradio.com/countries/senegal.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://worldliveradio.com/countries/the-russian-federation.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
@@ -512,11 +517,6 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/reunion.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/senegal.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
