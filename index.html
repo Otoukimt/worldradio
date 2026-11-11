@@ -599,6 +599,36 @@ html[dir="rtl"] .fsBack svg{transform:scaleX(-1)}
   #fs.playing .fsEq i{transform:scaleY(.5)}
 }
 .player .nav svg{width:19px;height:19px;fill:currentColor;display:block}
+/* ===== البحث الموحّد في الرئيسية ===== */
+.gs{position:relative;max-width:620px;margin:18px auto 4px;text-align:start}
+.gs input{width:100%;box-sizing:border-box;background:var(--card);border:1.5px solid var(--line);color:var(--txt);
+  border-radius:16px;padding:15px 16px 15px 46px;font:inherit;font-size:16px;outline:none;
+  box-shadow:0 8px 24px -14px var(--shadow)}
+html[dir="rtl"] .gs input{padding:15px 46px 15px 16px}
+.gs input:focus{border-color:var(--acc)}
+.gs input::-webkit-search-cancel-button{cursor:pointer}
+.gs .ic{position:absolute;top:50%;left:16px;width:20px;height:20px;margin-top:-10px;fill:var(--mut);pointer-events:none}
+html[dir="rtl"] .gs .ic{left:auto;right:16px}
+.gsRes{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;background:var(--card);border:1px solid var(--line);
+  border-radius:16px;box-shadow:0 22px 50px -18px var(--shadow);max-height:min(70vh,560px);overflow-y:auto;display:none;padding:6px 0}
+.gsRes.on{display:block}
+.gsH{font-size:12.5px;font-weight:700;color:var(--mut);padding:10px 16px 4px}
+.gsCs{display:flex;flex-wrap:wrap;gap:6px;padding:4px 14px 8px}
+.gsC{background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font:inherit;font-size:14px;
+  color:var(--txt);cursor:pointer}
+.gsC:hover{border-color:var(--acc)}
+.gsRow{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;padding:9px 16px;font:inherit;
+  color:var(--txt);text-align:start;cursor:pointer}
+.gsRow:hover,.gsRow.sel{background:var(--card2)}
+.gsRow .lg{width:40px;height:40px;border-radius:10px;overflow:hidden;flex:none;background:var(--card2);display:grid;place-items:center;
+  font-weight:800;color:var(--acc)}
+.gsRow .lg img{width:100%;height:100%;object-fit:cover;background:#fff}
+.gsRow .tx{flex:1;min-width:0}
+.gsRow .nm{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gsRow .mt{font-size:12.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gsRow .pl{width:34px;height:34px;border-radius:50%;background:var(--acc);display:grid;place-items:center;flex:none}
+.gsRow .pl svg{width:16px;height:16px;fill:#fff}
+.gsMsg{padding:14px 16px;color:var(--mut);font-size:14px}
 </style>
 </head>
 <body>
@@ -623,6 +653,11 @@ html[dir="rtl"] .fsBack svg{transform:scaleX(-1)}
   <div class="herowrap"><section class="hero">
     <h1 data-i="h1">Listen to the world, <em>live</em>.</h1>
     <p data-i="sub">Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.</p>
+    <div class="gs" role="search">
+      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/></svg>
+      <input id="gq" type="search" autocomplete="off" enterkeyhint="search" aria-label="Search" aria-controls="gRes" aria-expanded="false" placeholder="Search a station, country or article">
+      <div class="gsRes" id="gRes" role="listbox"></div>
+    </div>
   </section></div>
 
   <div class="tabs">
@@ -912,6 +947,8 @@ var I={
   backHome:'&larr; Home',empty:'Nothing found.',loading:'Loading…',
   nStations:'{n} stations',found:'{n} playable',
   contTitle:'Radio across {c}',yourCountry:'your country',
+  gsPh:'Search a station, country or article',gsCountries:'Countries',gsStations:'Stations worldwide',gsArticles:'Articles',
+  gsSearching:'Searching stations…',gsNone:'No station found for “{q}”. Try another spelling.',gsFail:'Search is unavailable right now. Check your connection and try again.',
   contAF:'Africa',contAS:'Asia',contEU:'Europe',contNA:'North America',contSA:'South America',contOC:'Oceania',
   scanning:'Scanning {n} entries · {m} playable so far…',
   settings:'Settings',setSub:'Saved on this device only.',
@@ -948,6 +985,8 @@ var I={
   backHome:'&rarr; الرئيسية',empty:'لا نتائج.',loading:'جارٍ التحميل…',
   nStations:'{n} محطة',found:'{n} قابلة للتشغيل',
   contTitle:'إذاعات {c}',yourCountry:'بلدك',
+  gsPh:'ابحث عن محطة أو دولة أو مقال',gsCountries:'الدول',gsStations:'محطات من العالم',gsArticles:'المقالات',
+  gsSearching:'جارٍ البحث عن المحطات…',gsNone:'لا محطة باسم «{q}». جرّب كتابة أخرى.',gsFail:'البحث غير متاح الآن. تحقّق من الاتصال وأعد المحاولة.',
   contAF:'إفريقيا',contAS:'آسيا',contEU:'أوروبا',contNA:'أمريكا الشمالية',contSA:'أمريكا الجنوبية',contOC:'أوقيانوسيا',
   scanning:'فحص {n} مدخلاً · {m} قابلة للتشغيل حتى الآن…',
   settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',
@@ -2340,6 +2379,7 @@ function applyLang(){
   $('csearch').placeholder=d.searchC;
   $('asearch').placeholder=d.searchC;
   $('stSearch').placeholder=d.searchS;
+  $('gq').placeholder=d.gsPh;$('gq').setAttribute('aria-label',d.gsPh);
   $('langBtn').textContent=d.langBtn;
   headerNav(!isHome());
   drawLocal();drawRecent();drawFeatured();drawArticles();drawStats();drawUsage();syncQ();drawFooter();drawGuides();
@@ -2829,6 +2869,122 @@ document.addEventListener('visibilitychange',function(){
 });
 /* حين تتغيّر المحطة يعيد play() كتابة سطر المشغل، فنمسح العنوان القديم فوراً */
 window.npReset=function(){np.uid='';reset();};
+})();
+
+/* ===== البحث الموحّد: محطات العالم + الدول + المقالات =====
+   الدول والمقالات موجودة في الصفحة، فتظهر فوراً. المحطات تُطلب من Radio Browser
+   بعد أن يتوقف الزائر عن الكتابة 350 جزءاً من الثانية — حيّة دائماً، ولا ملف إضافي. */
+(function(){
+var gq=$('gq'),box=$('gRes'),timer=null,seq=0,cache={},rows=[],sel=-1,lastLogged='';
+function norm(t){
+  return (t||'').toLowerCase().replace(/[\u064B-\u0652\u0640]/g,'')
+    .replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').trim();
+}
+function hide(){box.classList.remove('on');gq.setAttribute('aria-expanded','false');sel=-1;}
+function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;}
+function logoBox(s){
+  var w=el('div','lg');
+  if(s.favicon&&s.favicon.indexOf('https')===0){
+    var im=document.createElement('img');im.alt='';im.loading='lazy';im.src=s.favicon;
+    im.onerror=function(){w.textContent=ini(s.name);};w.appendChild(im);
+  }else w.textContent=ini(s.name);
+  return w;
+}
+function draw(q,stations,state){
+  var nq=norm(q);
+  box.innerHTML='';rows=[];sel=-1;
+  /* الدول */
+  var cs=countries.filter(function(c){return norm(c.en).indexOf(nq)>-1||norm(c.ar).indexOf(nq)>-1;}).slice(0,6);
+  if(cs.length){
+    box.appendChild(el('div','gsH',T('gsCountries')));
+    var wrap=el('div','gsCs');
+    cs.forEach(function(c){
+      var b=el('button','gsC',flagOf(c.cc)+' '+(lang==='ar'?c.ar:c.en));
+      b.onclick=function(){hide();loadPage(ROOT+'countries/'+ccSlug(c.cc,c.en)+'.html',true);};
+      wrap.appendChild(b);
+    });
+    box.appendChild(wrap);
+  }
+  /* المحطات — وإن لم نجد محطة لكن وجدنا دولة أو مقالاً، لا نعرض رسالة «لا نتائج» */
+  var hasOther=cs.length||(posts||[]).some(function(p){var t=p.title||{};return norm(t.ar).indexOf(nq)>-1||norm(t.en).indexOf(nq)>-1;});
+  if(!(state===''&&!stations.length&&hasOther))box.appendChild(el('div','gsH',T('gsStations')));
+  if(state===''&&!stations.length&&hasOther){}
+  else if(state==='wait')box.appendChild(el('div','gsMsg',T('gsSearching')));
+  else if(state==='fail')box.appendChild(el('div','gsMsg',T('gsFail')));
+  else if(!stations.length)box.appendChild(el('div','gsMsg',T('gsNone').replace('{q}',q)));
+  else stations.slice(0,12).forEach(function(s){
+    var b=el('button','gsRow');b.setAttribute('role','option');
+    b.appendChild(logoBox(s));
+    var tx=el('div','tx');
+    tx.appendChild(el('div','nm',(s.name||'').trim()));
+    tx.appendChild(el('div','mt',[flagOf(s.countrycode)+' '+cname(s.countrycode,s.country||''),(s.tags||'').split(',')[0]]
+      .map(function(x){return (x||'').trim();}).filter(Boolean).join(lang==='ar'?'، ':', ')));
+    b.appendChild(tx);
+    var pl=el('span','pl');pl.innerHTML='<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';b.appendChild(pl);
+    b.onclick=function(){
+      hide();play(s);
+      if(window.gtag)gtag('event','search_play',{search_term:q,station_name:(s.name||'').trim()});
+    };
+    box.appendChild(b);rows.push(b);
+  });
+  /* المقالات */
+  var as=(posts||[]).filter(function(p){
+    var t=p.title||{};return norm(t.ar).indexOf(nq)>-1||norm(t.en).indexOf(nq)>-1;
+  }).slice(0,3);
+  if(as.length){
+    box.appendChild(el('div','gsH',T('gsArticles')));
+    as.forEach(function(p){
+      var b=el('button','gsRow');
+      var tx=el('div','tx');tx.appendChild(el('div','nm',(p.title&&(p.title[lang]||p.title.en))||p.slug));
+      b.appendChild(tx);
+      b.onclick=function(){hide();loadPage(ROOT+'articles/'+p.slug+'.html',true);};
+      box.appendChild(b);rows.push(b);
+    });
+  }
+  box.classList.add('on');gq.setAttribute('aria-expanded','true');
+}
+function fetchStations(q){
+  var key=norm(q);
+  if(cache[key])return Promise.resolve(cache[key]);
+  var enc=encodeURIComponent(q);
+  var base='/json/stations/search?hidebroken=true&order=clickcount&reverse=true&limit=40&';
+  /* بالاسم وبالوسم معاً: «quran» قد يكون في الوسم لا في الاسم */
+  return Promise.all([api(base+'name='+enc),api(base+'tag='+enc)]).then(function(r){
+    if(!r[0]&&!r[1])return null;
+    var l=clean((r[0]||[]).concat(r[1]||[]));
+    l.sort(function(a,b){return (b.clickcount||0)-(a.clickcount||0);});
+    l=capped(l);
+    cache[key]=l;return l;
+  });
+}
+gq.addEventListener('input',function(){
+  var q=gq.value.trim();clearTimeout(timer);
+  if(q.length<2){hide();return;}
+  var my=++seq;
+  var hit=cache[norm(q)];
+  draw(q,hit||[],hit?'':'wait');
+  if(hit)return;
+  timer=setTimeout(function(){
+    fetchStations(q).then(function(l){
+      if(my!==seq)return;                 /* الزائر كتب شيئاً أحدث */
+      draw(q,l||[],l?'':'fail');
+      if(window.gtag&&q!==lastLogged){lastLogged=q;gtag('event','search',{search_term:q,results:(l||[]).length});}
+    });
+  },350);
+});
+gq.addEventListener('keydown',function(e){
+  if(!box.classList.contains('on'))return;
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+    e.preventDefault();if(!rows.length)return;
+    if(sel>-1)rows[sel].classList.remove('sel');
+    sel=e.key==='ArrowDown'?(sel+1)%rows.length:(sel-1+rows.length)%rows.length;
+    rows[sel].classList.add('sel');rows[sel].scrollIntoView({block:'nearest'});
+  }else if(e.key==='Enter'){
+    e.preventDefault();var r=rows[sel>-1?sel:0];if(r)r.click();
+  }else if(e.key==='Escape'){hide();}
+});
+gq.addEventListener('focus',function(){if(gq.value.trim().length>=2&&box.children.length)box.classList.add('on');});
+document.addEventListener('click',function(e){if(!e.target.closest('.gs'))hide();});
 })();
 
 /* ---------- init ---------- */
