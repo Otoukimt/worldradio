@@ -302,21 +302,37 @@ function grp(s){
   return 'other';
 }
 
-/* المرايا معاً وأسرعها يفوز */
-var M=['https://de2.api.radio-browser.info','https://nl1.api.radio-browser.info',
-       'https://at1.api.radio-browser.info','https://fi1.api.radio-browser.info'];
+/* المرايا بالتتابع لا معاً: نبدأ بآخر مرآة نجحت، ولا نطلق التالية إلا إن فشلت
+   الأولى أو تأخرت 4 ثوانٍ. هكذا لا تُطرق مرآة معطّلة في الزيارة العادية،
+   فلا تظهر أخطاء في وحدة التحكم. ولا نلغي أي طلب، فالإلغاء يسجّل خطأ أيضاً. */
+var M=['https://de2.api.radio-browser.info','https://de1.api.radio-browser.info',
+             'https://nl1.api.radio-browser.info','https://at1.api.radio-browser.info'];
+var mirGood=(function(){try{return localStorage.getItem('lr_mir')||'';}catch(e){return '';}})();
 function api(p){
+  var order=M.slice(),k=order.indexOf(mirGood);
+  if(k>0){order.splice(k,1);order.unshift(mirGood);}
   return new Promise(function(resolve){
-    var done=false,left=M.length;
-    M.forEach(function(m){
-      var ctl=null,t=null;
-      try{ctl=new AbortController();}catch(e){}
-      t=setTimeout(function(){if(ctl)try{ctl.abort();}catch(e){}},15000);
-      fetch(m+p,ctl?{signal:ctl.signal}:undefined)
+    var done=false,i=0,live=0;
+    var cap=setTimeout(function(){fin(null);},20000);
+    function fin(d){if(done)return;done=true;clearTimeout(cap);resolve(d);}
+    function launch(){
+      if(done||i>=order.length)return;
+      var m=order[i++];live++;
+      var hedge=setTimeout(launch,4000);
+      fetch(m+p)
         .then(function(r){if(!r.ok)throw 0;return r.json();})
-        .then(function(d){clearTimeout(t);if(!done){done=true;resolve(d);}})
-        .catch(function(){clearTimeout(t);if(--left<=0&&!done){done=true;resolve(null);}});
-    });
+        .then(function(d){
+          clearTimeout(hedge);live--;
+          if(!done){mirGood=m;try{localStorage.setItem('lr_mir',m);}catch(e){}}
+          fin(d);
+        })
+        .catch(function(){
+          clearTimeout(hedge);live--;
+          if(done)return;
+          if(i<order.length)launch();else if(live<=0)fin(null);
+        });
+    }
+    launch();
   });
 }
 
