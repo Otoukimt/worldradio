@@ -146,6 +146,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://worldliveradio.com/countries/lebanon.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://worldliveradio.com/countries/ghana.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.8</priority>
@@ -367,11 +372,6 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/norway.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/lebanon.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>

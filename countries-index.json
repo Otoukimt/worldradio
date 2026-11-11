@@ -220,6 +220,16 @@
     "descAr": "تملك الإذاعة اليابانية لحظة لا يملكها راديو أي بلد آخر: اليوم الذي سمعت فيه أمة كاملة صوت إمبراطورها للمرة الأولى، وهو يعلن نهاية حرب. وتملك أيضاً واح"
   },
   {
+    "cc": "LB",
+    "slug": "lebanon",
+    "en": "Lebanon",
+    "ar": "لبنان",
+    "date": "2026-11-11",
+    "n": 118,
+    "descEn": "Somewhere in the archives of Radio Liban in Beirut are some of the first recordings ever made by Fairuz, by Wadih El Safi and by other giants of Arab ",
+    "descAr": "في مكان ما من أرشيف «إذاعة لبنان» في بيروت تقبع بعض أولى التسجيلات التي صنعتها فيروز ووديع الصافي وعمالقة آخرون من الغناء العربي. وقلّة من الإذاعات في"
+  },
+  {
     "cc": "GH",
     "slug": "ghana",
     "en": "Ghana",
@@ -666,16 +676,6 @@
     "ar": "النرويج",
     "date": "2026-11-11",
     "n": 121,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "LB",
-    "slug": "lebanon",
-    "en": "Lebanon",
-    "ar": "لبنان",
-    "date": "2026-11-11",
-    "n": 118,
     "descEn": "",
     "descAr": ""
   },
