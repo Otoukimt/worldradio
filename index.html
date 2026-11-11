@@ -803,6 +803,7 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
     <a href="./about.html" data-i="about">About</a>
     <a href="./privacy.html" data-i="privacy">Privacy Policy</a>
     <a href="./contact.html" data-i="contact">Contact</a>
+    <a href="./terms.html" data-i="terms">Terms of use</a>
     <a href="./broadcasters.html" data-i="forBroad">For broadcasters</a>
   </nav>
   <div>© <span id="yr"></span> LiveRadio</div>
@@ -988,7 +989,7 @@ var I={
   favs:'Your favourites',noFav:'No favourites yet. Tap the heart on any station.',
   searchC:'Search a country...',searchS:'Search a station...',
   guides:'Radio guides &amp; articles',allArts:'See all &rarr;',allArts2:'Articles',
-  about:'About',privacy:'Privacy Policy',contact:'Contact',forBroad:'For broadcasters',visitors:'Total visitors',
+  about:'About',privacy:'Privacy Policy',contact:'Contact',forBroad:'For broadcasters',terms:'Terms of use',visitors:'Total visitors',
   backHome:'&larr; Home',empty:'Nothing found.',loading:'Loading…',
   nStations:'{n} stations',found:'{n} playable',
   contTitle:'Radio across {c}',yourCountry:'your country',
@@ -1027,7 +1028,7 @@ var I={
   favs:'محطاتك المفضلة',noFav:'لا توجد مفضلة بعد. اضغط على القلب في أي محطة.',
   searchC:'ابحث عن دولة...',searchS:'ابحث عن محطة...',
   guides:'مقالات وأدلة الراديو',allArts:'عرض الكل &larr;',allArts2:'المقالات',
-  about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',forBroad:'للمذيعين',visitors:'إجمالي الزوار',
+  about:'من نحن',privacy:'سياسة الخصوصية',contact:'اتصل بنا',forBroad:'للمذيعين',terms:'شروط الاستخدام',visitors:'إجمالي الزوار',
   backHome:'&rarr; الرئيسية',empty:'لا نتائج.',loading:'جارٍ التحميل…',
   nStations:'{n} محطة',found:'{n} قابلة للتشغيل',
   contTitle:'إذاعات {c}',yourCountry:'بلدك',
@@ -1597,6 +1598,11 @@ function drawFooter(items){
     a.textContent=(lang==='ar'?(it.ar||it.en):(it.en||it.ar))||'';
     nav.appendChild(a);
   });
+  if(!nav.querySelector('a[href$="terms.html"]')){
+    var tm=document.createElement('a');tm.href=ROOT+'terms.html';
+    tm.textContent=(lang==='ar')?'شروط الاستخدام':'Terms of use';
+    nav.appendChild(tm);
+  }
   if(!nav.querySelector('a[href$="broadcasters.html"]')){
     var b=document.createElement('a');b.href=ROOT+'broadcasters.html';
     b.textContent=(lang==='ar')?'للمذيعين':'For broadcasters';

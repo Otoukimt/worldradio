@@ -269,7 +269,7 @@ function buildSitemap(root, pages, OLD) {
 
   add(SITE + '/', newest, '1.0');
   add(SITE + '/articles.html', newest, '0.9');
-  ['about', 'privacy', 'contact', 'broadcasters'].forEach(p => {
+  ['about', 'privacy', 'contact', 'broadcasters', 'terms'].forEach(p => {
     const u = `${SITE}/${p}.html`; add(u, OLD[u] || today, '0.3');
   });
   pages.forEach(p => add(`${SITE}/countries/${p.slug}.html`, p.date, p.hasArticle ? '0.8' : '0.6'));
