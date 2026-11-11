@@ -70,6 +70,16 @@
     "descAr": "وُلد الراديو البرازيلي عرضاً وطنياً، ثم صار الراوي الأكبر في البلاد. فقبل التلفزيون بزمن طويل، تابع البرازيليون المسلسلات الإذاعية حلقة بحلقة، واستمر "
   },
   {
+    "cc": "CA",
+    "slug": "canada",
+    "en": "Canada",
+    "ar": "كندا",
+    "date": "2026-11-11",
+    "n": 1384,
+    "descEn": "Canada has a strong claim to one of the very first scheduled radio broadcasts in the world, and it built a radio system shaped by two languages and a ",
+    "descAr": "لكندا ادّعاء قوي بأنها قدّمت واحداً من أول البرامج الإذاعية المجدولة في العالم، وقد بنت نظاماً إذاعياً شكّلته لغتان وجار قوي. والأمران معاً يفسّران ما"
+  },
+  {
     "cc": "ES",
     "slug": "spain",
     "en": "Spain",
@@ -176,16 +186,6 @@
     "ar": "أستراليا",
     "date": "2026-11-11",
     "n": 1615,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "CA",
-    "slug": "canada",
-    "en": "Canada",
-    "ar": "كندا",
-    "date": "2026-11-11",
-    "n": 1384,
     "descEn": "",
     "descAr": ""
   },
