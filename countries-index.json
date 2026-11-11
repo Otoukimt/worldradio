@@ -60,6 +60,16 @@
     "descAr": "للإذاعة الصينية تاريخان نادراً ما يلتقيان في مقال واحد. الأول قصة بضع محطات يديرها أجانب في شنغهاي العشرينيات. والثاني قصة مرسل حُمل إلى بلدة كهوف في "
   },
   {
+    "cc": "GR",
+    "slug": "greece",
+    "en": "Greece",
+    "ar": "اليونان",
+    "date": "2026-11-11",
+    "n": 1897,
+    "descEn": "Only twice in its history has Greece's national radio gone completely silent. The first time was in 1941, when German troops occupied the station in A",
+    "descAr": "لم تصمت الإذاعة الوطنية اليونانية صمتاً تاماً إلا مرتين في تاريخها. الأولى سنة 1941، حين احتلت القوات الألمانية المحطة في أثينا. والثانية مساء 11 يوني"
+  },
+  {
     "cc": "IT",
     "slug": "italy",
     "en": "Italy",
@@ -268,16 +278,6 @@
     "n": 33,
     "descEn": "In March 2000, Senegal experienced its first change of power at the ballot box, and many Senegalese credit radio for helping to make it happen. That n",
     "descAr": "في مارس 2000 عرفت السنغال أول تداول للسلطة عبر صناديق الاقتراع، ويرى كثير من السنغاليين أن الراديو ساعد على تحقيقه. ففي تلك الليلة، بثّت المحطات الخاص"
-  },
-  {
-    "cc": "GR",
-    "slug": "greece",
-    "en": "Greece",
-    "ar": "اليونان",
-    "date": "2026-11-11",
-    "n": 1897,
-    "descEn": "",
-    "descAr": ""
   },
   {
     "cc": "AU",
