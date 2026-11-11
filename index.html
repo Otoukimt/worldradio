@@ -976,7 +976,9 @@ function drawLocal(){
   localList.slice(0,6).forEach(function(s){box.appendChild(card(s));});
   $('localSec').style.display='block';markPlaying();
 }
-$('localMore').onclick=function(){ if(myCC)openCountry(myCC,myName); };
+$('localMore').onclick=function(){
+  if(myCC)loadPage(ROOT+'countries/'+ccSlug(myCC,myName)+'.html',true);
+};
 
 /* ---------- recently played: last three ---------- */
 function drawRecent(){
@@ -1041,14 +1043,18 @@ function flagBtn(c){
   var nm=document.createElement('div');nm.className='fname';nm.textContent=(lang==='ar'?c.ar:c.en);
   var nu=document.createElement('div');nu.className='fnum';nu.textContent=T('nStations').replace('{n}',fmtNum(c.n));
   b.appendChild(cir);b.appendChild(nm);b.appendChild(nu);
-  b.onclick=function(){
-    for(var i=0;i<guides.length;i++){
-      if(guides[i].cc===c.cc){location.href='./countries/'+guides[i].slug+'.html';return;}
-    }
-    openCountry(c.cc,lang==='ar'?c.ar:c.en);
-  };
+  /* حقن الصفحة بدل فتحها فتحاً كاملاً، فلا ينقطع الصوت */
+  b.onclick=function(){ loadPage(ROOT+'countries/'+ccSlug(c.cc,c.en)+'.html',true); };
   return b;
 }
+
+/* اسم ملف الدولة: من الفهرس المولّد إن وُجد، وإلا من الاسم الإنجليزي */
+function ccSlug(cc,en){
+  for(var i=0;i<guides.length;i++)if(guides[i].cc===cc&&guides[i].slug)return guides[i].slug;
+  for(var j=0;j<countries.length;j++)if(countries[j].cc===cc){en=countries[j].en;break;}
+  return (en||cc).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+}
+
 function drawFlags(){
   var q=($('csearch').value||'').trim().toLowerCase();
   var list=countries.filter(function(c){return matchCountry(c,q);});
@@ -1403,6 +1409,7 @@ function startTick(){
   },1000);
 }
 function currentQueue(){
+  if(inType==='country'&&inList.length)return inList;   /* صفحة دولة محقونة */
   if(view==='fav')return favs;
   if(view==='country'&&ctryList.length)return ctryList;
   if(localList.length)return localList;
@@ -1744,9 +1751,11 @@ function igrp(s){
       if(t.indexOf(GROUPS[i].m[j])>-1)return GROUPS[i].k;
   return 'other';
 }
-var inLoading=false,inExpand=false;
+var inLoading=false,inExpand=false,inOff=0,inDone=false,inBusy=false,inSeen=null;
+var IN_PAGE=600, IN_SHOW=12;
 function initCountryPage(cc){
   inCC=cc;inList=[];inCat='';inLoading=true;inExpand=false;
+  inOff=0;inDone=false;inBusy=false;inSeen={u:{},id:{}};
   var f=flagOf(cc);
   /* الهيكل له أزرار تنقله، فنحذف أزرار الصفحة المحقونة */
   var fg=pageEl.querySelector('#flag');
@@ -1758,12 +1767,27 @@ function initCountryPage(cc){
   }
   var st=pageEl.querySelector('#status');
   if(st)st.textContent=T('loading');
-  api('/json/stations/search?hidebroken=true&limit=250&order=clickcount&reverse=true&countrycode='+cc)
-    .then(function(d){
-      inLoading=false;
-      inList=capped(clean(d));
-      drawInCountry();
-    }).catch(function(){ inLoading=false; if(st)st.textContent=T('empty'); });
+  inFetch();
+}
+/* دفعات متتابعة: كثير من المحطات يسقط في الفرز، فنواصل حتى نجمع عدداً مفيداً */
+function inFetch(){
+  if(inBusy||inDone)return;
+  inBusy=true;inLoading=true;
+  var before=inList.length,tries=0;
+  function step(){
+    api('/json/stations/search?hidebroken=true&limit='+IN_PAGE+'&offset='+inOff+
+        '&order=clickcount&reverse=true&countrycode='+inCC)
+      .then(function(d){
+        var raw=d||[];
+        inOff+=raw.length;
+        if(raw.length<IN_PAGE)inDone=true;
+        inList=inList.concat(capped(clean(raw,inSeen)));
+        tries++;
+        if(!inDone && (inList.length-before)<60 && tries<4){step();return;}
+        inBusy=false;inLoading=false;drawInCountry();
+      }).catch(function(){inBusy=false;inLoading=false;inDone=true;drawInCountry();});
+  }
+  step();
 }
 function drawInCountry(){
   var bar=pageEl.querySelector('#catbar'),
@@ -1792,14 +1816,20 @@ function drawInCountry(){
   if(st)st.textContent='';
 
   /* اثنتا عشرة محطة فقط، ليصل القارئ إلى المقال التعريفي بسرعة */
-  var LIM=inExpand?sel.length:12;
+  var LIM=inExpand?sel.length:IN_SHOW;
   var g=document.createElement('div');g.className='grid';
   sel.slice(0,LIM).forEach(function(s){g.appendChild(card(s));});
   body.appendChild(g);
+
+  /* الزر يوسّع المعروض أولاً، فإن نفد المخزون جلب دفعة جديدة من الخادم */
+  var mb=document.createElement('button');mb.className='bigbtn';
   if(sel.length>LIM){
-    var mb=document.createElement('button');mb.className='bigbtn';
     mb.textContent=T('showAll').replace('{n}',fmtNum(sel.length-LIM));
     mb.onclick=function(){inExpand=true;drawInCountry();};
+    body.appendChild(mb);
+  }else if(!inDone){
+    mb.textContent=inBusy?T('loading'):T('loadMore');
+    mb.onclick=function(){inFetch();};
     body.appendChild(mb);
   }
   markPlaying();
