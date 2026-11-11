@@ -5,7 +5,7 @@
     "en": "The United States Of America",
     "ar": "الولايات المتحدة",
     "date": "2026-11-11",
-    "n": 7050,
+    "n": 7069,
     "descEn": "American radio began as a hobby in a garage and became the most commercial broadcasting system on earth. It never had a national public broadcaster fu",
     "descAr": "بدأ الراديو الأمريكي هوايةً في مرآب، وصار أكثر أنظمة البثّ تجارية في العالم. لم تكن له قطّ هيئة عمومية وطنية تموّلها الرسوم؛ كان له سوق، وهذه السوق اخ"
   },
@@ -15,7 +15,7 @@
     "en": "Germany",
     "ar": "ألمانيا",
     "date": "2026-11-11",
-    "n": 5631,
+    "n": 5633,
     "descEn": "German radio is the only major broadcasting system in the world designed, quite deliberately, to be hard to control. To understand why, you have to st",
     "descAr": "الإذاعة الألمانية هي النظام الإذاعي الكبير الوحيد في العالم الذي صُمّم عمداً ليكون صعب السيطرة. ولفهم السبب يجب أن نبدأ من عليّة في برلين ومن جهاز است"
   },
@@ -85,7 +85,7 @@
     "en": "Canada",
     "ar": "كندا",
     "date": "2026-11-11",
-    "n": 1385,
+    "n": 1386,
     "descEn": "Canada has a strong claim to one of the very first scheduled radio broadcasts in the world, and it built a radio system shaped by two languages and a ",
     "descAr": "لكندا ادّعاء قوي بأنها قدّمت واحداً من أول البرامج الإذاعية المجدولة في العالم، وقد بنت نظاماً إذاعياً شكّلته لغتان وجار قوي. والأمران معاً يفسّران ما"
   },
@@ -105,7 +105,7 @@
     "en": "Argentina",
     "ar": "الأرجنتين",
     "date": "2026-11-11",
-    "n": 1046,
+    "n": 1047,
     "descEn": "Argentina celebrates a national Radio Day every 27 August, in honour of four young men who climbed onto a theatre roof in Buenos Aires in 1920 and put",
     "descAr": "تحتفل الأرجنتين بيوم وطني للراديو في 27 غشت من كل عام، تكريماً لأربعة شبان صعدوا إلى سطح مسرح في بوينس آيرس سنة 1920 وأذاعوا أوبرا على الأثير. ومغامرت"
   },
@@ -115,7 +115,7 @@
     "en": "India",
     "ar": "الهند",
     "date": "2026-11-11",
-    "n": 746,
+    "n": 747,
     "descEn": "In India, the national broadcaster has a poetic name: Akashvani , \"the voice from the sky.\" Few countries have depended on radio as heavily to reach p",
     "descAr": "في الهند، للهيئة الإذاعية الوطنية اسم شاعري: «أكاشفاني»، أي «الصوت الآتي من السماء». وقليلة هي الدول التي اعتمدت على الراديو بهذا القدر للوصول إلى الن"
   },
@@ -135,7 +135,7 @@
     "en": "The United Arab Emirates",
     "ar": "الإمارات",
     "date": "2026-11-11",
-    "n": 634,
+    "n": 635,
     "descEn": "Scan the FM band in Dubai and you will hear Arabic, English, Hindi, Urdu, Malayalam, Tamil, Tagalog, Persian and Russian within a few minutes. Few pla",
     "descAr": "أدِر موجة FM في دبي وستسمع العربية والإنجليزية والهندية والأردية والمالايالامية والتاميلية والتاغالوغية والفارسية والروسية في دقائق قليلة. قلّة من الأ"
   },
@@ -265,7 +265,7 @@
     "en": "The Russian Federation",
     "ar": "روسيا",
     "date": "2026-11-11",
-    "n": 2531,
+    "n": 2532,
     "descEn": "",
     "descAr": ""
   },
@@ -275,7 +275,7 @@
     "en": "Greece",
     "ar": "اليونان",
     "date": "2026-11-11",
-    "n": 1890,
+    "n": 1893,
     "descEn": "",
     "descAr": ""
   },
@@ -445,7 +445,7 @@
     "en": "Croatia",
     "ar": "كرواتيا",
     "date": "2026-11-11",
-    "n": 264,
+    "n": 265,
     "descEn": "",
     "descAr": ""
   },
@@ -800,20 +800,20 @@
     "descAr": ""
   },
   {
-    "cc": "LK",
-    "slug": "sri-lanka",
-    "en": "Sri Lanka",
-    "ar": "سريلانكا",
+    "cc": "SG",
+    "slug": "singapore",
+    "en": "Singapore",
+    "ar": "سنغافورة",
     "date": "2026-11-11",
     "n": 63,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "SG",
-    "slug": "singapore",
-    "en": "Singapore",
-    "ar": "سنغافورة",
+    "cc": "LK",
+    "slug": "sri-lanka",
+    "en": "Sri Lanka",
+    "ar": "سريلانكا",
     "date": "2026-11-11",
     "n": 63,
     "descEn": "",
@@ -850,16 +850,6 @@
     "descAr": ""
   },
   {
-    "cc": "BY",
-    "slug": "belarus",
-    "en": "Belarus",
-    "ar": "بيلاروسيا",
-    "date": "2026-11-11",
-    "n": 59,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "MW",
     "slug": "malawi",
     "en": "Malawi",
@@ -874,6 +864,16 @@
     "slug": "pakistan",
     "en": "Pakistan",
     "ar": "باكستان",
+    "date": "2026-11-11",
+    "n": 59,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BY",
+    "slug": "belarus",
+    "en": "Belarus",
+    "ar": "بيلاروسيا",
     "date": "2026-11-11",
     "n": 59,
     "descEn": "",
@@ -940,20 +940,20 @@
     "descAr": ""
   },
   {
-    "cc": "HN",
-    "slug": "honduras",
-    "en": "Honduras",
-    "ar": "هندوراس",
+    "cc": "KZ",
+    "slug": "kazakhstan",
+    "en": "Kazakhstan",
+    "ar": "كازاخستان",
     "date": "2026-11-11",
     "n": 39,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "KZ",
-    "slug": "kazakhstan",
-    "en": "Kazakhstan",
-    "ar": "كازاخستان",
+    "cc": "HN",
+    "slug": "honduras",
+    "en": "Honduras",
+    "ar": "هندوراس",
     "date": "2026-11-11",
     "n": 39,
     "descEn": "",
@@ -980,20 +980,20 @@
     "descAr": ""
   },
   {
-    "cc": "PA",
-    "slug": "panama",
-    "en": "Panama",
-    "ar": "بنما",
+    "cc": "LU",
+    "slug": "luxembourg",
+    "en": "Luxembourg",
+    "ar": "لوكسمبورغ",
     "date": "2026-11-11",
     "n": 32,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "LU",
-    "slug": "luxembourg",
-    "en": "Luxembourg",
-    "ar": "لوكسمبورغ",
+    "cc": "PA",
+    "slug": "panama",
+    "en": "Panama",
+    "ar": "بنما",
     "date": "2026-11-11",
     "n": 32,
     "descEn": "",
@@ -1100,6 +1100,16 @@
     "descAr": ""
   },
   {
+    "cc": "IR",
+    "slug": "islamic-republic-of-iran",
+    "en": "Islamic Republic Of Iran",
+    "ar": "إيران",
+    "date": "2026-11-11",
+    "n": 22,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "SY",
     "slug": "syrian-arab-republic",
     "en": "Syrian Arab Republic",
@@ -1114,16 +1124,6 @@
     "slug": "ethiopia",
     "en": "Ethiopia",
     "ar": "إثيوبيا",
-    "date": "2026-11-11",
-    "n": 22,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "IR",
-    "slug": "islamic-republic-of-iran",
-    "en": "Islamic Republic Of Iran",
-    "ar": "إيران",
     "date": "2026-11-11",
     "n": 22,
     "descEn": "",
@@ -1150,16 +1150,6 @@
     "descAr": ""
   },
   {
-    "cc": "CW",
-    "slug": "curacao",
-    "en": "Curacao",
-    "ar": "Curacao",
-    "date": "2026-11-11",
-    "n": 20,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "MO",
     "slug": "macao",
     "en": "Macao",
@@ -1174,6 +1164,16 @@
     "slug": "iraq",
     "en": "Iraq",
     "ar": "العراق",
+    "date": "2026-11-11",
+    "n": 20,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CW",
+    "slug": "curacao",
+    "en": "Curacao",
+    "ar": "Curacao",
     "date": "2026-11-11",
     "n": 20,
     "descEn": "",
@@ -1200,20 +1200,20 @@
     "descAr": ""
   },
   {
-    "cc": "CV",
-    "slug": "cabo-verde",
-    "en": "Cabo Verde",
-    "ar": "الرأس الأخضر",
+    "cc": "TZ",
+    "slug": "united-republic-of-tanzania",
+    "en": "United Republic Of Tanzania",
+    "ar": "تنزانيا",
     "date": "2026-11-11",
     "n": 17,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "TZ",
-    "slug": "united-republic-of-tanzania",
-    "en": "United Republic Of Tanzania",
-    "ar": "تنزانيا",
+    "cc": "CV",
+    "slug": "cabo-verde",
+    "en": "Cabo Verde",
+    "ar": "الرأس الأخضر",
     "date": "2026-11-11",
     "n": 17,
     "descEn": "",
@@ -1226,6 +1226,16 @@
     "ar": "Kosovo",
     "date": "2026-11-11",
     "n": 15,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MT",
+    "slug": "malta",
+    "en": "Malta",
+    "ar": "مالطا",
+    "date": "2026-11-11",
+    "n": 14,
     "descEn": "",
     "descAr": ""
   },
@@ -1256,36 +1266,6 @@
     "ar": "ناميبيا",
     "date": "2026-11-11",
     "n": 14,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "MT",
-    "slug": "malta",
-    "en": "Malta",
-    "ar": "مالطا",
-    "date": "2026-11-11",
-    "n": 14,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "FJ",
-    "slug": "fiji",
-    "en": "Fiji",
-    "ar": "Fiji",
-    "date": "2026-11-11",
-    "n": 13,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "VA",
-    "slug": "the-holy-see",
-    "en": "The Holy See",
-    "ar": "The Holy See",
-    "date": "2026-11-11",
-    "n": 13,
     "descEn": "",
     "descAr": ""
   },
@@ -1330,22 +1310,22 @@
     "descAr": ""
   },
   {
-    "cc": "YE",
-    "slug": "yemen",
-    "en": "Yemen",
-    "ar": "اليمن",
+    "cc": "FJ",
+    "slug": "fiji",
+    "en": "Fiji",
+    "ar": "Fiji",
     "date": "2026-11-11",
-    "n": 12,
+    "n": 13,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "MQ",
-    "slug": "martinique",
-    "en": "Martinique",
-    "ar": "Martinique",
+    "cc": "VA",
+    "slug": "the-holy-see",
+    "en": "The Holy See",
+    "ar": "The Holy See",
     "date": "2026-11-11",
-    "n": 12,
+    "n": 13,
     "descEn": "",
     "descAr": ""
   },
@@ -1370,12 +1350,22 @@
     "descAr": ""
   },
   {
-    "cc": "AM",
-    "slug": "armenia",
-    "en": "Armenia",
-    "ar": "أرمينيا",
+    "cc": "YE",
+    "slug": "yemen",
+    "en": "Yemen",
+    "ar": "اليمن",
     "date": "2026-11-11",
-    "n": 11,
+    "n": 12,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MQ",
+    "slug": "martinique",
+    "en": "Martinique",
+    "ar": "Martinique",
+    "date": "2026-11-11",
+    "n": 12,
     "descEn": "",
     "descAr": ""
   },
@@ -1410,6 +1400,16 @@
     "descAr": ""
   },
   {
+    "cc": "AM",
+    "slug": "armenia",
+    "en": "Armenia",
+    "ar": "أرمينيا",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "BQ",
     "slug": "bonaire",
     "en": "Bonaire",
@@ -1426,16 +1426,6 @@
     "ar": "American Samoa",
     "date": "2026-11-11",
     "n": 10,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "MN",
-    "slug": "mongolia",
-    "en": "Mongolia",
-    "ar": "منغوليا",
-    "date": "2026-11-11",
-    "n": 9,
     "descEn": "",
     "descAr": ""
   },
@@ -1464,6 +1454,16 @@
     "slug": "antarctica",
     "en": "Antarctica",
     "ar": "Antarctica",
+    "date": "2026-11-11",
+    "n": 9,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MN",
+    "slug": "mongolia",
+    "en": "Mongolia",
+    "ar": "منغوليا",
     "date": "2026-11-11",
     "n": 9,
     "descEn": "",
@@ -1520,26 +1520,6 @@
     "descAr": ""
   },
   {
-    "cc": "KP",
-    "slug": "the-democratic-peoples-republic-of-korea",
-    "en": "The Democratic Peoples Republic Of Korea",
-    "ar": "كوريا الشمالية",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "NC",
-    "slug": "new-caledonia",
-    "en": "New Caledonia",
-    "ar": "New Caledonia",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "PF",
     "slug": "french-polynesia",
     "en": "French Polynesia",
@@ -1590,22 +1570,22 @@
     "descAr": ""
   },
   {
-    "cc": "GI",
-    "slug": "gibraltar",
-    "en": "Gibraltar",
-    "ar": "Gibraltar",
+    "cc": "KP",
+    "slug": "the-democratic-peoples-republic-of-korea",
+    "en": "The Democratic Peoples Republic Of Korea",
+    "ar": "كوريا الشمالية",
     "date": "2026-11-11",
-    "n": 6,
+    "n": 7,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "TG",
-    "slug": "togo",
-    "en": "Togo",
-    "ar": "توغو",
+    "cc": "NC",
+    "slug": "new-caledonia",
+    "en": "New Caledonia",
+    "ar": "New Caledonia",
     "date": "2026-11-11",
-    "n": 6,
+    "n": 7,
     "descEn": "",
     "descAr": ""
   },
@@ -1630,12 +1610,22 @@
     "descAr": ""
   },
   {
-    "cc": "AI",
-    "slug": "anguilla",
-    "en": "Anguilla",
-    "ar": "Anguilla",
+    "cc": "GI",
+    "slug": "gibraltar",
+    "en": "Gibraltar",
+    "ar": "Gibraltar",
     "date": "2026-11-11",
-    "n": 5,
+    "n": 6,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "TG",
+    "slug": "togo",
+    "en": "Togo",
+    "ar": "توغو",
+    "date": "2026-11-11",
+    "n": 6,
     "descEn": "",
     "descAr": ""
   },
@@ -1714,6 +1704,16 @@
     "slug": "monaco",
     "en": "Monaco",
     "ar": "Monaco",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AI",
+    "slug": "anguilla",
+    "en": "Anguilla",
+    "ar": "Anguilla",
     "date": "2026-11-11",
     "n": 5,
     "descEn": "",
