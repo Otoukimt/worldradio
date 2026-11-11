@@ -1,20 +1,11 @@
 [
   {
-    "cc": "US",
-    "slug": "united-states",
-    "en": "United States",
-    "ar": "الولايات المتحدة",
-    "date": "2026-11-10",
-    "descEn": "<p>American radio did not begin with a plan. It began in a Pittsburgh garage in 1920, when a Westinghouse engineer named Frank Conrad started playing records over a transmitter to amuse other amateurs.</p>",
-    "descAr": "<p>لم يبدأ الراديو الأمريكي بخطة. بدأ في مرآب بمدينة بيتسبرغ سنة 1920، حين شرع مهندس في «وستنغهاوس» اسمه فرانك كونراد في تشغيل أسطوانات عبر مرسل ليسلّي هواة آخرين.</p>"
-  },
-  {
     "cc": "CN",
     "slug": "china",
     "en": "China",
     "ar": "الصين",
     "date": "2026-11-10",
-    "descEn": "<p>Radio reached China early and through the foreign concessions. The first stations appeared in Shanghai in the early 1920s.</p>",
-    "descAr": "<p>وصل الراديو إلى الصين مبكراً وعبر الامتيازات الأجنبية. ظهرت أولى المحطات في شنغهاي في أوائل العشرينيات.</p>"
+    "descEn": "<p>Radio reached China early and through the foreign concessions. The first stations appeared in Shanghai in the early 1920s.<\/p>",
+    "descAr": "<p>وصل الراديو إلى الصين مبكراً وعبر الامتيازات الأجنبية. ظهرت أولى المحطات في شنغهاي في أوائل العشرينيات.<\/p>"
   }
 ]
