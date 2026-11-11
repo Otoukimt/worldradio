@@ -511,6 +511,7 @@ html[dir="rtl"] .fsBack svg{transform:scaleX(-1)}
 .fsName{font-size:clamp(24px,5.4vw,38px);font-weight:800;line-height:1.15;margin:0 0 6px;
   max-width:22ch;overflow-wrap:anywhere}
 .fsMeta{font-size:15px;color:var(--fmu);margin:0}
+.fsNow{font-size:16px;font-weight:700;color:var(--fb);margin:12px 0 0;max-width:32ch;overflow-wrap:anywhere}
 .fsTech{display:inline-flex;direction:ltr;gap:8px;margin-top:10px;font-size:12.5px;color:var(--fmu);font-variant-numeric:tabular-nums}
 .fsTech span{border:1px solid var(--fln);border-radius:999px;padding:3px 10px}
 .fsTech span:empty{display:none}
@@ -824,6 +825,7 @@ html[dir="rtl"] .fsBack svg{transform:scaleX(-1)}
       <div class="fsRec" id="fsRec"><div class="fsLbl" id="fsLbl"><span class="ini">♪</span></div></div>
       <h2 class="fsName" id="fsName">—</h2>
       <p class="fsMeta" id="fsMeta"></p>
+      <p class="fsNow" id="fsNow" hidden></p>
       <div class="fsTech"><span id="fsBr"></span><span id="fsCodec"></span></div>
       <div class="fsEq" id="fsEq" aria-hidden="true"></div>
       <div class="fsCtl">
@@ -1696,6 +1698,7 @@ function play(s){
   qi=-1;for(var i=0;i<queue.length;i++)if(queue[i].stationuuid===s.stationuuid){qi=i;break;}
   audio.src=s.url_resolved||s.url;
   var pr=audio.play();if(pr&&pr.catch)pr.catch(function(){});
+  if(window.npReset)window.npReset();
   pName.textContent=s.name.trim();
   pMeta.textContent=[flagOf(s.countrycode)+' '+cname(s.countrycode,s.country||''),
     (s.tags||'').split(',')[0]].map(function(x){return (x||'').trim();}).filter(Boolean).join(' • ');
@@ -2741,6 +2744,91 @@ window.addEventListener('keydown',function(e){
 
 ['playing','pause','waiting','play'].forEach(function(ev){audio.addEventListener(ev,function(){if(open){state();markCur();}});});
 var _syncRT;window.addEventListener('resize',function(){if(!open)return;clearTimeout(_syncRT);_syncRT=setTimeout(function(){centerDial(false);},200);});
+})();
+
+/* ===== اسم المقطع الحالي، حين يتيحه خادم المحطة =====
+   لا نفتح اتصالاً ثانياً بالصوت (كان سيضاعف استهلاك البيانات). نقرأ بدلاً منه
+   صفحة الحالة الصغيرة في خوادم Icecast كل 25 ثانية، ما دام الصوت يعمل والصفحة ظاهرة.
+   الخادم الذي يرفض نتذكّره أسبوعاً فلا نطرقه ثانية. لا شيء من هذا يعمل قبل أن يضغط الزائر تشغيل. */
+(function(){
+var POLL=25000,np={t:null,uid:'',title:'',stop:false},fails=LS.get('lr_npFail',{});
+function host(u){try{return new URL(u).host;}catch(e){return '';}}
+function mount(u){try{return new URL(u).pathname.replace(/\/+$/,'');}catch(e){return '';}}
+function isBad(h){return fails[h]&&fails[h]>Date.now();}
+function markBad(h){fails[h]=Date.now()+7*864e5;LS.set('lr_npFail',fails);}
+/* نرفض العناوين التي لا تفيد المستمع: اسم المحطة نفسه، أو روابط، أو «غير معروف» */
+function tidy(t,station){
+  t=(t||'').replace(/\s+/g,' ').trim();
+  if(t.length<3||t.length>160)return '';
+  var low=t.toLowerCase(),sn=(station||'').toLowerCase().trim();
+  if(sn&&(low===sn||low.indexOf(sn)===0&&low.length-sn.length<4))return '';
+  if(/^(unknown|n\/a|none|null|undefined|-+|live|on air|stream|radio)$/i.test(t))return '';
+  if(/https?:\/\/|www\.|\.(com|net|org|fm)\b/i.test(t))return '';
+  if(/^[\-\s_|]+$/.test(t))return '';
+  return t;
+}
+function pickTitle(src,mnt){
+  var a=Array.isArray(src)?src:(src?[src]:[]),hit=null;
+  for(var i=0;i<a.length;i++){
+    var lu=mount(a[i].listenurl||'');
+    if(lu&&lu===mnt){hit=a[i];break;}
+  }
+  if(!hit&&a.length===1)hit=a[0];
+  if(!hit)return '';
+  var t=String(hit.title||'').trim(),ar=String(hit.artist||'').trim();
+  if(ar&&t&&t.toLowerCase().indexOf(ar.toLowerCase())<0)t=ar+' - '+t;
+  return t||ar;
+}
+function show(t){
+  if(t===np.title)return;
+  np.title=t;
+  var base=pMeta.dataset.base||pMeta.textContent;
+  if(!pMeta.dataset.base)pMeta.dataset.base=base;
+  pMeta.textContent=t?('♪ '+t):pMeta.dataset.base;
+  pMeta.title=t||'';
+  var fsn=$('fsNow');if(fsn){fsn.textContent=t?('♪ '+t):'';fsn.hidden=!t;}
+  if('mediaSession' in navigator&&current){
+    try{
+      navigator.mediaSession.metadata=new MediaMetadata({
+        title:t||current.name.trim(),artist:t?current.name.trim():(current.country||'LiveRadio'),album:'LiveRadio',
+        artwork:(current.favicon&&current.favicon.indexOf('https')===0)?[{src:current.favicon,sizes:'256x256'}]:[]});
+    }catch(e){}
+  }
+}
+function reset(){
+  clearTimeout(np.t);np.stop=false;np.title='';
+  delete pMeta.dataset.base;pMeta.title='';
+  var fsn=$('fsNow');if(fsn){fsn.textContent='';fsn.hidden=true;}
+}
+function poll(){
+  clearTimeout(np.t);
+  if(!current||audio.paused||document.hidden||np.stop)return;
+  var u=current.url_resolved||current.url||'',h=host(u),uid=current.stationuuid;
+  /* صفحة https لا تستطيع قراءة خادم http، فلا نحاول */
+  if(u.indexOf('https://')!==0||!h||isBad(h)){np.stop=true;return;}
+  fetch('https://'+h+'/status-json.xsl',{cache:'no-store',credentials:'omit'})
+    .then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(d){
+      if(!current||current.stationuuid!==uid)return;
+      var src=d&&d.icestats?d.icestats.source:null;
+      if(!src){markBad(h);np.stop=true;return;}
+      var t=tidy(pickTitle(src,mount(u)),current.name);
+      show(t);
+      np.t=setTimeout(poll,POLL);
+    })
+    .catch(function(){markBad(h);np.stop=true;});
+}
+audio.addEventListener('playing',function(){
+  if(!current)return;
+  if(np.uid!==current.stationuuid){np.uid=current.stationuuid;reset();}
+  clearTimeout(np.t);np.t=setTimeout(poll,2000);
+});
+audio.addEventListener('pause',function(){clearTimeout(np.t);});
+document.addEventListener('visibilitychange',function(){
+  if(!document.hidden&&current&&!audio.paused){clearTimeout(np.t);np.t=setTimeout(poll,1000);}
+});
+/* حين تتغيّر المحطة يعيد play() كتابة سطر المشغل، فنمسح العنوان القديم فوراً */
+window.npReset=function(){np.uid='';reset();};
 })();
 
 /* ---------- init ---------- */
