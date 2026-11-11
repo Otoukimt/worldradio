@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /link-report.txt
+Disallow: /link-report.json
 
 Sitemap: https://worldliveradio.com/sitemap.xml

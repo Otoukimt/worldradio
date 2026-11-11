@@ -154,6 +154,111 @@ function injectArticles(root) {
   return n;
 }
 
+/* ===== فحص الروابط =====
+   الداخلية: في كل بناء (سريع، من الملفات نفسها).
+   الخارجية (المصادر وروابط المقالات): أسبوعياً أو عند التشغيل اليدوي فقط،
+   حتى لا نطرق مواقع الناس مع كل نشر. النتيجة في link-report.txt */
+function listHtml(dir, rel) {
+  let out = [];
+  if (!fs.existsSync(dir)) return out;
+  for (const f of fs.readdirSync(dir)) {
+    const full = path.join(dir, f), r = rel ? rel + '/' + f : f;
+    if (f.startsWith('.') || f === 'node_modules') continue;
+    if (fs.statSync(full).isDirectory()) { if (['articles', 'countries'].includes(r)) out = out.concat(listHtml(full, r)); }
+    else if (f.endsWith('.html') && f !== 'country-template.html') out.push(r);
+  }
+  return out;
+}
+function decodeAttr(t) { return t.replace(/&quot;/g, '"').replace(/&#39;|&#x27;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&'); }
+function linksOf(html) {
+  const out = [];
+  /* روابط تبنيها السكربتات أجزاءً ('./' + slug) ليست روابط حقيقية */
+  html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+  const take = h => { const re = /href=["']([^"']+)["']/g; let m; while ((m = re.exec(h))) out.push(m[1]); };
+  take(html);
+  const re2 = /data-(?:en|ar)="([^"]*)"/g; let m;
+  while ((m = re2.exec(html))) take(decodeAttr(m[1]));
+  return out;
+}
+const SKIP_HOSTS = /(^|\.)(googleapis|gstatic|googletagmanager|googlesyndication|google-analytics)\.com$/;
+async function checkUrl(u) {
+  const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 12000);
+  try {
+    const r = await fetch(u, { method: 'GET', redirect: 'follow', signal: ctl.signal,
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; LiveRadioLinkCheck/1.0; +https://worldliveradio.com)', 'Accept': 'text/html,*/*' } });
+    try { r.body && r.body.cancel && r.body.cancel(); } catch (e) {}
+    if (r.status === 404 || r.status === 410) return 'broken:' + r.status;
+    if (r.status >= 400) return 'blocked:' + r.status;    /* مواقع تمنع البرامج الآلية — ليست بالضرورة معطلة */
+    return 'ok';
+  } catch (e) {
+    const c = (e.cause && e.cause.code) || e.name || 'error';
+    return /ENOTFOUND|EAI_AGAIN|ECONNREFUSED|CERT|ERR_TLS/i.test(c) ? 'broken:' + c : 'blocked:' + c;
+  } finally { clearTimeout(t); }
+}
+async function checkLinks(root) {
+  const SITE = 'https://worldliveradio.com/';
+  const pages = listHtml(root, '');
+  const exists = new Set(pages.concat(['articles.json', 'site.json', 'countries-index.json', 'sitemap.xml',
+    'ads.json', 'ads.js', 'llms.txt', 'robots.txt', 'manifest.json', 'icon-192.png', 'icon-512.png', 'blocked-stations.json']));
+  fs.readdirSync(root).forEach(f => exists.add(f));
+  const internal = [], ext = new Map();
+  for (const pg of pages) {
+    const html = fs.readFileSync(path.join(root, pg), 'utf8');
+    const base = html.includes('<base href="/">') ? SITE : SITE + pg;
+    for (const h of linksOf(html)) {
+      if (/^(mailto:|tel:|javascript:|#|data:)/.test(h) || h.includes('{{')) continue;
+      let u; try { u = new URL(h, base); } catch (e) { continue; }
+      if (u.host && u.host !== 'worldliveradio.com') {
+        if (!SKIP_HOSTS.test(u.host) && /^https?:$/.test(u.protocol)) {
+          const k = u.href.split('#')[0]; if (!ext.has(k)) ext.set(k, new Set()); ext.get(k).add(pg);
+        }
+        continue;
+      }
+      let p = decodeURIComponent(u.pathname).replace(/^\//, '');
+      if (p === '' || p.endsWith('/')) p += 'index.html';
+      if (!exists.has(p)) internal.push({ page: pg, link: h });
+    }
+  }
+  /* مصادر مقالات الدول من countries.json أيضاً */
+  try {
+    JSON.parse(fs.readFileSync(path.join(root, 'countries.json'), 'utf8')).forEach(c =>
+      (c.sources || []).forEach(x => { if (x && x.u) { if (!ext.has(x.u)) ext.set(x.u, new Set()); ext.get(x.u).add('countries/' + (c.slug || c.cc) + '.html'); } }));
+  } catch (e) {}
+
+  let old = {}; try { old = JSON.parse(fs.readFileSync(path.join(root, 'link-report.json'), 'utf8')); } catch (e) {}
+  const ev = process.env.GITHUB_EVENT_NAME || '';
+  let external = old.external || null;
+  if (process.env.GITHUB_ACTIONS && (ev === 'schedule' || ev === 'workflow_dispatch')) {
+    const urls = [...ext.keys()], res = {};
+    let i = 0;
+    await Promise.all(Array.from({ length: 6 }, async () => { while (i < urls.length) { const u = urls[i++]; res[u] = await checkUrl(u); } }));
+    external = { checked: new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC', total: urls.length,
+      broken: urls.filter(u => res[u].startsWith('broken')).map(u => ({ url: u, why: res[u].split(':')[1], pages: [...ext.get(u)] })),
+      blocked: urls.filter(u => res[u].startsWith('blocked')).map(u => ({ url: u, why: res[u].split(':')[1], pages: [...ext.get(u)] })) };
+  }
+  const report = { built: new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC', pages: pages.length, internal, external };
+  fs.writeFileSync(path.join(root, 'link-report.json'), JSON.stringify(report, null, 1));
+
+  const L = [];
+  L.push('تقرير الروابط — LiveRadio', 'آخر بناء: ' + report.built + '  |  الصفحات المفحوصة: ' + report.pages, '');
+  L.push('== الروابط الداخلية المعطلة: ' + internal.length + ' ==');
+  internal.forEach(x => L.push('  ✗ ' + x.page + '  ←  ' + x.link));
+  if (!internal.length) L.push('  ✓ لا شيء');
+  L.push('');
+  if (external) {
+    L.push('== الروابط الخارجية (آخر فحص: ' + external.checked + ' — ' + external.total + ' رابطاً) ==', '');
+    L.push('معطلة فعلاً (' + external.broken.length + ') — استبدلها:');
+    external.broken.forEach(x => L.push('  ✗ ' + x.url + '  [' + x.why + ']  في: ' + x.pages.join('، ')));
+    if (!external.broken.length) L.push('  ✓ لا شيء');
+    L.push('', 'لم يُتح فحصها (' + external.blocked.length + ') — غالباً تعمل، لكن الموقع يمنع البرامج الآلية. افتحها يدوياً إن شئت:');
+    external.blocked.forEach(x => L.push('  ? ' + x.url + '  [' + x.why + ']'));
+    if (!external.blocked.length) L.push('  ✓ لا شيء');
+  } else L.push('== الروابط الخارجية: تُفحص أسبوعياً، أو حين تشغّل الأتمتة يدوياً من Actions ==');
+  fs.writeFileSync(path.join(root, 'link-report.txt'), L.join('\n') + '\n');
+  console.log('فحص الروابط: داخلية معطلة ' + internal.length + (external ? ' | خارجية معطلة ' + external.broken.length + ' من ' + external.total : ''));
+}
+
+
 async function generatePages() {
   const root = __dirname;
   const template = fs.readFileSync(path.join(root, 'country-template.html'), 'utf8');
@@ -234,6 +339,7 @@ async function generatePages() {
   const before = OLD;
   const after = buildSitemap(root, pages, OLD);
   await notifyIndexNow(before, after);
+  await checkLinks(root);
 
   console.log('تم توليد ' + pages.length + ' صفحة دولة.');
   console.log('منها ' + pages.filter(p => p.hasArticle).length + ' صفحة تحمل مقالاً.');
