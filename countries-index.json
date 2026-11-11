@@ -150,6 +150,16 @@
     "descAr": "في معظم البلدان وصل الراديو أولاً ثم تبعته السياسة. أما في إندونيسيا فانقلب الترتيب: فقد تأسست الإذاعة الوطنية في الأسابيع التي تلت إعلان الاستقلال، ع"
   },
   {
+    "cc": "ZA",
+    "slug": "south-africa",
+    "en": "South Africa",
+    "ar": "جنوب إفريقيا",
+    "date": "2026-11-11",
+    "n": 199,
+    "descEn": "South African radio has served two opposite causes. For decades it was one of the most powerful tools of apartheid, broadcasting separate stations for",
+    "descAr": "خدم الراديو في جنوب إفريقيا قضيتين متعاكستين. فلعقود كان من أقوى أدوات الفصل العنصري، يبثّ محطات منفصلة لمجموعات منفصلة. وفي الوقت نفسه، كانت حركة تحر"
+  },
+  {
     "cc": "JP",
     "slug": "japan",
     "en": "Japan",
@@ -466,16 +476,6 @@
     "ar": "الكويت",
     "date": "2026-11-11",
     "n": 202,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "ZA",
-    "slug": "south-africa",
-    "en": "South Africa",
-    "ar": "جنوب إفريقيا",
-    "date": "2026-11-11",
-    "n": 199,
     "descEn": "",
     "descAr": ""
   },
