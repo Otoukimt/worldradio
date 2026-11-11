@@ -1,0 +1,37 @@
+name: Generate Country Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'countries/**'
+      - 'countries-index.json'
+      - 'sitemap.xml'
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * 1'
+
+concurrency:
+  group: build-countries
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run build script
+        run: node build.js
+
+      - name: Commit generated files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "توليد صفحات الدول والخريطة أوتوماتيكياً"
+          file_pattern: "countries/*.html countries-index.json sitemap.xml"
