@@ -5,7 +5,7 @@
     "en": "The United States Of America",
     "ar": "الولايات المتحدة",
     "date": "2026-11-10",
-    "n": 7037,
+    "n": 7038,
     "descEn": "American radio did not begin with a plan. It began in a Pittsburgh garage in 1920, when a Westinghouse engineer named Frank Conrad started playing rec",
     "descAr": "لم يبدأ الراديو الأمريكي بخطة. بدأ في مرآب بمدينة بيتسبرغ سنة 1920، حين شرع مهندس في «وستنغهاوس» اسمه فرانك كونراد في تشغيل أسطوانات عبر مرسل ليسلّي ه"
   },
@@ -125,7 +125,7 @@
     "en": "Spain",
     "ar": "إسبانيا",
     "date": "2026-11-11",
-    "n": 1232,
+    "n": 1233,
     "descEn": "",
     "descAr": ""
   },
@@ -190,20 +190,20 @@
     "descAr": ""
   },
   {
-    "cc": "TR",
-    "slug": "t-rkiye",
-    "en": "Türkiye",
-    "ar": "تركيا",
+    "cc": "CO",
+    "slug": "colombia",
+    "en": "Colombia",
+    "ar": "كولومبيا",
     "date": "2026-11-11",
     "n": 668,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "CO",
-    "slug": "colombia",
-    "en": "Colombia",
-    "ar": "كولومبيا",
+    "cc": "TR",
+    "slug": "t-rkiye",
+    "en": "Türkiye",
+    "ar": "تركيا",
     "date": "2026-11-11",
     "n": 668,
     "descEn": "",
@@ -800,16 +800,6 @@
     "descAr": ""
   },
   {
-    "cc": "BY",
-    "slug": "belarus",
-    "en": "Belarus",
-    "ar": "بيلاروسيا",
-    "date": "2026-11-11",
-    "n": 59,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "MW",
     "slug": "malawi",
     "en": "Malawi",
@@ -824,6 +814,16 @@
     "slug": "pakistan",
     "en": "Pakistan",
     "ar": "باكستان",
+    "date": "2026-11-11",
+    "n": 59,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BY",
+    "slug": "belarus",
+    "en": "Belarus",
+    "ar": "بيلاروسيا",
     "date": "2026-11-11",
     "n": 59,
     "descEn": "",
@@ -1150,6 +1150,16 @@
     "descAr": ""
   },
   {
+    "cc": "IQ",
+    "slug": "iraq",
+    "en": "Iraq",
+    "ar": "العراق",
+    "date": "2026-11-11",
+    "n": 20,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "CW",
     "slug": "curacao",
     "en": "Curacao",
@@ -1164,16 +1174,6 @@
     "slug": "macao",
     "en": "Macao",
     "ar": "Macao",
-    "date": "2026-11-11",
-    "n": 20,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "IQ",
-    "slug": "iraq",
-    "en": "Iraq",
-    "ar": "العراق",
     "date": "2026-11-11",
     "n": 20,
     "descEn": "",
@@ -1270,6 +1270,16 @@
     "descAr": ""
   },
   {
+    "cc": "GP",
+    "slug": "guadeloupe",
+    "en": "Guadeloupe",
+    "ar": "Guadeloupe",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "FJ",
     "slug": "fiji",
     "en": "Fiji",
@@ -1314,16 +1324,6 @@
     "slug": "the-faroe-islands",
     "en": "The Faroe Islands",
     "ar": "The Faroe Islands",
-    "date": "2026-11-11",
-    "n": 13,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "GP",
-    "slug": "guadeloupe",
-    "en": "Guadeloupe",
-    "ar": "Guadeloupe",
     "date": "2026-11-11",
     "n": 13,
     "descEn": "",
@@ -1380,20 +1380,20 @@
     "descAr": ""
   },
   {
-    "cc": "BH",
-    "slug": "bahrain",
-    "en": "Bahrain",
-    "ar": "البحرين",
+    "cc": "BJ",
+    "slug": "benin",
+    "en": "Benin",
+    "ar": "بنين",
     "date": "2026-11-11",
     "n": 11,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "BJ",
-    "slug": "benin",
-    "en": "Benin",
-    "ar": "بنين",
+    "cc": "BH",
+    "slug": "bahrain",
+    "en": "Bahrain",
+    "ar": "البحرين",
     "date": "2026-11-11",
     "n": 11,
     "descEn": "",
@@ -1410,6 +1410,16 @@
     "descAr": ""
   },
   {
+    "cc": "AS",
+    "slug": "american-samoa",
+    "en": "American Samoa",
+    "ar": "American Samoa",
+    "date": "2026-11-11",
+    "n": 10,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "BQ",
     "slug": "bonaire",
     "en": "Bonaire",
@@ -1420,12 +1430,12 @@
     "descAr": ""
   },
   {
-    "cc": "AS",
-    "slug": "american-samoa",
-    "en": "American Samoa",
-    "ar": "American Samoa",
+    "cc": "AQ",
+    "slug": "antarctica",
+    "en": "Antarctica",
+    "ar": "Antarctica",
     "date": "2026-11-11",
-    "n": 10,
+    "n": 9,
     "descEn": "",
     "descAr": ""
   },
@@ -1454,16 +1464,6 @@
     "slug": "cambodia",
     "en": "Cambodia",
     "ar": "كمبوديا",
-    "date": "2026-11-11",
-    "n": 9,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "AQ",
-    "slug": "antarctica",
-    "en": "Antarctica",
-    "ar": "Antarctica",
     "date": "2026-11-11",
     "n": 9,
     "descEn": "",
@@ -1516,6 +1516,16 @@
     "ar": "عُمان",
     "date": "2026-11-11",
     "n": 8,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BS",
+    "slug": "the-bahamas",
+    "en": "The Bahamas",
+    "ar": "The Bahamas",
+    "date": "2026-11-11",
+    "n": 7,
     "descEn": "",
     "descAr": ""
   },
@@ -1580,16 +1590,6 @@
     "descAr": ""
   },
   {
-    "cc": "BS",
-    "slug": "the-bahamas",
-    "en": "The Bahamas",
-    "ar": "The Bahamas",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "GI",
     "slug": "gibraltar",
     "en": "Gibraltar",
@@ -1626,6 +1626,36 @@
     "ar": "Suriname",
     "date": "2026-11-11",
     "n": 6,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GU",
+    "slug": "guam",
+    "en": "Guam",
+    "ar": "Guam",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AD",
+    "slug": "andorra",
+    "en": "Andorra",
+    "ar": "أندورا",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MC",
+    "slug": "monaco",
+    "en": "Monaco",
+    "ar": "Monaco",
+    "date": "2026-11-11",
+    "n": 5,
     "descEn": "",
     "descAr": ""
   },
@@ -1684,36 +1714,6 @@
     "slug": "bermuda",
     "en": "Bermuda",
     "ar": "Bermuda",
-    "date": "2026-11-11",
-    "n": 5,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "GU",
-    "slug": "guam",
-    "en": "Guam",
-    "ar": "Guam",
-    "date": "2026-11-11",
-    "n": 5,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "AD",
-    "slug": "andorra",
-    "en": "Andorra",
-    "ar": "أندورا",
-    "date": "2026-11-11",
-    "n": 5,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "MC",
-    "slug": "monaco",
-    "en": "Monaco",
-    "ar": "Monaco",
     "date": "2026-11-11",
     "n": 5,
     "descEn": "",
