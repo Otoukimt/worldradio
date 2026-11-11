@@ -5,7 +5,7 @@
     "en": "The United States Of America",
     "ar": "الولايات المتحدة",
     "date": "2026-11-10",
-    "n": 7036,
+    "n": 7037,
     "descEn": "American radio did not begin with a plan. It began in a Pittsburgh garage in 1920, when a Westinghouse engineer named Frank Conrad started playing rec",
     "descAr": "لم يبدأ الراديو الأمريكي بخطة. بدأ في مرآب بمدينة بيتسبرغ سنة 1920، حين شرع مهندس في «وستنغهاوس» اسمه فرانك كونراد في تشغيل أسطوانات عبر مرسل ليسلّي ه"
   },
@@ -115,7 +115,7 @@
     "en": "Canada",
     "ar": "كندا",
     "date": "2026-11-11",
-    "n": 1383,
+    "n": 1384,
     "descEn": "",
     "descAr": ""
   },
@@ -800,6 +800,16 @@
     "descAr": ""
   },
   {
+    "cc": "BY",
+    "slug": "belarus",
+    "en": "Belarus",
+    "ar": "بيلاروسيا",
+    "date": "2026-11-11",
+    "n": 59,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "MW",
     "slug": "malawi",
     "en": "Malawi",
@@ -814,16 +824,6 @@
     "slug": "pakistan",
     "en": "Pakistan",
     "ar": "باكستان",
-    "date": "2026-11-11",
-    "n": 59,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "BY",
-    "slug": "belarus",
-    "en": "Belarus",
-    "ar": "بيلاروسيا",
     "date": "2026-11-11",
     "n": 59,
     "descEn": "",
@@ -1100,6 +1100,16 @@
     "descAr": ""
   },
   {
+    "cc": "SY",
+    "slug": "syrian-arab-republic",
+    "en": "Syrian Arab Republic",
+    "ar": "سوريا",
+    "date": "2026-11-11",
+    "n": 22,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "ET",
     "slug": "ethiopia",
     "en": "Ethiopia",
@@ -1114,16 +1124,6 @@
     "slug": "islamic-republic-of-iran",
     "en": "Islamic Republic Of Iran",
     "ar": "إيران",
-    "date": "2026-11-11",
-    "n": 22,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "SY",
-    "slug": "syrian-arab-republic",
-    "en": "Syrian Arab Republic",
-    "ar": "سوريا",
     "date": "2026-11-11",
     "n": 22,
     "descEn": "",
@@ -1230,6 +1230,16 @@
     "descAr": ""
   },
   {
+    "cc": "BB",
+    "slug": "barbados",
+    "en": "Barbados",
+    "ar": "Barbados",
+    "date": "2026-11-11",
+    "n": 14,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "MZ",
     "slug": "mozambique",
     "en": "Mozambique",
@@ -1254,16 +1264,6 @@
     "slug": "malta",
     "en": "Malta",
     "ar": "مالطا",
-    "date": "2026-11-11",
-    "n": 14,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "BB",
-    "slug": "barbados",
-    "en": "Barbados",
-    "ar": "Barbados",
     "date": "2026-11-11",
     "n": 14,
     "descEn": "",
@@ -1330,6 +1330,16 @@
     "descAr": ""
   },
   {
+    "cc": "YE",
+    "slug": "yemen",
+    "en": "Yemen",
+    "ar": "اليمن",
+    "date": "2026-11-11",
+    "n": 12,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "MQ",
     "slug": "martinique",
     "en": "Martinique",
@@ -1354,16 +1364,6 @@
     "slug": "saint-lucia",
     "en": "Saint Lucia",
     "ar": "Saint Lucia",
-    "date": "2026-11-11",
-    "n": 12,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "YE",
-    "slug": "yemen",
-    "en": "Yemen",
-    "ar": "اليمن",
     "date": "2026-11-11",
     "n": 12,
     "descEn": "",
@@ -1520,6 +1520,16 @@
     "descAr": ""
   },
   {
+    "cc": "KP",
+    "slug": "the-democratic-peoples-republic-of-korea",
+    "en": "The Democratic Peoples Republic Of Korea",
+    "ar": "كوريا الشمالية",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "NC",
     "slug": "new-caledonia",
     "en": "New Caledonia",
@@ -1574,16 +1584,6 @@
     "slug": "the-bahamas",
     "en": "The Bahamas",
     "ar": "The Bahamas",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "KP",
-    "slug": "the-democratic-peoples-republic-of-korea",
-    "en": "The Democratic Peoples Republic Of Korea",
-    "ar": "كوريا الشمالية",
     "date": "2026-11-11",
     "n": 7,
     "descEn": "",

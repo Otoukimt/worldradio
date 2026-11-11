@@ -387,12 +387,19 @@ function fetchPage(){
   $('moreb').textContent=(lang==='ar')?'جارٍ التحميل…':'Loading…';
   var before=list.length,tries=0;
   function step(){
-    api('/json/stations/search?hidebroken=true&limit='+PAGE+'&offset='+off+
-        '&order=clickcount&reverse=true&countrycode='+CC)
-      .then(function(d){
-        var raw=d||[];
-        off+=raw.length;
-        if(raw.length<PAGE)done=true;
+    /* استعلامان: بالرمز وباسم الدولة، فكثير من المحطات لا رمز لها */
+    var byCode=api('/json/stations/search?hidebroken=true&limit='+PAGE+'&offset='+off+
+        '&order=clickcount&reverse=true&countrycode='+CC);
+    var byName=(off===0)
+      ? api('/json/stations/search?hidebroken=true&limit='+PAGE+
+            '&order=clickcount&reverse=true&country='+encodeURIComponent(CEN))
+      : Promise.resolve(null);
+    Promise.all([byCode,byName])
+      .then(function(rr){
+        var a=rr[0]||[], b=rr[1]||[];
+        off+=a.length;
+        if(a.length<PAGE)done=true;
+        var raw=a.concat(b);
         raw.forEach(function(s){
           var u=playableUrl(s);
           if(!u||!s.name||s.name.trim().length<2)return;
