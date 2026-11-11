@@ -120,6 +120,16 @@
     "descAr": "في الهند، للهيئة الإذاعية الوطنية اسم شاعري: «أكاشفاني»، أي «الصوت الآتي من السماء». وقليلة هي الدول التي اعتمدت على الراديو بهذا القدر للوصول إلى الن"
   },
   {
+    "cc": "TR",
+    "slug": "t-rkiye",
+    "en": "Türkiye",
+    "ar": "تركيا",
+    "date": "2026-11-11",
+    "n": 668,
+    "descEn": "Turkish radio began with a loudspeaker fixed above the door of a post office in Istanbul, so that people in the street could hear what the new machine",
+    "descAr": "بدأ الراديو التركي بمكبّر صوت ثُبّت فوق باب مكتب بريد في إسطنبول، ليسمع المارّة في الشارع ما تستطيع الآلة الجديدة فعله. وبعد سبعة عقود، انتقل البلد نف"
+  },
+  {
     "cc": "AE",
     "slug": "the-united-arab-emirates",
     "en": "The United Arab Emirates",
@@ -256,16 +266,6 @@
     "ar": "الفلبين",
     "date": "2026-11-11",
     "n": 722,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "TR",
-    "slug": "t-rkiye",
-    "en": "Türkiye",
-    "ar": "تركيا",
-    "date": "2026-11-11",
-    "n": 668,
     "descEn": "",
     "descAr": ""
   },
