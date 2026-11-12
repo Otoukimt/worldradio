@@ -347,8 +347,10 @@ async function generatePages() {
       .replace(/\{\{sources\}\}/g, () => sourcesHtml)
       .replace(/\{\{jsonld\}\}/g, () => countryLd({ slug, en, ar, date, descEn, descAr, sources: srcs }))
       .replace('id="aboutSec"', 'id="aboutSec"' + hide);
+    const tk = tickerData();
+    const pageHtml = putTicker(html, tk.countries[cc.toUpperCase()] || tk.global);
 
-    fs.writeFileSync(path.join(outDir, slug + '.html'), html);
+    fs.writeFileSync(path.join(outDir, slug + '.html'), pageHtml);
     pages.push({ cc, slug, en, ar, n: c.stationcount, hasArticle: !!(descEn || descAr), date });
     const legacy = oldSlugify(en);
     if (legacy && legacy !== slug) fs.writeFileSync(path.join(outDir, legacy + '.html'), redirectPage(slug, en));
@@ -372,6 +374,7 @@ async function generatePages() {
   const before = OLD;
   const after = buildSitemap(root, pages, OLD);
   preloadArticlesPage();
+  tickerRootPages();
   await notifyIndexNow(before, after);
   await checkLinks(root);
 
@@ -454,6 +457,48 @@ async function notifyIndexNow(before, after) {
 }
 
 generatePages();
+
+/* ===== شريط الأخبار: يُكتب في الصفحة نفسها لتقرأه محركات البحث، ثم يحرّكه ticker.js ===== */
+let TICKER = null;
+function tickerData() {
+  if (TICKER) return TICKER;
+  try { TICKER = JSON.parse(fs.readFileSync(path.join(root, 'ticker.json'), 'utf8')); } catch (e) { TICKER = {}; }
+  const now = Date.now();
+  const live = l => (Array.isArray(l) ? l : []).filter(x => x && (x.ar || x.en) && (!x.exp || Date.parse(x.exp) > now)).slice(0, 10);
+  TICKER.global = live(TICKER.global);
+  const c = {}; for (const k of Object.keys(TICKER.countries || {})) { const l = live(TICKER.countries[k]); if (l.length) c[k.toUpperCase()] = l; }
+  TICKER.countries = c;
+  return TICKER;
+}
+function tickerHtml(list) {
+  /* فارغ لكن موجود: داخل الموقع يملؤه السكربت حين تُفتح صفحة دولة لها أخبار */
+  if (!list || !list.length) return '<div class="lrTk" id="lrTicker" hidden></div>';
+  const e = t => String(t || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const ul = lang => '<ul lang="' + lang + '">' + list.map(x => {
+    const href = x.link ? (/^https?:/.test(x.link) ? x.link : '/' + String(x.link).replace(/^\/+/, '')) : '';
+    const inner = '<span class="t">' + e(x[lang] || x.en || x.ar) + '</span>' + (x.at ? '<span class="tm" data-at="' + e(x.at) + '"></span>' : '');
+    return '<li data-c="' + e(x.cat || 'general') + '"' + (x.exp ? ' data-exp="' + e(x.exp) + '"' : '') + '>' +
+      (href ? '<a href="' + e(href) + '">' + inner + '</a>' : inner) + '</li>';
+  }).join('') + '</ul>';
+  return '<div class="lrTk" id="lrTicker" role="region" aria-label="Live news / أخبار مباشرة">' +
+    '<div class="lb"><i></i><span data-en="Live news" data-ar="أخبار مباشرة">Live news</span></div>' +
+    '<div class="vp"><div class="tr">' + ul('ar') + ul('en') + '</div></div></div>';
+}
+function putTicker(html, list) {
+  const block = '<!--ticker:start-->' + tickerHtml(list) + '<!--ticker:end-->';
+  return html.includes('<!--ticker:start-->') ? html.replace(/<!--ticker:start-->[\s\S]*?<!--ticker:end-->/, () => block) : html;
+}
+/* الرئيسية وصفحة المقالات: الشريط العام */
+function tickerRootPages() {
+  for (const f of ['index.html', 'articles.html']) {
+    const fp = path.join(root, f);
+    if (!fs.existsSync(fp)) continue;
+    const h = fs.readFileSync(fp, 'utf8');
+    const nh = putTicker(h, tickerData().global);
+    if (nh !== h) { fs.writeFileSync(fp, nh); console.log(f + ': ticker ' + tickerData().global.length); }
+  }
+}
+
 /* أكبر صورة في صفحة المقالات (أول بطاقة في «أحدث المقالات» و«اختيار المحرّر») تظهر بعد تحميل البيانات بالجافاسكربت،
    فلا يكتشفها المتصفح إلا متأخراً. نكتب رابطها في رأس الصفحة ليبدأ تحميلها فوراً. */
 function preloadArticlesPage() {

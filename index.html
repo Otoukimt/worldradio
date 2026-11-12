@@ -717,6 +717,7 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
     <button class="btn" id="langBtn">Arabic</button>
   </div>
 </header>
+<!--ticker:start--><div class="lrTk" id="lrTicker" hidden></div><!--ticker:end-->
 
 <div id="page"></div>
 
@@ -1300,12 +1301,22 @@ function skel(box,n){
 var view='home';          // home | fav | country | all
 var curCC='',curCName='';
 
+/* شريط الأخبار: العام في الرئيسية والمفضلة والمقالات، وأخبار الدولة في صفحتها، ولا شيء في المقالات والصفحات القانونية */
+function tickerSync(){
+  if(!window.lrTick)return;
+  if(pageEl.classList.contains('on')){
+    if(inType==='magazine')lrTick.forView('global');
+    else if(inType==='country')lrTick.forView('country',inCC);
+    else lrTick.forView(null);
+  }else lrTick.forView(view==='country'?'country':'global',view==='country'?curCC:'');
+}
 function showView(v){
   view=v;
   $('homeMain').style.display = v==='home'?'':'none';
   $('favMain').style.display  = v==='fav'?'':'none';
   $('ctryMain').style.display = v==='country'?'':'none';
   $('allMain').style.display  = v==='all'?'':'none';
+  setTimeout(tickerSync,0);
   $('articles').style.display = (v==='home')?'':'none';
   var ts=document.querySelectorAll('.tab');
   for(var i=0;i<ts.length;i++)
@@ -2034,7 +2045,7 @@ function trans(root){
    نُقلت إلى الطرف الآخر. فلا يتكرر أي مقال في الصفحة لمن يقرأ نصّها. */
 /* «اختيار المحرّر»: المقالات التي تختارها في التطبيق (حتى 3)، وإلا أحدث مقال */
 function drawPicks(){
-  var box=E('#featBox'),sec=E('#featSec');
+  var box=pageEl.querySelector('#featBox'),sec=pageEl.querySelector('#featSec');
   if(!box||!posts.length)return;
   var want=(CFG&&CFG.picks&&CFG.picks.length)?CFG.picks:((CFG&&CFG.featuredArticle)?[CFG.featuredArticle]:[]);
   var list=[];
@@ -2492,12 +2503,13 @@ function loadPage(url,push){
     hookPageLinks();hookPlayButtons();
     if(inType==='country'&&inCC)initCountryPage(inCC);
     if(inType==='article'&&inSlug)initArticlePage(inSlug);
-    if(inType==='magazine'){magCat='';magQ='';try{magQ=new URL(url,location.href).searchParams.get('q')||'';}catch(e){}magShown=10;initMagazine();}
+    if(inType==='magazine'){magCat='';magQ='';try{magQ=new URL(url,location.href).searchParams.get('q')||'';}catch(e){}magShown=10;initMagazine();var as2=pageEl.querySelector('#allSec');if(as2)as2.style.visibility='visible';}
     if(window.lrAds)window.lrAds.scan(pageEl);
     if(window.lrSoc)window.lrSoc.scan(pageEl,inType);
+    tickerSync();
   }).catch(function(){
     pageEl.innerHTML=navButtons()+'<div id="pLoad">'+T('pageErr')+'</div>';
-    wireNav();
+    wireNav();tickerSync();
   });
 }
 /* صفحة المقالات لها محرّكها الخاص: نفتحها كصفحة كاملة لا كحقنة */
@@ -3176,5 +3188,6 @@ Promise.race([loadBlock(),new Promise(function(r){setTimeout(r,2500);})]).then(f
 <script src="/ads.js" defer></script>
 <script src="/art.js" defer></script>
 <script src="/social.js" defer></script>
+<script src="/ticker.js" defer></script>
 </body>
 </html>
