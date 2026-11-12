@@ -2439,6 +2439,7 @@ function loadPage(url,push){
     if(inType==='article'&&inSlug)initArticlePage(inSlug);
     if(inType==='magazine'){magCat='';magQ='';try{magQ=new URL(url,location.href).searchParams.get('q')||'';}catch(e){}magShown=10;initMagazine();}
     if(window.lrAds)window.lrAds.scan(pageEl);
+    if(window.lrSoc)window.lrSoc.scan(pageEl,inType);
   }).catch(function(){
     pageEl.innerHTML=navButtons()+'<div id="pLoad">'+T('pageErr')+'</div>';
     wireNav();
@@ -3119,5 +3120,6 @@ Promise.race([loadBlock(),new Promise(function(r){setTimeout(r,2500);})]).then(f
 </script>
 <script src="/ads.js" defer></script>
 <script src="/art.js" defer></script>
+<script src="/social.js" defer></script>
 </body>
 </html>

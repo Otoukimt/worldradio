@@ -91,7 +91,10 @@
       if(navigator.clipboard)navigator.clipboard.writeText(url).then(ok).catch(function(){});
     }));
     box.appendChild(row);
-    if(old)old.replaceWith(box);
+    /* الترتيب ثابت: الوسوم ← المشاركة ← «تابعنا» ← زر المحطات، أياً كان موضع الأزرار القديمة */
+    if(old)old.remove();
+    var fw=root.querySelector('.lrFollow');
+    if(fw)fw.parentNode.insertBefore(box,fw);
     else if(cta)cta.parentNode.insertBefore(box,cta);
     else root.appendChild(box);
 

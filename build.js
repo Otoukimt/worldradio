@@ -170,6 +170,8 @@ function injectArticles(root) {
     /* أزرار المشاركة، زر محطات الدولة، الكلمات المفتاحية، والصورة كاملة */
     if (!out.includes('/art.js"') && out.includes('</body>'))
       out = out.replace('</body>', () => '<script src="/art.js" defer></script>\n</body>');
+    if (!out.includes('/social.js"') && out.includes('</body>'))
+      out = out.replace('</body>', () => '<script src="/social.js" defer></script>\n</body>');
     if (out !== html) { fs.writeFileSync(f, out); n++; }
   });
   return n;

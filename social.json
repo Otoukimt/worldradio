@@ -1,0 +1,6 @@
+{
+  "links": [],
+  "places": {"header": false, "footer": true, "home": true, "article": true, "country": true, "player": false},
+  "title": {"en": "Follow LiveRadio", "ar": "تابع LiveRadio"},
+  "sub": {"en": "", "ar": ""}
+}
