@@ -1,0 +1,34 @@
+name: Article Views
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: article-views
+  cancel-in-progress: true
+
+jobs:
+  views:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Read views from Google Analytics
+        env:
+          GA_KEY: ${{ secrets.GA_KEY }}
+          GA_PROPERTY: ${{ secrets.GA_PROPERTY }}
+        run: node ga-stats.js
+
+      - name: Commit stats.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "تحديث المشاهدات من Analytics"
+          file_pattern: "stats.json"
