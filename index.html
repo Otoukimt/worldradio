@@ -863,6 +863,11 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
         <div class="opt"><b id="stData">0</b><small data-i="kData">MB used</small></div>
       </div>
     </div>
+    <div class="grp" id="instGrp" style="display:none">
+      <div class="lab" data-i="inst">Install LiveRadio</div>
+      <div class="sh-sub" style="margin:0 0 10px" id="instSub" data-i="instSub">Open it from your home screen like an app, without the browser bar.</div>
+      <button class="opt" id="instBtn" style="width:100%"><b data-i="instBtn">📲 Add to home screen</b></button>
+    </div>
     <button class="close danger" id="resetBtn" data-i="reset">Clear my saved data</button>
     <button class="close" id="closeSheet" data-i="done">Done</button>
   </div>
@@ -1027,7 +1032,7 @@ var I={
   gsSearching:'Searching stations…',gsNone:'No station found for “{q}”. Try another spelling.',gsFail:'Search is unavailable right now. Check your connection and try again.',
   contAF:'Africa',contAS:'Asia',contEU:'Europe',contNA:'North America',contSA:'South America',contOC:'Oceania',
   scanning:'Scanning {n} entries · {m} playable so far…',
-  settings:'Settings',setSub:'Saved on this device only.',
+  settings:'Settings',setSub:'Saved on this device only.',inst:'Install LiveRadio',instSub:'Open it from your home screen like an app, without the browser bar.',instBtn:'📲 Add to home screen',instIos:'In Safari, tap the Share button, then “Add to Home Screen”.',instDone:'Installed ✓',
   quality:'Audio quality &amp; data use',qLow:'Saver',qLowS:'&le;64 kbps',
   qMid:'Balanced',qMidS:'&le;128 kbps',qHigh:'Best',qHighS:'No limit',
   qNote:'Stations within your chosen quality are listed first. No station is hidden.',
@@ -1066,7 +1071,7 @@ var I={
   gsSearching:'جارٍ البحث عن المحطات…',gsNone:'لا محطة باسم «{q}». جرّب كتابة أخرى.',gsFail:'البحث غير متاح الآن. تحقّق من الاتصال وأعد المحاولة.',
   contAF:'إفريقيا',contAS:'آسيا',contEU:'أوروبا',contNA:'أمريكا الشمالية',contSA:'أمريكا الجنوبية',contOC:'أوقيانوسيا',
   scanning:'فحص {n} مدخلاً · {m} قابلة للتشغيل حتى الآن…',
-  settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',
+  settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',inst:'ثبّت LiveRadio',instSub:'افتحه من الشاشة الرئيسية كأي تطبيق، دون شريط المتصفح.',instBtn:'📲 أضِفه إلى الشاشة الرئيسية',instIos:'في Safari: اضغط زر المشاركة، ثم «إضافة إلى الشاشة الرئيسية».',instDone:'مُثبّت ✓',
   quality:'جودة الصوت واستهلاك البيانات',qLow:'توفير',qLowS:'&le;64 kbps',
   qMid:'متوازن',qMidS:'&le;128 kbps',qHigh:'الأفضل',qHighS:'بلا حدّ',
   qNote:'المحطات المطابقة للجودة المختارة تظهر أولاً، ولا تُخفى أي محطة.',
@@ -1973,6 +1978,25 @@ function syncQ(){
 $('setBtn').onclick=function(){drawStats();syncQ();$('sheet').classList.add('on');};
 $('closeSheet').onclick=function(){$('sheet').classList.remove('on');};
 $('sheet').onclick=function(e){if(e.target===this)this.classList.remove('on');};
+/* التثبيت كتطبيق: أندرويد والحاسوب يعطيان نافذة تثبيت، وiPhone يحتاج خطوتين في Safari */
+(function(){
+  if('serviceWorker' in navigator)window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});
+  var standalone=window.matchMedia&&matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+  if(standalone)return;
+  var prompt=null,g=$('instGrp'),b=$('instBtn');
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();prompt=e;g.style.display='block';});
+  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.MSStream;
+  if(ios){g.style.display='block';b.style.display='none';$('instSub').setAttribute('data-i','instIos');$('instSub').textContent=T('instIos');}
+  b.onclick=function(){
+    if(!prompt)return;prompt.prompt();
+    prompt.userChoice.then(function(c){
+      if(c.outcome==='accepted'){b.querySelector('b').textContent=T('instDone');b.disabled=true;}
+      try{gtag('event','app_install',{outcome:c.outcome});}catch(x){}
+      prompt=null;
+    });
+  };
+  window.addEventListener('appinstalled',function(){g.style.display='none';});
+})();
 $('resetBtn').onclick=function(){
   favs=[];recent=[];mine={sec:0,mb:0,stations:[]};
   LS.set('lr_favs',favs);LS.set('lr_recent',recent);LS.set('lr_mine',mine);
