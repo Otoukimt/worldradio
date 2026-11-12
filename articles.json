@@ -1,5 +1,40 @@
 [
   {
+    "slug": "guide-to-listening-to-moroccan-radio-online",
+    "date": "2026-11-12",
+    "tag": {
+      "en": "Moroccan Radio",
+      "ar": "إذاعات المغرب"
+    },
+    "title": {
+      "en": "Moroccan Radio Online: Complete Live Listening Guide",
+      "ar": "إذاعات المغرب مباشرة: دليل الاستماع إلى البث الحي"
+    },
+    "desc": {
+      "en": "Discover how to stream Moroccan radio online worldwide. Explore public, private, regional, and Quranic stations with live streaming tips.",
+      "ar": "اكتشف كيفية الاستماع إلى الإذاعات المغربية مباشرة من أي مكان في العالم. دليل شامل للمحطات العمومية والخاصة والنصائح التقنية."
+    },
+    "cat": "stations",
+    "cc": "MA",
+    "kw": {
+      "en": [
+        "Moroccan radio online",
+        "Live audio streaming",
+        "Moroccan public stations",
+        "Online Quran broadcasting",
+        "Radio focus productivity"
+      ],
+      "ar": [
+        "إذاعات المغرب مباشرة",
+        "راديو الإنترنت المغرب",
+        "الإذاعة الوطنية العمومية",
+        "الاستماع للقرآن الكريم",
+        "تحسين بث الراديو"
+      ]
+    },
+    "thumb": "https:\/\/worldliveradio.com\/assets\/guide-to-listening-to-moroccan-radio-online-thumb.webp"
+  },
+  {
     "slug": "saudi-weather-warnings-rain-heavy-winds",
     "date": "2026-11-12",
     "tag": {
