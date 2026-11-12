@@ -1,5 +1,24 @@
 [
   {
+    "slug": "saudi-weather-warnings-rain-heavy-winds",
+    "date": "2026-11-12",
+    "tag": {
+      "en": "Saudi Weather",
+      "ar": "طقس السعودية"
+    },
+    "title": {
+      "en": "Saudi Weather Warnings: Heavy Rain and Winds Hit Capital and Regions",
+      "ar": "طقس السعودية: تحذيرات من أمطار غزيرة ورياح تشمل الرياض والمناطق"
+    },
+    "desc": {
+      "en": "Saudi authorities issue weather warnings as heavy rain, thunderstorms, and active winds strike Riyadh, Al Baha, and multiple provinces.",
+      "ar": "الأرصاد السعودية تحذر من أمطار رعدية وسيارات ورياح نشطة تشمل العاصمة الرياض و22 محافظة وعدة مناطق."
+    },
+    "cat": "breaking",
+    "cc": "SA",
+    "thumb": "https:\/\/worldliveradio.com\/assets\/saudi-weather-warnings-rain-heavy-winds-thumb.webp"
+  },
+  {
     "slug": "radio-stream-not-working",
     "date": "2026-11-06",
     "tag": {
