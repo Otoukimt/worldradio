@@ -166,6 +166,15 @@ footer nav a:hover{color:var(--acc)}
 #top{position:fixed;inset-inline-end:16px;bottom:24px;z-index:40;width:42px;height:42px;border-radius:50%;
   background:var(--cardG);border:1px solid var(--line);color:var(--txt);cursor:pointer;display:none;
   place-items:center;font-size:18px;box-shadow:0 4px 12px var(--shadow)}
+.mcard{flex:0 0 280px;padding:0;overflow:hidden;display:flex;flex-direction:column}
+.mcard .mi{aspect-ratio:16/9;background:var(--card2);overflow:hidden}
+.mcard .mi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.mcard:hover .mi img{transform:scale(1.04)}
+.mcard .mi.ph{background:linear-gradient(135deg,var(--acc),var(--acc2,#5b53e0));opacity:.85}
+.mcard .mb{padding:11px 14px 13px}
+.mcard .x{font-size:12px;color:var(--mut);line-height:1.5;margin-top:5px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.marq{min-height:290px}
 </style>
 <script>
 (function(){
@@ -373,9 +382,15 @@ function drawMarquee(){
     var a=document.createElement('a');a.className='mcard';
     a.dir=(lang==='ar')?'rtl':'ltr';
     a.href='./articles/'+p.slug+'.html';
-    a.innerHTML='<div class="t"></div><div class="h"></div><div class="d"></div>';
+    var img=p.thumb||p.hero||'';
+    a.innerHTML='<div class="mi"></div><div class="mb"><div class="t"></div><div class="h"></div><div class="x"></div><div class="d"></div></div>';
+    var mi=a.querySelector('.mi');
+    if(img){var im=document.createElement('img');im.loading='lazy';im.alt='';im.src=(/^https?:/.test(img)?img:'./'+img.replace(/^\.?\//,''));
+      im.onerror=function(){mi.classList.add('ph');im.remove();};mi.appendChild(im);}
+    else mi.classList.add('ph');
     a.querySelector('.t').textContent=catName(p.cat||'');
     a.querySelector('.h').textContent=p.title[lang]||p.title.en;
+    a.querySelector('.x').textContent=((p.desc&&(p.desc[lang]||p.desc.en))||'');
     a.querySelector('.d').textContent=fmtDate(p.date);
     box.appendChild(a);
   });
@@ -508,6 +523,7 @@ function applyLang(){
 }
 $('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';applyLang();};
 $('q').oninput=function(){q=this.value;shown=10;drawList();};
+try{var q0=new URLSearchParams(location.search).get('q');if(q0){q=q0;$('q').value=q0;}}catch(e){}
 
 var topBtn=$('top');
 window.addEventListener('scroll',function(){topBtn.style.display=window.scrollY>500?'grid':'none';});

@@ -138,6 +138,8 @@ function articleLd(a) {
   };
   if (t.ar && t.en) art.alternativeHeadline = String(t.ar);
   if (a.tag && a.tag.en) art.articleSection = a.tag.en;
+  if (a.kw && ((a.kw.en || []).length || (a.kw.ar || []).length))
+    art.keywords = [].concat(a.kw.en || [], a.kw.ar || []).slice(0, 16).join(', ');
   return ldScript([art,
     { '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'LiveRadio', item: SITE_URL + '/' },
@@ -165,6 +167,9 @@ function injectArticles(root) {
     out = out.replace('<script src="/assets/ads.js" defer></script>', '<script src="/ads.js" defer></script>');
     if (!out.includes('/ads.js"') && out.includes('</body>'))
       out = out.replace('</body>', () => '<script src="/ads.js" defer></script>\n</body>');
+    /* أزرار المشاركة، زر محطات الدولة، الكلمات المفتاحية، والصورة كاملة */
+    if (!out.includes('/art.js"') && out.includes('</body>'))
+      out = out.replace('</body>', () => '<script src="/art.js" defer></script>\n</body>');
     if (out !== html) { fs.writeFileSync(f, out); n++; }
   });
   return n;
