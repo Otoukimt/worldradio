@@ -195,6 +195,9 @@ footer nav a:hover{color:var(--acc)}
   .picks.n1 .pk h3{font-size:24px}
   .picks.n1 .pk p{-webkit-line-clamp:4;font-size:14.5px}
 }
+/* سطر الأرقام يمتد إلى سطرين على الهاتف حين تصل الأرقام: نحجز السطرين من البداية */
+.mstats{min-height:3.4em;align-content:flex-start}
+@media(min-width:640px){.mstats{min-height:1.8em}}
 </style>
 <script>
 (function(){
@@ -232,7 +235,7 @@ footer nav a:hover{color:var(--acc)}
   </div>
 </div>
 
-<main data-type="magazine">
+<main data-type="magazine" style="min-height:100vh">
   <div class="sec" id="newSec">
     <div class="sechead"><h2 data-en="Latest" data-ar="أحدث المقالات">Latest</h2></div>
     <div class="marq" id="marq"><div class="track" id="track"></div></div>
@@ -253,7 +256,7 @@ footer nav a:hover{color:var(--acc)}
     <div class="arts" id="popList"></div>
   </div>
 
-  <div class="sec">
+  <div class="sec" id="allSec" style="visibility:hidden">
     <div class="sechead">
       <h2 id="listTitle" data-en="All articles" data-ar="كل المقالات">All articles</h2>
       <span class="cnt" id="listCnt"></span>
@@ -479,7 +482,7 @@ function drawPicks(){
     var a=document.createElement('a');a.className='pk';a.href='./'+'articles/'+p.slug+'.html';
     a.innerHTML='<div class="im"></div><div class="bd"><div class="tg"></div><h3></h3><p></p><div class="dt"></div></div>';
     var img=p.thumb||p.hero||'';
-    if(img){var im=document.createElement('img');im.alt='';im.loading='lazy';im.src=/^https?:/.test(img)?img:'./'+img.replace(/^\.?\//,'');
+    if(img){var im=document.createElement('img');im.alt='';var first=!g.children.length;im.loading=first?'eager':'lazy';if(first)im.setAttribute('fetchpriority','high');im.src=/^https?:/.test(img)?img:'./'+img.replace(/^\.?\//,'');
       im.onerror=function(){im.remove();};a.querySelector('.im').appendChild(im);}
     a.querySelector('.tg').textContent=catName(p.cat||'');
     a.querySelector('h3').textContent=p.title[lang]||p.title.en;
@@ -549,6 +552,13 @@ function applyLang(){
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
 }
 $('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';applyLang();};
+/* النصوص باللغة الصحيحة من أول رسم: كانت تظهر بالإنجليزية ثم تتحوّل إلى العربية بعد التحميل، فيتغيّر طولها وتقفز الصفحة */
+(function(){
+  document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
+  $('q').placeholder=T('searchP');$('langBtn').textContent=T('langBtn');
+})();
 $('q').oninput=function(){q=this.value;shown=10;drawList();};
 try{var q0=new URLSearchParams(location.search).get('q');if(q0){q=q0;$('q').value=q0;}}catch(e){}
 
@@ -564,6 +574,7 @@ Promise.all([
   fetch('./stats.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;})
 ]).then(function(res){
   posts=res[0]||[];cfg=res[1];stats=res[2];
+  requestAnimationFrame(function(){var a=$('allSec');if(a)a.style.visibility='visible';});
   if(cfg&&cfg.colors){
     var st=document.createElement('style');
     function blk(sel,o){if(!o)return '';var t=sel+'{';for(var k in o){if(o[k])t+='--'+k+':'+o[k]+';';}return t+'}';}

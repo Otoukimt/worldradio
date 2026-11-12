@@ -31,6 +31,7 @@ async function api(t, url, body) {
   if (!r.ok || j.error) throw new Error((j.error && (j.error.message || j.error.status)) || ('HTTP ' + r.status));
   return j;
 }
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 const day = n => new Date(Date.now() - n * 864e5).toISOString().slice(0, 10);
 const slugOf = u => (u.match(/\/articles\/([a-z0-9-]+)\.html/) || [])[1] || '';
 
@@ -64,16 +65,29 @@ async function index(t, site) {
   urls = urls.slice(0, 180);
   let old = {}; try { (JSON.parse(fs.readFileSync('insights.json', 'utf8')).index || []).forEach(o => old[o.u] = o); } catch (e) {}
   const out = [];
+  let quotaHit = false;
   for (const u of urls) {
     const short = u.replace(SITE, '') || '/';
     /* المؤرشف لا نعيد فحصه إلا كل أسبوع: الحصة 2000 فحص في اليوم، ونريد أن نبقى بعيدين عنها */
     const o = old[short];
     if (o && o.v === 'PASS' && o.at && (Date.now() - Date.parse(o.at)) < 7 * 864e5) { out.push(o); continue; }
-    try {
-      const r = await api(t, 'https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', { inspectionUrl: u, siteUrl: site });
-      const s = (r.inspectionResult && r.inspectionResult.indexStatusResult) || {};
-      out.push({ u: short, v: s.verdict || '', st: s.coverageState || '', crawl: (s.lastCrawlTime || '').slice(0, 10), at: new Date().toISOString().slice(0, 10) });
-    } catch (e) { out.push({ u: short, v: 'ERR', st: e.message.slice(0, 80), at: '' }); if (/quota/i.test(e.message)) break; }
+    /* «Internal error» خطأ مؤقت من جوجل حين تتتابع الطلبات بسرعة: نتمهّل بين الطلبات، ونعيد مرتين،
+       وإن بقي الخطأ نحتفظ بآخر نتيجة سليمة بدل أن نكتب «خطأ» */
+    let done = false;
+    for (let tryN = 0; tryN < 3 && !done; tryN++) {
+      if (tryN) await sleep(2500 * tryN);
+      try {
+        const r = await api(t, 'https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', { inspectionUrl: u, siteUrl: site });
+        const s = (r.inspectionResult && r.inspectionResult.indexStatusResult) || {};
+        out.push({ u: short, v: s.verdict || '', st: s.coverageState || '', crawl: (s.lastCrawlTime || '').slice(0, 10), at: new Date().toISOString().slice(0, 10) });
+        done = true;
+      } catch (e) {
+        if (/quota/i.test(e.message)) { out.push(o || { u: short, v: 'WAIT', st: 'تجاوز حصة الفحص اليومية، يُكمَل غداً', at: '' }); done = true; quotaHit = true; }
+        else if (tryN === 2) out.push(o && o.v !== 'ERR' ? o : { u: short, v: 'WAIT', st: 'خطأ مؤقت من جوجل، يُعاد الفحص في التحديث القادم', at: '' });
+      }
+    }
+    if (quotaHit) break;
+    await sleep(700);
   }
   return out;
 }
