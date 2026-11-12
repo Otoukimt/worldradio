@@ -27,8 +27,16 @@ jobs:
           GA_PROPERTY: ${{ secrets.GA_PROPERTY }}
         run: node ga-stats.js
 
-      - name: Commit stats.json
+      - name: Search Console, indexing, stations and speed
+        continue-on-error: true
+        env:
+          GA_KEY: ${{ secrets.GA_KEY }}
+          GA_PROPERTY: ${{ secrets.GA_PROPERTY }}
+          PSI_KEY: ${{ secrets.PSI_KEY }}
+        run: node insights.js
+
+      - name: Commit results
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "تحديث المشاهدات من Analytics"
-          file_pattern: "stats.json site-stats.json"
+          commit_message: "تحديث المشاهدات والرؤى"
+          file_pattern: "stats.json site-stats.json insights.json"
