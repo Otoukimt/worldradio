@@ -15,13 +15,20 @@
     general:'M20 6H8.3l8.3-3.4-.8-1.8L3.2 6H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zM7 19a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm13-7h-2v-2h-2v2H4V8h16z'
   };
   var css=
-    '.lrTk{display:flex;align-items:stretch;height:40px;background:var(--card,#fff);border-bottom:1px solid var(--line,#e5e7eb);overflow:hidden;position:relative;z-index:5}'+
+    '.lrTk{display:flex;align-items:center;height:46px;padding-inline-start:8px;background:var(--card,#fff);border-bottom:1px solid var(--line,#e5e7eb);overflow:hidden;position:relative;z-index:5}'+
     '.lrTk[hidden]{display:none}'+
-    '.lrTk .lb{flex:none;display:flex;align-items:center;gap:6px;padding:0 12px;font-size:12px;font-weight:800;color:#fff;'+
-      'background:linear-gradient(135deg,var(--acc,#0ea47f),var(--acc2,#5b53e0));letter-spacing:.3px;white-space:nowrap}'+
-    '.lrTk .lb i{width:7px;height:7px;border-radius:50%;background:#fff;animation:lrPulse 1.4s infinite}'+
-    '@keyframes lrPulse{50%{opacity:.25}}'+
-    '.lrTk .vp{flex:1;overflow:hidden;position:relative;-webkit-mask:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}'+
+    /* العنوان: كبسولة بحواف دائرية وظل ناعم */
+    '.lrTk .lb{flex:none;display:flex;align-items:center;gap:9px;height:30px;padding:0 14px 0 12px;margin-inline-end:6px;border-radius:999px;'+
+      'font-size:12px;font-weight:800;color:#fff;letter-spacing:.3px;white-space:nowrap;'+
+      'background:linear-gradient(135deg,var(--acc,#0ea47f),var(--acc2,#5b53e0));'+
+      'box-shadow:0 3px 10px rgba(15,23,42,.18),0 1px 2px rgba(15,23,42,.12),inset 0 1px 0 rgba(255,255,255,.22)}'+
+    'html[lang^="ar"] .lrTk .lb [lang="en"],html:not([lang^="ar"]) .lrTk .lb [lang="ar"]{display:none}'+
+    /* النقطة الحمراء، وموجتان خفيفتان تتسعان من الداخل إلى الخارج */
+    '.lrTk .lb i{position:relative;flex:none;width:8px;height:8px;border-radius:50%;background:#ff3b3b;box-shadow:0 0 0 1.5px rgba(255,255,255,.9),0 0 6px rgba(255,59,59,.8)}'+
+    '.lrTk .lb i:before,.lrTk .lb i:after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(255,90,90,.85);animation:lrWave 1.8s ease-out infinite}'+
+    '.lrTk .lb i:after{animation-delay:.9s}'+
+    '@keyframes lrWave{from{transform:scale(1);opacity:.9}to{transform:scale(3.1);opacity:0}}'+
+    '.lrTk .vp{flex:1;align-self:stretch;overflow:hidden;position:relative;-webkit-mask:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}'+
     '.lrTk .tr{display:flex;width:max-content;height:100%;animation:lrRoll var(--d,60s) linear infinite}'+
     'html[dir="rtl"] .lrTk .tr{animation-name:lrRollR}'+
     '.lrTk:hover .tr,.lrTk.hold .tr,.lrTk:focus-within .tr{animation-play-state:paused}'+
@@ -29,15 +36,20 @@
     '@keyframes lrRollR{from{transform:translateX(0)}to{transform:translateX(50%)}}'+
     '.lrTk ul{display:flex;align-items:center;margin:0;padding:0;list-style:none;height:100%}'+
     'html[lang^="ar"] .lrTk ul[lang="en"],html:not([lang^="ar"]) .lrTk ul[lang="ar"]{display:none}'+
-    '.lrTk li{display:flex;align-items:center;gap:7px;padding:0 18px;white-space:nowrap;font-size:13.5px;height:100%;position:relative}'+
-    '.lrTk li:after{content:"";position:absolute;inset-inline-end:0;top:13px;bottom:13px;width:1px;background:var(--line,#e5e7eb)}'+
-    '.lrTk li svg{width:15px;height:15px;fill:var(--acc,#0ea47f);flex:none}'+
+    '.lrTk li{display:flex;align-items:center;padding:0 22px;white-space:nowrap;font-size:13.5px;height:100%;position:relative}'+
+    '.lrTk li a{display:flex;align-items:center}'+
+    '.lrTk li:after{content:"";position:absolute;inset-inline-end:0;top:15px;bottom:15px;width:1px;background:var(--line,#e5e7eb)}'+
+    /* الأيقونة والوقت بمسافة عن نص الخبر */
+    '.lrTk li svg{width:15px;height:15px;fill:var(--acc,#0ea47f);flex:none;margin-inline-end:9px}'+
     'html:not([data-theme="dark"]) .lrTk li svg{fill:#087064}'+
-    '.lrTk li[data-c="breaking"] svg{fill:#e5484d}'+
+    '.lrTk li[data-c="breaking"] svg,html:not([data-theme="dark"]) .lrTk li[data-c="breaking"] svg{fill:#e5484d}'+
     '.lrTk li[data-c="breaking"] .t{font-weight:700}'+
     '.lrTk a{color:var(--txt,#111);text-decoration:none}.lrTk a:hover .t{text-decoration:underline}'+
-    '.lrTk .tm{font-size:11px;color:var(--mut,#667)}'+
-    '@media (prefers-reduced-motion:reduce){.lrTk .tr{animation:none}.lrTk .vp{overflow-x:auto;-webkit-mask:none;mask:none}}';
+    '.lrTk .tm{margin-inline-start:10px;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;line-height:1.5;'+
+      'color:#b45309;background:rgba(245,158,11,.13)}'+
+    'html[data-theme="dark"] .lrTk .tm{color:#fbbf24;background:rgba(251,191,36,.12)}'+
+    '.lrTk .tm:empty{display:none}'+
+    '@media (prefers-reduced-motion:reduce){.lrTk .tr,.lrTk .lb i:before,.lrTk .lb i:after{animation:none}.lrTk .vp{overflow-x:auto;-webkit-mask:none;mask:none}}';
   var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
 
   function ago(iso,ar){
@@ -58,7 +70,7 @@
         return '<li data-c="'+esc(x.cat||'general')+'"'+(x.exp?' data-exp="'+esc(x.exp)+'"':'')+'>'+(href?'<a href="'+esc(href)+'">'+inner+'</a>':inner)+'</li>';
       }).join('')+'</ul>';
     }
-    return '<div class="lb"><i></i><span data-en="Live news" data-ar="أخبار مباشرة">'+(isAr()?'أخبار مباشرة':'Live news')+'</span></div>'+
+    return '<div class="lb"><i></i><span lang="ar">أخبار مباشرة</span><span lang="en">Live news</span></div>'+
       '<div class="vp"><div class="tr">'+ul('ar')+ul('en')+'</div></div>';
   }
   function isAr(){return (document.documentElement.lang||'').indexOf('ar')===0;}

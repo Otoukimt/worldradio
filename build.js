@@ -481,7 +481,7 @@ function tickerHtml(list) {
       (href ? '<a href="' + e(href) + '">' + inner + '</a>' : inner) + '</li>';
   }).join('') + '</ul>';
   return '<div class="lrTk" id="lrTicker" role="region" aria-label="Live news / أخبار مباشرة">' +
-    '<div class="lb"><i></i><span data-en="Live news" data-ar="أخبار مباشرة">Live news</span></div>' +
+    '<div class="lb"><i></i><span lang="ar">أخبار مباشرة</span><span lang="en">Live news</span></div>' +
     '<div class="vp"><div class="tr">' + ul('ar') + ul('en') + '</div></div></div>';
 }
 function putTicker(html, list) {
