@@ -1670,9 +1670,7 @@ function applyCfg(d){
     theme=d.defaultTheme==='dark'?'dark':'light';applyTheme();
   }
   if(d.cats&&d.cats.length)SITECATS=d.cats;
-  if(typeof d.visitors==='number'&&d.visitors>0){
-    $('visNum').textContent=fmtNum(d.visitors);$('visBox').style.display='block';
-  }
+  /* إجمالي الزوار صار حقيقياً من Analytics (site-stats.json)، لا الرقم اليدوي */
   applyLang();drawFeatured();
 }
 
@@ -1724,7 +1722,10 @@ fetch('./countries-index.json').then(function(r){return r.ok?r.json():[];})
   .then(function(d){guides=d||[];drawGuides();}).catch(function(){});
 fetch('./site.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;})
   .then(function(d){applyCfg(d);}).catch(function(){});
-fetch('./stats.json').then(function(r){return r.ok?r.json():null;})
+fetch('./site-stats.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;}).then(function(d){
+  if(d&&d.users>=30){$('visNum').textContent=fmtNum(d.users);$('visBox').style.display='block';}
+}).catch(function(){});
+fetch('./stats.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;})
   .then(function(d){stats=d;if(inType==='magazine')initMagazine();}).catch(function(){});
 
 /* ---------- station info sheet ---------- */
@@ -2093,7 +2094,7 @@ function magProg(slug){
 function magCard(p,showProg){
   var a=document.createElement('a');a.className='art';
   a.href=ROOT+'articles/'+p.slug+'.html';
-  var views=(stats&&stats[p.slug])?Number(stats[p.slug]).toLocaleString('en-US'):'';
+  var views=(stats&&stats[p.slug]>=30)?Number(stats[p.slug]).toLocaleString('en-US'):'';
   var meta=magDate(p.date)+(views?(' · '+views+' '+(lang==='ar'?'مشاهدة':'views')):'');
   if(p.thumb){
     a.className='art has-thumb';
@@ -2170,8 +2171,9 @@ function initMagazine(){
 
   /* الأكثر قراءة */
   if(E('#popList')&&posts.length){
-    var order=(CFG&&CFG.popular&&CFG.popular.length)?CFG.popular:null;
-    if(!order&&stats)order=Object.keys(stats).sort(function(a,b){return stats[b]-stats[a];}).slice(0,3);
+    var order=null;
+    if(stats&&Object.keys(stats).length)order=Object.keys(stats).sort(function(a,b){return stats[b]-stats[a];}).slice(0,3);
+    if(!order&&CFG&&CFG.popular&&CFG.popular.length)order=CFG.popular;
     var n=0;E('#popList').innerHTML='';
     (order||[]).slice(0,3).forEach(function(sl){
       for(var i=0;i<posts.length;i++)if(posts[i].slug===sl){E('#popList').appendChild(magCard(posts[i],false));n++;break;}

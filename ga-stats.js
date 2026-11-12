@@ -62,6 +62,17 @@ async function main() {
   const out = {};
   Object.keys(views).filter(s => !slugs || slugs.has(s)).sort((a, b) => views[b] - views[a]).forEach(s => out[s] = views[s]);
   fs.writeFileSync('stats.json', JSON.stringify(out, null, 1) + '\n');
+  /* الموقع كله: الزوار الفعليون (مستخدمون فريدون) والمشاهدات، منذ البداية */
+  const rt = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${PROP}:runReport`, {
+    method: 'POST', headers: { Authorization: 'Bearer ' + t, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ dateRanges: [{ startDate: START, endDate: 'today' }], metrics: [{ name: 'totalUsers' }, { name: 'screenPageViews' }] })
+  });
+  const jt = await rt.json();
+  if (jt.error) throw new Error('Analytics (الإجمالي): ' + jt.error.message);
+  const mv = (jt.rows && jt.rows[0] && jt.rows[0].metricValues) || [];
+  const site = { users: Number((mv[0] || {}).value || 0), views: Number((mv[1] || {}).value || 0), since: START, updated: new Date().toISOString().slice(0, 10) };
+  fs.writeFileSync('site-stats.json', JSON.stringify(site, null, 1) + '\n');
+  console.log(`الموقع: ${site.users} زائر · ${site.views} مشاهدة صفحة.`);
   const total = Object.values(out).reduce((a, b) => a + b, 0);
   console.log(`المشاهدات: ${Object.keys(out).length} مقالاً · ${total} مشاهدة منذ ${START}.`);
 }

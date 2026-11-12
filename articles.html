@@ -325,7 +325,8 @@ function cardOf(p,showProg){
   var a=document.createElement('a');a.className='art';
   a.href='./articles/'+p.slug+'.html';
   var pr=progOf(p.slug);
-  var views=(stats&&stats[p.slug])?Number(stats[p.slug]).toLocaleString('en-US'):'';
+  /* الأرقام حقيقية من Analytics، ولا نعرض الصغيرة منها: تحت 30 لا يظهر رقم */
+  var views=(stats&&stats[p.slug]>=30)?Number(stats[p.slug]).toLocaleString('en-US'):'';
   var meta=fmtDate(p.date)+(views?(' · '+views+' '+(lang==='ar'?'مشاهدة':'views')):'');
   if(p.thumb){
     a.className='art has-thumb';
@@ -492,9 +493,11 @@ function drawFeatured(){drawPicks();}
 
 function drawPopular(){
   if(!posts.length)return;
-  var order=(cfg&&cfg.popular&&cfg.popular.length)?cfg.popular:null;
-  if(!order&&stats)
+  /* الأكثر قراءة من المشاهدات الحقيقية أولاً؛ والقائمة اليدوية فقط إن لم توجد أرقام بعد */
+  var order=null;
+  if(stats&&Object.keys(stats).length)
     order=Object.keys(stats).sort(function(a,b){return stats[b]-stats[a];}).slice(0,3);
+  if(!order&&cfg&&cfg.popular&&cfg.popular.length)order=cfg.popular;
   if(!order||!order.length){$('popSec').style.display='none';return;}
   var box=$('popList');box.innerHTML='';var n=0;
   order.slice(0,3).forEach(function(slug){
@@ -558,7 +561,7 @@ applyTheme();
 Promise.all([
   fetch('./articles.json',{cache:'no-cache'}).then(function(r){return r.json();}).catch(function(){return [];}),
   fetch('./site.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}),
-  fetch('./stats.json').then(function(r){return r.ok?r.json():null;}).catch(function(){return null;})
+  fetch('./stats.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;})
 ]).then(function(res){
   posts=res[0]||[];cfg=res[1];stats=res[2];
   if(cfg&&cfg.colors){
