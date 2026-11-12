@@ -175,6 +175,26 @@ footer nav a:hover{color:var(--acc)}
 .mcard .x{font-size:12px;color:var(--mut);line-height:1.5;margin-top:5px;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .marq{min-height:290px}
+.picks{display:grid;gap:14px}
+.picks.n2,.picks.n3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.pk{display:flex;flex-direction:column;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card);
+  color:var(--txt);text-decoration:none;transition:transform .2s,border-color .2s;box-shadow:0 2px 10px var(--shadow)}
+.pk:hover{border-color:var(--acc);transform:translateY(-2px)}
+.pk .im{aspect-ratio:16/9;background:linear-gradient(135deg,var(--acc),var(--acc2));overflow:hidden}
+.pk .im img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.pk:hover .im img{transform:scale(1.03)}
+.pk .bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:7px}
+.pk .tg{font-size:11.5px;color:var(--acc);font-weight:800;letter-spacing:.4px}
+.pk h3{margin:0;font-size:18px;font-weight:800;line-height:1.35}
+.pk p{margin:0;color:var(--mut);font-size:13.5px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pk .dt{font-size:12px;color:var(--mut);margin-top:auto}
+@media(min-width:760px){
+  .picks.n1 .pk{flex-direction:row;align-items:stretch}
+  .picks.n1 .pk .im{flex:0 0 54%;aspect-ratio:auto;min-height:260px}
+  .picks.n1 .pk .bd{justify-content:center;padding:26px 28px}
+  .picks.n1 .pk h3{font-size:24px}
+  .picks.n1 .pk p{-webkit-line-clamp:4;font-size:14.5px}
+}
 </style>
 <script>
 (function(){
@@ -444,27 +464,31 @@ function drawList(){
 }
 $('moreb').onclick=function(){shown+=10;drawList();};
 
-function drawFeatured(){
-  if(!posts.length)return;
-  var slug=(cfg&&cfg.featuredArticle)||'';
-  var p=null;
-  if(slug)for(var i=0;i<posts.length;i++)if(posts[i].slug===slug){p=posts[i];break;}
-  if(!p){
-    var sorted=posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
-    p=sorted[0];
-  }
-  if(!p)return;
-  var a=document.createElement('a');a.className='feat';a.href='./articles/'+p.slug+'.html';
-  var band = p.thumb
-    ? '<img class="band" src="'+p.thumb+'" alt="" style="width:100%;height:170px;object-fit:cover;display:block">'
-    : '<div class="band"><div class="wav"><i></i><i></i><i></i><i></i><i></i></div></div>';
-  a.innerHTML=band+'<div class="body"><div class="tag"></div><h3></h3><p></p></div>';
-  a.querySelector('.tag').textContent=catName(p.cat||'');
-  a.querySelector('h3').textContent=p.title[lang]||p.title.en;
-  a.querySelector('p').textContent=p.desc[lang]||p.desc.en;
-  $('featBox').innerHTML='';$('featBox').appendChild(a);
-  $('featSec').style.display='block';
+/* «اختيار المحرّر»: المقالات التي تختارها في التطبيق (حتى 3)، وإلا أحدث مقال */
+function drawPicks(){
+  var box=$('featBox'),sec=$('featSec');
+  if(!box||!posts.length)return;
+  var want=(cfg&&cfg.picks&&cfg.picks.length)?cfg.picks:((cfg&&cfg.featuredArticle)?[cfg.featuredArticle]:[]);
+  var list=[];
+  want.forEach(function(s){for(var i=0;i<posts.length;i++)if(posts[i].slug===s){list.push(posts[i]);break;}});
+  if(!list.length)list=[posts.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');})[0]];
+  list=list.slice(0,3);
+  var g=document.createElement('div');g.className='picks n'+list.length;
+  list.forEach(function(p){
+    var a=document.createElement('a');a.className='pk';a.href='./'+'articles/'+p.slug+'.html';
+    a.innerHTML='<div class="im"></div><div class="bd"><div class="tg"></div><h3></h3><p></p><div class="dt"></div></div>';
+    var img=p.thumb||p.hero||'';
+    if(img){var im=document.createElement('img');im.alt='';im.loading='lazy';im.src=/^https?:/.test(img)?img:'./'+img.replace(/^\.?\//,'');
+      im.onerror=function(){im.remove();};a.querySelector('.im').appendChild(im);}
+    a.querySelector('.tg').textContent=catName(p.cat||'');
+    a.querySelector('h3').textContent=p.title[lang]||p.title.en;
+    a.querySelector('p').textContent=(p.desc&&(p.desc[lang]||p.desc.en))||'';
+    a.querySelector('.dt').textContent=fmtDate(p.date);
+    g.appendChild(a);
+  });
+  box.innerHTML='';box.appendChild(g);sec.style.display='block';
 }
+function drawFeatured(){drawPicks();}
 
 function drawPopular(){
   if(!posts.length)return;
