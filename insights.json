@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12 19:37 UTC",
+ "updated": "2026-11-12 21:47 UTC",
  "search": {
   "site": "https://worldliveradio.com/",
   "range": {
@@ -360,7 +360,7 @@
   {
    "u": "/countries/the-russian-federation.html",
    "v": "NEUTRAL",
-   "st": "URL is unknown to Google",
+   "st": "Discovered - currently not indexed",
    "crawl": "",
    "at": "2026-11-12"
   },
@@ -374,7 +374,7 @@
   {
    "u": "/countries/china.html",
    "v": "NEUTRAL",
-   "st": "URL is unknown to Google",
+   "st": "Discovered - currently not indexed",
    "crawl": "",
    "at": "2026-11-12"
   },
@@ -465,7 +465,7 @@
   {
    "u": "/countries/indonesia.html",
    "v": "NEUTRAL",
-   "st": "URL is unknown to Google",
+   "st": "Discovered - currently not indexed",
    "crawl": "",
    "at": "2026-11-12"
   },
@@ -479,14 +479,14 @@
   {
    "u": "/countries/kuwait.html",
    "v": "NEUTRAL",
-   "st": "Discovered - currently not indexed",
+   "st": "URL is unknown to Google",
    "crawl": "",
    "at": "2026-11-12"
   },
   {
    "u": "/countries/south-africa.html",
    "v": "NEUTRAL",
-   "st": "Discovered - currently not indexed",
+   "st": "URL is unknown to Google",
    "crawl": "",
    "at": "2026-11-12"
   },
@@ -528,28 +528,30 @@
   {
    "u": "/countries/egypt.html",
    "v": "NEUTRAL",
-   "st": "URL is unknown to Google",
-   "crawl": "",
-   "at": "2026-11-12"
-  },
-  {
-   "u": "/countries/morocco.html",
-   "v": "NEUTRAL",
    "st": "Discovered - currently not indexed",
    "crawl": "",
    "at": "2026-11-12"
   },
   {
+   "u": "/countries/morocco.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-12",
+   "at": "2026-11-12"
+  },
+  {
    "u": "/countries/kenya.html",
-   "v": "ERR",
-   "st": "Internal error encountered.",
-   "at": ""
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
   },
   {
    "u": "/countries/tunisia.html",
-   "v": "ERR",
-   "st": "Internal error encountered.",
-   "at": ""
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
   },
   {
    "u": "/countries/saudi-arabia.html",
@@ -567,9 +569,10 @@
   },
   {
    "u": "/countries/jordan.html",
-   "v": "ERR",
-   "st": "Internal error encountered.",
-   "at": ""
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-12",
+   "at": "2026-11-12"
   },
   {
    "u": "/countries/iraq.html",
@@ -587,9 +590,9 @@
   },
   {
    "u": "/articles/saudi-weather-warnings-rain-heavy-winds.html",
-   "v": "NEUTRAL",
-   "st": "URL is unknown to Google",
-   "crawl": "",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-12",
    "at": "2026-11-12"
   },
   {
@@ -731,6 +734,993 @@
    "st": "Submitted and indexed",
    "crawl": "2026-11-06",
    "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/australia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/romania.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-philippines.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/colombia.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/switzerland.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/chile.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-12",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/belgium.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/serbia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/hungary.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/bulgaria.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/austria.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/ukraine.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/czechia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/croatia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/peru.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/sweden.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/denmark.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/new-zealand.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/ireland.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/taiwan-republic-of-china.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/bolivarian-republic-of-venezuela.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/ecuador.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/latvia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/uganda.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/nepal.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/bosnia-and-herzegovina.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/slovakia.html",
+   "v": "NEUTRAL",
+   "st": "URL is unknown to Google",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/finland.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/estonia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/uruguay.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/israel.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/slovenia.html",
+   "v": "NEUTRAL",
+   "st": "URL is unknown to Google",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/norway.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/lithuania.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-dominican-republic.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/thailand.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/albania.html",
+   "v": "NEUTRAL",
+   "st": "URL is unknown to Google",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-republic-of-korea.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-republic-of-moldova.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/zambia.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/afghanistan.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/malaysia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/guatemala.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/bolivia.html",
+   "v": "NEUTRAL",
+   "st": "URL is unknown to Google",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/paraguay.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/hong-kong.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/angola.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/singapore.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/sri-lanka.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/el-salvador.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/coted-ivoire.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/cyprus.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/malawi.html",
+   "v": "NEUTRAL",
+   "st": "URL is unknown to Google",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/pakistan.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/belarus.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/cameroon.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/costa-rica.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/puerto-rico.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/republic-of-north-macedonia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/montenegro.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/jamaica.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/kazakhstan.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/honduras.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/azerbaijan.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/reunion.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/panama.html",
+   "v": "NEUTRAL",
+   "st": "URL is unknown to Google",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/luxembourg.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/haiti.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/vietnam.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/georgia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/bangladesh.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/iceland.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/nicaragua.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-united-states-minor-outlying-islands.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/zimbabwe.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/cuba.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/ethiopia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/islamic-republic-of-iran.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/syrian-arab-republic.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-democratic-republic-of-the-congo.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/trinidad-and-tobago.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/macao.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/madagascar.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/curacao.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/united-republic-of-tanzania.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/cabo-verde.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/kosovo.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/malta.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/barbados.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/mozambique.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/namibia.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/mali.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/mauritius.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-faroe-islands.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/guadeloupe.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/fiji.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/martinique.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-holy-see.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/uzbekistan.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/saint-lucia.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/yemen.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/bahrain.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/benin.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/saint-vincent-and-the-grenadines.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/armenia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/bonaire.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/american-samoa.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/guyana.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/cambodia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/antarctica.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/mongolia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/aruba.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-12",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/state-of-palestine.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/us-virgin-islands.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-cayman-islands.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/oman.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/french-polynesia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/isle-of-man.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/rwanda.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/kyrgyzstan.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-bahamas.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-democratic-peoples-republic-of-korea.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/new-caledonia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/libya.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/suriname.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/gibraltar.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/togo.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/grenada.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-12",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/antigua-and-barbuda.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/san-marino.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/dominica.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/bermuda.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/guam.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/andorra.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/monaco.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/anguilla.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/about.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-12",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/privacy.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-06",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/contact.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/broadcasters.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/terms.html",
+   "v": "NEUTRAL",
+   "st": "Discovered - currently not indexed",
+   "crawl": "",
+   "at": "2026-11-12"
   }
  ],
  "stations": {
@@ -790,19 +1780,19 @@
     "u": "/",
     "perf": 100,
     "a11y": 100,
-    "bp": 96,
+    "bp": 100,
     "seo": 100,
     "lcp": "1.1 s",
     "cls": "0.033"
    },
    {
     "u": "/articles.html",
-    "perf": 80,
-    "a11y": 93,
+    "perf": 88,
+    "a11y": 100,
     "bp": 100,
     "seo": 100,
-    "lcp": "3.2 s",
-    "cls": "0.266"
+    "lcp": "3.9 s",
+    "cls": "0.003"
    },
    {
     "u": "/articles/saudi-weather-warnings-rain-heavy-winds.html",
