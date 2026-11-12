@@ -5,7 +5,7 @@
     "en": "The United States Of America",
     "ar": "الولايات المتحدة",
     "date": "2026-11-11",
-    "n": 7079,
+    "n": 7078,
     "descEn": "American radio began as a hobby in a garage and became the most commercial broadcasting system on earth. It never had a national public broadcaster fu",
     "descAr": "بدأ الراديو الأمريكي هوايةً في مرآب، وصار أكثر أنظمة البثّ تجارية في العالم. لم تكن له قطّ هيئة عمومية وطنية تموّلها الرسوم؛ كان له سوق، وهذه السوق اخ"
   },
@@ -15,7 +15,7 @@
     "en": "Germany",
     "ar": "ألمانيا",
     "date": "2026-11-11",
-    "n": 5641,
+    "n": 5648,
     "descEn": "German radio is the only major broadcasting system in the world designed, quite deliberately, to be hard to control. To understand why, you have to st",
     "descAr": "الإذاعة الألمانية هي النظام الإذاعي الكبير الوحيد في العالم الذي صُمّم عمداً ليكون صعب السيطرة. ولفهم السبب يجب أن نبدأ من عليّة في برلين ومن جهاز است"
   },
@@ -45,7 +45,7 @@
     "en": "The United Kingdom Of Great Britain And Northern Ireland",
     "ar": "المملكة المتحدة",
     "date": "2026-11-11",
-    "n": 1993,
+    "n": 1994,
     "descEn": "Britain gave the world a model of public broadcasting, and then watched a group of pirates on ships in the North Sea force that model to change. Both ",
     "descAr": "قدّمت بريطانيا للعالم نموذج البثّ العمومي، ثم شاهدت مجموعة من القراصنة على سفن في بحر الشمال يجبرون هذا النموذج على التغيّر. ونصفا القصة يفسّران التنو"
   },
@@ -65,7 +65,7 @@
     "en": "Greece",
     "ar": "اليونان",
     "date": "2026-11-11",
-    "n": 1897,
+    "n": 1898,
     "descEn": "Only twice in its history has Greece's national radio gone completely silent. The first time was in 1941, when German troops occupied the station in A",
     "descAr": "لم تصمت الإذاعة الوطنية اليونانية صمتاً تاماً إلا مرتين في تاريخها. الأولى سنة 1941، حين احتلت القوات الألمانية المحطة في أثينا. والثانية مساء 11 يوني"
   },
@@ -125,7 +125,7 @@
     "en": "The Netherlands",
     "ar": "هولندا",
     "date": "2026-11-11",
-    "n": 1217,
+    "n": 1218,
     "descEn": "On 5 November 1919, a Dutch newspaper carried a small advertisement: the next evening, music would be broadcast by wireless from The Hague. It was ann",
     "descAr": "في 5 نوفمبر 1919، نشرت صحيفة هولندية إعلاناً صغيراً: في مساء اليوم التالي ستُبثّ موسيقى لاسلكياً من لاهاي. أُعلن عن البثّ مسبقاً وبموعد محدد، ولهذا يع"
   },
@@ -405,7 +405,7 @@
     "en": "Switzerland",
     "ar": "سويسرا",
     "date": "2026-11-11",
-    "n": 540,
+    "n": 541,
     "descEn": "",
     "descAr": ""
   },
@@ -1270,6 +1270,26 @@
     "descAr": ""
   },
   {
+    "cc": "MQ",
+    "slug": "martinique",
+    "en": "Martinique",
+    "ar": "Martinique",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "VA",
+    "slug": "the-holy-see",
+    "en": "The Holy See",
+    "ar": "The Holy See",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "ML",
     "slug": "mali",
     "en": "Mali",
@@ -1314,26 +1334,6 @@
     "slug": "fiji",
     "en": "Fiji",
     "ar": "Fiji",
-    "date": "2026-11-11",
-    "n": 13,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "MQ",
-    "slug": "martinique",
-    "en": "Martinique",
-    "ar": "Martinique",
-    "date": "2026-11-11",
-    "n": 13,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "VA",
-    "slug": "the-holy-see",
-    "en": "The Holy See",
-    "ar": "The Holy See",
     "date": "2026-11-11",
     "n": 13,
     "descEn": "",
@@ -1430,6 +1430,16 @@
     "descAr": ""
   },
   {
+    "cc": "MN",
+    "slug": "mongolia",
+    "en": "Mongolia",
+    "ar": "منغوليا",
+    "date": "2026-11-11",
+    "n": 9,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "GY",
     "slug": "guyana",
     "en": "Guyana",
@@ -1454,16 +1464,6 @@
     "slug": "antarctica",
     "en": "Antarctica",
     "ar": "Antarctica",
-    "date": "2026-11-11",
-    "n": 9,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "MN",
-    "slug": "mongolia",
-    "en": "Mongolia",
-    "ar": "منغوليا",
     "date": "2026-11-11",
     "n": 9,
     "descEn": "",
@@ -1590,6 +1590,26 @@
     "descAr": ""
   },
   {
+    "cc": "GI",
+    "slug": "gibraltar",
+    "en": "Gibraltar",
+    "ar": "Gibraltar",
+    "date": "2026-11-11",
+    "n": 6,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "TG",
+    "slug": "togo",
+    "en": "Togo",
+    "ar": "توغو",
+    "date": "2026-11-11",
+    "n": 6,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "LY",
     "slug": "libya",
     "en": "Libya",
@@ -1610,22 +1630,12 @@
     "descAr": ""
   },
   {
-    "cc": "GI",
-    "slug": "gibraltar",
-    "en": "Gibraltar",
-    "ar": "Gibraltar",
+    "cc": "AI",
+    "slug": "anguilla",
+    "en": "Anguilla",
+    "ar": "Anguilla",
     "date": "2026-11-11",
-    "n": 6,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "TG",
-    "slug": "togo",
-    "en": "Togo",
-    "ar": "توغو",
-    "date": "2026-11-11",
-    "n": 6,
+    "n": 5,
     "descEn": "",
     "descAr": ""
   },
@@ -1704,16 +1714,6 @@
     "slug": "monaco",
     "en": "Monaco",
     "ar": "Monaco",
-    "date": "2026-11-11",
-    "n": 5,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "AI",
-    "slug": "anguilla",
-    "en": "Anguilla",
-    "ar": "Anguilla",
     "date": "2026-11-11",
     "n": 5,
     "descEn": "",
