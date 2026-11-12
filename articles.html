@@ -198,6 +198,9 @@ footer nav a:hover{color:var(--acc)}
 /* سطر الأرقام يمتد إلى سطرين على الهاتف حين تصل الأرقام: نحجز السطرين من البداية */
 .mstats{min-height:3.4em;align-content:flex-start}
 @media(min-width:640px){.mstats{min-height:1.8em}}
+/* الوضع الفاتح: درجة أغمق من لون التمييز للنصوص الصغيرة، حتى تكون مقروءة (تباين 5 فأكثر) */
+html:not([data-theme="dark"]) .mcard .t,html:not([data-theme="dark"]) .pk .tg,html:not([data-theme="dark"]) .tag,
+html:not([data-theme="dark"]) .mstats b,html:not([data-theme="dark"]) header .logo span,html:not([data-theme="dark"]) .cnt{color:#087064}
 </style>
 <script>
 (function(){

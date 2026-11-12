@@ -170,6 +170,14 @@ function injectArticles(root) {
     /* أزرار المشاركة، زر محطات الدولة، الكلمات المفتاحية، والصورة كاملة */
     if (!out.includes('/art.js"') && out.includes('</body>'))
       out = out.replace('</body>', () => '<script src="/art.js" defer></script>\n</body>');
+    /* صورة الرأس: الهاتف يأخذ النسخة المصغّرة (720 بكسل) بدل 1400، فيوفّر أكثر من 100 ك.ب */
+    out = out.replace(/<img class="heroimg" src="([^"]*?)-hero\.(webp|jpg|png)"(?![^>]*srcset)([^>]*)>/, (m, base, ext, rest) => {
+      const thumb = base + '-thumb.' + ext;
+      const local = path.join(root, thumb.replace(/^(\.\.\/|\/)+/, ''));
+      if (!fs.existsSync(local)) return m.replace('<img class="heroimg"', '<img class="heroimg" fetchpriority="high"');
+      return '<img class="heroimg" fetchpriority="high" src="' + base + '-hero.' + ext + '" srcset="' + thumb + ' 720w, ' + base + '-hero.' + ext +
+        ' 1400w" sizes="(max-width: 800px) 100vw, 760px"' + rest + '>';
+    });
     if (!out.includes('/social.js"') && out.includes('</body>'))
       out = out.replace('</body>', () => '<script src="/social.js" defer></script>\n</body>');
     if (out !== html) { fs.writeFileSync(f, out); n++; }
@@ -363,6 +371,7 @@ async function generatePages() {
   console.log('البيانات المنظمة: حُدّث ' + nArt + ' مقالاً.');
   const before = OLD;
   const after = buildSitemap(root, pages, OLD);
+  preloadArticlesPage();
   await notifyIndexNow(before, after);
   await checkLinks(root);
 
@@ -445,3 +454,23 @@ async function notifyIndexNow(before, after) {
 }
 
 generatePages();
+/* أكبر صورة في صفحة المقالات (أول بطاقة في «أحدث المقالات» و«اختيار المحرّر») تظهر بعد تحميل البيانات بالجافاسكربت،
+   فلا يكتشفها المتصفح إلا متأخراً. نكتب رابطها في رأس الصفحة ليبدأ تحميلها فوراً. */
+function preloadArticlesPage() {
+  const f = path.join(root, 'articles.html');
+  if (!fs.existsSync(f)) return;
+  let arts = [], cfg = {};
+  try { arts = JSON.parse(fs.readFileSync(path.join(root, 'articles.json'), 'utf8')); } catch (e) { return; }
+  try { cfg = JSON.parse(fs.readFileSync(path.join(root, 'site.json'), 'utf8')); } catch (e) {}
+  const img = a => a && (a.thumb || a.hero);
+  const latest = arts.slice().sort((x, y) => (y.date || '').localeCompare(x.date || ''))[0];
+  const pick = (cfg.picks || []).map(s => arts.find(a => a.slug === s)).find(Boolean) || latest;
+  const urls = [...new Set([img(latest), img(pick)].filter(Boolean))]
+    .map(u => /^https?:/.test(u) ? u : '/' + u.replace(/^(\.\/|\/)+/, ''));
+  const tags = '<!--lcp:start-->' + urls.map(u => `<link rel="preload" as="image" href="${u}" fetchpriority="high">`).join('') + '<!--lcp:end-->';
+  let h = fs.readFileSync(f, 'utf8');
+  const nh = h.includes('<!--lcp:start-->') ? h.replace(/<!--lcp:start-->[\s\S]*?<!--lcp:end-->/, tags) : h.replace('</head>', tags + '\n</head>');
+  if (nh !== h) { fs.writeFileSync(f, nh); console.log('articles.html: preload ' + urls.length + ' image(s)'); }
+}
+
+

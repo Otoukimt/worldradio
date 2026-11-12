@@ -15,6 +15,11 @@
   var css=
     /* الصورة كاملة: كان ارتفاعها ثابتاً 190 بكسل فيُقصّ أغلبها على الحاسوب */
     'main .hero:has(.heroimg),#page .hero:has(.heroimg){height:auto;aspect-ratio:16/9;max-height:560px}'+
+    /* الوضع الفاتح: لون التمييز الأخضر باهت على الخلفية البيضاء للنصوص الصغيرة (تباين 2.98، والمطلوب 4.5).
+       نستعمل درجته الداكنة للنصوص فقط (تباين 5.6)، وتبقى الأزرار والخلفيات بلونها */
+    'html:not([data-theme="dark"]) main p a,html:not([data-theme="dark"]) main li a,html:not([data-theme="dark"]) main blockquote a,'+
+    'html:not([data-theme="dark"]) main .crumb a,html:not([data-theme="dark"]) main .tagx,html:not([data-theme="dark"]) main .meta,'+
+    'html:not([data-theme="dark"]) header .logo span,html:not([data-theme="dark"]) .lrKw a:before{color:#087064!important}'+
     /* روابط المصادر والقوائم كانت تأخذ لون النص الرمادي فلا تبدو روابط */
     'main li a,#page li a,main blockquote a,#page blockquote a{color:var(--acc);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;word-break:break-word}'+
     'main li a:hover,#page li a:hover{color:var(--acc2,var(--acc))}'+
