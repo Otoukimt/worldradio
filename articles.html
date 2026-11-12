@@ -516,8 +516,8 @@ topBtn.onclick=function(){window.scrollTo({top:0,behavior:'smooth'});};
 applyTheme();
 
 Promise.all([
-  fetch('./articles.json').then(function(r){return r.json();}).catch(function(){return [];}),
-  fetch('./site.json').then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}),
+  fetch('./articles.json',{cache:'no-cache'}).then(function(r){return r.json();}).catch(function(){return [];}),
+  fetch('./site.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}),
   fetch('./stats.json').then(function(r){return r.ok?r.json():null;}).catch(function(){return null;})
 ]).then(function(res){
   posts=res[0]||[];cfg=res[1];stats=res[2];

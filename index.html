@@ -1647,7 +1647,7 @@ function applyCfg(d){
   applyLang();drawFeatured();
 }
 
-fetch('./articles.json').then(function(r){return r.json();})
+fetch('./articles.json',{cache:'no-cache'}).then(function(r){return r.json();})
   .then(function(d){posts=d||[];drawArticles();}).catch(function(){});
 
 /* القارة لكل رمز دولة: لعرض بلد الزائر وجيرانه في قارته */
@@ -1693,7 +1693,7 @@ function drawGuides(){
 }
 fetch('./countries-index.json').then(function(r){return r.ok?r.json():[];})
   .then(function(d){guides=d||[];drawGuides();}).catch(function(){});
-fetch('./site.json').then(function(r){return r.ok?r.json():null;})
+fetch('./site.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;})
   .then(function(d){applyCfg(d);}).catch(function(){});
 fetch('./stats.json').then(function(r){return r.ok?r.json():null;})
   .then(function(d){stats=d;if(inType==='magazine')initMagazine();}).catch(function(){});
