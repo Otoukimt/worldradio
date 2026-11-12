@@ -615,7 +615,7 @@ function drawRelated(){
   });
   sec.style.display='block';
 }
-fetch('../articles.json').then(function(r){return r.json();})
+fetch('../articles.json',{cache:'no-cache'}).then(function(r){return r.json();})
   .then(function(all){ALL=all||[];drawRelated();}).catch(function(){});
 
 /* التمرير الفوري: مفيد بعد توسيع المحطات */
