@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+/* جذر المستودع: تحتاجه كل دوال البناء */
+const ROOT_DIR = __dirname;
 
 /* ===== أسماء الدول بالعربية ===== */
 const CN_AR = {
@@ -462,7 +464,7 @@ generatePages();
 let TICKER = null;
 function tickerData() {
   if (TICKER) return TICKER;
-  try { TICKER = JSON.parse(fs.readFileSync(path.join(root, 'ticker.json'), 'utf8')); } catch (e) { TICKER = {}; }
+  try { TICKER = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'ticker.json'), 'utf8')); } catch (e) { TICKER = {}; }
   const now = Date.now();
   const live = l => (Array.isArray(l) ? l : []).filter(x => x && (x.ar || x.en) && (!x.exp || Date.parse(x.exp) > now)).slice(0, 10);
   TICKER.global = live(TICKER.global);
@@ -491,7 +493,7 @@ function putTicker(html, list) {
 /* الرئيسية وصفحة المقالات: الشريط العام */
 function tickerRootPages() {
   for (const f of ['index.html', 'articles.html']) {
-    const fp = path.join(root, f);
+    const fp = path.join(ROOT_DIR, f);
     if (!fs.existsSync(fp)) continue;
     const h = fs.readFileSync(fp, 'utf8');
     const nh = putTicker(h, tickerData().global);
@@ -502,11 +504,11 @@ function tickerRootPages() {
 /* أكبر صورة في صفحة المقالات (أول بطاقة في «أحدث المقالات» و«اختيار المحرّر») تظهر بعد تحميل البيانات بالجافاسكربت،
    فلا يكتشفها المتصفح إلا متأخراً. نكتب رابطها في رأس الصفحة ليبدأ تحميلها فوراً. */
 function preloadArticlesPage() {
-  const f = path.join(root, 'articles.html');
+  const f = path.join(ROOT_DIR, 'articles.html');
   if (!fs.existsSync(f)) return;
   let arts = [], cfg = {};
-  try { arts = JSON.parse(fs.readFileSync(path.join(root, 'articles.json'), 'utf8')); } catch (e) { return; }
-  try { cfg = JSON.parse(fs.readFileSync(path.join(root, 'site.json'), 'utf8')); } catch (e) {}
+  try { arts = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'articles.json'), 'utf8')); } catch (e) { return; }
+  try { cfg = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'site.json'), 'utf8')); } catch (e) {}
   const img = a => a && (a.thumb || a.hero);
   const latest = arts.slice().sort((x, y) => (y.date || '').localeCompare(x.date || ''))[0];
   const pick = (cfg.picks || []).map(s => arts.find(a => a.slug === s)).find(Boolean) || latest;
