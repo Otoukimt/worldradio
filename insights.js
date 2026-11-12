@@ -60,9 +60,12 @@ async function index(t, site) {
   try {
     const x = fs.readFileSync('sitemap.xml', 'utf8');
     const re = /<loc>([^<]+)<\/loc>[\s\S]*?<priority>([\d.]+)<\/priority>/g; let m;
-    while ((m = re.exec(x))) if (Number(m[2]) >= 0.7) urls.push(m[1]);
+    /* كل صفحات الخريطة، والأهم أولاً: إن ضاق الوقت يوماً، تُفحص المقالات وصفحات الدول ذات المقالات قبل غيرها */
+    const all = []; while ((m = re.exec(x))) all.push({ u: m[1], p: Number(m[2]) });
+    all.sort((a, b) => b.p - a.p);
+    urls = all.map(o => o.u);
   } catch (e) { throw new Error('لم أجد sitemap.xml'); }
-  urls = urls.slice(0, 180);
+  urls = urls.slice(0, 600);
   let old = {}; try { (JSON.parse(fs.readFileSync('insights.json', 'utf8')).index || []).forEach(o => old[o.u] = o); } catch (e) {}
   const out = [];
   let quotaHit = false;
