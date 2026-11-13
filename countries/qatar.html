@@ -267,6 +267,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bo
 .rcard .when.fresh{color:#b45309;font-weight:700}
 html[data-theme="dark"] .rcard .when.fresh{color:#fbbf24}
 .rcard .when.fresh:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-inline-end:6px;vertical-align:middle}
+.st .xoff{font-size:10.5px;font-weight:700;color:#087064;background:rgba(8,112,100,.1);border-radius:999px;padding:2px 8px;margin-top:4px;display:inline-block}
+html[data-theme="dark"] .st .xoff{color:#5eead4;background:rgba(94,234,212,.12)}
 </style>
 <script>
 (function(){
@@ -488,7 +490,10 @@ function card(s){
   var n=document.createElement('div');n.className='nm';n.textContent=(s.name||'').trim();
   b.appendChild(r);b.appendChild(n);
   if(s.bitrate){var br=document.createElement('div');br.className='br';br.textContent=s.bitrate+' kbps';b.appendChild(br);}
-  b.onclick=function(){location.href='../#s='+s.stationuuid;};  /* للزائر القادم من جوجل مباشرة */
+  if(s.external){
+    var xb=document.createElement('div');xb.className='xoff';xb.textContent=(lang==='ar'?'↗ الموقع الرسمي':'↗ Official site');b.appendChild(xb);
+    b.onclick=function(){window.open(s.link,'_blank','noopener');};
+  } else b.onclick=function(){location.href='../#s='+s.stationuuid;};  /* للزائر القادم من جوجل مباشرة */
   b.title=(s.name||'');
   return b;
 }
@@ -563,6 +568,8 @@ function fetchPage(){
         var raw=(rr[2]||[]).concat(a,b);
         raw.forEach(function(s){
           if(blocked(s))return;
+          /* محطة تُسمع على موقعها الرسمي: تُعرض، والضغط يفتح صفحتها */
+          if(s.external&&s.link){if(seen.id[s.stationuuid])return;seen.id[s.stationuuid]=1;list.push(s);return;}
           var u=playableUrl(s);
           if(!u||!s.name||s.name.trim().length<2)return;
           if(seen.id[s.stationuuid])return;
