@@ -474,7 +474,7 @@ function tickerData() {
   if (TICKER) return TICKER;
   try { TICKER = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'ticker.json'), 'utf8')); } catch (e) { TICKER = {}; }
   const now = Date.now();
-  const live = l => (Array.isArray(l) ? l : []).filter(x => x && (x.ar || x.en) && (!x.exp || Date.parse(x.exp) > now)).slice(0, 10);
+  const live = l => (Array.isArray(l) ? l : []).filter(x => x && (x.ar || x.en) && (!x.exp || Date.parse(x.exp) > now)).slice(0, 15);
   TICKER.global = live(TICKER.global);
   const c = {}; for (const k of Object.keys(TICKER.countries || {})) { const l = live(TICKER.countries[k]); if (l.length) c[k.toUpperCase()] = l; }
   TICKER.countries = c;

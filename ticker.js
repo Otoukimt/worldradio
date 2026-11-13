@@ -59,7 +59,7 @@
     if(h<24)return ar?('منذ '+h+' س'):(h+'h ago');var d=Math.round(h/24);return ar?('منذ '+d+' ي'):(d+'d ago');
   }
   function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  function live(list){var n=Date.now();return (list||[]).filter(function(x){return !x.exp||Date.parse(x.exp)>n;}).slice(0,10);}
+  function live(list){var n=Date.now();return (list||[]).filter(function(x){return !x.exp||Date.parse(x.exp)>n;}).slice(0,15);}
 
   /* نفس الشكل الذي يكتبه البناء في الصفحات */
   function html(list,root){
