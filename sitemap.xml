@@ -451,17 +451,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/sri-lanka.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://worldliveradio.com/countries/singapore.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/el-salvador.html</loc>
+    <loc>https://worldliveradio.com/countries/sri-lanka.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -472,6 +467,11 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/cyprus.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/el-salvador.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -521,12 +521,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/honduras.html</loc>
+    <loc>https://worldliveradio.com/countries/kazakhstan.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/kazakhstan.html</loc>
+    <loc>https://worldliveradio.com/countries/honduras.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -546,12 +546,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/haiti.html</loc>
+    <loc>https://worldliveradio.com/countries/luxembourg.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/luxembourg.html</loc>
+    <loc>https://worldliveradio.com/countries/haiti.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -571,17 +571,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://worldliveradio.com/countries/iceland.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://worldliveradio.com/countries/nicaragua.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/the-united-states-minor-outlying-islands.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/iceland.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -601,17 +601,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/syrian-arab-republic.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://worldliveradio.com/countries/islamic-republic-of-iran.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/the-democratic-republic-of-the-congo.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -621,7 +611,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/curacao.html</loc>
+    <loc>https://worldliveradio.com/countries/syrian-arab-republic.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/the-democratic-republic-of-the-congo.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -632,6 +627,11 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/madagascar.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/curacao.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -651,6 +651,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://worldliveradio.com/countries/malta.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://worldliveradio.com/countries/barbados.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
@@ -666,7 +671,17 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/malta.html</loc>
+    <loc>https://worldliveradio.com/countries/mauritius.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/the-faroe-islands.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/guadeloupe.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -691,17 +706,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/mauritius.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/the-faroe-islands.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/guadeloupe.html</loc>
+    <loc>https://worldliveradio.com/countries/saint-lucia.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -712,16 +717,6 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/uzbekistan.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/saint-lucia.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/armenia.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -741,7 +736,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/american-samoa.html</loc>
+    <loc>https://worldliveradio.com/countries/armenia.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -751,12 +746,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/antarctica.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/mongolia.html</loc>
+    <loc>https://worldliveradio.com/countries/american-samoa.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -776,7 +766,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/aruba.html</loc>
+    <loc>https://worldliveradio.com/countries/antarctica.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/mongolia.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -792,6 +787,21 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/oman.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/aruba.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/rwanda.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/kyrgyzstan.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -821,12 +831,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/rwanda.html</loc>
+    <loc>https://worldliveradio.com/countries/libya.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/kyrgyzstan.html</loc>
+    <loc>https://worldliveradio.com/countries/suriname.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -841,12 +851,17 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/libya.html</loc>
+    <loc>https://worldliveradio.com/countries/san-marino.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/suriname.html</loc>
+    <loc>https://worldliveradio.com/countries/dominica.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/bermuda.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -877,21 +892,6 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/antigua-and-barbuda.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/san-marino.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/dominica.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/bermuda.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
