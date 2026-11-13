@@ -276,6 +276,12 @@ async function checkLinks(root) {
       broken: urls.filter(u => res[u].startsWith('broken')).map(u => ({ url: u, why: res[u].split(':')[1], pages: [...ext.get(u)] })),
       blocked: urls.filter(u => res[u].startsWith('blocked')).map(u => ({ url: u, why: res[u].split(':')[1], pages: [...ext.get(u)] })) };
   }
+  /* بين الفحوص الأسبوعية: نُسقط فوراً ما لم يعد في أي صفحة (أزلته أو استبدلته)، ونحدّث صفحات الباقي */
+  if (external && external !== old.external) {} else if (external) {
+    const still = x => ext.has(x.url);
+    const upd = x => ({ ...x, pages: [...ext.get(x.url)] });
+    external = { ...external, broken: (external.broken || []).filter(still).map(upd), blocked: (external.blocked || []).filter(still).map(upd) };
+  }
   const report = { built: new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC', pages: pages.length, internal, external };
   fs.writeFileSync(path.join(root, 'link-report.json'), JSON.stringify(report, null, 1));
 
