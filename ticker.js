@@ -102,19 +102,32 @@
     el.onclick=function(e){var a=e.target.closest('a');if(a&&window.gtag)try{gtag('event','ticker_click',{link_url:a.href});}catch(x){}};
   }
 
-  var data=null,root='/';
-  function load(){return data?Promise.resolve(data):fetch(root+'ticker.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():{};}).then(function(d){data=d||{};return data;}).catch(function(){data={};return data;});}
+  var cache={},root='/';
+  /* ملف الشريط المطلوب وحده (نحو 10 ك.ب)، لا ملف كل الأشرطة */
+  function load(name){
+    if(cache[name])return cache[name];
+    cache[name]=fetch(root+'tk/'+name+'.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():[];}).catch(function(){return [];});
+    return cache[name];
+  }
 
   /* داخل الموقع: نوع الصفحة يحدد الشريط. «global» للرئيسية والمفضلة والمقالات، ورمز دولة لصفحتها، وnull للإخفاء */
   function forView(kind,cc){
     var el=document.getElementById('lrTicker');if(!el)return;
     if(!kind){el.hidden=true;return;}
-    load().then(function(d){
-      var list=live(kind==='country'&&cc&&d.countries&&d.countries[cc.toUpperCase()]&&live(d.countries[cc.toUpperCase()]).length?d.countries[cc.toUpperCase()]:d.global);
-      if(!list.length){el.hidden=true;return;}
-      var key=kind+':'+(cc||'');if(el.dataset.k===key&&!el.hidden)return;el.dataset.k=key;
-      el.innerHTML=html(list,root);run(el);
+    var key=kind+':'+(cc||'');
+    /* الشريط العام مكتوب في الرئيسية وصفحة المقالات أصلاً: لا تحميل */
+    if(kind==='global'&&!el.dataset.k&&el.querySelector('li')){el.dataset.k=key;el.hidden=false;run(el);return;}
+    if(el.dataset.k===key&&!el.hidden)return;
+    var want=kind==='country'&&cc?cc.toUpperCase():'global';
+    load(want).then(function(l){
+      var list=live(l);
+      if(!list.length&&want!=='global')return load('global').then(function(g){show(live(g));});
+      show(list);
     });
+    function show(list){
+      if(!list.length){el.hidden=true;return;}
+      el.dataset.k=key;el.innerHTML=html(list,root);run(el);
+    }
   }
   /* تغيير اللغة يغيّر الاتجاه: نعيد حساب الطول */
   new MutationObserver(function(){var el=document.getElementById('lrTicker');if(el&&!el.hidden)run(el);}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});

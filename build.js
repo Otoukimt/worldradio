@@ -385,6 +385,7 @@ async function generatePages() {
   const after = buildSitemap(root, pages, OLD);
   preloadArticlesPage();
   tickerRootPages();
+  tickerFiles();
   await notifyIndexNow(before, after);
   await checkLinks(root);
 
@@ -502,6 +503,19 @@ function tickerHtml(list) {
 function putTicker(html, list) {
   const block = '<!--ticker:start-->' + tickerHtml(list) + '<!--ticker:end-->';
   return html.includes('<!--ticker:start-->') ? html.replace(/<!--ticker:start-->[\s\S]*?<!--ticker:end-->/, () => block) : html;
+}
+/* ملف صغير لكل شريط (tk/global.json وtk/MA.json…): الموقع يحمّل ما يعرضه فقط، لا الملف الكامل.
+   والأشرطة الفارغة أو المنتهية تُحذف ملفاتها، فلا يبقى شيء منتهٍ */
+function tickerFiles() {
+  const dir = path.join(ROOT_DIR, 'tk');
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir);
+  const d = tickerData(), keep = new Set();
+  const slim = l => l.map(x => ({ cat: x.cat, ar: x.ar, en: x.en, at: x.at, exp: x.exp, link: x.link }));
+  const put = (name, l) => { if (!l.length) return; keep.add(name + '.json'); fs.writeFileSync(path.join(dir, name + '.json'), JSON.stringify(slim(l))); };
+  put('global', d.global);
+  for (const k of Object.keys(d.countries)) put(k, d.countries[k]);
+  for (const f of fs.readdirSync(dir)) if (f.endsWith('.json') && !keep.has(f)) fs.unlinkSync(path.join(dir, f));
+  console.log('tk/: ' + keep.size + ' ملفاً');
 }
 /* الرئيسية وصفحة المقالات: الشريط العام */
 function tickerRootPages() {
