@@ -145,7 +145,7 @@
     "en": "Poland",
     "ar": "بولندا",
     "date": "2026-11-11",
-    "n": 910,
+    "n": 911,
     "descEn": "At five in the afternoon on 18 April 1926, a woman's voice in Warsaw spoke the words that every Pole of that generation would remember: \"Halo, halo, P",
     "descAr": "في الخامسة مساء 18 أبريل 1926، نطق صوت امرأة في وارسو بكلمات سيتذكرها كل بولندي من ذلك الجيل: «ألو، ألو، هنا الإذاعة البولندية وارسو، الموجة 480» . وج"
   },
@@ -365,7 +365,7 @@
     "en": "Australia",
     "ar": "أستراليا",
     "date": "2026-11-11",
-    "n": 1615,
+    "n": 1613,
     "descEn": "",
     "descAr": ""
   },
@@ -385,7 +385,7 @@
     "en": "The Philippines",
     "ar": "الفلبين",
     "date": "2026-11-11",
-    "n": 722,
+    "n": 723,
     "descEn": "",
     "descAr": ""
   },
@@ -505,7 +505,7 @@
     "en": "Peru",
     "ar": "بيرو",
     "date": "2026-11-11",
-    "n": 256,
+    "n": 255,
     "descEn": "",
     "descAr": ""
   },
@@ -1230,6 +1230,16 @@
     "descAr": ""
   },
   {
+    "cc": "NA",
+    "slug": "namibia",
+    "en": "Namibia",
+    "ar": "ناميبيا",
+    "date": "2026-11-11",
+    "n": 14,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "MT",
     "slug": "malta",
     "en": "Malta",
@@ -1254,16 +1264,6 @@
     "slug": "mozambique",
     "en": "Mozambique",
     "ar": "موزمبيق",
-    "date": "2026-11-11",
-    "n": 14,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "NA",
-    "slug": "namibia",
-    "en": "Namibia",
-    "ar": "ناميبيا",
     "date": "2026-11-11",
     "n": 14,
     "descEn": "",
@@ -1370,6 +1370,16 @@
     "descAr": ""
   },
   {
+    "cc": "AM",
+    "slug": "armenia",
+    "en": "Armenia",
+    "ar": "أرمينيا",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "BH",
     "slug": "bahrain",
     "en": "Bahrain",
@@ -1394,16 +1404,6 @@
     "slug": "saint-vincent-and-the-grenadines",
     "en": "Saint Vincent And The Grenadines",
     "ar": "Saint Vincent And The Grenadines",
-    "date": "2026-11-11",
-    "n": 11,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "AM",
-    "slug": "armenia",
-    "en": "Armenia",
-    "ar": "أرمينيا",
     "date": "2026-11-11",
     "n": 11,
     "descEn": "",
@@ -1520,6 +1520,16 @@
     "descAr": ""
   },
   {
+    "cc": "NC",
+    "slug": "new-caledonia",
+    "en": "New Caledonia",
+    "ar": "New Caledonia",
+    "date": "2026-11-11",
+    "n": 7,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "PF",
     "slug": "french-polynesia",
     "en": "French Polynesia",
@@ -1574,16 +1584,6 @@
     "slug": "the-democratic-peoples-republic-of-korea",
     "en": "The Democratic Peoples Republic Of Korea",
     "ar": "كوريا الشمالية",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "NC",
-    "slug": "new-caledonia",
-    "en": "New Caledonia",
-    "ar": "New Caledonia",
     "date": "2026-11-11",
     "n": 7,
     "descEn": "",
