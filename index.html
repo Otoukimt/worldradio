@@ -378,8 +378,10 @@ html[data-theme="dark"] #page .cbanner{opacity:.55;filter:blur(70px) saturate(1.
   background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .1s}
 
 /* ===== المشغّل: بطاقة عائمة بحواف وظلال ناعمة، تتوسّع للتحكم الكامل ===== */
-:root{--pcard:linear-gradient(135deg,#ffffff 0%,#eef4ff 55%,#f2eeff 100%);--pring:rgba(15,23,42,.08)}
-html[data-theme="dark"]{--pcard:linear-gradient(135deg,#1b2439 0%,#151d31 55%,#1d1a36 100%);--pring:rgba(255,255,255,.08)}
+:root{--stc:#5b8def;--pring:rgba(15,23,42,.08);
+  --pcard:linear-gradient(135deg,color-mix(in srgb,var(--stc) 16%,#ffffff) 0%,#f2f6ff 55%,color-mix(in srgb,var(--stc) 9%,#f4f1ff) 100%)}
+html[data-theme="dark"]{--pring:rgba(255,255,255,.08);
+  --pcard:linear-gradient(135deg,color-mix(in srgb,var(--stc) 26%,#1b2439) 0%,#151d31 58%,color-mix(in srgb,var(--stc) 14%,#1d1a36) 100%)}
 .player{position:fixed;left:50%;bottom:calc(var(--adB,0px) + 10px + env(safe-area-inset-bottom,0px));z-index:50;
   width:calc(100% - 20px);max-width:760px;box-sizing:border-box;border-radius:22px;background:var(--pcard);
   border:1px solid var(--pring);box-shadow:0 12px 34px -10px rgba(15,23,42,.35),0 3px 10px -4px rgba(15,23,42,.18);
@@ -431,7 +433,11 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 .usage b{color:var(--acc)}
 .pclose{display:block;margin:8px auto 0;background:none;border:none;color:var(--mut);font:inherit;font-size:12.5px;cursor:pointer;padding:6px 12px;border-radius:999px}
 .pclose:hover{color:var(--txt);background:var(--pring)}
-@media(max-width:380px){.pmain{gap:3px}.nav{width:30px;height:30px}.psep{display:none}}
+/* على الهاتف: «السابقة» تنتقل إلى اللوحة، فيتسع الاسم */
+.pnav2{display:none;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 10px}
+.pnb{flex-direction:row!important;justify-content:center;gap:8px!important;font-size:12.5px!important;padding:10px 8px!important}
+@media(max-width:480px){#pPrev,.psep{display:none}.player .nav{width:32px;height:32px}.pnav2{display:grid}}
+@media(max-width:360px){.pmain{gap:3px}.player .nav{width:29px;height:29px}}
 
 .sheet{position:fixed;inset:0;z-index:70;background:rgba(17,26,46,.45);display:none;align-items:flex-end}
 .sheet.on{display:flex}
@@ -620,6 +626,50 @@ html[dir="rtl"] .fsBack svg{transform:scaleX(-1)}
   #fs.playing .fsEq i,#fs[data-theme="vinyl"].playing .fsRec{animation:none}
   #fs.playing .fsEq i{transform:scaleY(.5)}
 }
+/* ===== المشغّل الكامل: الطبقة الناعمة — بطاقات زجاجية، حواف دائرية، ظلال طبقية، ولون المحطة في الخلفية ===== */
+#fs{--fsh:0 18px 40px -18px rgba(0,0,0,.55),0 4px 12px -6px rgba(0,0,0,.35);--fglass:color-mix(in srgb,var(--fcd) 100%,transparent)}
+.fsBg{background:radial-gradient(110% 70% at 50% 0%,color-mix(in srgb,var(--stc,#5b8def) 34%,var(--fbg2)) 0%,var(--fbg2) 38%,var(--fbg) 78%)}
+.fsBg img{opacity:.26}
+/* الشريط العلوي */
+.fsTop{padding:12px 14px;gap:10px}
+.fsBack{border-radius:999px;box-shadow:var(--fsh);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.fsAir{background:var(--fcd);border:1px solid var(--fln);border-radius:999px;padding:7px 12px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.fsTop .fsIco{background:var(--fcd);border:1px solid var(--fln);box-shadow:var(--fsh);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+/* الشعار: حواف كبيرة، وتوهّج خفيف بلون المحطة */
+.fsLbl{border-radius:36px;box-shadow:0 34px 70px -26px rgba(0,0,0,.7),0 0 0 1px var(--fln),0 0 80px -20px color-mix(in srgb,var(--stc,#5b8def) 70%,transparent)}
+#fs[data-theme="transistor"] .fsLbl{border-radius:30px}
+.fsName{letter-spacing:-.01em}
+.fsTech span{background:var(--fcd);border-color:var(--fln)}
+/* أزرار التشغيل في كبسولة واحدة */
+.fsCtl{background:var(--fcd);border:1px solid var(--fln);border-radius:999px;padding:8px 14px;box-shadow:var(--fsh);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);gap:clamp(6px,2.6vw,18px)}
+.fsCtl .fsIco{border-radius:50%;transition:background .15s,transform .15s}
+.fsCtl .fsIco:hover{background:var(--fln);border-color:transparent}
+.fsCtl .fsIco:active,.fsTool:active,.fsPlay:active{transform:scale(.94)}
+.fsPlay{width:72px;height:72px;background:linear-gradient(145deg,color-mix(in srgb,var(--fa) 82%,#fff),var(--fa));
+  box-shadow:0 14px 30px -10px var(--fa),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .15s}
+/* الصوت في كبسولة */
+.fsVol{background:var(--fcd);border:1px solid var(--fln);border-radius:999px;padding:4px 16px 4px 6px;margin-top:14px;
+  box-shadow:var(--fsh);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+/* الأدوات: كبسولات ناعمة */
+.fsTools{gap:10px;margin-top:16px}
+.fsTool{border-radius:999px;padding:10px 16px;box-shadow:var(--fsh);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:border-color .15s,color .15s,transform .15s}
+/* المؤشر: بطاقة بحواف دائرية */
+.fsDial{background:var(--fcd);border:1px solid var(--fln);border-radius:24px;padding:8px 0 4px;box-shadow:var(--fsh);margin-top:24px}
+.fsNeedle{border-radius:2px}
+/* اللوحة: بطاقة، والتبويبات زر مقسّم، والقائمة صفوف ناعمة */
+.fsPanel{background:var(--fcd);border:1px solid var(--fln);border-radius:28px;padding:14px;box-shadow:var(--fsh);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.fsTabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(0,0,0,.18);border-radius:999px;padding:4px}
+.fsTab{border:none;border-radius:999px;padding:9px 6px;font-size:13px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .2s,color .2s}
+.fsTab.on{background:var(--ftx);color:var(--fbg)!important;box-shadow:0 4px 12px -4px rgba(0,0,0,.45)}
+.fsSearch{border-radius:999px;padding:12px 18px;margin:12px 0 8px;background:rgba(0,0,0,.16)}
+.fsList{display:flex;flex-direction:column;gap:4px}
+.fsRow{border:none;border-radius:16px;padding:9px 10px;transition:background .15s}
+.fsRow:hover{background:var(--fln)}
+.fsRow.cur{background:color-mix(in srgb,var(--fa) 16%,transparent)}
+.fsRow .lg{border-radius:13px;box-shadow:0 4px 10px -4px rgba(0,0,0,.45)}
+@media(min-width:960px){.fsPanel{top:80px}}
 /* ===== البحث الموحّد في الرئيسية ===== */
 .gs{position:relative;max-width:620px;margin:18px auto 4px;text-align:start}
 .gs input{width:100%;box-sizing:border-box;background:var(--card);border:1.5px solid var(--line);color:var(--txt);
@@ -738,7 +788,7 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
     <button class="btn" id="langBtn">Arabic</button>
   </div>
 </header>
-<!--ticker:start--><div class="lrTk" id="lrTicker" role="region" aria-label="Live news / أخبار مباشرة"><div class="lb"><i></i><span lang="ar">أخبار مباشرة</span><span lang="en">Live news</span></div><div class="vp"><div class="tr"><ul lang="ar"><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">دونالد ترامب يؤكد استعداده لاستخدام القوة لمنع إيران من تهديد حلفاء واشنطن</span><span class="tm" data-at="2026-11-12T21:13:59Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">محادثات بين روسيا وأوكرانيا بشأن الأمن بعد الحرب تنتهي دون تقدم ملموس</span><span class="tm" data-at="2026-11-12T00:33:02Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">بنيامين نتنياهو يوافق على لقاء آيزنكوت لإطلاعه على التطورات الأمنية</span><span class="tm" data-at="2026-11-12T13:21:00Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">مقتل 11 شخصاً بضربات إسرائيلية في غزة بينها غارة على مستشفى ناصر</span><span class="tm" data-at="2026-11-12T18:56:11Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">المبعوثان الأمريكيان يعلنان مشاركة أوروبا في محادثات إنهاء حرب أوكرانيا</span><span class="tm" data-at="2026-11-12T22:11:12Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">إيران تعلن تعرض أربع ناقلات نفط لانفجارات في مضيق هرمز</span><span class="tm" data-at="2026-11-12T16:27:35Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">مقتل ستة أشخاص في قصف إسرائيلي استهدف مستشفى ناصر بقطاع غزة</span><span class="tm" data-at="2026-11-12T22:22:13Z"></span></a></li></ul><ul lang="en"><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Donald Trump says he will not hesitate to use force against Iran</span><span class="tm" data-at="2026-11-12T21:13:59Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Russia and Ukraine hold post-war security talks without concrete progress</span><span class="tm" data-at="2026-11-12T00:33:02Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Benjamin Netanyahu agrees to meet Eisenkot over security developments</span><span class="tm" data-at="2026-11-12T13:21:00Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Israeli strikes kill 11 people in Gaza including six at Nasser Hospital</span><span class="tm" data-at="2026-11-12T18:56:11Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">US envoys say Europe will join talks on ending the Ukraine war</span><span class="tm" data-at="2026-11-12T22:11:12Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">Iran says four oil tankers were struck by explosions in Strait of Hormuz</span><span class="tm" data-at="2026-11-12T16:27:35Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">Israeli strike on Nasser Hospital in Gaza kills at least six people</span><span class="tm" data-at="2026-11-12T22:22:13Z"></span></a></li></ul></div></div></div><!--ticker:end-->
+<!--ticker:start--><div class="lrTk" id="lrTicker" hidden></div><!--ticker:end-->
 
 <div id="page"></div>
 
@@ -934,6 +984,10 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
     <button class="nav pround" id="pExp" aria-label="Full-screen player" title="Full-screen player"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h5V3H3v7h2zm9-2v2h5v5h2V3zm5 16h-5v2h7v-7h-2zM5 14H3v7h7v-2H5z"/></svg></button>
   </div>
   <div class="pext"><div class="pextIn">
+    <div class="pnav2">
+      <button class="pact pnb" id="pPrev2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg><span data-i="prevSt">Previous station</span></button>
+      <button class="pact pnb" id="pNext2"><span data-i="nextSt">Next station</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18l8.5-6L6 6zM16 6h2v12h-2z"/></svg></button>
+    </div>
     <div class="pvol">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9z"/></svg>
       <input type="range" id="vol" min="0" max="100" value="100" aria-label="Volume">
@@ -1058,7 +1112,7 @@ var I={
   gsSearching:'Searching stations…',gsNone:'No station found for “{q}”. Try another spelling.',gsFail:'Search is unavailable right now. Check your connection and try again.',
   contAF:'Africa',contAS:'Asia',contEU:'Europe',contNA:'North America',contSA:'South America',contOC:'Oceania',
   scanning:'Scanning {n} entries · {m} playable so far…',
-  settings:'Settings',setSub:'Saved on this device only.',fsOpen:'Open the full player',closeP:'Stop and close',inst:'Install LiveRadio',instSub:'Open it from your home screen like an app, without the browser bar.',instBtn:'📲 Add to home screen',instIos:'In Safari, tap the Share button, then “Add to Home Screen”.',instDone:'Installed ✓',
+  settings:'Settings',setSub:'Saved on this device only.',fsOpen:'Open the full player',prevSt:'Previous',nextSt:'Next',closeP:'Stop and close',inst:'Install LiveRadio',instSub:'Open it from your home screen like an app, without the browser bar.',instBtn:'📲 Add to home screen',instIos:'In Safari, tap the Share button, then “Add to Home Screen”.',instDone:'Installed ✓ Open it from your home screen.',instMenu:'Open your browser menu (⋮) and choose “Install app” or “Add to Home screen”.',
   quality:'Audio quality &amp; data use',qLow:'Saver',qLowS:'&le;64 kbps',
   qMid:'Balanced',qMidS:'&le;128 kbps',qHigh:'Best',qHighS:'No limit',
   qNote:'Stations within your chosen quality are listed first. No station is hidden.',
@@ -1097,7 +1151,7 @@ var I={
   gsSearching:'جارٍ البحث عن المحطات…',gsNone:'لا محطة باسم «{q}». جرّب كتابة أخرى.',gsFail:'البحث غير متاح الآن. تحقّق من الاتصال وأعد المحاولة.',
   contAF:'إفريقيا',contAS:'آسيا',contEU:'أوروبا',contNA:'أمريكا الشمالية',contSA:'أمريكا الجنوبية',contOC:'أوقيانوسيا',
   scanning:'فحص {n} مدخلاً · {m} قابلة للتشغيل حتى الآن…',
-  settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',fsOpen:'افتح المشغّل الكامل',closeP:'إيقاف وإغلاق',inst:'ثبّت LiveRadio',instSub:'افتحه من الشاشة الرئيسية كأي تطبيق، دون شريط المتصفح.',instBtn:'📲 أضِفه إلى الشاشة الرئيسية',instIos:'في Safari: اضغط زر المشاركة، ثم «إضافة إلى الشاشة الرئيسية».',instDone:'مُثبّت ✓',
+  settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',fsOpen:'افتح المشغّل الكامل',prevSt:'السابقة',nextSt:'التالية',closeP:'إيقاف وإغلاق',inst:'ثبّت LiveRadio',instSub:'افتحه من الشاشة الرئيسية كأي تطبيق، دون شريط المتصفح.',instBtn:'📲 أضِفه إلى الشاشة الرئيسية',instIos:'في Safari: اضغط زر المشاركة، ثم «إضافة إلى الشاشة الرئيسية».',instDone:'مُثبّت ✓ افتحه من شاشتك الرئيسية.',instMenu:'افتح قائمة المتصفح (⋮) واختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».',
   quality:'جودة الصوت واستهلاك البيانات',qLow:'توفير',qLowS:'&le;64 kbps',
   qMid:'متوازن',qMidS:'&le;128 kbps',qHigh:'الأفضل',qHighS:'بلا حدّ',
   qNote:'المحطات المطابقة للجودة المختارة تظهر أولاً، ولا تُخفى أي محطة.',
@@ -1854,7 +1908,34 @@ function markPlaying(){
   for(var i=0;i<els.length;i++)
     els[i].classList.toggle('playing',!!current&&els[i].dataset.uuid===current.stationuuid&&!audio.paused);
 }
+/* لون المحطة: اللون الغالب في شعارها إن سمح خادمه بقراءته، وإلا لون ثابت مشتق من اسمها.
+   يُكتب في --stc فيلوّن المشغّل والمشغّل الكامل */
+var stcCache={};
+function stationColor(s){
+  var key=s.stationuuid||s.name||'';
+  function apply(c){stcCache[key]=c;document.documentElement.style.setProperty('--stc',c);}
+  if(stcCache[key]){apply(stcCache[key]);return;}
+  var h=0,n=String(s.name||'radio');for(var i=0;i<n.length;i++)h=(h*31+n.charCodeAt(i))%360;
+  apply('hsl('+h+',62%,52%)');
+  if(!s.favicon||s.favicon.indexOf('https')!==0)return;
+  var im=new Image();im.crossOrigin='anonymous';
+  im.onload=function(){
+    try{
+      var c=document.createElement('canvas');c.width=c.height=24;var x=c.getContext('2d');x.drawImage(im,0,0,24,24);
+      var d=x.getImageData(0,0,24,24).data,r=0,g=0,b=0,w=0;
+      for(var k=0;k<d.length;k+=4){
+        if(d[k+3]<128)continue;
+        var R=d[k],G=d[k+1],B=d[k+2],mx=Math.max(R,G,B),mn=Math.min(R,G,B),sat=mx?(mx-mn)/mx:0;
+        if(mx<40||(mn>215)||sat<.25)continue;          /* نتجاهل الأسود والأبيض والرمادي */
+        var wt=sat*sat;r+=R*wt;g+=G*wt;b+=B*wt;w+=wt;
+      }
+      if(w>.5)apply('rgb('+Math.round(r/w)+','+Math.round(g/w)+','+Math.round(b/w)+')');
+    }catch(e){/* الخادم يمنع قراءة الصورة: يبقى لون الاسم */}
+  };
+  im.src=s.favicon;
+}
 function setArt(s){
+  stationColor(s);
   var old=$('pArt'),nu;
   if(s.favicon&&s.favicon.indexOf('https')===0){
     nu=document.createElement('img');nu.src=s.favicon;nu.alt='';
@@ -1946,6 +2027,8 @@ $('pNext').onclick=next;$('pPrev').onclick=prev;
 function pToggle(){var o=player.classList.toggle('open');$('pMore').setAttribute('aria-expanded',o?'true':'false');drawUsage();}
 $('pInfo').onclick=pToggle;
 $('pMore').onclick=function(e){e.stopPropagation();pToggle();};
+$('pPrev2').onclick=function(){$('pPrev').click();};
+$('pNext2').onclick=function(){$('pNext').click();};
 $('pFull').onclick=function(e){player.classList.remove('open');$('pMore').setAttribute('aria-expanded','false');$('pExp').onclick(e);};
 $('aInfo').onclick=function(){if(current)showInfo(current);};
 $('aClose').onclick=function(){audio.pause();audio.removeAttribute('src');audio.load();
@@ -2018,24 +2101,28 @@ function syncQ(){
 $('setBtn').onclick=function(){drawStats();syncQ();$('sheet').classList.add('on');};
 $('closeSheet').onclick=function(){$('sheet').classList.remove('on');};
 $('sheet').onclick=function(e){if(e.target===this)this.classList.remove('on');};
-/* التثبيت كتطبيق: أندرويد والحاسوب يعطيان نافذة تثبيت، وiPhone يحتاج خطوتين في Safari */
+/* التثبيت كتطبيق: القسم ظاهر دائماً، ويتكيّف مع الحالة:
+   مثبّت ← «مُثبّت ✓» · المتصفح جاهز ← نافذة التثبيت · غير جاهز بعد ← التعليمة من قائمة المتصفح · iPhone ← خطوتا Safari */
 (function(){
   if('serviceWorker' in navigator)window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});
-  var standalone=window.matchMedia&&matchMedia('(display-mode: standalone)').matches||navigator.standalone;
-  if(standalone)return;
-  var prompt=null,g=$('instGrp'),b=$('instBtn');
-  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();prompt=e;g.style.display='block';});
-  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.MSStream;
-  if(ios){g.style.display='block';b.style.display='none';$('instSub').setAttribute('data-i','instIos');$('instSub').textContent=T('instIos');}
+  var g=$('instGrp'),b=$('instBtn'),sub=$('instSub'),prompt=null;
+  g.style.display='block';
+  function say(k){sub.setAttribute('data-i',k);sub.textContent=T(k);}
+  var standalone=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone;
+  if(standalone){b.style.display='none';say('instDone');return;}
+  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  if(ios){b.style.display='none';say('instIos');return;}
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();prompt=e;say('instSub');b.disabled=false;});
   b.onclick=function(){
-    if(!prompt)return;prompt.prompt();
+    if(!prompt){say('instMenu');return;}
+    prompt.prompt();
     prompt.userChoice.then(function(c){
-      if(c.outcome==='accepted'){b.querySelector('b').textContent=T('instDone');b.disabled=true;}
+      if(c.outcome==='accepted'){b.style.display='none';say('instDone');}
       try{gtag('event','app_install',{outcome:c.outcome});}catch(x){}
       prompt=null;
     });
   };
-  window.addEventListener('appinstalled',function(){g.style.display='none';});
+  window.addEventListener('appinstalled',function(){b.style.display='none';say('instDone');});
 })();
 $('resetBtn').onclick=function(){
   favs=[];recent=[];mine={sec:0,mb:0,stations:[]};
