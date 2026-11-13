@@ -4,24 +4,31 @@
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="yX25szfjBSoo35hZI9DG4jLp4pah3fZ07GVtTvfX_qk" />
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-LKJTP0YVEN');
+  addEventListener('load', function(){
+    var s=document.createElement('script');
+    s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN';
+    document.head.appendChild(s);
+  });
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>FM, DAB or internet radio: which actually sounds better | LiveRadio</title>
-<meta name="description" content="A clear comparison of FM, DAB+ and internet radio: real sound quality, how each behaves on a weak signal, data cost, delay, and which to use when.">
+<meta name="description" content="Real sound quality, behaviour on a weak signal, data cost and delay — and which one to use when.">
 <link rel="canonical" href="https://worldliveradio.com/articles/fm-dab-internet-radio.html">
 <meta name="theme-color" content="#eef3fb">
 <meta property="og:title" content="FM, DAB or internet radio: which actually sounds better">
-<meta property="og:description" content="A clear comparison of FM, DAB+ and internet radio: real sound quality, how each behaves on a weak signal, data cost, delay, and which to use when.">
+<meta property="og:description" content="Real sound quality, behaviour on a weak signal, data cost and delay — and which one to use when.">
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" media="print" onload="this.media='all'"
+  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap">
+<noscript><link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap"></noscript>
 <style>
 :root{
   --bg:#f3f6fc; --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
@@ -59,10 +66,17 @@ border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:no
 main{max-width:760px;margin:0 auto;padding:22px 18px 60px}
 .crumb{font-size:13px;color:var(--mut);margin-bottom:14px}
 .tagx{display:inline-block;font-size:12px;color:var(--acc);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800}
+h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800;
+background:linear-gradient(100deg,var(--acc),var(--acc2) 70%);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{color:var(--acc2);font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
 .meta{color:var(--mut);font-size:14px;margin-bottom:22px}
-.hero{height:170px;border-radius:18px;margin-bottom:26px;position:relative;overflow:hidden;
-background:linear-gradient(135deg,#0369a1,#4338ca 58%,#0f766e);display:grid;place-items:center}
+.hero{height:190px;border-radius:18px;margin-bottom:26px;position:relative;overflow:hidden;
+background:linear-gradient(135deg,#78350f,#1e1b4b 55%,#134e4a);display:grid;place-items:center}
+.hero .heroimg{width:100%;height:100%;object-fit:cover;display:block}
+.lang-en img,.lang-ar img{max-width:100%;height:auto;border-radius:14px;margin:14px 0}
+.lang-en figure,.lang-ar figure{margin:16px 0}
+.lang-en figcaption,.lang-ar figcaption{font-size:13px;color:var(--mut);text-align:center;margin-top:6px}
 .hero .wav{display:flex;gap:6px;align-items:flex-end;height:68px}
 .hero .wav i{width:8px;background:rgba(255,255,255,.88);border-radius:4px;display:block;animation:w 1.4s ease-in-out infinite}
 .hero .wav i:nth-child(1){height:24px;animation-delay:0s}
@@ -73,19 +87,15 @@ background:linear-gradient(135deg,#0369a1,#4338ca 58%,#0f766e);display:grid;plac
 .hero .wav i:nth-child(6){height:28px;animation-delay:.75s}
 .hero .wav i:nth-child(7){height:46px;animation-delay:.9s}
 @keyframes w{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
-h2{font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
-h3{font-size:18px;margin:26px 0 8px;font-weight:700}
 p{line-height:1.85;color:var(--txt);opacity:.93;margin:0 0 16px;font-size:16.5px}
 ul,ol{line-height:1.85;color:var(--txt);opacity:.93;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
 li{margin-bottom:9px}
-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
-th,td{border:1px solid var(--line);padding:10px 12px;text-align:start}
-th{background:var(--card2);font-weight:700}
 blockquote{border-inline-start:3px solid var(--acc);margin:24px 0;padding-inline-start:16px;
 color:var(--mut);font-style:italic;line-height:1.8}
-.box{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:18px;margin:28px 0;
-box-shadow:0 2px 8px var(--shadow)}
-.box h3{margin-top:0}
+.playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
+padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
+margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
 .cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
 color:#fff;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px;
 box-shadow:0 6px 18px var(--shadow)}
@@ -93,7 +103,6 @@ footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;colo
 font-size:14px;background:var(--footG)}
 footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
 footer nav a{color:var(--mut)}
-footer nav a:hover{color:var(--acc)}
 </style>
 <script>
 (function(){
@@ -104,127 +113,23 @@ footer nav a:hover{color:var(--acc)}
   if(m)m.setAttribute('content',t==='dark'?'#0e1526':'#eef3fb');
 })();
 </script>
-
-<style>
-h1{background:linear-gradient(100deg,var(--acc),var(--acc2) 70%);
--webkit-background-clip:text;background-clip:text;color:transparent}
-h2{color:var(--acc2)}
-</style>
-
-<style>
-#rprog{position:fixed;top:0;left:0;height:3px;width:0;z-index:70;
-  background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .1s}
-.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.navrow a,.navrow button{background:var(--cardG);border:1px solid var(--line);color:var(--txt);
-  padding:9px 15px;border-radius:999px;font-size:13.5px;font-weight:700;cursor:pointer;
-  font-family:inherit;box-shadow:0 1px 3px var(--shadow)}
-.navrow a:hover,.navrow button:hover{border-color:var(--acc);color:var(--acc)}
-.sharerow{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 8px}
-.sharerow button{flex:1;min-width:110px;background:var(--cardG);border:1px solid var(--line);
-  color:var(--txt);padding:11px;border-radius:12px;font-weight:700;cursor:pointer;
-  font-family:inherit;font-size:13.5px}
-.sharerow button:hover{border-color:var(--acc);color:var(--acc)}
-.related{margin:34px 0 10px}
-.related h2{font-size:19px;margin:0 0 12px}
-.rgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
-.rcard{background:var(--cardG);border:1px solid var(--line);border-radius:14px;padding:15px;
-  display:block;box-shadow:0 2px 8px var(--shadow);transition:.2s}
-.rcard:hover{border-color:var(--acc);transform:translateY(-2px)}
-.rcard .t{font-size:11.5px;color:var(--acc);font-weight:700;text-transform:uppercase}
-.rcard .h{font-size:15px;font-weight:700;margin:6px 0 0;line-height:1.35;color:var(--txt)}
-</style>
-<!--ld:start-->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Article",
-   "@id": "https://worldliveradio.com/articles/fm-dab-internet-radio.html#article",
-   "url": "https://worldliveradio.com/articles/fm-dab-internet-radio.html",
-   "mainEntityOfPage": "https://worldliveradio.com/articles/fm-dab-internet-radio.html",
-   "headline": "FM, DAB or internet radio: which actually sounds better",
-   "description": "Real sound quality, behaviour on a weak signal, data cost and delay — and which one to use when.",
-   "inLanguage": [
-    "en",
-    "ar"
-   ],
-   "datePublished": "2026-10-31",
-   "dateModified": "2026-10-31",
-   "author": {
-    "@id": "https://worldliveradio.com/#org"
-   },
-   "publisher": {
-    "@id": "https://worldliveradio.com/#org"
-   },
-   "isPartOf": {
-    "@id": "https://worldliveradio.com/#website"
-   },
-   "alternativeHeadline": "FM أم DAB أم راديو الإنترنت: أيّها أفضل صوتاً فعلاً",
-   "articleSection": "Tips & explainers"
-  },
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "LiveRadio",
-     "item": "https://worldliveradio.com/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "Articles",
-     "item": "https://worldliveradio.com/articles.html"
-    },
-    {
-     "@type": "ListItem",
-     "position": 3,
-     "name": "FM, DAB or internet radio: which actually sounds better",
-     "item": "https://worldliveradio.com/articles/fm-dab-internet-radio.html"
-    }
-   ]
-  },
-  {
-   "@type": "Organization",
-   "@id": "https://worldliveradio.com/#org",
-   "name": "LiveRadio",
-   "url": "https://worldliveradio.com/",
-   "logo": {
-    "@type": "ImageObject",
-    "url": "https://worldliveradio.com/icon-512.png",
-    "width": 512,
-    "height": 512
-   }
-  }
- ]
-}
-</script>
-<!--ld:end-->
 </head>
 <body>
-<div id="rprog"></div>
 
 <header>
   <div class="hrow">
     <a class="logo" href="../"><span class="logo-dot"></span>Live<span>Radio</span></a>
     <div class="spacer"></div>
     <a class="btn" href="../" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
-    <button class="btn" id="langBtn">العربية</button>
+    <button class="btn" id="langBtn">Arabic</button>
   </div>
 </header>
 
 <main data-type="article" data-slug="fm-dab-internet-radio">
-  <div class="navrow">
-    <a href="../" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
-    <a href="../articles.html" data-en="&larr; All articles" data-ar="&rarr; كل المقالات">&larr; All articles</a>
-  </div>
-
-  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Explainers" data-ar="شروحات">Explainers</a></div>
-  <span class="tagx" data-en="Explainer" data-ar="شرح">Explainer</span>
+  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a></div>
+  <span class="tagx" data-en="Tips &amp; explainers" data-ar="نصائح وشروحات">Tips &amp; explainers</span>
   <h1 data-en="FM, DAB or internet radio: which actually sounds better" data-ar="FM أم DAB أم راديو الإنترنت: أيّها أفضل صوتاً فعلاً">FM, DAB or internet radio: which actually sounds better</h1>
-  <div class="meta"><span data-en="Updated October 2026 · 9 min read" data-ar="تحديث أكتوبر 2026 · قراءة 9 دقائق">Updated October 2026 · 9 min read</span></div>
+  <div class="meta"><span data-en="Updated 2026-10-31" data-ar="تحديث 2026-10-31">Updated 2026-10-31</span></div>
 
   <div class="hero"><div class="wav"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
 
@@ -240,42 +145,24 @@ h2{color:var(--acc2)}
   <p data-en="Internet streaming is the only option here with no technical limit on quality. A station can stream at 320 kbps MP3 or lossless FLAC if it chooses to, and some do. It is also the only option where you can hear a station in Casablanca from a flat in Oslo, which no transmitter will ever manage." data-ar="البث عبر الإنترنت هو الخيار الوحيد هنا بلا حدّ تقني للجودة. فبإمكان محطة أن تبثّ بـ320 kbps بصيغة MP3 أو حتى بصيغة FLAC بلا فقدان إن أرادت، وبعضها يفعل. وهو أيضاً الخيار الوحيد الذي يتيح لك سماع محطة في الدار البيضاء من شقة في أوسلو، وهو ما لن يحققه أي مرسل.">Internet streaming is the only option here with no technical limit on quality. A station can stream at 320 kbps MP3 or lossless FLAC if it chooses to, and some do. It is also the only option where you can hear a station in Casablanca from a flat in Oslo, which no transmitter will ever manage.</p>
   <p data-en="The catch is that very few stations choose the ceiling. Most publish 64 or 128 kbps because bandwidth costs them money per listener, which is a cost FM and DAB simply do not have — a transmitter costs the same whether one person or a million are tuned in. So the medium with unlimited potential is, in practice, often the one running the lowest bitrate." data-ar="لكن المفارقة أن قليلاً جداً من المحطات يختار السقف. فمعظمها ينشر 64 أو 128 kbps لأن عرض النطاق يكلّفها مالاً عن كل مستمع، وهي كلفة لا يتحملها FM ولا DAB أصلاً — فالمرسل يكلّف نفس الشيء سواء استمع إليه شخص واحد أو مليون. وهكذا فالوسيط ذو الإمكان اللامحدود هو عملياً، في أحيان كثيرة، الأدنى معدلَ بت.">The catch is that very few stations choose the ceiling. Most publish 64 or 128 kbps because bandwidth costs them money per listener, which is a cost FM and DAB simply do not have — a transmitter costs the same whether one person or a million are tuned in. So the medium with unlimited potential is, in practice, often the one running the lowest bitrate.</p>
   <h2 data-en="Side by side" data-ar="جنباً إلى جنب">Side by side</h2>
-  <table>
-    <tr><th data-en="" data-ar=""></th><th data-en="FM" data-ar="FM">FM</th><th data-en="DAB+" data-ar="DAB+">DAB+</th><th data-en="Internet" data-ar="الإنترنت">Internet</th></tr>
-    <tr><td data-en="Best case quality" data-ar="الجودة في أفضل حال">Best case quality</td><td data-en="Very good" data-ar="جيدة جداً">Very good</td><td data-en="Very good" data-ar="جيدة جداً">Very good</td><td data-en="Unlimited" data-ar="بلا حدّ">Unlimited</td></tr>
-    <tr><td data-en="Typical real quality" data-ar="الجودة الواقعية المعتادة">Typical real quality</td><td data-en="Good" data-ar="جيدة">Good</td><td data-en="Variable" data-ar="متفاوتة">Variable</td><td data-en="Variable" data-ar="متفاوتة">Variable</td></tr>
-    <tr><td data-en="Behaves when signal is weak" data-ar="سلوكه عند ضعف الإشارة">Behaves when signal is weak</td><td data-en="Degrades slowly" data-ar="يتدهور ببطء">Degrades slowly</td><td data-en="Cuts out" data-ar="ينقطع">Cuts out</td><td data-en="Buffers, then cuts" data-ar="يخزّن ثم ينقطع">Buffers, then cuts</td></tr>
-    <tr><td data-en="Costs the listener" data-ar="يكلّف المستمع">Costs the listener</td><td data-en="Nothing" data-ar="لا شيء">Nothing</td><td data-en="Nothing" data-ar="لا شيء">Nothing</td><td data-en="Mobile data" data-ar="بيانات الهاتف">Mobile data</td></tr>
-    <tr><td data-en="Range" data-ar="المدى">Range</td><td data-en="Local" data-ar="محلي">Local</td><td data-en="Regional" data-ar="جهوي">Regional</td><td data-en="Worldwide" data-ar="عالمي">Worldwide</td></tr>
-    <tr><td data-en="Delay behind live" data-ar="التأخير عن المباشر">Delay behind live</td><td data-en="None" data-ar="لا شيء">None</td><td data-en="2–6 s" data-ar="2–6 ثوانٍ">2–6 s</td><td data-en="5–30 s" data-ar="5–30 ثانية">5–30 s</td></tr>
-  </table>
   <h2 data-en="So which should you use" data-ar="فأيّها تستعمل">So which should you use</h2>
-  <ol>
+  <ul>
     <li data-en="<strong>In the car, locally:</strong> FM, almost always. No data cost, no dropouts in tunnels, no delay. The sound is fine and the reliability is unmatched." data-ar="<strong>في السيارة محلياً:</strong> FM في كل الأحوال تقريباً. بلا كلفة بيانات، وبلا انقطاع في الأنفاق، وبلا تأخير. الصوت جيد والموثوقية لا تُضاهى."><strong>In the car, locally:</strong> FM, almost always. No data cost, no dropouts in tunnels, no delay. The sound is fine and the reliability is unmatched.</li>
+  </ul>
+  <ul>
     <li data-en="<strong>At home on Wi-Fi:</strong> internet, and look for the highest bitrate the station publishes. This is where streaming actually wins." data-ar="<strong>في البيت على الواي فاي:</strong> الإنترنت، وابحث عن أعلى معدل بت تنشره المحطة. هنا يفوز البث فعلاً."><strong>At home on Wi-Fi:</strong> internet, and look for the highest bitrate the station publishes. This is where streaming actually wins.</li>
+  </ul>
+  <ul>
     <li data-en="<strong>Live sport:</strong> FM, without hesitation. A thirty-second delay means you hear the goal from the neighbours before you hear it from the commentator." data-ar="<strong>الرياضة المباشرة:</strong> FM دون تردد. فتأخير ثلاثين ثانية يعني أنك تسمع الهدف من الجيران قبل أن تسمعه من المعلّق."><strong>Live sport:</strong> FM, without hesitation. A thirty-second delay means you hear the goal from the neighbours before you hear it from the commentator.</li>
+  </ul>
+  <ul>
     <li data-en="<strong>Anything not broadcast near you:</strong> internet, because there is no alternative, and that is the whole point of it." data-ar="<strong>أي شيء لا يُبثّ قربك:</strong> الإنترنت، لأنه لا بديل، وهذا هو جوهر وجوده بالضبط."><strong>Anything not broadcast near you:</strong> internet, because there is no alternative, and that is the whole point of it.</li>
-  </ol>
+  </ul>
   <blockquote data-en="The best-sounding radio is not a technology. It is a station that was mastered carefully and transmitted at a bitrate somebody was willing to pay for." data-ar="أفضل راديو صوتاً ليس تقنية، بل محطة أُتقِن مزجها وأُرسلت بمعدل بت كان أحدهم مستعداً لدفع ثمنه.">The best-sounding radio is not a technology. It is a station that was mastered carefully and transmitted at a bitrate somebody was willing to pay for.</blockquote>
-  <div class="box">
-    <h3 data-en="One test worth doing yourself" data-ar="اختبار واحد يستحق أن تجريه بنفسك">One test worth doing yourself</h3>
+  <h2 data-en="One test worth doing yourself" data-ar="اختبار واحد يستحق أن تجريه بنفسك">One test worth doing yourself</h2>
   <p data-en="Find a station that broadcasts on both FM and online — most national broadcasters do. Play the same programme on a radio and on your phone, a few seconds apart so you can switch between them. Most people are surprised twice: first by how small the difference is, and then by how much of the difference comes from the speaker rather than the signal." data-ar="ابحث عن محطة تبثّ على FM وعبر الإنترنت معاً — ومعظم المحطات الوطنية تفعل. شغّل البرنامج نفسه على جهاز راديو وعلى هاتفك بفارق ثوانٍ قليلة لتتمكّن من التنقل بينهما. ويُفاجأ معظم الناس مرتين: أولاً بضآلة الفارق، ثم بأن معظم ذلك الفارق يأتي من السمّاعة لا من الإشارة.">Find a station that broadcasts on both FM and online — most national broadcasters do. Play the same programme on a radio and on your phone, a few seconds apart so you can switch between them. Most people are surprised twice: first by how small the difference is, and then by how much of the difference comes from the speaker rather than the signal.</p>
-  </div>
 
-
-  <a class="cta" href="../" data-en="Compare them yourself &rarr;" data-ar="قارن بينها بنفسك &larr;">Compare them yourself &rarr;</a>
-
-  <div class="sharerow">
-    <button id="shNative" data-en="Share" data-ar="مشاركة">Share</button>
-    <button id="shWhats">WhatsApp</button>
-    <button id="shX">X</button>
-    <button id="shCopy" data-en="Copy link" data-ar="نسخ الرابط">Copy link</button>
-  </div>
-
-  <div class="related" id="relSec" style="display:none">
-    <h2 data-en="Related articles" data-ar="مقالات ذات صلة">Related articles</h2>
-    <div class="rgrid" id="relGrid"></div>
-  </div>
+  <a class="cta" href="../" data-en="Browse live stations &rarr;" data-ar="تصفّح المحطات المباشرة &larr;">Browse live stations &rarr;</a>
 </main>
 
 <footer>
@@ -286,7 +173,7 @@ h2{color:var(--acc2)}
     <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
     <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
   </nav>
-  <div>© <span id="yr"></span> LiveRadio</div>
+  <div>&copy; <span id="yr"></span> LiveRadio</div>
 </footer>
 
 <script>
@@ -302,81 +189,15 @@ function apply(){
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
   var els=document.querySelectorAll('[data-en]');
   for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
-  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  var le=document.querySelectorAll('.lang-en'),la=document.querySelectorAll('.lang-ar');
+  for(var a=0;a<le.length;a++)le[a].style.display=(lang==='en')?'':'none';
+  for(var b=0;b<la.length;b++)la[b].style.display=(lang==='ar')?'':'none';
+  document.getElementById('langBtn').textContent=lang==='en'?'Arabic':'الإنجليزية';
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
 }
 document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
 document.getElementById('yr').textContent=new Date().getFullYear();
 apply();
 </script>
-
-<script>
-/* ===== شريط التقدّم + حفظ موضع القراءة + المشاركة + مقالات ذات صلة ===== */
-(function(){
-  var SLUG='fm-dab-internet-radio';
-  var bar=document.getElementById('rprog');
-  function pct(){
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    return h>0?Math.min(100,Math.round((window.scrollY/h)*100)):0;
-  }
-  var save=null;
-  window.addEventListener('scroll',function(){
-    var p=pct();
-    if(bar)bar.style.width=p+'%';
-    clearTimeout(save);
-    save=setTimeout(function(){
-      try{
-        var o=JSON.parse(localStorage.getItem('lr_read')||'{}');
-        o[SLUG]=p;localStorage.setItem('lr_read',JSON.stringify(o));
-      }catch(e){}
-    },400);
-  });
-
-  var sh=document.getElementById('shWhats'),cp=document.getElementById('shCopy'),
-      na=document.getElementById('shNative'),tw=document.getElementById('shX');
-  var url=location.href.split('#')[0], ttl=document.title;
-  if(sh)sh.onclick=function(){
-    window.open('https://wa.me/?text='+encodeURIComponent(ttl+' '+url),'_blank');
-  };
-  if(tw)tw.onclick=function(){
-    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(ttl)+
-      '&url='+encodeURIComponent(url),'_blank');
-  };
-  if(cp)cp.onclick=function(){
-    if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){
-      cp.textContent=(document.documentElement.lang==='ar')?'تم النسخ':'Copied';
-    });
-  };
-  if(na)na.onclick=function(){
-    if(navigator.share)navigator.share({title:ttl,url:url}).catch(function(){});
-    else if(cp)cp.click();
-  };
-
-  /* مقالات ذات صلة من نفس التصنيف */
-  fetch('../articles.json').then(function(r){return r.json();}).then(function(all){
-    var me=null;
-    for(var i=0;i<all.length;i++)if(all[i].slug===SLUG){me=all[i];break;}
-    if(!me)return;
-    var lang=document.documentElement.lang==='ar'?'ar':'en';
-    var same=all.filter(function(p){return p.slug!==SLUG&&p.cat===me.cat;});
-    var rest=all.filter(function(p){return p.slug!==SLUG&&p.cat!==me.cat;});
-    var pick=same.concat(rest).slice(0,3);
-    if(!pick.length)return;
-    var box=document.getElementById('relGrid');
-    if(!box)return;
-    pick.forEach(function(p){
-      var a=document.createElement('a');a.className='rcard';a.href='./'+p.slug+'.html';
-      a.innerHTML='<div class="t"></div><div class="h"></div>';
-      a.querySelector('.t').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
-      a.querySelector('.h').textContent=p.title[lang]||p.title.en;
-      box.appendChild(a);
-    });
-    document.getElementById('relSec').style.display='block';
-  }).catch(function(){});
-})();
-</script>
-<script src="/ads.js" defer></script>
-<script src="/art.js" defer></script>
-<script src="/social.js" defer></script>
 </body>
 </html>
