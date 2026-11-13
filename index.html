@@ -377,39 +377,61 @@ html[data-theme="dark"] #page .cbanner{opacity:.55;filter:blur(70px) saturate(1.
 #prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
   background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .1s}
 
-.player{position:fixed;left:0;right:0;bottom:var(--adB,0px);z-index:50;background:var(--pbg);
-  border-top:1px solid var(--line);box-shadow:0 -8px 28px var(--shadow);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-  transform:translateY(130%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
-.player.up{transform:translateY(0)}
-.pmain{display:flex;align-items:center;gap:10px;padding:10px 14px}
-#pArt{width:50px;height:50px;border-radius:50%;object-fit:cover;background:var(--card2);flex:none}
+/* ===== المشغّل: بطاقة عائمة بحواف وظلال ناعمة، تتوسّع للتحكم الكامل ===== */
+:root{--pcard:linear-gradient(135deg,#ffffff 0%,#eef4ff 55%,#f2eeff 100%);--pring:rgba(15,23,42,.08)}
+html[data-theme="dark"]{--pcard:linear-gradient(135deg,#1b2439 0%,#151d31 55%,#1d1a36 100%);--pring:rgba(255,255,255,.08)}
+.player{position:fixed;left:50%;bottom:calc(var(--adB,0px) + 10px + env(safe-area-inset-bottom,0px));z-index:50;
+  width:calc(100% - 20px);max-width:760px;box-sizing:border-box;border-radius:22px;background:var(--pcard);
+  border:1px solid var(--pring);box-shadow:0 12px 34px -10px rgba(15,23,42,.35),0 3px 10px -4px rgba(15,23,42,.18);
+  transform:translate(-50%,calc(100% + 40px));transition:transform .4s cubic-bezier(.2,.8,.2,1);overflow:hidden}
+.player.up{transform:translate(-50%,0)}
+.pmain{display:flex;align-items:center;gap:6px;padding:9px 10px 9px 9px}
+#pArt{width:46px;height:46px;border-radius:14px;object-fit:cover;background:var(--card2);flex:none;box-shadow:0 2px 8px -2px rgba(15,23,42,.25)}
 .pfb{display:grid;place-items:center;font-weight:800;color:var(--acc)}
-.pinfo{flex:1;min-width:0;cursor:pointer}
-.pinfo .t{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pinfo .s{font-size:12.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pbtn{width:46px;height:46px;border-radius:50%;flex:none;border:none;cursor:pointer;
+.pinfo{flex:1;min-width:0;cursor:pointer;padding-inline-start:4px}
+.pinfo .t{font-weight:700;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pinfo .s{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mut);white-space:nowrap;overflow:hidden}
+.pinfo .s #pMeta{overflow:hidden;text-overflow:ellipsis}
+.pbtn{width:44px;height:44px;border-radius:50%;flex:none;border:none;cursor:pointer;
   background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;display:grid;place-items:center;
-  box-shadow:0 4px 12px var(--shadow)}
-.pbtn svg{width:21px;height:21px;fill:currentColor}
-.nav{background:none;border:none;color:var(--mut);font-size:17px;cursor:pointer;padding:4px;flex:none;line-height:1}
-.nav:hover{color:var(--txt)}
-.bars{display:flex;gap:2px;align-items:flex-end;height:14px;flex:none}
+  box-shadow:0 6px 16px -6px var(--acc),0 2px 6px -2px rgba(15,23,42,.25)}
+.pbtn svg{width:20px;height:20px;fill:currentColor}
+.nav{background:none;border:none;color:var(--mut);cursor:pointer;flex:none;line-height:1;
+  width:34px;height:34px;display:grid;place-items:center;border-radius:50%;transition:background .15s,color .15s,transform .25s}
+.nav:hover{color:var(--txt);background:var(--pring)}
+.player .nav svg{width:20px;height:20px;fill:currentColor;display:block}
+.psep{width:1px;height:24px;background:var(--line);flex:none;margin:0 2px}
+.pround{background:var(--pring)}
+.player.open #pMore{transform:rotate(180deg);color:var(--acc)}
+.bars{display:flex;gap:2px;align-items:flex-end;height:12px;flex:none}
 .bars i{width:3px;background:var(--acc);border-radius:2px;animation:eq .9s ease-in-out infinite;display:block}
 .bars i:nth-child(2){animation-delay:.15s}.bars i:nth-child(3){animation-delay:.3s}
-@keyframes eq{0%,100%{height:4px}50%{height:14px}}
-.pext{display:none;padding:0 16px 14px}
-.player.open .pext{display:block;border-top:1px solid var(--line);padding-top:14px}
-.prow{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.prow:last-child{margin-bottom:0}
-.prow label{font-size:13px;color:var(--mut);font-weight:600;flex:none;min-width:58px}
+@keyframes eq{0%,100%{height:4px}50%{height:12px}}
+/* اللوحة الموسّعة */
+.pext{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.player.open .pext{grid-template-rows:1fr}
+.pextIn{overflow:hidden;padding:0 14px}
+.player.open .pextIn{padding-bottom:14px}
+.pvol{display:flex;align-items:center;gap:10px;margin:4px 0 14px;padding:10px 12px;border-radius:14px;background:var(--pring)}
+.pvol svg{width:18px;height:18px;fill:var(--mut);flex:none}
+.pvol b{font-size:12px;color:var(--mut);min-width:36px;text-align:end;font-variant-numeric:tabular-nums}
 input[type=range]{flex:1;accent-color:var(--acc);height:4px}
-.pacts{display:flex;gap:8px;flex-wrap:wrap}
-.pact{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
-  border-radius:999px;font-size:13px;font-weight:600;cursor:pointer}
+.pacts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.pact{display:flex;flex-direction:column;align-items:center;gap:6px;padding:11px 4px;border-radius:14px;
+  background:var(--card,transparent);border:1px solid var(--line);color:var(--txt);font:inherit;font-size:11.5px;font-weight:600;cursor:pointer;
+  transition:border-color .15s,color .15s,transform .15s}
+.pact:active{transform:scale(.96)}
+.pact svg{width:20px;height:20px;fill:currentColor}
 .pact.on{border-color:var(--acc);color:var(--acc)}
-.usage{font-size:12px;color:var(--mut);text-align:center;margin-top:10px;line-height:1.6}
+.pfull{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:12px;padding:12px;border:none;border-radius:14px;
+  background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font:inherit;font-size:14px;font-weight:700;cursor:pointer;
+  box-shadow:0 8px 18px -8px var(--acc)}
+.pfull svg{width:18px;height:18px;fill:currentColor}
+.usage{font-size:11.5px;color:var(--mut);text-align:center;margin-top:10px;line-height:1.6}
 .usage b{color:var(--acc)}
+.pclose{display:block;margin:8px auto 0;background:none;border:none;color:var(--mut);font:inherit;font-size:12.5px;cursor:pointer;padding:6px 12px;border-radius:999px}
+.pclose:hover{color:var(--txt);background:var(--pring)}
+@media(max-width:380px){.pmain{gap:3px}.nav{width:30px;height:30px}.psep{display:none}}
 
 .sheet{position:fixed;inset:0;z-index:70;background:rgba(17,26,46,.45);display:none;align-items:flex-end}
 .sheet.on{display:flex}
@@ -598,7 +620,6 @@ html[dir="rtl"] .fsBack svg{transform:scaleX(-1)}
   #fs.playing .fsEq i,#fs[data-theme="vinyl"].playing .fsRec{animation:none}
   #fs.playing .fsEq i{transform:scaleY(.5)}
 }
-.player .nav svg{width:19px;height:19px;fill:currentColor;display:block}
 /* ===== البحث الموحّد في الرئيسية ===== */
 .gs{position:relative;max-width:620px;margin:18px auto 4px;text-align:start}
 .gs input{width:100%;box-sizing:border-box;background:var(--card);border:1.5px solid var(--line);color:var(--txt);
@@ -717,7 +738,7 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
     <button class="btn" id="langBtn">Arabic</button>
   </div>
 </header>
-<!--ticker:start--><div class="lrTk" id="lrTicker" role="region" aria-label="Live news / أخبار مباشرة"><div class="lb"><i></i><span lang="ar">أخبار مباشرة</span><span lang="en">Live news</span></div><div class="vp"><div class="tr"><ul lang="ar"><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">دونالد ترامب يؤكد استعداده لاستخدام القوة لمنع إيران من تهديد حلفاء واشنطن</span><span class="tm" data-at="2026-11-12T21:13:59Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">محادثات بين روسيا وأوكرانيا بشأن الأمن بعد الحرب تنتهي دون تقدم ملموس</span><span class="tm" data-at="2026-11-12T00:33:02Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">بنيامين نتنياهو يوافق على لقاء آيزنكوت لإطلاعه على التطورات الأمنية</span><span class="tm" data-at="2026-11-12T13:21:00Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">مقتل 11 شخصاً بضربات إسرائيلية في غزة بينها غارة على مستشفى ناصر</span><span class="tm" data-at="2026-11-12T18:56:11Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">المبعوثان الأمريكيان يعلنان مشاركة أوروبا في محادثات إنهاء حرب أوكرانيا</span><span class="tm" data-at="2026-11-12T22:11:12Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">إيران تعلن تعرض أربع ناقلات نفط لانفجارات في مضيق هرمز</span><span class="tm" data-at="2026-11-12T16:27:35Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">مقتل ستة أشخاص في قصف إسرائيلي استهدف مستشفى ناصر بقطاع غزة</span><span class="tm" data-at="2026-11-12T22:22:13Z"></span></a></li></ul><ul lang="en"><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Donald Trump says he will not hesitate to use force against Iran</span><span class="tm" data-at="2026-11-12T21:13:59Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Russia and Ukraine hold post-war security talks without concrete progress</span><span class="tm" data-at="2026-11-12T00:33:02Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Benjamin Netanyahu agrees to meet Eisenkot over security developments</span><span class="tm" data-at="2026-11-12T13:21:00Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Israeli strikes kill 11 people in Gaza including six at Nasser Hospital</span><span class="tm" data-at="2026-11-12T18:56:11Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">US envoys say Europe will join talks on ending the Ukraine war</span><span class="tm" data-at="2026-11-12T22:11:12Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">Iran says four oil tankers were struck by explosions in Strait of Hormuz</span><span class="tm" data-at="2026-11-12T16:27:35Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">Israeli strike on Nasser Hospital in Gaza kills at least six people</span><span class="tm" data-at="2026-11-12T22:22:13Z"></span></a></li></ul></div></div></div><!--ticker:end-->
+<!--ticker:start--><div class="lrTk" id="lrTicker" hidden></div><!--ticker:end-->
 
 <div id="page"></div>
 
@@ -903,28 +924,32 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
     <div id="pArt" class="pfb">&#9834;</div>
     <div class="pinfo" id="pInfo">
       <div class="t" id="pName">—</div>
-      <div class="s" id="pMeta">—</div>
+      <div class="s"><span class="bars" id="bars" style="display:none"><i></i><i></i><i></i></span><span id="pMeta">—</span></div>
     </div>
-    <div class="bars" id="bars" style="display:none"><i></i><i></i><i></i></div>
-    <button class="nav" id="pPrev">&#9198;</button>
+    <button class="nav" id="pPrev" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg></button>
     <button class="pbtn" id="pBtn" aria-label="Play"><svg id="pIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
-    <button class="nav" id="pNext">&#9197;</button>
-    <button class="nav" id="pExp" aria-label="Full-screen player" title="Full-screen player"><svg viewBox="0 0 24 24"><path d="M5 5h5V3H3v7h2zm9-2v2h5v5h2V3zm5 16h-5v2h7v-7h-2zM5 14H3v7h7v-2H5z"/></svg></button>
+    <button class="nav" id="pNext" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18l8.5-6L6 6zM16 6h2v12h-2z"/></svg></button>
+    <span class="psep" aria-hidden="true"></span>
+    <button class="nav pround" id="pMore" aria-label="More controls" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.4 15.4 12 10.8l4.6 4.6L18 14l-6-6-6 6z"/></svg></button>
+    <button class="nav pround" id="pExp" aria-label="Full-screen player" title="Full-screen player"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h5V3H3v7h2zm9-2v2h5v5h2V3zm5 16h-5v2h7v-7h-2zM5 14H3v7h7v-2H5z"/></svg></button>
   </div>
-  <div class="pext">
-    <div class="prow">
-      <label data-i="vol">Volume</label>
-      <input type="range" id="vol" min="0" max="100" value="100">
+  <div class="pext"><div class="pextIn">
+    <div class="pvol">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9z"/></svg>
+      <input type="range" id="vol" min="0" max="100" value="100" aria-label="Volume">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+      <b id="volPct">100%</b>
     </div>
-    <div class="prow pacts">
-      <button class="pact" id="aFav">&#9829; <span data-i="fav">Favourite</span></button>
-      <button class="pact" id="aInfo">&#8505; <span data-i="infoB">Details</span></button>
-      <button class="pact" id="aShare">&#128279; <span data-i="share">Share</span></button>
-      <button class="pact" id="aSleep">&#9201; <span data-i="sleep">Sleep timer</span></button>
-      <button class="pact" id="aClose">&times; <span data-i="close">Close</span></button>
+    <div class="pacts">
+      <button class="pact" id="aFav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.4C.8 7.7 3.4 4 7 4c2 0 3.5 1.1 5 2.8C13.5 5.1 15 4 17 4c3.6 0 6.2 3.7 4.6 7.6C19.5 16.4 12 21 12 21z"/></svg><span data-i="fav">Favourite</span></button>
+      <button class="pact" id="aInfo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg><span data-i="infoB">Details</span></button>
+      <button class="pact" id="aShare"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7c0 .3 0 .5.1.8L8.4 11.2a3 3 0 1 0 0 1.6l6.7 3.4A3 3 0 1 0 18 16z"/></svg><span data-i="share">Share</span></button>
+      <button class="pact" id="aSleep"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7z"/></svg><span data-i="sleep">Sleep timer</span></button>
     </div>
+    <button class="pfull" id="pFull"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h5V3H3v7h2zm9-2v2h5v5h2V3zm5 16h-5v2h7v-7h-2zM5 14H3v7h7v-2H5z"/></svg><span data-i="fsOpen">Open the full player</span></button>
     <div class="usage" id="usage"></div>
-  </div>
+    <button class="pclose" id="aClose">&times; <span data-i="closeP">Stop and close</span></button>
+  </div></div>
 </div>
 
 <div id="fs" role="dialog" aria-modal="true" aria-labelledby="fsName" data-theme="studio">
@@ -1033,7 +1058,7 @@ var I={
   gsSearching:'Searching stations…',gsNone:'No station found for “{q}”. Try another spelling.',gsFail:'Search is unavailable right now. Check your connection and try again.',
   contAF:'Africa',contAS:'Asia',contEU:'Europe',contNA:'North America',contSA:'South America',contOC:'Oceania',
   scanning:'Scanning {n} entries · {m} playable so far…',
-  settings:'Settings',setSub:'Saved on this device only.',inst:'Install LiveRadio',instSub:'Open it from your home screen like an app, without the browser bar.',instBtn:'📲 Add to home screen',instIos:'In Safari, tap the Share button, then “Add to Home Screen”.',instDone:'Installed ✓',
+  settings:'Settings',setSub:'Saved on this device only.',fsOpen:'Open the full player',closeP:'Stop and close',inst:'Install LiveRadio',instSub:'Open it from your home screen like an app, without the browser bar.',instBtn:'📲 Add to home screen',instIos:'In Safari, tap the Share button, then “Add to Home Screen”.',instDone:'Installed ✓',
   quality:'Audio quality &amp; data use',qLow:'Saver',qLowS:'&le;64 kbps',
   qMid:'Balanced',qMidS:'&le;128 kbps',qHigh:'Best',qHighS:'No limit',
   qNote:'Stations within your chosen quality are listed first. No station is hidden.',
@@ -1072,7 +1097,7 @@ var I={
   gsSearching:'جارٍ البحث عن المحطات…',gsNone:'لا محطة باسم «{q}». جرّب كتابة أخرى.',gsFail:'البحث غير متاح الآن. تحقّق من الاتصال وأعد المحاولة.',
   contAF:'إفريقيا',contAS:'آسيا',contEU:'أوروبا',contNA:'أمريكا الشمالية',contSA:'أمريكا الجنوبية',contOC:'أوقيانوسيا',
   scanning:'فحص {n} مدخلاً · {m} قابلة للتشغيل حتى الآن…',
-  settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',inst:'ثبّت LiveRadio',instSub:'افتحه من الشاشة الرئيسية كأي تطبيق، دون شريط المتصفح.',instBtn:'📲 أضِفه إلى الشاشة الرئيسية',instIos:'في Safari: اضغط زر المشاركة، ثم «إضافة إلى الشاشة الرئيسية».',instDone:'مُثبّت ✓',
+  settings:'الإعدادات',setSub:'تُحفظ على هذا الجهاز فقط.',fsOpen:'افتح المشغّل الكامل',closeP:'إيقاف وإغلاق',inst:'ثبّت LiveRadio',instSub:'افتحه من الشاشة الرئيسية كأي تطبيق، دون شريط المتصفح.',instBtn:'📲 أضِفه إلى الشاشة الرئيسية',instIos:'في Safari: اضغط زر المشاركة، ثم «إضافة إلى الشاشة الرئيسية».',instDone:'مُثبّت ✓',
   quality:'جودة الصوت واستهلاك البيانات',qLow:'توفير',qLowS:'&le;64 kbps',
   qMid:'متوازن',qMidS:'&le;128 kbps',qHigh:'الأفضل',qHighS:'بلا حدّ',
   qNote:'المحطات المطابقة للجودة المختارة تظهر أولاً، ولا تُخفى أي محطة.',
@@ -1918,7 +1943,10 @@ $('pBtn').onclick=function(){
   toggle();
 };
 $('pNext').onclick=next;$('pPrev').onclick=prev;
-$('pInfo').onclick=function(){player.classList.toggle('open');drawUsage();};
+function pToggle(){var o=player.classList.toggle('open');$('pMore').setAttribute('aria-expanded',o?'true':'false');drawUsage();}
+$('pInfo').onclick=pToggle;
+$('pMore').onclick=function(e){e.stopPropagation();pToggle();};
+$('pFull').onclick=function(e){player.classList.remove('open');$('pMore').setAttribute('aria-expanded','false');$('pExp').onclick(e);};
 $('aInfo').onclick=function(){if(current)showInfo(current);};
 $('aClose').onclick=function(){audio.pause();audio.removeAttribute('src');audio.load();
   player.classList.remove('up','open');current=null;markPlaying();LS.set('lr_mine',mine);};
@@ -1940,6 +1968,7 @@ $('aSleep').onclick=function(){
   else toast(T('sleepOff'));
 };
 var vol=$('vol');
+vol.addEventListener('input',function(){$('volPct').textContent=vol.value+'%';});setTimeout(function(){$('volPct').textContent=vol.value+'%';},0);
 vol.value=LS.get('lr_vol',100);audio.volume=vol.value/100;
 vol.oninput=function(){audio.volume=vol.value/100;LS.set('lr_vol',+vol.value);};
 audio.onplaying=function(){retries=0;clearTimeout(retryT);setIcon(PAUSE);bars.style.display='flex';markPlaying();startTick();};
