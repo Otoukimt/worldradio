@@ -4,24 +4,31 @@
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="yX25szfjBSoo35hZI9DG4jLp4pah3fZ07GVtTvfX_qk" />
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-LKJTP0YVEN');
+  addEventListener('load', function(){
+    var s=document.createElement('script');
+    s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN';
+    document.head.appendChild(s);
+  });
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Why a radio stream stops working, and what you can actually do | LiveRadio</title>
-<meta name="description" content="Six reasons an online radio station fails to play: insecure http streams, server limits, buffering, codec mismatches, dead directory entries and frozen metadata.">
+<meta name="description" content="Six causes, how to tell them apart in thirty seconds, and which ones are not your problem.">
 <link rel="canonical" href="https://worldliveradio.com/articles/radio-stream-not-working.html">
 <meta name="theme-color" content="#eef3fb">
 <meta property="og:title" content="Why a radio stream stops working, and what you can actually do">
-<meta property="og:description" content="Six reasons an online radio station fails to play: insecure http streams, server limits, buffering, codec mismatches, dead directory entries and frozen metadata.">
+<meta property="og:description" content="Six causes, how to tell them apart in thirty seconds, and which ones are not your problem.">
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" media="print" onload="this.media='all'"
+  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap">
+<noscript><link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap"></noscript>
 <style>
 :root{
   --bg:#f3f6fc; --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
@@ -62,16 +69,14 @@ main{max-width:760px;margin:0 auto;padding:22px 18px 60px}
 h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800;
 background:linear-gradient(100deg,var(--acc),var(--acc2) 70%);
 -webkit-background-clip:text;background-clip:text;color:transparent}
-h2{color:var(--acc2)}
-.playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
-padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
-margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
-.playbtn:hover{filter:brightness(1.07)}
+h2{color:var(--acc2);font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
 .meta{color:var(--mut);font-size:14px;margin-bottom:22px}
 .hero{height:190px;border-radius:18px;margin-bottom:26px;position:relative;overflow:hidden;
-background:linear-gradient(135deg,#111827,#7f1d1d 50%,#1e3a8a);display:grid;place-items:center}
-.hero svg{width:100%;height:100%;display:block}
+background:linear-gradient(135deg,#064e3b,#047857 50%,#0369a1);display:grid;place-items:center}
+.hero .heroimg{width:100%;height:100%;object-fit:cover;display:block}
+.lang-en img,.lang-ar img{max-width:100%;height:auto;border-radius:14px;margin:14px 0}
+.lang-en figure,.lang-ar figure{margin:16px 0}
+.lang-en figcaption,.lang-ar figcaption{font-size:13px;color:var(--mut);text-align:center;margin-top:6px}
 .hero .wav{display:flex;gap:6px;align-items:flex-end;height:68px}
 .hero .wav i{width:8px;background:rgba(255,255,255,.88);border-radius:4px;display:block;animation:w 1.4s ease-in-out infinite}
 .hero .wav i:nth-child(1){height:24px;animation-delay:0s}
@@ -82,19 +87,15 @@ background:linear-gradient(135deg,#111827,#7f1d1d 50%,#1e3a8a);display:grid;plac
 .hero .wav i:nth-child(6){height:28px;animation-delay:.75s}
 .hero .wav i:nth-child(7){height:46px;animation-delay:.9s}
 @keyframes w{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
-h2{font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
-h3{font-size:18px;margin:26px 0 8px;font-weight:700}
 p{line-height:1.85;color:var(--txt);opacity:.93;margin:0 0 16px;font-size:16.5px}
 ul,ol{line-height:1.85;color:var(--txt);opacity:.93;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
 li{margin-bottom:9px}
-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
-th,td{border:1px solid var(--line);padding:10px 12px;text-align:start}
-th{background:var(--card2);font-weight:700}
 blockquote{border-inline-start:3px solid var(--acc);margin:24px 0;padding-inline-start:16px;
 color:var(--mut);font-style:italic;line-height:1.8}
-.box{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:18px;margin:28px 0;
-box-shadow:0 2px 8px var(--shadow)}
-.box h3{margin-top:0}
+.playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
+padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
+margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
 .cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
 color:#fff;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px;
 box-shadow:0 6px 18px var(--shadow)}
@@ -102,7 +103,6 @@ footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;colo
 font-size:14px;background:var(--footG)}
 footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
 footer nav a{color:var(--mut)}
-footer nav a:hover{color:var(--acc)}
 </style>
 <script>
 (function(){
@@ -113,132 +113,25 @@ footer nav a:hover{color:var(--acc)}
   if(m)m.setAttribute('content',t==='dark'?'#0e1526':'#eef3fb');
 })();
 </script>
-
-<style>
-#rprog{position:fixed;top:0;left:0;height:3px;width:0;z-index:70;
-  background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .1s}
-.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.navrow a,.navrow button{background:var(--cardG);border:1px solid var(--line);color:var(--txt);
-  padding:9px 15px;border-radius:999px;font-size:13.5px;font-weight:700;cursor:pointer;
-  font-family:inherit;box-shadow:0 1px 3px var(--shadow)}
-.navrow a:hover,.navrow button:hover{border-color:var(--acc);color:var(--acc)}
-.sharerow{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 8px}
-.sharerow button{flex:1;min-width:110px;background:var(--cardG);border:1px solid var(--line);
-  color:var(--txt);padding:11px;border-radius:12px;font-weight:700;cursor:pointer;
-  font-family:inherit;font-size:13.5px}
-.sharerow button:hover{border-color:var(--acc);color:var(--acc)}
-.related{margin:34px 0 10px}
-.related h2{font-size:19px;margin:0 0 12px}
-.rgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
-.rcard{background:var(--cardG);border:1px solid var(--line);border-radius:14px;padding:15px;
-  display:block;box-shadow:0 2px 8px var(--shadow);transition:.2s}
-.rcard:hover{border-color:var(--acc);transform:translateY(-2px)}
-.rcard .t{font-size:11.5px;color:var(--acc);font-weight:700;text-transform:uppercase}
-.rcard .h{font-size:15px;font-weight:700;margin:6px 0 0;line-height:1.35;color:var(--txt)}
-</style>
-<!--ld:start-->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Article",
-   "@id": "https://worldliveradio.com/articles/radio-stream-not-working.html#article",
-   "url": "https://worldliveradio.com/articles/radio-stream-not-working.html",
-   "mainEntityOfPage": "https://worldliveradio.com/articles/radio-stream-not-working.html",
-   "headline": "Why a radio stream stops working, and what you can actually do",
-   "description": "Six causes, how to tell them apart in thirty seconds, and which ones are not your problem.",
-   "inLanguage": [
-    "en",
-    "ar"
-   ],
-   "datePublished": "2026-11-06",
-   "dateModified": "2026-11-06",
-   "author": {
-    "@id": "https://worldliveradio.com/#org"
-   },
-   "publisher": {
-    "@id": "https://worldliveradio.com/#org"
-   },
-   "isPartOf": {
-    "@id": "https://worldliveradio.com/#website"
-   },
-   "alternativeHeadline": "لماذا يتوقف بثّ الراديو، وما الذي تستطيع فعله فعلاً",
-   "articleSection": "Tips & explainers"
-  },
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "LiveRadio",
-     "item": "https://worldliveradio.com/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "Articles",
-     "item": "https://worldliveradio.com/articles.html"
-    },
-    {
-     "@type": "ListItem",
-     "position": 3,
-     "name": "Why a radio stream stops working, and what you can actually do",
-     "item": "https://worldliveradio.com/articles/radio-stream-not-working.html"
-    }
-   ]
-  },
-  {
-   "@type": "Organization",
-   "@id": "https://worldliveradio.com/#org",
-   "name": "LiveRadio",
-   "url": "https://worldliveradio.com/",
-   "logo": {
-    "@type": "ImageObject",
-    "url": "https://worldliveradio.com/icon-512.png",
-    "width": 512,
-    "height": 512
-   }
-  }
- ]
-}
-</script>
-<!--ld:end-->
 </head>
 <body>
-<div id="rprog"></div>
 
 <header>
   <div class="hrow">
     <a class="logo" href="../"><span class="logo-dot"></span>Live<span>Radio</span></a>
     <div class="spacer"></div>
-    <button class="btn" id="langBtn">العربية</button>
+    <a class="btn" href="../" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
+    <button class="btn" id="langBtn">Arabic</button>
   </div>
 </header>
 
 <main data-type="article" data-slug="radio-stream-not-working">
-  <div class="navrow">
-    <a href="../" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
-    <a href="../articles.html" data-en="&larr; All articles" data-ar="&rarr; كل المقالات">&larr; All articles</a>
-  </div>
-
-  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Tips" data-ar="نصائح">Tips</a></div>
-  <span class="tagx" data-en="Troubleshooting" data-ar="حلّ المشكلات">Troubleshooting</span>
+  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a></div>
+  <span class="tagx" data-en="Tips &amp; explainers" data-ar="نصائح وشروحات">Tips &amp; explainers</span>
   <h1 data-en="Why a radio stream stops working, and what you can actually do" data-ar="لماذا يتوقف بثّ الراديو، وما الذي تستطيع فعله فعلاً">Why a radio stream stops working, and what you can actually do</h1>
-  <div class="meta"><span data-en="Updated November 2026 · 8 min read" data-ar="تحديث نونبر 2026 · قراءة 8 دقائق">Updated November 2026 · 8 min read</span></div>
+  <div class="meta"><span data-en="Updated 2026-11-06" data-ar="تحديث 2026-11-06">Updated 2026-11-06</span></div>
 
-  <div class="hero"><svg viewBox="0 0 800 190" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A broken signal line being repaired">
-<defs><linearGradient id="f1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111827"/><stop offset=".5" stop-color="#7f1d1d"/><stop offset="1" stop-color="#1e3a8a"/></linearGradient></defs>
-<rect width="800" height="190" fill="url(#f1)"/>
-<path d="M0 95 q 40 -40 80 0 t 80 0 t 80 0" fill="none" stroke="#5eead4" stroke-width="3" stroke-opacity=".9"/>
-<path d="M560 95 q 40 -40 80 0 t 80 0 t 80 0" fill="none" stroke="#5eead4" stroke-width="3" stroke-opacity=".9"/>
-<g stroke="#f87171" stroke-width="3" stroke-linecap="round" stroke-opacity=".9">
-<line x1="250" y1="95" x2="280" y2="95" stroke-dasharray="6 10"/><line x1="480" y1="95" x2="510" y2="95" stroke-dasharray="6 10"/></g>
-<g transform="translate(400 95)">
-<circle r="46" fill="#fff" fill-opacity=".1" stroke="#f87171" stroke-opacity=".6" stroke-width="2"/>
-<path d="M-8 -26 h16 l-4 32 h-8 z" fill="#f87171"/><circle cy="20" r="6" fill="#f87171"/></g>
-<g fill="#5eead4" fill-opacity=".6"><circle cx="120" cy="150" r="3"/><circle cx="160" cy="158" r="2.4"/><circle cx="660" cy="150" r="3"/><circle cx="620" cy="158" r="2.4"/></g></svg></div>
+  <div class="hero"><div class="wav"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
 
   <p data-en="You tap play and nothing happens. Or it plays for ninety seconds and stops. Or it worked yesterday and today the station has vanished from the list entirely. Every one of these has a specific cause, and in most cases you can tell within thirty seconds which one you are dealing with. This guide works through them in the order they actually occur." data-ar="تضغط التشغيل فلا يحدث شيء. أو يعمل تسعين ثانية ثم يتوقف. أو كان يعمل أمس واليوم اختفت المحطة من القائمة كلياً. ولكلٍّ من هذه سبب محدد، وفي معظم الحالات تستطيع أن تعرف خلال ثلاثين ثانية أيَّها تواجه. ويعالجها هذا الدليل بالترتيب الذي تقع فيه فعلاً.">You tap play and nothing happens. Or it plays for ninety seconds and stops. Or it worked yesterday and today the station has vanished from the list entirely. Every one of these has a specific cause, and in most cases you can tell within thirty seconds which one you are dealing with. This guide works through them in the order they actually occur.</p>
   <h2 data-en="1. The station starts and never produces sound" data-ar="1. المحطة تبدأ ولا تُصدر صوتاً أبداً">1. The station starts and never produces sound</h2>
@@ -256,26 +149,11 @@ footer nav a:hover{color:var(--acc)}
   <p data-en="Usually a codec issue. Some older streams use formats that one browser supports and another does not — Ogg Vorbis is the classic example, historically supported in some browsers and not others. Switching browsers is the fastest test. If it works in one and not the other, the station is using a format your preferred browser does not decode, and there is nothing to fix beyond using a different player." data-ar="عادةً مشكلة ترميز. فبعض البثوث القديمة تستعمل صيغاً يدعمها متصفح ولا يدعمها آخر — وOgg Vorbis المثال الكلاسيكي، إذ دعمته بعض المتصفحات تاريخياً دون غيرها. وتبديل المتصفح أسرع اختبار. فإن عمل في واحد دون آخر، فالمحطة تستعمل صيغة لا يفكّها متصفحك المفضّل، ولا شيء يُصلَح غير استعمال مشغّل مختلف.">Usually a codec issue. Some older streams use formats that one browser supports and another does not — Ogg Vorbis is the classic example, historically supported in some browsers and not others. Switching browsers is the fastest test. If it works in one and not the other, the station is using a format your preferred browser does not decode, and there is nothing to fix beyond using a different player.</p>
   <h2 data-en="6. The sound is live but the track name is wrong" data-ar="6. الصوت مباشر لكن اسم الأغنية خاطئ">6. The sound is live but the track name is wrong</h2>
   <p data-en="Metadata is optional and is sent separately from the audio. A station can transmit perfectly while its track information is frozen on a song from three hours ago, because a script somewhere stopped updating. This is entirely at the broadcaster's end and affects nothing you are hearing." data-ar="البيانات الوصفية اختيارية وتُرسَل منفصلة عن الصوت. فقد تبثّ محطة بشكل سليم تماماً بينما معلومات المقطوعة لديها متجمدة على أغنية من ثلاث ساعات، لأن نصّاً برمجياً في مكان ما توقف عن التحديث. وهذا كله في طرف الباثّ ولا يؤثر في شيء مما تسمعه.">Metadata is optional and is sent separately from the audio. A station can transmit perfectly while its track information is frozen on a song from three hours ago, because a script somewhere stopped updating. This is entirely at the broadcaster's end and affects nothing you are hearing.</p>
-  <div class="box">
-    <h3 data-en="The thirty-second diagnosis" data-ar="التشخيص في ثلاثين ثانية">The thirty-second diagnosis</h3>
+  <h2 data-en="The thirty-second diagnosis" data-ar="التشخيص في ثلاثين ثانية">The thirty-second diagnosis</h2>
   <p data-en="Try a second station. If it plays perfectly, the first station is the problem and no amount of restarting will change that. If it also fails, the issue is your connection, your browser or your device — in that order of likelihood. This single test resolves most cases faster than any settings menu." data-ar="جرّب محطة ثانية. فإن عملت تماماً، فالمحطة الأولى هي المشكلة ولن يغيّر ذلك أي قدر من إعادة التشغيل. وإن فشلت هي أيضاً، فالمشكلة في اتصالك أو متصفحك أو جهازك — بهذا الترتيب في الاحتمالية. وهذا الاختبار الواحد يحسم معظم الحالات أسرع من أي قائمة إعدادات.">Try a second station. If it plays perfectly, the first station is the problem and no amount of restarting will change that. If it also fails, the issue is your connection, your browser or your device — in that order of likelihood. This single test resolves most cases faster than any settings menu.</p>
-  </div>
   <blockquote data-en="Most radio problems are not your problem. The useful skill is telling in half a minute which ones are." data-ar="معظم مشاكل الراديو ليست مشكلتك. والمهارة المفيدة أن تعرف في نصف دقيقة أيّها كذلك.">Most radio problems are not your problem. The useful skill is telling in half a minute which ones are.</blockquote>
 
-
-  <a class="cta" href="../" data-en="Try another station &rarr;" data-ar="جرّب محطة أخرى &larr;">Try another station &rarr;</a>
-
-  <div class="sharerow">
-    <button id="shNative" data-en="Share" data-ar="مشاركة">Share</button>
-    <button id="shWhats">WhatsApp</button>
-    <button id="shX">X</button>
-    <button id="shCopy" data-en="Copy link" data-ar="نسخ الرابط">Copy link</button>
-  </div>
-
-  <div class="related" id="relSec" style="display:none">
-    <h2 data-en="Related articles" data-ar="مقالات ذات صلة">Related articles</h2>
-    <div class="rgrid" id="relGrid"></div>
-  </div>
+  <a class="cta" href="../" data-en="Browse live stations &rarr;" data-ar="تصفّح المحطات المباشرة &larr;">Browse live stations &rarr;</a>
 </main>
 
 <footer>
@@ -286,7 +164,7 @@ footer nav a:hover{color:var(--acc)}
     <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
     <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
   </nav>
-  <div>© <span id="yr"></span> LiveRadio</div>
+  <div>&copy; <span id="yr"></span> LiveRadio</div>
 </footer>
 
 <script>
@@ -302,81 +180,15 @@ function apply(){
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
   var els=document.querySelectorAll('[data-en]');
   for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
-  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  var le=document.querySelectorAll('.lang-en'),la=document.querySelectorAll('.lang-ar');
+  for(var a=0;a<le.length;a++)le[a].style.display=(lang==='en')?'':'none';
+  for(var b=0;b<la.length;b++)la[b].style.display=(lang==='ar')?'':'none';
+  document.getElementById('langBtn').textContent=lang==='en'?'Arabic':'الإنجليزية';
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
 }
 document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
 document.getElementById('yr').textContent=new Date().getFullYear();
 apply();
 </script>
-
-<script>
-/* ===== شريط التقدّم + حفظ موضع القراءة + المشاركة + مقالات ذات صلة ===== */
-(function(){
-  var SLUG='radio-stream-not-working';
-  var bar=document.getElementById('rprog');
-  function pct(){
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    return h>0?Math.min(100,Math.round((window.scrollY/h)*100)):0;
-  }
-  var save=null;
-  window.addEventListener('scroll',function(){
-    var p=pct();
-    if(bar)bar.style.width=p+'%';
-    clearTimeout(save);
-    save=setTimeout(function(){
-      try{
-        var o=JSON.parse(localStorage.getItem('lr_read')||'{}');
-        o[SLUG]=p;localStorage.setItem('lr_read',JSON.stringify(o));
-      }catch(e){}
-    },400);
-  });
-
-  var sh=document.getElementById('shWhats'),cp=document.getElementById('shCopy'),
-      na=document.getElementById('shNative'),tw=document.getElementById('shX');
-  var url=location.href.split('#')[0], ttl=document.title;
-  if(sh)sh.onclick=function(){
-    window.open('https://wa.me/?text='+encodeURIComponent(ttl+' '+url),'_blank');
-  };
-  if(tw)tw.onclick=function(){
-    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(ttl)+
-      '&url='+encodeURIComponent(url),'_blank');
-  };
-  if(cp)cp.onclick=function(){
-    if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){
-      cp.textContent=(document.documentElement.lang==='ar')?'تم النسخ':'Copied';
-    });
-  };
-  if(na)na.onclick=function(){
-    if(navigator.share)navigator.share({title:ttl,url:url}).catch(function(){});
-    else if(cp)cp.click();
-  };
-
-  /* مقالات ذات صلة من نفس التصنيف */
-  fetch('../articles.json').then(function(r){return r.json();}).then(function(all){
-    var me=null;
-    for(var i=0;i<all.length;i++)if(all[i].slug===SLUG){me=all[i];break;}
-    if(!me)return;
-    var lang=document.documentElement.lang==='ar'?'ar':'en';
-    var same=all.filter(function(p){return p.slug!==SLUG&&p.cat===me.cat;});
-    var rest=all.filter(function(p){return p.slug!==SLUG&&p.cat!==me.cat;});
-    var pick=same.concat(rest).slice(0,3);
-    if(!pick.length)return;
-    var box=document.getElementById('relGrid');
-    if(!box)return;
-    pick.forEach(function(p){
-      var a=document.createElement('a');a.className='rcard';a.href='./'+p.slug+'.html';
-      a.innerHTML='<div class="t"></div><div class="h"></div>';
-      a.querySelector('.t').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
-      a.querySelector('.h').textContent=p.title[lang]||p.title.en;
-      box.appendChild(a);
-    });
-    document.getElementById('relSec').style.display='block';
-  }).catch(function(){});
-})();
-</script>
-<script src="/ads.js" defer></script>
-<script src="/art.js" defer></script>
-<script src="/social.js" defer></script>
 </body>
 </html>
