@@ -4,27 +4,49 @@
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="yX25szfjBSoo35hZI9DG4jLp4pah3fZ07GVtTvfX_qk" />
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-LKJTP0YVEN');
+  addEventListener('load', function(){
+    var s=document.createElement('script');
+    s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN';
+    document.head.appendChild(s);
+  });
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The Best Radio Stations in the World — A Listener's Guide | LiveRadio</title>
-<meta name="description" content="A handpicked guide to the best radio stations in the world, from BBC Radio 6 Music to Radio Nova and NTS — what each one does well and when to tune in.">
+<title>The best radio stations in the world | LiveRadio</title>
+<meta name="description" content="A handpicked tour of the stations worth your evening, from BBC to Radio Nova.">
 <link rel="canonical" href="https://worldliveradio.com/articles/best-radio-stations-world.html">
 <meta name="theme-color" content="#eef3fb">
-<meta property="og:title" content="The Best Radio Stations in the World — A Listener's Guide">
-<meta property="og:description" content="A handpicked tour of stations worth your evening, and how to find your own.">
+<meta property="og:title" content="The best radio stations in the world">
+<meta property="og:description" content="A handpicked tour of the stations worth your evening, from BBC to Radio Nova.">
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" media="print" onload="this.media='all'"
+  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap">
+<noscript><link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap"></noscript>
 <style>
-:root{--bg:#0b0f1a;--card:#161d31;--line:#232c45;--txt:#eef2ff;--mut:#93a0c0;
---acc:#22d3a6;--acc2:#6366f1;--font:'Outfit','Cairo',system-ui,sans-serif;box-sizing:border-box}
+:root{
+  --bg:#f3f6fc; --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
+  --txt:#111a2e; --mut:#5a6880; --acc:#0d9488; --acc2:#5b53e0;
+  --shadow:rgba(23,38,74,.09);
+  --headG:linear-gradient(120deg,#e8f1ff 0%,#eeeafd 48%,#fdeef4 100%);
+  --footG:linear-gradient(120deg,#fdeef4 0%,#eeeafd 52%,#e8f1ff 100%);
+  --cardG:linear-gradient(170deg,#ffffff 0%,#f6f9ff 100%);
+  --font:'Outfit','Cairo',system-ui,sans-serif;box-sizing:border-box;
+}
+html[data-theme="dark"]{
+  --bg:#0b0f1a; --card:#161d31; --card2:#1c2440; --line:#232c45;
+  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1;
+  --shadow:rgba(0,0,0,.35);
+  --headG:linear-gradient(120deg,#0e1526,#121a2e 60%,#17132a);
+  --footG:linear-gradient(120deg,#17132a,#121a2e 48%,#0e1526);
+  --cardG:linear-gradient(170deg,#161d31,#141b2d);
+}
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-behavior:smooth;height:100%}
 body{margin:0;min-height:100%;background:var(--bg);color:var(--txt);font-family:var(--font);
@@ -32,68 +54,56 @@ padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bott
 html[dir="rtl"] body{font-family:'Cairo',var(--font)}
 a{color:var(--acc);text-decoration:none}
 button{font-family:inherit}
-header{position:sticky;top:0;z-index:30;background:rgba(11,15,26,.93);backdrop-filter:blur(14px);
-border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+header{position:sticky;top:0;z-index:30;background:var(--headG);border-bottom:1px solid var(--line);
+padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(10px)}
 .hrow{display:flex;align-items:center;gap:10px;padding:12px 16px;max-width:760px;margin:0 auto}
 .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;color:var(--txt)}
 .logo-dot{width:11px;height:11px;border-radius:50%;background:var(--acc)}
 .logo span{color:var(--acc)}
 .spacer{flex:1}
-.btn{background:var(--card);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
-border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
-main{max-width:760px;margin:0 auto;padding:26px 18px 60px}
+.btn{background:var(--cardG);border:1px solid var(--line);color:var(--txt);padding:8px 14px;
+border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 1px 2px var(--shadow)}
+main{max-width:760px;margin:0 auto;padding:22px 18px 60px}
 .crumb{font-size:13px;color:var(--mut);margin-bottom:14px}
 .tagx{display:inline-block;font-size:12px;color:var(--acc);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800}
-.meta{color:var(--mut);font-size:14px;margin-bottom:26px}
-h2{font-size:22px;margin:34px 0 12px;font-weight:800;line-height:1.3}
-h3{font-size:18px;margin:26px 0 8px;font-weight:700}
-p{line-height:1.8;color:#dbe2f7;margin:0 0 16px;font-size:16.5px}
-ul,ol{line-height:1.85;color:#dbe2f7;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
-li{margin-bottom:8px}
-blockquote{border-inline-start:3px solid var(--acc);margin:22px 0;padding:4px 0 4px 16px;
-padding-inline-start:16px;color:var(--mut);font-style:italic}
-.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:26px 0}
-.box h3{margin-top:0}
+h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800;
+background:linear-gradient(100deg,var(--acc),var(--acc2) 70%);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{color:var(--acc2);font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
+.meta{color:var(--mut);font-size:14px;margin-bottom:22px}
+.hero{height:190px;border-radius:18px;margin-bottom:26px;position:relative;overflow:hidden;
+background:linear-gradient(135deg,#581c87,#0e7490 50%,#065f46);display:grid;place-items:center}
+.hero .heroimg{width:100%;height:100%;object-fit:cover;display:block}
+.lang-en img,.lang-ar img{max-width:100%;height:auto;border-radius:14px;margin:14px 0}
+.lang-en figure,.lang-ar figure{margin:16px 0}
+.lang-en figcaption,.lang-ar figcaption{font-size:13px;color:var(--mut);text-align:center;margin-top:6px}
+.hero .wav{display:flex;gap:6px;align-items:flex-end;height:68px}
+.hero .wav i{width:8px;background:rgba(255,255,255,.88);border-radius:4px;display:block;animation:w 1.4s ease-in-out infinite}
+.hero .wav i:nth-child(1){height:24px;animation-delay:0s}
+.hero .wav i:nth-child(2){height:48px;animation-delay:.15s}
+.hero .wav i:nth-child(3){height:68px;animation-delay:.3s}
+.hero .wav i:nth-child(4){height:40px;animation-delay:.45s}
+.hero .wav i:nth-child(5){height:58px;animation-delay:.6s}
+.hero .wav i:nth-child(6){height:28px;animation-delay:.75s}
+.hero .wav i:nth-child(7){height:46px;animation-delay:.9s}
+@keyframes w{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+p{line-height:1.85;color:var(--txt);opacity:.93;margin:0 0 16px;font-size:16.5px}
+ul,ol{line-height:1.85;color:var(--txt);opacity:.93;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
+li{margin-bottom:9px}
+blockquote{border-inline-start:3px solid var(--acc);margin:24px 0;padding-inline-start:16px;
+color:var(--mut);font-style:italic;line-height:1.8}
+.playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
+padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
+margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
 .cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
-color:#04221b;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px}
-footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;color:var(--mut);font-size:14px}
+color:#fff;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px;
+box-shadow:0 6px 18px var(--shadow)}
+footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;color:var(--mut);
+font-size:14px;background:var(--footG)}
 footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
 footer nav a{color:var(--mut)}
-footer nav a:hover{color:var(--acc)}
 </style>
-
-<style>
-/* light theme is the default; dark is opt-in */
-:root{
-  --bg:#f3f6fc; --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
-  --txt:#111a2e; --mut:#5a6880; --acc:#0d9488; --acc2:#5b53e0; --red:#e11d48;
-  --shadow:rgba(23,38,74,.09);
-  --headG:linear-gradient(120deg,#e8f1ff 0%,#eeeafd 48%,#fdeef4 100%);
-  --footG:linear-gradient(120deg,#fdeef4 0%,#eeeafd 52%,#e8f1ff 100%);
-  --cardG:linear-gradient(170deg,#ffffff 0%,#f6f9ff 100%);
-}
-html[data-theme="dark"]{
-  --bg:#0b0f1a; --card:#161d31; --card2:#1c2440; --line:#232c45;
-  --txt:#eef2ff; --mut:#93a0c0; --acc:#22d3a6; --acc2:#6366f1; --red:#f43f5e;
-  --shadow:rgba(0,0,0,.35);
-  --headG:linear-gradient(120deg,#0e1526,#121a2e 60%,#17132a);
-  --footG:linear-gradient(120deg,#17132a,#121a2e 48%,#0e1526);
-  --cardG:linear-gradient(170deg,#161d31,#141b2d);
-}
-body{background:var(--bg)}
-header{background:var(--headG);backdrop-filter:blur(10px)}
-footer{background:var(--footG)}
-.btn{background:var(--cardG);box-shadow:0 1px 2px var(--shadow)}
-.box,.art,.mail{background:var(--cardG);box-shadow:0 2px 8px var(--shadow)}
-.chip{background:var(--cardG)}
-.chip.on{background:linear-gradient(135deg,var(--acc),var(--acc2));border-color:transparent;color:#fff}
-th{background:var(--card2)}
-code{background:var(--card2)}
-p,ul,ol{color:var(--txt);opacity:.93}
-.cta{color:#fff;box-shadow:0 6px 18px var(--shadow)}
-</style>
-
 <script>
 (function(){
   var t='light';
@@ -103,193 +113,75 @@ p,ul,ol{color:var(--txt);opacity:.93}
   if(m)m.setAttribute('content',t==='dark'?'#0e1526':'#eef3fb');
 })();
 </script>
-
-<style>
-h1{background:linear-gradient(100deg,var(--acc),var(--acc2) 70%);
--webkit-background-clip:text;background-clip:text;color:transparent}
-h2{color:var(--acc2)}
-</style>
-
-<style>
-#rprog{position:fixed;top:0;left:0;height:3px;width:0;z-index:70;
-  background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .1s}
-.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.navrow a,.navrow button{background:var(--cardG);border:1px solid var(--line);color:var(--txt);
-  padding:9px 15px;border-radius:999px;font-size:13.5px;font-weight:700;cursor:pointer;
-  font-family:inherit;box-shadow:0 1px 3px var(--shadow)}
-.navrow a:hover,.navrow button:hover{border-color:var(--acc);color:var(--acc)}
-.sharerow{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 8px}
-.sharerow button{flex:1;min-width:110px;background:var(--cardG);border:1px solid var(--line);
-  color:var(--txt);padding:11px;border-radius:12px;font-weight:700;cursor:pointer;
-  font-family:inherit;font-size:13.5px}
-.sharerow button:hover{border-color:var(--acc);color:var(--acc)}
-.related{margin:34px 0 10px}
-.related h2{font-size:19px;margin:0 0 12px}
-.rgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
-.rcard{background:var(--cardG);border:1px solid var(--line);border-radius:14px;padding:15px;
-  display:block;box-shadow:0 2px 8px var(--shadow);transition:.2s}
-.rcard:hover{border-color:var(--acc);transform:translateY(-2px)}
-.rcard .t{font-size:11.5px;color:var(--acc);font-weight:700;text-transform:uppercase}
-.rcard .h{font-size:15px;font-weight:700;margin:6px 0 0;line-height:1.35;color:var(--txt)}
-</style>
-<!--ld:start-->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Article",
-   "@id": "https://worldliveradio.com/articles/best-radio-stations-world.html#article",
-   "url": "https://worldliveradio.com/articles/best-radio-stations-world.html",
-   "mainEntityOfPage": "https://worldliveradio.com/articles/best-radio-stations-world.html",
-   "headline": "The best radio stations in the world",
-   "description": "A handpicked tour of the stations worth your evening, from BBC to Radio Nova.",
-   "inLanguage": [
-    "en",
-    "ar"
-   ],
-   "datePublished": "2026-10-30",
-   "dateModified": "2026-10-30",
-   "author": {
-    "@id": "https://worldliveradio.com/#org"
-   },
-   "publisher": {
-    "@id": "https://worldliveradio.com/#org"
-   },
-   "isPartOf": {
-    "@id": "https://worldliveradio.com/#website"
-   },
-   "alternativeHeadline": "أفضل المحطات الإذاعية في العالم",
-   "articleSection": "Stations"
-  },
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "LiveRadio",
-     "item": "https://worldliveradio.com/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "Articles",
-     "item": "https://worldliveradio.com/articles.html"
-    },
-    {
-     "@type": "ListItem",
-     "position": 3,
-     "name": "The best radio stations in the world",
-     "item": "https://worldliveradio.com/articles/best-radio-stations-world.html"
-    }
-   ]
-  },
-  {
-   "@type": "Organization",
-   "@id": "https://worldliveradio.com/#org",
-   "name": "LiveRadio",
-   "url": "https://worldliveradio.com/",
-   "logo": {
-    "@type": "ImageObject",
-    "url": "https://worldliveradio.com/icon-512.png",
-    "width": 512,
-    "height": 512
-   }
-  }
- ]
-}
-</script>
-<!--ld:end-->
 </head>
 <body>
-<div id="rprog"></div>
 
 <header>
   <div class="hrow">
     <a class="logo" href="../"><span class="logo-dot"></span>Live<span>Radio</span></a>
     <div class="spacer"></div>
     <a class="btn" href="../" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
-    <button class="btn" id="langBtn">العربية</button>
+    <button class="btn" id="langBtn">Arabic</button>
   </div>
 </header>
 
 <main data-type="article" data-slug="best-radio-stations-world">
-  <div class="navrow">
-    <a href="../" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
-    <a href="../articles.html" data-en="&larr; All articles" data-ar="&rarr; كل المقالات">&larr; All articles</a>
-  </div>
-
-  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <span data-en="Guides" data-ar="أدلة">Guides</span></div>
-  <span class="tagx" data-en="Guide" data-ar="دليل">Guide</span>
+  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a></div>
+  <span class="tagx" data-en="Stations" data-ar="محطات">Stations</span>
   <h1 data-en="The best radio stations in the world" data-ar="أفضل المحطات الإذاعية في العالم">The best radio stations in the world</h1>
-  <div class="meta"><span data-en="Updated October 2026 · 7 min read" data-ar="تحديث أكتوبر 2026 · قراءة 7 دقائق">Updated October 2026 · 7 min read</span></div>
+  <div class="meta"><span data-en="Updated 2026-10-30" data-ar="تحديث 2026-10-30">Updated 2026-10-30</span></div>
 
-  <p data-en="There are more than forty thousand radio stations streaming online right now, and almost all of them are free. That abundance is a problem as much as a gift: when everything is one click away, nothing stands out. This guide is a shortcut. These are stations that have earned a reputation among listeners who care about radio, grouped by what they actually do well rather than by country." data-ar="هناك أكثر من أربعين ألف محطة إذاعية تبث عبر الإنترنت في هذه اللحظة، وجميعها تقريباً مجانية. هذه الوفرة نعمة ومشكلة في آن واحد: حين يكون كل شيء على بُعد نقرة واحدة، لا شيء يبرز. هذا الدليل اختصار للطريق. هذه محطات بنت سمعتها عند المستمعين الذين يهتمون فعلاً بالراديو، مرتّبة حسب ما تتقنه لا حسب بلدها.">There are more than forty thousand radio stations streaming online right now, and almost all of them are free.</p>
+  <div class="hero"><div class="wav"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
 
+  <p data-en="There are more than forty thousand radio stations streaming online right now, and almost all of them are free. That abundance is a problem as much as a gift: when everything is one click away, nothing stands out. This guide is a shortcut. These are stations that have earned a reputation among listeners who care about radio, grouped by what they actually do well rather than by country." data-ar="هناك أكثر من أربعين ألف محطة إذاعية تبث عبر الإنترنت في هذه اللحظة، وجميعها تقريباً مجانية. هذه الوفرة نعمة ومشكلة في آن واحد: حين يكون كل شيء على بُعد نقرة واحدة، لا شيء يبرز. هذا الدليل اختصار للطريق. هذه محطات بنت سمعتها عند المستمعين الذين يهتمون فعلاً بالراديو، مرتّبة حسب ما تتقنه لا حسب بلدها.">There are more than forty thousand radio stations streaming online right now, and almost all of them are free. That abundance is a problem as much as a gift: when everything is one click away, nothing stands out. This guide is a shortcut. These are stations that have earned a reputation among listeners who care about radio, grouped by what they actually do well rather than by country.</p>
   <h2 data-en="For discovering music you have never heard" data-ar="لاكتشاف موسيقى لم تسمعها من قبل">For discovering music you have never heard</h2>
-
-  <h3>BBC Radio 6 Music</h3>
-  <p data-en="Probably the single best argument that curated radio still beats an algorithm. Six Music sits between the mainstream and the obscure: new releases, forgotten B-sides, live sessions, and presenters who actually explain why a record matters. If you only bookmark one station from this list, make it this one." data-ar="ربما هي أقوى حجة على أن الراديو المُنتقى بشرياً ما زال يتفوق على الخوارزميات. تقف Six Music بين السائد والنادر: إصدارات جديدة، وجوه ب منسية، جلسات حيّة، ومقدمون يشرحون فعلاً لماذا يستحق تسجيل ما الاهتمام. إن كنت ستحفظ محطة واحدة من هذه القائمة، فلتكن هذه.">Probably the single best argument that curated radio still beats an algorithm.</p>
-
-  <h3>NTS Radio</h3>
-  <p data-en="Broadcasting from London, Manchester, Shanghai and Los Angeles, NTS is run almost entirely by guest hosts with narrow obsessions — Ethiopian jazz, Brazilian boogie, ambient field recordings. Nothing is smoothed over for mass appeal, which is exactly the point. Expect to be lost for the first ten minutes and hooked by the twentieth." data-ar="تبث NTS من لندن ومانشستر وشنغهاي ولوس أنجلوس، ويديرها في معظمها مقدمون ضيوف لكل منهم هوسه الضيّق: الجاز الإثيوبي، البوغي البرازيلي، التسجيلات الميدانية المحيطة. لا شيء يُلطَّف لإرضاء الجمهور العريض، وهذا هو المقصود تماماً. توقّع أن تضيع في أول عشر دقائق وأن تتعلّق بها في العشرين.">Broadcasting from London, Manchester, Shanghai and Los Angeles.</p>
-
-  <h3>Radio Nova (Paris)</h3>
-  <p data-en="Nova built its identity on the idea that genre borders are arbitrary. A single hour can move from Fela Kuti to a French rapper to a 1970s Turkish psych record without ever sounding like a shuffle button. For listeners outside France, the language barrier barely matters — the music carries it." data-ar="بنت نوفا هويتها على فكرة أن حدود الأنواع الموسيقية اعتباطية. قد تنتقل ساعة واحدة من فيلا كوتي إلى مغني راب فرنسي إلى تسجيل تركي سايكدلي من السبعينيات، دون أن تبدو أبداً كزر تشغيل عشوائي. وبالنسبة للمستمع خارج فرنسا، لا يشكّل حاجز اللغة عائقاً يُذكر — الموسيقى تحمل كل شيء.">Nova built its identity on the idea that genre borders are arbitrary.</p>
-
+  <p data-en="Probably the single best argument that curated radio still beats an algorithm. Six Music sits between the mainstream and the obscure: new releases, forgotten B-sides, live sessions, and presenters who actually explain why a record matters. If you only bookmark one station from this list, make it this one." data-ar="ربما هي أقوى حجة على أن الراديو المُنتقى بشرياً ما زال يتفوق على الخوارزميات. تقف Six Music بين السائد والنادر: إصدارات جديدة، وجوه ب منسية، جلسات حيّة، ومقدمون يشرحون فعلاً لماذا يستحق تسجيل ما الاهتمام. إن كنت ستحفظ محطة واحدة من هذه القائمة، فلتكن هذه.">Probably the single best argument that curated radio still beats an algorithm. Six Music sits between the mainstream and the obscure: new releases, forgotten B-sides, live sessions, and presenters who actually explain why a record matters. If you only bookmark one station from this list, make it this one.</p>
+  <p data-en="Broadcasting from London, Manchester, Shanghai and Los Angeles, NTS is run almost entirely by guest hosts with narrow obsessions — Ethiopian jazz, Brazilian boogie, ambient field recordings. Nothing is smoothed over for mass appeal, which is exactly the point. Expect to be lost for the first ten minutes and hooked by the twentieth." data-ar="تبث NTS من لندن ومانشستر وشنغهاي ولوس أنجلوس، ويديرها في معظمها مقدمون ضيوف لكل منهم هوسه الضيّق: الجاز الإثيوبي، البوغي البرازيلي، التسجيلات الميدانية المحيطة. لا شيء يُلطَّف لإرضاء الجمهور العريض، وهذا هو المقصود تماماً. توقّع أن تضيع في أول عشر دقائق وأن تتعلّق بها في العشرين.">Broadcasting from London, Manchester, Shanghai and Los Angeles, NTS is run almost entirely by guest hosts with narrow obsessions — Ethiopian jazz, Brazilian boogie, ambient field recordings. Nothing is smoothed over for mass appeal, which is exactly the point. Expect to be lost for the first ten minutes and hooked by the twentieth.</p>
+  <p data-en="Nova built its identity on the idea that genre borders are arbitrary. A single hour can move from Fela Kuti to a French rapper to a 1970s Turkish psych record without ever sounding like a shuffle button. For listeners outside France, the language barrier barely matters — the music carries it." data-ar="بنت نوفا هويتها على فكرة أن حدود الأنواع الموسيقية اعتباطية. قد تنتقل ساعة واحدة من فيلا كوتي إلى مغني راب فرنسي إلى تسجيل تركي سايكدلي من السبعينيات، دون أن تبدو أبداً كزر تشغيل عشوائي. وبالنسبة للمستمع خارج فرنسا، لا يشكّل حاجز اللغة عائقاً يُذكر — الموسيقى تحمل كل شيء.">Nova built its identity on the idea that genre borders are arbitrary. A single hour can move from Fela Kuti to a French rapper to a 1970s Turkish psych record without ever sounding like a shuffle button. For listeners outside France, the language barrier barely matters — the music carries it.</p>
   <h2 data-en="For news you can trust" data-ar="للأخبار التي يمكن الوثوق بها">For news you can trust</h2>
-  <p data-en="News radio is where the medium still has a clear advantage over everything else: it is live, it is hands-free, and a good bulletin gives you the shape of a story in four minutes instead of forty scrolls." data-ar="الراديو الإخباري هو المجال الذي ما زالت فيه هذه الوسيلة متفوقة بوضوح على غيرها: إنه مباشر، ولا يحتاج يديك، والنشرة الجيدة تعطيك ملامح الخبر في أربع دقائق بدل أربعين تمريرة على الشاشة.">News radio is where the medium still has a clear advantage.</p>
+  <p data-en="News radio is where the medium still has a clear advantage over everything else: it is live, it is hands-free, and a good bulletin gives you the shape of a story in four minutes instead of forty scrolls." data-ar="الراديو الإخباري هو المجال الذي ما زالت فيه هذه الوسيلة متفوقة بوضوح على غيرها: إنه مباشر، ولا يحتاج يديك، والنشرة الجيدة تعطيك ملامح الخبر في أربع دقائق بدل أربعين تمريرة على الشاشة.">News radio is where the medium still has a clear advantage over everything else: it is live, it is hands-free, and a good bulletin gives you the shape of a story in four minutes instead of forty scrolls.</p>
   <ul>
-    <li data-en="<strong>BBC World Service</strong> — the default reference point for international news in English, with documentary strands worth seeking out on their own." data-ar="<strong>BBC World Service</strong> — المرجع الافتراضي للأخبار الدولية بالإنجليزية، وبرامجها الوثائقية تستحق البحث عنها بذاتها."><strong>BBC World Service</strong></li>
-    <li data-en="<strong>France Info</strong> — rolling French news with a clean, repeating structure that makes it easy to drop in at any moment." data-ar="<strong>France Info</strong> — أخبار فرنسية متواصلة ببنية نظيفة متكررة تجعل الدخول عليها في أي لحظة سهلاً."><strong>France Info</strong></li>
-    <li data-en="<strong>NPR</strong> — American public radio, strongest in long-form reporting and interviews rather than breaking headlines." data-ar="<strong>NPR</strong> — الراديو العام الأمريكي، وأقوى ما فيه التقارير الطويلة والحوارات أكثر من الأخبار العاجلة."><strong>NPR</strong></li>
-    <li data-en="<strong>Monte Carlo Doualiya</strong> — Arabic-language international news with a notably calm, unhurried delivery." data-ar="<strong>مونت كارلو الدولية</strong> — أخبار دولية بالعربية بأسلوب هادئ غير متعجّل."><strong>Monte Carlo Doualiya</strong></li>
+    <li data-en="<strong>BBC World Service</strong> — the default reference point for international news in English, with documentary strands worth seeking out on their own." data-ar="<strong>BBC World Service</strong> — المرجع الافتراضي للأخبار الدولية بالإنجليزية، وبرامجها الوثائقية تستحق البحث عنها بذاتها."><strong>BBC World Service</strong> — the default reference point for international news in English, with documentary strands worth seeking out on their own.</li>
   </ul>
-
+  <ul>
+    <li data-en="<strong>France Info</strong> — rolling French news with a clean, repeating structure that makes it easy to drop in at any moment." data-ar="<strong>France Info</strong> — أخبار فرنسية متواصلة ببنية نظيفة متكررة تجعل الدخول عليها في أي لحظة سهلاً."><strong>France Info</strong> — rolling French news with a clean, repeating structure that makes it easy to drop in at any moment.</li>
+  </ul>
+  <ul>
+    <li data-en="<strong>NPR</strong> — American public radio, strongest in long-form reporting and interviews rather than breaking headlines." data-ar="<strong>NPR</strong> — الراديو العام الأمريكي، وأقوى ما فيه التقارير الطويلة والحوارات أكثر من الأخبار العاجلة."><strong>NPR</strong> — American public radio, strongest in long-form reporting and interviews rather than breaking headlines.</li>
+  </ul>
+  <ul>
+    <li data-en="<strong>Monte Carlo Doualiya</strong> — Arabic-language international news with a notably calm, unhurried delivery." data-ar="<strong>مونت كارلو الدولية</strong> — أخبار دولية بالعربية بأسلوب هادئ غير متعجّل."><strong>Monte Carlo Doualiya</strong> — Arabic-language international news with a notably calm, unhurried delivery.</li>
+  </ul>
   <h2 data-en="For the Arab world" data-ar="من العالم العربي">For the Arab world</h2>
-  <p data-en="Arabic-language radio online is richer than most international lists admit. Moroccan stations such as MFM, Hit Radio and Radio Mars have strong live streams and large audiences; Egyptian Nogoum FM remains a reference for mainstream Arabic pop; and Quran stations from Saudi Arabia, Egypt and Morocco are among the most consistently streamed channels in the world. Many of these carry local advertising and local news bulletins, which makes them a genuine window into a place rather than a generic playlist." data-ar="الراديو الناطق بالعربية على الإنترنت أغنى مما تعترف به معظم القوائم العالمية. المحطات المغربية مثل MFM وهيت راديو وراديو مارس لديها بث حي قوي وجمهور كبير؛ وتبقى نجوم إف إم المصرية مرجعاً للبوب العربي السائد؛ ومحطات القرآن من السعودية ومصر والمغرب من بين الأكثر استماعاً في العالم باستمرار. كثير من هذه المحطات تحمل إعلانات محلية ونشرات أخبار محلية، ما يجعلها نافذة حقيقية على مكان بعينه لا مجرد قائمة تشغيل عامة.">Arabic-language radio online is richer than most international lists admit.</p>
-
+  <p data-en="Arabic-language radio online is richer than most international lists admit. Moroccan stations such as MFM, Hit Radio and Radio Mars have strong live streams and large audiences; Egyptian Nogoum FM remains a reference for mainstream Arabic pop; and Quran stations from Saudi Arabia, Egypt and Morocco are among the most consistently streamed channels in the world. Many of these carry local advertising and local news bulletins, which makes them a genuine window into a place rather than a generic playlist." data-ar="الراديو الناطق بالعربية على الإنترنت أغنى مما تعترف به معظم القوائم العالمية. المحطات المغربية مثل MFM وهيت راديو وراديو مارس لديها بث حي قوي وجمهور كبير؛ وتبقى نجوم إف إم المصرية مرجعاً للبوب العربي السائد؛ ومحطات القرآن من السعودية ومصر والمغرب من بين الأكثر استماعاً في العالم باستمرار. كثير من هذه المحطات تحمل إعلانات محلية ونشرات أخبار محلية، ما يجعلها نافذة حقيقية على مكان بعينه لا مجرد قائمة تشغيل عامة.">Arabic-language radio online is richer than most international lists admit. Moroccan stations such as MFM, Hit Radio and Radio Mars have strong live streams and large audiences; Egyptian Nogoum FM remains a reference for mainstream Arabic pop; and Quran stations from Saudi Arabia, Egypt and Morocco are among the most consistently streamed channels in the world. Many of these carry local advertising and local news bulletins, which makes them a genuine window into a place rather than a generic playlist.</p>
   <h2 data-en="For background and focus" data-ar="للخلفية والتركيز">For background and focus</h2>
-  <p data-en="Not every listening session needs a presenter. Stations built for continuous play — ambient, lo-fi, classical, jazz — work differently: the goal is to disappear. Two worth knowing are SomaFM's Groove Salad, which has been running a steady downtempo stream since the late 1990s, and Venice Classic Radio, which plays baroque and classical recordings with minimal interruption." data-ar="ليست كل جلسة استماع بحاجة إلى مقدّم. المحطات المبنية للتشغيل المتواصل — المحيطية، اللو-فاي، الكلاسيكية، الجاز — تعمل بشكل مختلف: هدفها أن تختفي. اثنتان تستحقان المعرفة: Groove Salad من SomaFM التي تبث تياراً هادئاً ثابتاً منذ أواخر التسعينيات، وVenice Classic Radio التي تقدّم تسجيلات باروكية وكلاسيكية بأقل قدر من المقاطعة.">Not every listening session needs a presenter.</p>
-
-  <div class="box">
-    <h3 data-en="How to find your own, in three minutes" data-ar="كيف تجد محطتك الخاصة في ثلاث دقائق">How to find your own, in three minutes</h3>
-    <ol>
-      <li data-en="Start with a country, not a genre. Local stations reveal music that never crosses borders." data-ar="ابدأ ببلد لا بنوع موسيقي. المحطات المحلية تكشف موسيقى لا تعبر الحدود أبداً.">Start with a country, not a genre.</li>
-      <li data-en="Give each station four minutes. One song tells you nothing; a song plus a link tells you everything." data-ar="امنح كل محطة أربع دقائق. أغنية واحدة لا تخبرك بشيء؛ أغنية مع وصلة المقدّم تخبرك بكل شيء.">Give each station four minutes.</li>
-      <li data-en="Save anything you liked even slightly. Taste in radio builds from a shortlist, not from a single hit." data-ar="احفظ كل ما أعجبك ولو قليلاً. الذوق في الراديو يُبنى من قائمة قصيرة لا من إصابة واحدة.">Save anything you liked even slightly.</li>
-    </ol>
-  </div>
-
+  <p data-en="Not every listening session needs a presenter. Stations built for continuous play — ambient, lo-fi, classical, jazz — work differently: the goal is to disappear. Two worth knowing are SomaFM's Groove Salad, which has been running a steady downtempo stream since the late 1990s, and Venice Classic Radio, which plays baroque and classical recordings with minimal interruption." data-ar="ليست كل جلسة استماع بحاجة إلى مقدّم. المحطات المبنية للتشغيل المتواصل — المحيطية، اللو-فاي، الكلاسيكية، الجاز — تعمل بشكل مختلف: هدفها أن تختفي. اثنتان تستحقان المعرفة: Groove Salad من SomaFM التي تبث تياراً هادئاً ثابتاً منذ أواخر التسعينيات، وVenice Classic Radio التي تقدّم تسجيلات باروكية وكلاسيكية بأقل قدر من المقاطعة.">Not every listening session needs a presenter. Stations built for continuous play — ambient, lo-fi, classical, jazz — work differently: the goal is to disappear. Two worth knowing are SomaFM's Groove Salad, which has been running a steady downtempo stream since the late 1990s, and Venice Classic Radio, which plays baroque and classical recordings with minimal interruption.</p>
+  <h2 data-en="How to find your own, in three minutes" data-ar="كيف تجد محطتك الخاصة في ثلاث دقائق">How to find your own, in three minutes</h2>
+  <ul>
+    <li data-en="Start with a country, not a genre. Local stations reveal music that never crosses borders." data-ar="ابدأ ببلد لا بنوع موسيقي. المحطات المحلية تكشف موسيقى لا تعبر الحدود أبداً.">Start with a country, not a genre. Local stations reveal music that never crosses borders.</li>
+  </ul>
+  <ul>
+    <li data-en="Give each station four minutes. One song tells you nothing; a song plus a link tells you everything." data-ar="امنح كل محطة أربع دقائق. أغنية واحدة لا تخبرك بشيء؛ أغنية مع وصلة المقدّم تخبرك بكل شيء.">Give each station four minutes. One song tells you nothing; a song plus a link tells you everything.</li>
+  </ul>
+  <ul>
+    <li data-en="Save anything you liked even slightly. Taste in radio builds from a shortlist, not from a single hit." data-ar="احفظ كل ما أعجبك ولو قليلاً. الذوق في الراديو يُبنى من قائمة قصيرة لا من إصابة واحدة.">Save anything you liked even slightly. Taste in radio builds from a shortlist, not from a single hit.</li>
+  </ul>
   <h2 data-en="Why radio still works" data-ar="لماذا ما زال الراديو ناجحاً">Why radio still works</h2>
-  <p data-en="Streaming services solved the problem of access — any song, any time. What they did not solve is the problem of choice. A good radio station removes the decision entirely and replaces it with someone else's judgement, which is a surprisingly restful thing. You also hear records you would never have searched for, because nobody searches for something they do not know exists." data-ar="حلّت خدمات البث مشكلة الوصول — أي أغنية، في أي وقت. لكنها لم تحل مشكلة الاختيار. المحطة الجيدة تُلغي القرار تماماً وتستبدله بحكم شخص آخر، وهذا أمر مريح بشكل مفاجئ. كما أنك تسمع تسجيلات ما كنت لتبحث عنها أبداً، لأن أحداً لا يبحث عن شيء لا يعرف أنه موجود.">Streaming services solved the problem of access — any song, any time.</p>
+  <p data-en="Streaming services solved the problem of access — any song, any time. What they did not solve is the problem of choice. A good radio station removes the decision entirely and replaces it with someone else's judgement, which is a surprisingly restful thing. You also hear records you would never have searched for, because nobody searches for something they do not know exists." data-ar="حلّت خدمات البث مشكلة الوصول — أي أغنية، في أي وقت. لكنها لم تحل مشكلة الاختيار. المحطة الجيدة تُلغي القرار تماماً وتستبدله بحكم شخص آخر، وهذا أمر مريح بشكل مفاجئ. كما أنك تسمع تسجيلات ما كنت لتبحث عنها أبداً، لأن أحداً لا يبحث عن شيء لا يعرف أنه موجود.">Streaming services solved the problem of access — any song, any time. What they did not solve is the problem of choice. A good radio station removes the decision entirely and replaces it with someone else's judgement, which is a surprisingly restful thing. You also hear records you would never have searched for, because nobody searches for something they do not know exists.</p>
+  <blockquote data-en="The best station is not the one with the biggest audience. It is the one you reach for without thinking." data-ar="أفضل محطة ليست صاحبة أكبر جمهور، بل تلك التي تمد يدك إليها دون تفكير.">The best station is not the one with the biggest audience. It is the one you reach for without thinking.</blockquote>
 
-  <blockquote data-en="The best station is not the one with the biggest audience. It is the one you reach for without thinking." data-ar="أفضل محطة ليست صاحبة أكبر جمهور، بل تلك التي تمد يدك إليها دون تفكير.">The best station is not the one with the biggest audience.</blockquote>
-
-  <a class="cta" href="../" data-en="Browse hundreds of live stations &rarr;" data-ar="تصفّح مئات المحطات المباشرة &larr;">Browse hundreds of live stations &rarr;</a>
-
-  <div class="sharerow">
-    <button id="shNative" data-en="Share" data-ar="مشاركة">Share</button>
-    <button id="shWhats">WhatsApp</button>
-    <button id="shX">X</button>
-    <button id="shCopy" data-en="Copy link" data-ar="نسخ الرابط">Copy link</button>
-  </div>
-
-  <div class="related" id="relSec" style="display:none">
-    <h2 data-en="Related articles" data-ar="مقالات ذات صلة">Related articles</h2>
-    <div class="rgrid" id="relGrid"></div>
-  </div>
+  <a class="cta" href="../" data-en="Browse live stations &rarr;" data-ar="تصفّح المحطات المباشرة &larr;">Browse live stations &rarr;</a>
 </main>
 
 <footer>
   <nav>
     <a href="../" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a>
     <a href="../about.html" data-en="About" data-ar="من نحن">About</a>
     <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
     <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
   </nav>
-  <div>© <span id="yr"></span> LiveRadio</div>
+  <div>&copy; <span id="yr"></span> LiveRadio</div>
 </footer>
 
 <script>
@@ -304,85 +196,16 @@ function apply(){
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
   var els=document.querySelectorAll('[data-en]');
-  for(var i=0;i<els.length;i++){
-    var v=els[i].getAttribute('data-'+lang);
-    if(v)els[i].innerHTML=v;
-  }
-  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
+  var le=document.querySelectorAll('.lang-en'),la=document.querySelectorAll('.lang-ar');
+  for(var a=0;a<le.length;a++)le[a].style.display=(lang==='en')?'':'none';
+  for(var b=0;b<la.length;b++)la[b].style.display=(lang==='ar')?'':'none';
+  document.getElementById('langBtn').textContent=lang==='en'?'Arabic':'الإنجليزية';
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
 }
 document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
 document.getElementById('yr').textContent=new Date().getFullYear();
 apply();
 </script>
-
-<script>
-/* ===== شريط التقدّم + حفظ موضع القراءة + المشاركة + مقالات ذات صلة ===== */
-(function(){
-  var SLUG='best-radio-stations-world';
-  var bar=document.getElementById('rprog');
-  function pct(){
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    return h>0?Math.min(100,Math.round((window.scrollY/h)*100)):0;
-  }
-  var save=null;
-  window.addEventListener('scroll',function(){
-    var p=pct();
-    if(bar)bar.style.width=p+'%';
-    clearTimeout(save);
-    save=setTimeout(function(){
-      try{
-        var o=JSON.parse(localStorage.getItem('lr_read')||'{}');
-        o[SLUG]=p;localStorage.setItem('lr_read',JSON.stringify(o));
-      }catch(e){}
-    },400);
-  });
-
-  var sh=document.getElementById('shWhats'),cp=document.getElementById('shCopy'),
-      na=document.getElementById('shNative'),tw=document.getElementById('shX');
-  var url=location.href.split('#')[0], ttl=document.title;
-  if(sh)sh.onclick=function(){
-    window.open('https://wa.me/?text='+encodeURIComponent(ttl+' '+url),'_blank');
-  };
-  if(tw)tw.onclick=function(){
-    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(ttl)+
-      '&url='+encodeURIComponent(url),'_blank');
-  };
-  if(cp)cp.onclick=function(){
-    if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){
-      cp.textContent=(document.documentElement.lang==='ar')?'تم النسخ':'Copied';
-    });
-  };
-  if(na)na.onclick=function(){
-    if(navigator.share)navigator.share({title:ttl,url:url}).catch(function(){});
-    else if(cp)cp.click();
-  };
-
-  /* مقالات ذات صلة من نفس التصنيف */
-  fetch('../articles.json').then(function(r){return r.json();}).then(function(all){
-    var me=null;
-    for(var i=0;i<all.length;i++)if(all[i].slug===SLUG){me=all[i];break;}
-    if(!me)return;
-    var lang=document.documentElement.lang==='ar'?'ar':'en';
-    var same=all.filter(function(p){return p.slug!==SLUG&&p.cat===me.cat;});
-    var rest=all.filter(function(p){return p.slug!==SLUG&&p.cat!==me.cat;});
-    var pick=same.concat(rest).slice(0,3);
-    if(!pick.length)return;
-    var box=document.getElementById('relGrid');
-    if(!box)return;
-    pick.forEach(function(p){
-      var a=document.createElement('a');a.className='rcard';a.href='./'+p.slug+'.html';
-      a.innerHTML='<div class="t"></div><div class="h"></div>';
-      a.querySelector('.t').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
-      a.querySelector('.h').textContent=p.title[lang]||p.title.en;
-      box.appendChild(a);
-    });
-    document.getElementById('relSec').style.display='block';
-  }).catch(function(){});
-})();
-</script>
-<script src="/ads.js" defer></script>
-<script src="/art.js" defer></script>
-<script src="/social.js" defer></script>
 </body>
 </html>
