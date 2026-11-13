@@ -225,7 +225,7 @@
     "en": "Japan",
     "ar": "اليابان",
     "date": "2026-11-11",
-    "n": 119,
+    "n": 120,
     "descEn": "Japanese radio holds a moment no other country's radio can match: the day an entire nation heard its emperor's voice for the first time, announcing th",
     "descAr": "تملك الإذاعة اليابانية لحظة لا يملكها راديو أي بلد آخر: اليوم الذي سمعت فيه أمة كاملة صوت إمبراطورها للمرة الأولى، وهو يعلن نهاية حرب. وتملك أيضاً واح"
   },
@@ -850,16 +850,6 @@
     "descAr": ""
   },
   {
-    "cc": "CY",
-    "slug": "cyprus",
-    "en": "Cyprus",
-    "ar": "قبرص",
-    "date": "2026-11-11",
-    "n": 61,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "SV",
     "slug": "el-salvador",
     "en": "El Salvador",
@@ -874,6 +864,16 @@
     "slug": "coted-ivoire",
     "en": "Coted Ivoire",
     "ar": "ساحل العاج",
+    "date": "2026-11-11",
+    "n": 61,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CY",
+    "slug": "cyprus",
+    "en": "Cyprus",
+    "ar": "قبرص",
     "date": "2026-11-11",
     "n": 61,
     "descEn": "",
@@ -1130,6 +1130,16 @@
     "descAr": ""
   },
   {
+    "cc": "SY",
+    "slug": "syrian-arab-republic",
+    "en": "Syrian Arab Republic",
+    "ar": "سوريا",
+    "date": "2026-11-11",
+    "n": 22,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "IR",
     "slug": "islamic-republic-of-iran",
     "en": "Islamic Republic Of Iran",
@@ -1150,32 +1160,12 @@
     "descAr": ""
   },
   {
-    "cc": "SY",
-    "slug": "syrian-arab-republic",
-    "en": "Syrian Arab Republic",
-    "ar": "سوريا",
-    "date": "2026-11-11",
-    "n": 22,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "CD",
     "slug": "the-democratic-republic-of-the-congo",
     "en": "The Democratic Republic Of The Congo",
     "ar": "الكونغو الديمقراطية",
     "date": "2026-11-11",
     "n": 21,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "MG",
-    "slug": "madagascar",
-    "en": "Madagascar",
-    "ar": "مدغشقر",
-    "date": "2026-11-11",
-    "n": 20,
     "descEn": "",
     "descAr": ""
   },
@@ -1194,6 +1184,16 @@
     "slug": "macao",
     "en": "Macao",
     "ar": "Macao",
+    "date": "2026-11-11",
+    "n": 20,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MG",
+    "slug": "madagascar",
+    "en": "Madagascar",
+    "ar": "مدغشقر",
     "date": "2026-11-11",
     "n": 20,
     "descEn": "",
@@ -1230,16 +1230,6 @@
     "descAr": ""
   },
   {
-    "cc": "MT",
-    "slug": "malta",
-    "en": "Malta",
-    "ar": "مالطا",
-    "date": "2026-11-11",
-    "n": 14,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "BB",
     "slug": "barbados",
     "en": "Barbados",
@@ -1270,22 +1260,12 @@
     "descAr": ""
   },
   {
-    "cc": "FO",
-    "slug": "the-faroe-islands",
-    "en": "The Faroe Islands",
-    "ar": "The Faroe Islands",
+    "cc": "MT",
+    "slug": "malta",
+    "en": "Malta",
+    "ar": "مالطا",
     "date": "2026-11-11",
-    "n": 13,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "GP",
-    "slug": "guadeloupe",
-    "en": "Guadeloupe",
-    "ar": "Guadeloupe",
-    "date": "2026-11-11",
-    "n": 13,
+    "n": 14,
     "descEn": "",
     "descAr": ""
   },
@@ -1340,12 +1320,22 @@
     "descAr": ""
   },
   {
-    "cc": "LC",
-    "slug": "saint-lucia",
-    "en": "Saint Lucia",
-    "ar": "Saint Lucia",
+    "cc": "FO",
+    "slug": "the-faroe-islands",
+    "en": "The Faroe Islands",
+    "ar": "The Faroe Islands",
     "date": "2026-11-11",
-    "n": 12,
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GP",
+    "slug": "guadeloupe",
+    "en": "Guadeloupe",
+    "ar": "Guadeloupe",
+    "date": "2026-11-11",
+    "n": 13,
     "descEn": "",
     "descAr": ""
   },
@@ -1370,12 +1360,12 @@
     "descAr": ""
   },
   {
-    "cc": "VC",
-    "slug": "saint-vincent-and-the-grenadines",
-    "en": "Saint Vincent And The Grenadines",
-    "ar": "Saint Vincent And The Grenadines",
+    "cc": "LC",
+    "slug": "saint-lucia",
+    "en": "Saint Lucia",
+    "ar": "Saint Lucia",
     "date": "2026-11-11",
-    "n": 11,
+    "n": 12,
     "descEn": "",
     "descAr": ""
   },
@@ -1404,6 +1394,16 @@
     "slug": "benin",
     "en": "Benin",
     "ar": "بنين",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "VC",
+    "slug": "saint-vincent-and-the-grenadines",
+    "en": "Saint Vincent And The Grenadines",
+    "ar": "Saint Vincent And The Grenadines",
     "date": "2026-11-11",
     "n": 11,
     "descEn": "",
@@ -1480,16 +1480,6 @@
     "descAr": ""
   },
   {
-    "cc": "OM",
-    "slug": "oman",
-    "en": "Oman",
-    "ar": "عُمان",
-    "date": "2026-11-11",
-    "n": 8,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "AW",
     "slug": "aruba",
     "en": "Aruba",
@@ -1514,6 +1504,16 @@
     "slug": "us-virgin-islands",
     "en": "US Virgin Islands",
     "ar": "US Virgin Islands",
+    "date": "2026-11-11",
+    "n": 8,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "OM",
+    "slug": "oman",
+    "en": "Oman",
+    "ar": "عُمان",
     "date": "2026-11-11",
     "n": 8,
     "descEn": "",
@@ -1590,16 +1590,6 @@
     "descAr": ""
   },
   {
-    "cc": "SR",
-    "slug": "suriname",
-    "en": "Suriname",
-    "ar": "Suriname",
-    "date": "2026-11-11",
-    "n": 6,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "GI",
     "slug": "gibraltar",
     "en": "Gibraltar",
@@ -1624,6 +1614,16 @@
     "slug": "libya",
     "en": "Libya",
     "ar": "ليبيا",
+    "date": "2026-11-11",
+    "n": 6,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SR",
+    "slug": "suriname",
+    "en": "Suriname",
+    "ar": "Suriname",
     "date": "2026-11-11",
     "n": 6,
     "descEn": "",
