@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T23:23:02Z",
+ "updated": "2026-11-13T08:09:50Z",
  "global": [
   {
    "id": "t1794525745162_0",
@@ -79,5 +79,74 @@
    "link": "countries\/the-united-states-of-america.html"
   }
  ],
- "countries": {}
+ "countries": {
+  "US": [
+   {
+    "id": "t1794557179214_0",
+    "cat": "sport",
+    "ar": "واشنطن كوماندرز يفوز على نيو يورك جاينتس بنتيجة 24-21",
+    "en": "The Washington Commanders defeat the New York Giants 24-21",
+    "at": "2026-11-13T04:30:40Z",
+    "exp": "2026-11-15T08:06:19Z",
+    "src": "NBC Sports",
+    "url": "https:\/\/news.google.com\/rss\/articles\/CBMizgFBVV95cUxOTUdrX0lEdjQ2YnpNLXFVbXdvMXpYX01ubHNfWmMyMEV1ODZGS3JLVmZVVDFJYmF0TzRQWHl4SXVjcmx1cUtheHBOU0VLQlZLcC1xbWJnOHlPX1JmWFJJMkxvOGVLb2tFa2wxQjM2by1iVm9USlhRSFZzaHZwR1piNHNkczVNVUdHaURWVnZ3TW83RjRkazJTaEZuem9EazZ2TUUxRE1hWm9wa1gyMExJdGxMS0gxN2FQUnJzWV9JbzFfaHdqQVd2eWpNa3pLZw?oc=5",
+    "link": "countries\/the-united-states-of-america.html"
+   },
+   {
+    "id": "t1794557179214_1",
+    "cat": "sport",
+    "ar": "بيت كرو-أرمسترونغ ويوردان ألفاريز يفوزان بجائزة أفضل لاعب بالإجماع",
+    "en": "Pete Crow-Armstrong and Yordan Alvarez win MVP awards unanimously",
+    "at": "2026-11-13T00:55:00Z",
+    "exp": "2026-11-15T08:06:19Z",
+    "src": "ESPN",
+    "url": "https:\/\/news.google.com\/rss\/articles\/CBMiqgFBVV95cUxQaEFydXdWWlM2RlVKTk1CT0lVaHhubDFNdldWcmNGMHB4ellXb0lSSFZPd3VxRnlFc2RrbklJN3BsUVZxU0x1NGVKTnlYR2xvQldQNFpmZEtOcWpzcHpKZVhKOHFURFdnMXB2SFpDWW9rS1hvT1k4ZDNPd3AycHExX3RGVUdUMlVKU1FhSnJLXzd5VVZGbEVqdUNGaVNRWXl2MEJrYWhBQi1qQQ?oc=5",
+    "link": "countries\/the-united-states-of-america.html"
+   },
+   {
+    "id": "t1794557287278_0",
+    "cat": "general",
+    "ar": "طبيب يقتل شخصا ويصيب 4 آخرين في واشنطن بسبب خلاف على صيانة مبنى",
+    "en": "Doctor kills one and injured four in Washington over building maintenance dispute",
+    "at": "2026-11-13T03:57:00Z",
+    "exp": "2026-11-15T08:08:07Z",
+    "src": "NBC News",
+    "url": "https:\/\/news.google.com\/rss\/articles\/CBMirAFBVV95cUxOOTJhOHFGcjQ5djdCS051eUdDc1BHSzloS2szMTBjYmxNU1NpLXg1VlVIcW9pSTBNNHRtWVNHUHBZVjlCX3JRTjVUNmNfbkZLLUdPWHJTRXdHRW9UaGJOYVp1YzNnVmZVLTk5ZF9vMGlfNlprcTUtdWgyY1FrWll5NWhhazBMRmpDNkNDN2xYbnR5cmN4MWRYY0NBTS1BT3BFTEZOc0NwUWNCbFZq?oc=5",
+    "link": "countries\/the-united-states-of-america.html"
+   },
+   {
+    "id": "t1794557287278_1",
+    "cat": "politics",
+    "ar": "كريس فان هولين يعلن تحديه لتشاك شومر على قيادة الأغلبية في السناتو الأمريكي",
+    "en": "Chris Van Hollen challenges Chuck Schumer for US Senate majority leader",
+    "at": "2026-11-13T03:52:25Z",
+    "exp": "2026-11-15T08:08:07Z",
+    "src": "NPR",
+    "url": "https:\/\/news.google.com\/rss\/articles\/CBMinwFBVV95cUxOdVNLOGZvSnVMbmRFQkZOcDU0NmVSWWt4U1NubHpEdC1rdVo3N2cyWnNVVUYxMUs1dTVjM0xtZFIwMFAtRHhCWWZtTUJXd1BWSFZTMTZRZDhTODRReTBEbkFYLXRtN1ktdTFpdzB4bHhXNlV3cnBCQ2JNdlAycjNSY0JBR0VMQVZWVlBxd1VZY0g3amRYRmg2VFYtQmRiZUU?oc=5",
+    "link": "countries\/the-united-states-of-america.html"
+   },
+   {
+    "id": "t1794557379219_0",
+    "cat": "tech",
+    "ar": "دونالد ترامب يحث جينسن هوانغ على القتال للحفاظ على منصبه في نيفيديا",
+    "en": "Donald Trump urged Jensen Huang to fight for his position at Nvidia",
+    "at": "2026-11-13T03:27:02Z",
+    "exp": "2026-11-15T08:09:39Z",
+    "src": "The New York Times",
+    "url": "https:\/\/news.google.com\/rss\/articles\/CBMigwFBVV95cUxOMFhFdjVXUmFEeDhEemZrSmthRjRTdDVVOVQ5S0lWaVVVWXR4T2RiU25IN20xaTFTdHB0RDRNNU1CZ1dmYWVXWWI1MkpydU42bzJaSFlRTFBtZTJfbmM3c2Ezc2w3Uk05YnFGNFVrRXRZam9JTV9ERlRudU1XNHIzUkdtQQ?oc=5",
+    "link": "countries\/the-united-states-of-america.html"
+   },
+   {
+    "id": "t1794557379219_1",
+    "cat": "tech",
+    "ar": "عطل عالمي في خدمات مايكروسوفت يحرم الملايين من الوصول إلى أوتلوك وتيمز",
+    "en": "Global Microsoft outage leaves millions without access to Outlook and Teams",
+    "at": "2026-11-13T07:57:00Z",
+    "exp": "2026-11-15T08:09:39Z",
+    "src": "CNN",
+    "url": "https:\/\/news.google.com\/rss\/articles\/CBMiigFBVV95cUxNd2VxXzZaaUhSSldhbG9lVDA0Vi1rTkY4Rzh1cXhLU3lMY3FsRmNaSHNHLXhvSFZIaUhIbjk2c01JQkMydE5ZSnE1WFdXaVc3NVctOTBLLXdTVXpJaXRGdko2MTFhX2JDaG5kVDlTVUxhaUhGUkJjN1l6RHQtM1VDSmQzNEQyVlFNV0E?oc=5",
+    "link": "countries\/the-united-states-of-america.html"
+   }
+  ]
+ }
 }
