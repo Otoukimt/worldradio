@@ -233,7 +233,14 @@ async function checkLinks(root) {
   const pages = listHtml(root, '');
   const exists = new Set(pages.concat(['articles.json', 'site.json', 'countries-index.json', 'sitemap.xml',
     'ads.json', 'ads.js', 'llms.txt', 'robots.txt', 'manifest.json', 'icon-192.png', 'icon-512.png', 'blocked-stations.json']));
-  fs.readdirSync(root).forEach(f => exists.add(f));
+  /* كل ملفات المستودع، بالمجلدات الفرعية (assets وtk…): كان الفحص يعرف ملفات الجذر فقط، فبدت كل صورة في assets «معطّلة» */
+  (function walk(dir, rel) {
+    for (const f of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (f.name.startsWith('.') || f.name === 'node_modules') continue;
+      const r = rel ? rel + '/' + f.name : f.name;
+      if (f.isDirectory()) walk(path.join(dir, f.name), r); else exists.add(r);
+    }
+  })(root, '');
   const internal = [], ext = new Map();
   for (const pg of pages) {
     const html = fs.readFileSync(path.join(root, pg), 'utf8');
