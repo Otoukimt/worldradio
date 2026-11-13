@@ -8,14 +8,14 @@
   "logo": "https:\/\/worldliveradio.com\/assets\/logo.webp",
   "colors": {
     "light": {
-      "bg": "#e4ecf7",
-      "card": "#f1f6fd",
-      "card2": "#dde8f8",
-      "line": "#c4d4ea",
-      "txt": "#0f1a2e",
-      "mut": "#4f5f7c",
-      "acc": "#0d8c82",
-      "acc2": "#5247d6"
+      "bg": "#FCF6F5",
+      "card": "#FFFFFF",
+      "card2": "#F0E6E4",
+      "line": "#D6C7C4",
+      "txt": "#1A1A1A",
+      "mut": "#737373",
+      "acc": "#E11D48",
+      "acc2": "#1E1B4B"
     },
     "dark": {
       "bg": "#0b0f1a",
