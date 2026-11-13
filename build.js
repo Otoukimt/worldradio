@@ -295,6 +295,8 @@ async function checkLinks(root) {
 async function generatePages() {
   const root = __dirname;
   const template = fs.readFileSync(path.join(root, 'country-template.html'), 'utf8');
+  let INTROS = {};
+  try { const o = JSON.parse(fs.readFileSync(path.join(root, 'country-intros.json'), 'utf8')); for (const k of Object.keys(o)) INTROS[k.toUpperCase()] = o[k]; } catch (e) {}
 
   let custom = [];
   const dataPath = path.join(root, 'countries.json');
@@ -324,8 +326,14 @@ async function generatePages() {
     if (!slug) return;
 
     const my = custom.find(a => (a.cc || '').toUpperCase() === cc) || {};
-    const descEn = my.descEn || '';
-    const descAr = my.descAr || '';
+    const artEn = my.descEn || '';
+    const artAr = my.descAr || '';
+    /* بلا مقال: فقرة تعريفية من بيانات المحطات (country-intros.json) إن وُجدت. تُعرض نصاً،
+       ولا تُعلن «مقالاً» في البيانات المنظمة لأنها ليست كذلك */
+    const intro = (!artEn && !artAr) ? (INTROS[cc] || null) : null;
+    const pEsc = t => String(t || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const descEn = artEn || (intro && intro.en ? '<p>' + pEsc(intro.en) + '</p>' : '');
+    const descAr = artAr || (intro && intro.ar ? '<p>' + pEsc(intro.ar) + '</p>' : '');
     /* بلا مقال: نحتفظ بالتاريخ السابق، حتى لا تبدو كل الصفحات «معدّلة» كل أسبوع */
     const date = my.date || OLD[`https://worldliveradio.com/countries/${slug}.html`] || today;
     const hide = (!descEn && !descAr) ? ' style="display:none"' : '';
@@ -347,13 +355,13 @@ async function generatePages() {
       .replace(/\{\{descEn\}\}/g, () => descEn)
       .replace(/\{\{descAr\}\}/g, () => descAr)
       .replace(/\{\{sources\}\}/g, () => sourcesHtml)
-      .replace(/\{\{jsonld\}\}/g, () => countryLd({ slug, en, ar, date, descEn, descAr, sources: srcs }))
+      .replace(/\{\{jsonld\}\}/g, () => countryLd({ slug, en, ar, date, descEn: artEn, descAr: artAr, sources: srcs }))
       .replace('id="aboutSec"', 'id="aboutSec"' + hide);
     const tk = tickerData();
     const pageHtml = putTicker(html, tk.countries[cc.toUpperCase()] || tk.global);
 
     fs.writeFileSync(path.join(outDir, slug + '.html'), pageHtml);
-    pages.push({ cc, slug, en, ar, n: c.stationcount, hasArticle: !!(descEn || descAr), date });
+    pages.push({ cc, slug, en, ar, n: c.stationcount, hasArticle: !!(artEn || artAr), hasIntro: !!intro, date });
     const legacy = oldSlugify(en);
     if (legacy && legacy !== slug) fs.writeFileSync(path.join(outDir, legacy + '.html'), redirectPage(slug, en));
   });

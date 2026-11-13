@@ -754,6 +754,26 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
 .when.fresh,.dt.fresh,.d.fresh{color:#b45309;font-weight:700}
 html[data-theme="dark"] .when.fresh,html[data-theme="dark"] .dt.fresh,html[data-theme="dark"] .d.fresh{color:#fbbf24}
 .when.fresh:before,.dt.fresh:before,.d.fresh:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-inline-end:6px;vertical-align:middle}
+/* ===== محطة اليوم ===== */
+.sotdDay{font-size:12px;color:var(--mut)}
+.sotdCard{display:flex;align-items:center;gap:16px;min-height:132px;padding:16px;border-radius:20px;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 10%,var(--card)),var(--card) 60%,color-mix(in srgb,var(--acc2) 8%,var(--card)));
+  border:1px solid var(--line);box-shadow:0 8px 24px -14px var(--shadow)}
+.sotdLogo{width:100px;height:100px;flex:none;border-radius:24px;overflow:hidden;background:var(--card2);display:grid;place-items:center;
+  box-shadow:0 6px 16px -8px rgba(15,23,42,.35)}
+.sotdLogo img{width:100%;height:100%;object-fit:cover}
+.sotdLogo .fb{font-size:30px;font-weight:800;color:var(--acc)}
+.sotdLogo.sk .c{width:100px;height:100px;border-radius:24px}
+.sotdBody{flex:1;min-width:0}
+.sotdBody .nm{font-size:18px;font-weight:800;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sotdBody .cn{font-size:13px;color:var(--mut);margin-top:2px}
+.sotdTags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;max-height:26px;overflow:hidden}
+.sotdTags span{font-size:11.5px;padding:3px 9px;border-radius:999px;background:var(--card2);border:1px solid var(--line);color:var(--mut)}
+.sotdWhy{font-size:12.5px;color:var(--mut);margin-top:8px;line-height:1.55}
+.sotdPlay{margin-top:10px;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:none;border-radius:999px;cursor:pointer;
+  background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font:inherit;font-size:13.5px;font-weight:700;box-shadow:0 6px 14px -6px var(--acc)}
+.sotdPlay svg{width:16px;height:16px;fill:currentColor}
+@media(max-width:420px){.sotdLogo,.sotdLogo.sk .c{width:84px;height:84px;border-radius:20px}.sotdBody .nm{font-size:16.5px}}
 </style>
 <script type="application/ld+json">
 {
@@ -809,7 +829,7 @@ html[data-theme="dark"] .when.fresh,html[data-theme="dark"] .dt.fresh,html[data-
     <button class="btn" id="langBtn">Arabic</button>
   </div>
 </header>
-<!--ticker:start--><style id="lrTkCss">.lrTk{display:flex;align-items:center;height:46px;padding-inline-start:8px;background:var(--card,#fff);border-bottom:1px solid var(--line,#e5e7eb);overflow:hidden;position:relative;z-index:5}.lrTk[hidden]{display:none}.lrTk .lb{flex:none;display:flex;align-items:center;gap:9px;height:30px;padding:0 14px 0 12px;margin-inline-end:6px;border-radius:999px;font-size:12px;font-weight:800;color:#fff;letter-spacing:.3px;white-space:nowrap;background:linear-gradient(135deg,#087064,#4f46e5);box-shadow:0 3px 10px rgba(15,23,42,.18),0 1px 2px rgba(15,23,42,.12),inset 0 1px 0 rgba(255,255,255,.22)}html[lang^="ar"] .lrTk .lb [lang="en"],html:not([lang^="ar"]) .lrTk .lb [lang="ar"]{display:none}.lrTk .lb i{position:relative;flex:none;width:8px;height:8px;border-radius:50%;background:#ff3b3b;box-shadow:0 0 0 1.5px rgba(255,255,255,.9),0 0 6px rgba(255,59,59,.8)}.lrTk .lb i:before,.lrTk .lb i:after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(255,90,90,.85);animation:lrWave 1.8s ease-out infinite}.lrTk .lb i:after{animation-delay:.9s}@keyframes lrWave{from{transform:scale(1);opacity:.9}to{transform:scale(3.1);opacity:0}}.lrTk .vp{flex:1;align-self:stretch;overflow:hidden;position:relative;-webkit-mask:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}.lrTk .tr{display:flex;width:max-content;height:100%;animation:lrRoll var(--d,60s) linear infinite}html[dir="rtl"] .lrTk .tr{animation-name:lrRollR}.lrTk:hover .tr,.lrTk.hold .tr,.lrTk:focus-within .tr{animation-play-state:paused}@keyframes lrRoll{from{transform:translateX(0)}to{transform:translateX(-50%)}}@keyframes lrRollR{from{transform:translateX(0)}to{transform:translateX(50%)}}.lrTk ul{display:flex;align-items:center;margin:0;padding:0;list-style:none;height:100%}html[lang^="ar"] .lrTk ul[lang="en"],html:not([lang^="ar"]) .lrTk ul[lang="ar"]{display:none}.lrTk li{display:flex;align-items:center;padding:0 22px;white-space:nowrap;font-size:13.5px;height:100%;position:relative}.lrTk li a{display:flex;align-items:center}.lrTk li:after{content:"";position:absolute;inset-inline-end:0;top:15px;bottom:15px;width:1px;background:var(--line,#e5e7eb)}.lrTk li svg{width:15px;height:15px;fill:var(--acc,#0ea47f);flex:none;margin-inline-end:9px}html:not([data-theme="dark"]) .lrTk li svg{fill:#087064}.lrTk li[data-c="breaking"] svg,html:not([data-theme="dark"]) .lrTk li[data-c="breaking"] svg{fill:#e5484d}.lrTk li[data-c="breaking"] .t{font-weight:700}.lrTk a{color:var(--txt,#111);text-decoration:none}.lrTk a:hover .t{text-decoration:underline}.lrTk .tm{margin-inline-start:10px;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;line-height:1.5;color:#92400e;background:rgba(245,158,11,.16)}html[data-theme="dark"] .lrTk .tm{color:#fcd34d;background:rgba(251,191,36,.12)}.lrTk .tm:empty{display:none}@media (prefers-reduced-motion:reduce){.lrTk .tr,.lrTk .lb i:before,.lrTk .lb i:after{animation:none}.lrTk .vp{overflow-x:auto;-webkit-mask:none;mask:none}}</style><div class="lrTk" id="lrTicker" role="region" aria-label="Live news / أخبار مباشرة"><div class="lb"><i></i><span lang="ar">أخبار مباشرة</span><span lang="en">Live news</span></div><div class="vp"><div class="tr"><ul lang="ar"><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">دونالد ترامب يؤكد استعداده لاستخدام القوة لمنع إيران من تهديد حلفاء واشنطن</span><span class="tm" data-at="2026-11-12T21:13:59Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">محادثات بين روسيا وأوكرانيا بشأن الأمن بعد الحرب تنتهي دون تقدم ملموس</span><span class="tm" data-at="2026-11-12T00:33:02Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">بنيامين نتنياهو يوافق على لقاء آيزنكوت لإطلاعه على التطورات الأمنية</span><span class="tm" data-at="2026-11-12T13:21:00Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">مقتل 11 شخصاً بضربات إسرائيلية في غزة بينها غارة على مستشفى ناصر</span><span class="tm" data-at="2026-11-12T18:56:11Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">المبعوثان الأمريكيان يعلنان مشاركة أوروبا في محادثات إنهاء حرب أوكرانيا</span><span class="tm" data-at="2026-11-12T22:11:12Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">إيران تعلن تعرض أربع ناقلات نفط لانفجارات في مضيق هرمز</span><span class="tm" data-at="2026-11-12T16:27:35Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">مقتل ستة أشخاص في قصف إسرائيلي استهدف مستشفى ناصر بقطاع غزة</span><span class="tm" data-at="2026-11-12T22:22:13Z"></span></a></li></ul><ul lang="en"><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Donald Trump says he will not hesitate to use force against Iran</span><span class="tm" data-at="2026-11-12T21:13:59Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Russia and Ukraine hold post-war security talks without concrete progress</span><span class="tm" data-at="2026-11-12T00:33:02Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Benjamin Netanyahu agrees to meet Eisenkot over security developments</span><span class="tm" data-at="2026-11-12T13:21:00Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Israeli strikes kill 11 people in Gaza including six at Nasser Hospital</span><span class="tm" data-at="2026-11-12T18:56:11Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">US envoys say Europe will join talks on ending the Ukraine war</span><span class="tm" data-at="2026-11-12T22:11:12Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">Iran says four oil tankers were struck by explosions in Strait of Hormuz</span><span class="tm" data-at="2026-11-12T16:27:35Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">Israeli strike on Nasser Hospital in Gaza kills at least six people</span><span class="tm" data-at="2026-11-12T22:22:13Z"></span></a></li></ul></div></div></div><!--ticker:end-->
+<!--ticker:start--><div class="lrTk" id="lrTicker" hidden></div><!--ticker:end-->
 
 <div id="page"></div>
 
@@ -838,6 +858,11 @@ html[data-theme="dark"] .when.fresh,html[data-theme="dark"] .dt.fresh,html[data-
         <button class="more" id="localMore" data-i="discover">Discover more &rarr;</button>
       </div>
       <div class="grid6" id="local"><div class="sk"><div class="c"></div><div class="l"></div></div><div class="sk"><div class="c"></div><div class="l"></div></div><div class="sk"><div class="c"></div><div class="l"></div></div><div class="sk"><div class="c"></div><div class="l"></div></div><div class="sk"><div class="c"></div><div class="l"></div></div><div class="sk"><div class="c"></div><div class="l"></div></div></div>
+    </section>
+
+    <section class="sec sotd" id="sotdSec">
+      <div class="sechead"><h2 data-i="sotd">Station of the day</h2><span class="sotdDay" id="sotdDay"></span></div>
+      <div class="sotdCard" id="sotd"><div class="sotdLogo sk"><div class="c"></div></div><div class="sotdBody"><div class="sk"><div class="l"></div><div class="l"></div></div></div></div>
     </section>
 
     <section class="sec">
@@ -1117,7 +1142,7 @@ var I={
   sub:'Hundreds of free radio stations from every country. Pick a station, keep browsing — the music never stops.',
   langBtn:'Arabic',
   tAll:'Browse',tFav:'&#9829; Favourites',tArts:'&#128214; Articles',
-  near:'Stations from {c}',worldTop:'Most popular worldwide',recent:'Recently played',featured:'Featured stations',
+  near:'Stations from {c}',worldTop:'Most popular worldwide',sotd:'Station of the day',sotdWhy:'One of the most played stations on LiveRadio this month — #{n}.',sotdWhy2:'One of the most listened radio stations online today.',sotdPlay:'Listen now',recent:'Recently played',featured:'Featured stations',
   explore:'Explore by country',cguides:'Country guides',allCountries:'All countries',discover:'Discover more &rarr;',
   allCountriesBtn:'Browse all countries &rarr;',loadMore:'Load more stations',
   favs:'Your favourites',noFav:'No favourites yet. Tap the heart on any station.',
@@ -1156,7 +1181,7 @@ var I={
   sub:'مئات المحطات الإذاعية المجانية من كل دول العالم. اختر محطة وتابع التصفح — الصوت لا يتوقف.',
   langBtn:'إنجليزي',
   tAll:'تصفّح',tFav:'&#9829; المفضلة',tArts:'&#128214; المقالات',
-  near:'محطات من {c}',worldTop:'الأكثر استماعاً حول العالم',recent:'استمعت مؤخراً',featured:'محطات مختارة',
+  near:'محطات من {c}',worldTop:'الأكثر استماعاً حول العالم',sotd:'محطة اليوم',sotdWhy:'من أكثر المحطات تشغيلاً على LiveRadio هذا الشهر — المرتبة {n}.',sotdWhy2:'من أكثر الإذاعات استماعاً عبر الإنترنت اليوم.',sotdPlay:'استمع الآن',recent:'استمعت مؤخراً',featured:'محطات مختارة',
   explore:'استكشف حسب الدولة',cguides:'أدلة الدول',allCountries:'كل الدول',discover:'اكتشف المزيد &larr;',
   allCountriesBtn:'تصفّح كل الدول &larr;',loadMore:'تحميل مزيد من المحطات',
   favs:'محطاتك المفضلة',noFav:'لا توجد مفضلة بعد. اضغط على القلب في أي محطة.',
@@ -1458,7 +1483,43 @@ function loadWorldTop(){
     markPlaying();
   }).catch(function(){$('localSec').style.display='none';});
 }
+/* محطة اليوم: من أكثر 15 محطة تشغيلاً على موقعك هذا الشهر (insights.json)، تتغيّر كل يوم بالترتيب.
+   وإن تعذّر ذلك، من الأكثر استماعاً عالمياً. المساحة محجوزة من البداية، فلا تقفز الصفحة */
+function loadSotd(){
+  var day=Math.floor(Date.now()/864e5),box=$('sotd'),why=T('sotdWhy2'),rank=0;
+  try{$('sotdDay').textContent=new Date().toLocaleDateString(lang==='ar'?'ar':'en-GB',{weekday:'long',day:'numeric',month:'long'});}catch(e){}
+  function draw(st){
+    if(!st){$('sotdSec').style.display='none';return;}
+    box.innerHTML='';
+    var lg=document.createElement('div');lg.className='sotdLogo';
+    if(st.favicon&&st.favicon.indexOf('https')===0){var im=document.createElement('img');im.alt=st.name;im.loading='lazy';im.src=st.favicon;
+      im.onerror=function(){lg.innerHTML='<div class="fb"></div>';lg.firstChild.textContent=ini(st.name);};lg.appendChild(im);}
+    else{lg.innerHTML='<div class="fb"></div>';lg.firstChild.textContent=ini(st.name);}
+    var bd=document.createElement('div');bd.className='sotdBody';
+    bd.innerHTML='<div class="nm"></div><div class="cn"></div><div class="sotdTags"></div><div class="sotdWhy"></div><button class="sotdPlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span></span></button>';
+    bd.querySelector('.nm').textContent=st.name.trim();
+    bd.querySelector('.cn').textContent=(flagOf(st.countrycode)+' '+cname(st.countrycode,st.country||'')).trim()+(st.bitrate?' · '+st.bitrate+' kbps':'');
+    var tg=bd.querySelector('.sotdTags');String(st.tags||'').split(',').map(function(x){return x.trim();}).filter(function(x){return x&&x.length<18;}).slice(0,3)
+      .forEach(function(x){var e=document.createElement('span');e.textContent=x;tg.appendChild(e);});
+    bd.querySelector('.sotdWhy').textContent=rank?T('sotdWhy').replace('{n}',rank):why;
+    bd.querySelector('.sotdPlay span').textContent=T('sotdPlay');
+    bd.querySelector('.sotdPlay').onclick=function(){play(st);};
+    box.appendChild(lg);box.appendChild(bd);
+  }
+  function world(){
+    api('/json/stations/topclick/30?hidebroken=true').then(function(d){var l=clean(d||[]);draw(l.length?l[day%l.length]:null);}).catch(function(){draw(null);});
+  }
+  fetch('./insights.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null;}).then(function(d){
+    var pl=d&&d.stations&&d.stations.played||[];pl=pl.slice(0,15);
+    if(!pl.length){world();return;}
+    var i=day%pl.length,name=pl[i].n;rank=i+1;
+    api('/json/stations/search?hidebroken=true&order=clickcount&reverse=true&limit=1&name='+encodeURIComponent(name)+'&nameExact=true').then(function(r){
+      var l=clean(r||[]);if(l.length)draw(l[0]);else{rank=0;world();}
+    }).catch(function(){rank=0;world();});
+  }).catch(world);
+}
 function loadLocal(){
+  loadSotd();
   detectCountry().then(function(cc){
     if(!cc){drawGuides();loadWorldTop();return;}
     myCC=cc;
