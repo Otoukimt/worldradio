@@ -263,6 +263,10 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bo
 .srcs h3{font-size:14px;margin:0 0 8px;color:var(--mut);font-weight:800}
 .srcs ol{margin:0;padding-inline-start:20px;font-size:13px;line-height:1.7;color:var(--mut)}
 .srcs a{color:var(--acc);word-break:break-word}
+.rcard .when{font-size:12px;color:var(--mut);margin-top:8px}
+.rcard .when.fresh{color:#b45309;font-weight:700}
+html[data-theme="dark"] .rcard .when.fresh{color:#fbbf24}
+.rcard .when.fresh:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-inline-end:6px;vertical-align:middle}
 </style>
 <script>
 (function(){
@@ -606,6 +610,17 @@ $('langBtn').onclick=function(){lang=(lang==='en')?'ar':'en';apply();};
 
 /* ===== المقالات المرتبطة بالدولة: تُضاف تلقائياً حسب رمز الدولة ===== */
 var ALL=[];
+/* «منذ ساعتين» في أول 24 ساعة من النشر، ثم التاريخ وحده. pub: لحظة النشر (ISO) */
+function relAgo(pub,L){
+  var t=Date.parse(pub||'');if(!t)return '';
+  var m=Math.floor((Date.now()-t)/60000);if(m<0||m>=1440)return '';
+  var ar=L==='ar';
+  if(m<1)return ar?'الآن':'just now';
+  function n(v,one,two,few,many){return v===1?one:v===2?two:(v<=10?v+' '+few:v+' '+many);}
+  if(m<60)return ar?'منذ '+n(m,'دقيقة','دقيقتين','دقائق','دقيقة'):(m+' min ago');
+  var h=Math.floor(m/60);
+  return ar?'منذ '+n(h,'ساعة','ساعتين','ساعات','ساعة'):(h===1?'1 hour ago':h+' hours ago');
+}
 function drawRelated(){
   var box=$('relGrid'),sec=$('relSec');
   if(!box||!ALL.length)return;
@@ -629,6 +644,10 @@ function drawRelated(){
     a.querySelector('.t').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
     a.querySelector('.h').textContent=p.title[lang]||p.title.en;
     a.querySelector('.p').textContent=p.desc[lang]||p.desc.en||'';
+    var wd=document.createElement('div');wd.className='when';var w1=relAgo(p.pub,lang);
+    if(!w1){try{w1=new Date(p.date).toLocaleDateString(lang==='ar'?'ar':'en-GB',{day:'numeric',month:'long',year:'numeric'});}catch(e){w1=p.date||'';}}
+    else wd.classList.add('fresh');
+    wd.textContent=w1;a.appendChild(wd);
     box.appendChild(a);
   });
   sec.style.display='block';
