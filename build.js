@@ -536,7 +536,9 @@ function preloadArticlesPage() {
   let arts = [], cfg = {};
   try { arts = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'articles.json'), 'utf8')); } catch (e) { return; }
   try { cfg = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'site.json'), 'utf8')); } catch (e) {}
-  const img = a => a && (a.thumb || a.hero);
+  /* الصورة الموجودة فعلاً في المستودع: المصغّرة إن وُجدت، وإلا الكبيرة. رابط لصورة غير موجودة يهدر طلباً */
+  const here = u => u && (/^https?:/.test(u) || fs.existsSync(path.join(ROOT_DIR, String(u).replace(/^(\.\/|\/)+/, ''))));
+  const img = a => a && ([a.thumb, a.hero].find(here) || '');
   const latest = arts.slice().sort((x, y) => (y.date || '').localeCompare(x.date || ''))[0];
   const pick = (cfg.picks || []).map(s => arts.find(a => a.slug === s)).find(Boolean) || latest;
   const urls = [...new Set([img(latest), img(pick)].filter(Boolean))]
