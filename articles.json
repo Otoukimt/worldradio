@@ -391,7 +391,8 @@
       "en": "A handpicked tour of the stations worth your evening, from BBC to Radio Nova.",
       "ar": "جولة مختارة في المحطات التي تستحق سهرتك، من BBC إلى راديو نوفا."
     },
-    "cat": "stations"
+    "cat": "stations",
+    "thumb": "https:\/\/worldliveradio.com\/assets\/best-radio-stations-world-thumb.webp"
   },
   {
     "slug": "how-online-radio-works",
