@@ -21,7 +21,7 @@
     'html:not([data-theme="dark"]) main .crumb a,html:not([data-theme="dark"]) main .tagx,html:not([data-theme="dark"]) main .meta,'+
     'html:not([data-theme="dark"]) header .logo span,html:not([data-theme="dark"]) .lrKw a:before{color:#087064!important}'+
     /* روابط المصادر والقوائم كانت تأخذ لون النص الرمادي فلا تبدو روابط */
-    'main li a,#page li a,main blockquote a,#page blockquote a{color:var(--acc);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;word-break:break-word}'+
+    'main p a,#page p a,main li a,#page li a,main blockquote a,#page blockquote a{color:var(--acc);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;word-break:break-word}'+
     'main li a:hover,#page li a:hover{color:var(--acc2,var(--acc))}'+
     '.lrShare{margin:30px 0 8px}'+
     '.lrShare .lbl,.lrKw .lbl{font-size:13px;font-weight:800;color:var(--mut);margin:0 0 10px;letter-spacing:.2px}'+

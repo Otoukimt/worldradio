@@ -20,7 +20,7 @@
     /* العنوان: كبسولة بحواف دائرية وظل ناعم */
     '.lrTk .lb{flex:none;display:flex;align-items:center;gap:9px;height:30px;padding:0 14px 0 12px;margin-inline-end:6px;border-radius:999px;'+
       'font-size:12px;font-weight:800;color:#fff;letter-spacing:.3px;white-space:nowrap;'+
-      'background:linear-gradient(135deg,var(--acc,#0ea47f),var(--acc2,#5b53e0));'+
+      'background:linear-gradient(135deg,#087064,#4f46e5);'+
       'box-shadow:0 3px 10px rgba(15,23,42,.18),0 1px 2px rgba(15,23,42,.12),inset 0 1px 0 rgba(255,255,255,.22)}'+
     'html[lang^="ar"] .lrTk .lb [lang="en"],html:not([lang^="ar"]) .lrTk .lb [lang="ar"]{display:none}'+
     /* النقطة الحمراء، وموجتان خفيفتان تتسعان من الداخل إلى الخارج */
@@ -46,11 +46,12 @@
     '.lrTk li[data-c="breaking"] .t{font-weight:700}'+
     '.lrTk a{color:var(--txt,#111);text-decoration:none}.lrTk a:hover .t{text-decoration:underline}'+
     '.lrTk .tm{margin-inline-start:10px;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;line-height:1.5;'+
-      'color:#b45309;background:rgba(245,158,11,.13)}'+
-    'html[data-theme="dark"] .lrTk .tm{color:#fbbf24;background:rgba(251,191,36,.12)}'+
+      'color:#92400e;background:rgba(245,158,11,.16)}'+
+    'html[data-theme="dark"] .lrTk .tm{color:#fcd34d;background:rgba(251,191,36,.12)}'+
     '.lrTk .tm:empty{display:none}'+
     '@media (prefers-reduced-motion:reduce){.lrTk .tr,.lrTk .lb i:before,.lrTk .lb i:after{animation:none}.lrTk .vp{overflow-x:auto;-webkit-mask:none;mask:none}}';
-  var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+  /* التنسيق يأتي عادةً مكتوباً داخل الصفحة مع الشريط (ticker.css عبر البناء)؛ وإلا نضيفه هنا */
+  if(!document.getElementById('lrTkCss')){var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);}
 
   function ago(iso,ar){
     var t=Date.parse(iso);if(!t)return '';var m=Math.max(1,Math.round((Date.now()-t)/60000));

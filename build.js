@@ -472,9 +472,14 @@ function tickerData() {
   TICKER.countries = c;
   return TICKER;
 }
+let TK_CSS = null;
+function tickerCss() {
+  if (TK_CSS === null) { try { TK_CSS = fs.readFileSync(path.join(ROOT_DIR, 'ticker.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\n/g, ''); } catch (e) { TK_CSS = ''; } }
+  return TK_CSS ? '<style id="lrTkCss">' + TK_CSS + '</style>' : '';
+}
 function tickerHtml(list) {
   /* فارغ لكن موجود: داخل الموقع يملؤه السكربت حين تُفتح صفحة دولة لها أخبار */
-  if (!list || !list.length) return '<div class="lrTk" id="lrTicker" hidden></div>';
+  if (!list || !list.length) return tickerCss() + '<div class="lrTk" id="lrTicker" hidden></div>';
   const e = t => String(t || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   const ul = lang => '<ul lang="' + lang + '">' + list.map(x => {
     const href = x.link ? (/^https?:/.test(x.link) ? x.link : '/' + String(x.link).replace(/^\/+/, '')) : '';
@@ -482,7 +487,7 @@ function tickerHtml(list) {
     return '<li data-c="' + e(x.cat || 'general') + '"' + (x.exp ? ' data-exp="' + e(x.exp) + '"' : '') + '>' +
       (href ? '<a href="' + e(href) + '">' + inner + '</a>' : inner) + '</li>';
   }).join('') + '</ul>';
-  return '<div class="lrTk" id="lrTicker" role="region" aria-label="Live news / أخبار مباشرة">' +
+  return tickerCss() + '<div class="lrTk" id="lrTicker" role="region" aria-label="Live news / أخبار مباشرة">' +
     '<div class="lb"><i></i><span lang="ar">أخبار مباشرة</span><span lang="en">Live news</span></div>' +
     '<div class="vp"><div class="tr">' + ul('ar') + ul('en') + '</div></div></div>';
 }
