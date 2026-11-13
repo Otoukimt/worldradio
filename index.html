@@ -478,8 +478,9 @@ input[type=range]{flex:1;accent-color:var(--acc);height:4px}
 #top,#bot{position:fixed;inset-inline-end:16px;z-index:40;width:42px;height:42px;border-radius:50%;
   background:var(--cardG);border:1px solid var(--line);color:var(--txt);cursor:pointer;display:none;
   place-items:center;font-size:18px;box-shadow:0 4px 12px var(--shadow)}
-#top{bottom:calc(152px + env(safe-area-inset-bottom,0px))}
-#bot{bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+/* زرّا التمرير يرتفعان فوق المشغّل بقدر ارتفاعه الفعلي (--pH)، مطوياً كان أو موسّعاً */
+#top{bottom:calc(var(--adB,0px) + var(--pH,0px) + 66px + env(safe-area-inset-bottom,0px));transition:bottom .35s ease}
+#bot{bottom:calc(var(--adB,0px) + var(--pH,0px) + 16px + env(safe-area-inset-bottom,0px));transition:bottom .35s ease}
 #top:hover,#bot:hover{border-color:var(--acc);color:var(--acc)}
 #toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);
   bottom:calc(110px + env(safe-area-inset-bottom,0px));z-index:80;background:var(--pbg);
@@ -748,6 +749,11 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
   #page .picks.n1 .pk h3{font-size:24px}
   #page .picks.n1 .pk p{-webkit-line-clamp:4;font-size:14.5px}
 }
+/* وقت المقال: «منذ ساعتين» يتميّز بلونه في أول 24 ساعة */
+.when{font-size:12px;color:var(--mut);margin-top:8px}
+.when.fresh,.dt.fresh,.d.fresh{color:#b45309;font-weight:700}
+html[data-theme="dark"] .when.fresh,html[data-theme="dark"] .dt.fresh,html[data-theme="dark"] .d.fresh{color:#fbbf24}
+.when.fresh:before,.dt.fresh:before,.d.fresh:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-inline-end:6px;vertical-align:middle}
 </style>
 <script type="application/ld+json">
 {
@@ -803,7 +809,7 @@ html[dir="rtl"] .gs .ic{left:auto;right:16px}
     <button class="btn" id="langBtn">Arabic</button>
   </div>
 </header>
-<!--ticker:start--><div class="lrTk" id="lrTicker" role="region" aria-label="Live news / أخبار مباشرة"><div class="lb"><i></i><span lang="ar">أخبار مباشرة</span><span lang="en">Live news</span></div><div class="vp"><div class="tr"><ul lang="ar"><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">دونالد ترامب يؤكد استعداده لاستخدام القوة لمنع إيران من تهديد حلفاء واشنطن</span><span class="tm" data-at="2026-11-12T21:13:59Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">محادثات بين روسيا وأوكرانيا بشأن الأمن بعد الحرب تنتهي دون تقدم ملموس</span><span class="tm" data-at="2026-11-12T00:33:02Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">بنيامين نتنياهو يوافق على لقاء آيزنكوت لإطلاعه على التطورات الأمنية</span><span class="tm" data-at="2026-11-12T13:21:00Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">مقتل 11 شخصاً بضربات إسرائيلية في غزة بينها غارة على مستشفى ناصر</span><span class="tm" data-at="2026-11-12T18:56:11Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">المبعوثان الأمريكيان يعلنان مشاركة أوروبا في محادثات إنهاء حرب أوكرانيا</span><span class="tm" data-at="2026-11-12T22:11:12Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">إيران تعلن تعرض أربع ناقلات نفط لانفجارات في مضيق هرمز</span><span class="tm" data-at="2026-11-12T16:27:35Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">مقتل ستة أشخاص في قصف إسرائيلي استهدف مستشفى ناصر بقطاع غزة</span><span class="tm" data-at="2026-11-12T22:22:13Z"></span></a></li></ul><ul lang="en"><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Donald Trump says he will not hesitate to use force against Iran</span><span class="tm" data-at="2026-11-12T21:13:59Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Russia and Ukraine hold post-war security talks without concrete progress</span><span class="tm" data-at="2026-11-12T00:33:02Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Benjamin Netanyahu agrees to meet Eisenkot over security developments</span><span class="tm" data-at="2026-11-12T13:21:00Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/saudi-arabia.html"><span class="t">Israeli strikes kill 11 people in Gaza including six at Nasser Hospital</span><span class="tm" data-at="2026-11-12T18:56:11Z"></span></a></li><li data-c="politics" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">US envoys say Europe will join talks on ending the Ukraine war</span><span class="tm" data-at="2026-11-12T22:11:12Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">Iran says four oil tankers were struck by explosions in Strait of Hormuz</span><span class="tm" data-at="2026-11-12T16:27:35Z"></span></a></li><li data-c="general" data-exp="2026-11-14T23:22:25Z"><a href="/countries/the-united-states-of-america.html"><span class="t">Israeli strike on Nasser Hospital in Gaza kills at least six people</span><span class="tm" data-at="2026-11-12T22:22:13Z"></span></a></li></ul></div></div></div><!--ticker:end-->
+<!--ticker:start--><div class="lrTk" id="lrTicker" hidden></div><!--ticker:end-->
 
 <div id="page"></div>
 
@@ -1710,12 +1716,13 @@ function drawArticles(){
     if(p.thumb){
       a.className='art has-thumb';
       a.innerHTML='<img class="thumb" loading="lazy" alt="" src="'+p.thumb+'">'+
-        '<div class="inner"><div class="tag"></div><h3></h3><p></p></div>';
+        '<div class="inner"><div class="tag"></div><h3></h3><p></p><div class="when"></div></div>';
       a.querySelector('.thumb').onerror=function(){this.style.display='none';};
     }else{
-      a.innerHTML='<div class="tag"></div><h3></h3><p></p>';
+      a.innerHTML='<div class="tag"></div><h3></h3><p></p><div class="when"></div>';
     }
     a.querySelector('.tag').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
+    var wh=a.querySelector('.when');if(wh){var w0=relAgo(p.pub,lang);wh.textContent=w0||magDate(p.date);if(w0)wh.classList.add('fresh');}
     a.querySelector('h3').textContent=p.title[lang]||p.title.en;
     a.querySelector('p').textContent=p.desc[lang]||p.desc.en;
     l.appendChild(a);
@@ -2038,6 +2045,13 @@ $('pBtn').onclick=function(){
   toggle();
 };
 $('pNext').onclick=next;$('pPrev').onclick=prev;
+/* ارتفاع المشغّل الظاهر، لزرّي التمرير */
+(function(){
+  function upd(){var h=player.classList.contains('up')?player.offsetHeight+12:0;document.documentElement.style.setProperty('--pH',h+'px');}
+  if(window.ResizeObserver)new ResizeObserver(upd).observe(player);
+  new MutationObserver(upd).observe(player,{attributes:true,attributeFilter:['class']});
+  upd();
+})();
 function pToggle(){var o=player.classList.toggle('open');$('pMore').setAttribute('aria-expanded',o?'true':'false');drawUsage();}
 $('pInfo').onclick=pToggle;
 $('pMore').onclick=function(e){e.stopPropagation();pToggle();};
@@ -2190,7 +2204,7 @@ function drawPicks(){
     a.querySelector('.tg').textContent=magCatName(p.cat||'');
     a.querySelector('h3').textContent=p.title[lang]||p.title.en;
     a.querySelector('p').textContent=(p.desc&&(p.desc[lang]||p.desc.en))||'';
-    a.querySelector('.dt').textContent=magDate(p.date);
+    a.querySelector('.dt').textContent=artWhen(p);if(relAgo(p.pub,lang))a.querySelector('.dt').classList.add('fresh');
     g.appendChild(a);
   });
   box.innerHTML='';box.appendChild(g);sec.style.display='block';
@@ -2207,6 +2221,7 @@ function mcardFill(a,p,catLabel,dateLabel){
   a.querySelector('.h').textContent=p.title[lang]||p.title.en;
   a.querySelector('.x').textContent=((p.desc&&(p.desc[lang]||p.desc.en))||'');
   a.querySelector('.d').textContent=dateLabel;
+  if(relAgo(p.pub,lang))a.querySelector('.d').classList.add('fresh');
 }
 function runMarquee(m,track,rev){
   if(m._raf)cancelAnimationFrame(m._raf);
@@ -2247,6 +2262,18 @@ function magCatName(k){
   for(var j=0;j<posts.length;j++)if(posts[j].cat===k&&posts[j].tag)return posts[j].tag[lang]||posts[j].tag.en;
   return k;
 }
+/* «منذ ساعتين» في أول 24 ساعة من النشر، ثم التاريخ وحده. pub: لحظة النشر (ISO) */
+function relAgo(pub,L){
+  var t=Date.parse(pub||'');if(!t)return '';
+  var m=Math.floor((Date.now()-t)/60000);if(m<0||m>=1440)return '';
+  var ar=L==='ar';
+  if(m<1)return ar?'الآن':'just now';
+  function n(v,one,two,few,many){return v===1?one:v===2?two:(v<=10?v+' '+few:v+' '+many);}
+  if(m<60)return ar?'منذ '+n(m,'دقيقة','دقيقتين','دقائق','دقيقة'):(m+' min ago');
+  var h=Math.floor(m/60);
+  return ar?'منذ '+n(h,'ساعة','ساعتين','ساعات','ساعة'):(h===1?'1 hour ago':h+' hours ago');
+}
+function artWhen(p){return relAgo(p&&p.pub,lang)||magDate(p&&p.date);}
 function magDate(d){
   try{return new Date(d).toLocaleDateString(lang==='ar'?'ar':'en-GB',
     {year:'numeric',month:'long',day:'numeric'});}catch(e){return d;}
@@ -2258,7 +2285,7 @@ function magCard(p,showProg){
   var a=document.createElement('a');a.className='art';
   a.href=ROOT+'articles/'+p.slug+'.html';
   var views=(stats&&stats[p.slug]>=30)?Number(stats[p.slug]).toLocaleString('en-US'):'';
-  var meta=magDate(p.date)+(views?(' · '+views+' '+(lang==='ar'?'مشاهدة':'views')):'');
+  var meta=artWhen(p)+(views?(' · '+views+' '+(lang==='ar'?'مشاهدة':'views')):'');
   if(p.thumb){
     a.className='art has-thumb';
     a.innerHTML='<img class="thumb" loading="lazy" alt="" src="'+p.thumb+'">'+
@@ -2271,6 +2298,7 @@ function magCard(p,showProg){
   a.querySelector('h3').textContent=p.title[lang]||p.title.en;
   a.querySelector('p').textContent=p.desc[lang]||p.desc.en;
   a.querySelector('.d').textContent=meta;
+  if(relAgo(p.pub,lang))a.querySelector('.d').classList.add('fresh');
   if(views&&!p.thumb){
     var rd=document.createElement('div');rd.className='rd';rd.textContent=views;a.appendChild(rd);
   }
@@ -2310,7 +2338,7 @@ function initMagazine(){
       var a=document.createElement('a');a.className='mcard';
       a.dir=(lang==='ar')?'rtl':'ltr';
       a.href=ROOT+'articles/'+p.slug+'.html';
-      mcardFill(a,p,magCatName(p.cat||''),magDate(p.date));
+      mcardFill(a,p,magCatName(p.cat||''),artWhen(p));
       tr.appendChild(a);
     });
     mq.style.direction='ltr';tr.style.direction='ltr';
@@ -2451,6 +2479,7 @@ function drawCountryArticles(){
     a.href=ROOT+'articles/'+p.slug+'.html';
     a.innerHTML='<div class="t"></div><div class="h"></div><div class="p"></div>';
     a.querySelector('.t').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
+    if(!a.querySelector('.when')){var wd=document.createElement('div');wd.className='when';var w1=relAgo(p.pub,lang);wd.textContent=w1||magDate(p.date);if(w1)wd.classList.add('fresh');a.appendChild(wd);}
     a.querySelector('.h').textContent=p.title[lang]||p.title.en;
     a.querySelector('.p').textContent=p.desc[lang]||p.desc.en||'';
     box.appendChild(a);
@@ -2563,6 +2592,7 @@ function drawRelated(slug){
     a.href=ROOT+'articles/'+p.slug+'.html';
     a.innerHTML='<div class="t"></div><div class="h"></div>';
     a.querySelector('.t').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
+    if(!a.querySelector('.when')){var wd=document.createElement('div');wd.className='when';var w1=relAgo(p.pub,lang);wd.textContent=w1||magDate(p.date);if(w1)wd.classList.add('fresh');a.appendChild(wd);}
     a.querySelector('.h').textContent=p.title[lang]||p.title.en;
     box.appendChild(a);
   });
