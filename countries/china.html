@@ -561,12 +561,15 @@ function fetchPage(){
       ? api('/json/stations/search?hidebroken=true&limit='+PAGE+
             '&order=clickcount&reverse=true&country='+encodeURIComponent(CEN))
       : Promise.resolve(null);
-    Promise.all([byCode,byName])
+    /* المحطات الإضافية المختارة من التطبيق: في أول دفعة */
+    var extra=(off===0)?fetch('/extra-stations.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():{};}).then(function(e){return (e&&e[CC])||[];}).catch(function(){return [];})
+      :Promise.resolve([]);
+    Promise.all([byCode,byName,extra])
       .then(function(rr){
         var a=rr[0]||[], b=rr[1]||[];
         off+=a.length;
         if(a.length<PAGE)done=true;
-        var raw=a.concat(b);
+        var raw=(rr[2]||[]).concat(a,b);
         raw.forEach(function(s){
           if(blocked(s))return;
           var u=playableUrl(s);
