@@ -4,24 +4,31 @@
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="yX25szfjBSoo35hZI9DG4jLp4pah3fZ07GVtTvfX_qk" />
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-LKJTP0YVEN');
+  addEventListener('load', function(){
+    var s=document.createElement('script');
+    s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-LKJTP0YVEN';
+    document.head.appendChild(s);
+  });
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>How to start your own internet radio station | LiveRadio</title>
-<meta name="description" content="A practical guide to launching an internet radio station: the four technical components, real bandwidth costs, music licensing, and how to actually get listeners.">
+<meta name="description" content="The four technical pieces, the real bandwidth bill, licensing, and how to actually get heard.">
 <link rel="canonical" href="https://worldliveradio.com/articles/start-your-own-internet-radio.html">
 <meta name="theme-color" content="#eef3fb">
 <meta property="og:title" content="How to start your own internet radio station">
-<meta property="og:description" content="A practical guide to launching an internet radio station: the four technical components, real bandwidth costs, music licensing, and how to actually get listeners.">
+<meta property="og:description" content="The four technical pieces, the real bandwidth bill, licensing, and how to actually get heard.">
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" media="print" onload="this.media='all'"
+  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap">
+<noscript><link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap"></noscript>
 <style>
 :root{
   --bg:#f3f6fc; --card:#ffffff; --card2:#eef3fc; --line:#dde5f2;
@@ -62,16 +69,14 @@ main{max-width:760px;margin:0 auto;padding:22px 18px 60px}
 h1{font-size:clamp(26px,6vw,38px);line-height:1.22;margin:10px 0 12px;font-weight:800;
 background:linear-gradient(100deg,var(--acc),var(--acc2) 70%);
 -webkit-background-clip:text;background-clip:text;color:transparent}
-h2{color:var(--acc2)}
-.playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
-padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
-margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
-.playbtn:hover{filter:brightness(1.07)}
+h2{color:var(--acc2);font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
 .meta{color:var(--mut);font-size:14px;margin-bottom:22px}
 .hero{height:190px;border-radius:18px;margin-bottom:26px;position:relative;overflow:hidden;
-background:linear-gradient(135deg,#581c87,#0e7490 50%,#065f46);display:grid;place-items:center}
-.hero svg{width:100%;height:100%;display:block}
+background:linear-gradient(135deg,#78350f,#1e1b4b 55%,#134e4a);display:grid;place-items:center}
+.hero .heroimg{width:100%;height:100%;object-fit:cover;display:block}
+.lang-en img,.lang-ar img{max-width:100%;height:auto;border-radius:14px;margin:14px 0}
+.lang-en figure,.lang-ar figure{margin:16px 0}
+.lang-en figcaption,.lang-ar figcaption{font-size:13px;color:var(--mut);text-align:center;margin-top:6px}
 .hero .wav{display:flex;gap:6px;align-items:flex-end;height:68px}
 .hero .wav i{width:8px;background:rgba(255,255,255,.88);border-radius:4px;display:block;animation:w 1.4s ease-in-out infinite}
 .hero .wav i:nth-child(1){height:24px;animation-delay:0s}
@@ -82,19 +87,15 @@ background:linear-gradient(135deg,#581c87,#0e7490 50%,#065f46);display:grid;plac
 .hero .wav i:nth-child(6){height:28px;animation-delay:.75s}
 .hero .wav i:nth-child(7){height:46px;animation-delay:.9s}
 @keyframes w{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
-h2{font-size:22px;margin:36px 0 12px;font-weight:800;line-height:1.3}
-h3{font-size:18px;margin:26px 0 8px;font-weight:700}
 p{line-height:1.85;color:var(--txt);opacity:.93;margin:0 0 16px;font-size:16.5px}
 ul,ol{line-height:1.85;color:var(--txt);opacity:.93;padding-inline-start:22px;margin:0 0 18px;font-size:16.5px}
 li{margin-bottom:9px}
-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
-th,td{border:1px solid var(--line);padding:10px 12px;text-align:start}
-th{background:var(--card2);font-weight:700}
 blockquote{border-inline-start:3px solid var(--acc);margin:24px 0;padding-inline-start:16px;
 color:var(--mut);font-style:italic;line-height:1.8}
-.box{background:var(--cardG);border:1px solid var(--line);border-radius:16px;padding:18px;margin:28px 0;
-box-shadow:0 2px 8px var(--shadow)}
-.box h3{margin-top:0}
+.playbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;
+padding:15px 18px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;
+margin:26px 0;box-shadow:0 6px 18px var(--shadow);text-align:center;font-family:inherit}
 .cta{display:block;text-align:center;background:linear-gradient(135deg,var(--acc),var(--acc2));
 color:#fff;font-weight:800;padding:14px;border-radius:14px;margin:34px 0 10px;font-size:16px;
 box-shadow:0 6px 18px var(--shadow)}
@@ -102,7 +103,6 @@ footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;colo
 font-size:14px;background:var(--footG)}
 footer nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:12px}
 footer nav a{color:var(--mut)}
-footer nav a:hover{color:var(--acc)}
 </style>
 <script>
 (function(){
@@ -113,149 +113,43 @@ footer nav a:hover{color:var(--acc)}
   if(m)m.setAttribute('content',t==='dark'?'#0e1526':'#eef3fb');
 })();
 </script>
-
-<style>
-#rprog{position:fixed;top:0;left:0;height:3px;width:0;z-index:70;
-  background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .1s}
-.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.navrow a,.navrow button{background:var(--cardG);border:1px solid var(--line);color:var(--txt);
-  padding:9px 15px;border-radius:999px;font-size:13.5px;font-weight:700;cursor:pointer;
-  font-family:inherit;box-shadow:0 1px 3px var(--shadow)}
-.navrow a:hover,.navrow button:hover{border-color:var(--acc);color:var(--acc)}
-.sharerow{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 8px}
-.sharerow button{flex:1;min-width:110px;background:var(--cardG);border:1px solid var(--line);
-  color:var(--txt);padding:11px;border-radius:12px;font-weight:700;cursor:pointer;
-  font-family:inherit;font-size:13.5px}
-.sharerow button:hover{border-color:var(--acc);color:var(--acc)}
-.related{margin:34px 0 10px}
-.related h2{font-size:19px;margin:0 0 12px}
-.rgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
-.rcard{background:var(--cardG);border:1px solid var(--line);border-radius:14px;padding:15px;
-  display:block;box-shadow:0 2px 8px var(--shadow);transition:.2s}
-.rcard:hover{border-color:var(--acc);transform:translateY(-2px)}
-.rcard .t{font-size:11.5px;color:var(--acc);font-weight:700;text-transform:uppercase}
-.rcard .h{font-size:15px;font-weight:700;margin:6px 0 0;line-height:1.35;color:var(--txt)}
-</style>
-<!--ld:start-->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Article",
-   "@id": "https://worldliveradio.com/articles/start-your-own-internet-radio.html#article",
-   "url": "https://worldliveradio.com/articles/start-your-own-internet-radio.html",
-   "mainEntityOfPage": "https://worldliveradio.com/articles/start-your-own-internet-radio.html",
-   "headline": "How to start your own internet radio station",
-   "description": "The four technical pieces, the real bandwidth bill, licensing, and how to actually get heard.",
-   "inLanguage": [
-    "en",
-    "ar"
-   ],
-   "datePublished": "2026-11-06",
-   "dateModified": "2026-11-06",
-   "author": {
-    "@id": "https://worldliveradio.com/#org"
-   },
-   "publisher": {
-    "@id": "https://worldliveradio.com/#org"
-   },
-   "isPartOf": {
-    "@id": "https://worldliveradio.com/#website"
-   },
-   "alternativeHeadline": "كيف تطلق محطتك الإذاعية على الإنترنت",
-   "articleSection": "Tips & explainers"
-  },
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "LiveRadio",
-     "item": "https://worldliveradio.com/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "Articles",
-     "item": "https://worldliveradio.com/articles.html"
-    },
-    {
-     "@type": "ListItem",
-     "position": 3,
-     "name": "How to start your own internet radio station",
-     "item": "https://worldliveradio.com/articles/start-your-own-internet-radio.html"
-    }
-   ]
-  },
-  {
-   "@type": "Organization",
-   "@id": "https://worldliveradio.com/#org",
-   "name": "LiveRadio",
-   "url": "https://worldliveradio.com/",
-   "logo": {
-    "@type": "ImageObject",
-    "url": "https://worldliveradio.com/icon-512.png",
-    "width": 512,
-    "height": 512
-   }
-  }
- ]
-}
-</script>
-<!--ld:end-->
 </head>
 <body>
-<div id="rprog"></div>
 
 <header>
   <div class="hrow">
     <a class="logo" href="../"><span class="logo-dot"></span>Live<span>Radio</span></a>
     <div class="spacer"></div>
-    <button class="btn" id="langBtn">العربية</button>
+    <a class="btn" href="../" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
+    <button class="btn" id="langBtn">Arabic</button>
   </div>
 </header>
 
 <main data-type="article" data-slug="start-your-own-internet-radio">
-  <div class="navrow">
-    <a href="../" data-en="&larr; Stations" data-ar="&rarr; المحطات">&larr; Stations</a>
-    <a href="../articles.html" data-en="&larr; All articles" data-ar="&rarr; كل المقالات">&larr; All articles</a>
-  </div>
-
-  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Guides" data-ar="أدلة">Guides</a></div>
-  <span class="tagx" data-en="How-to" data-ar="دليل عملي">How-to</span>
+  <div class="crumb"><a href="../" data-en="Home" data-ar="الرئيسية">Home</a> &rsaquo; <a href="../articles.html" data-en="Articles" data-ar="المقالات">Articles</a></div>
+  <span class="tagx" data-en="Tips &amp; explainers" data-ar="نصائح وشروحات">Tips &amp; explainers</span>
   <h1 data-en="How to start your own internet radio station" data-ar="كيف تطلق محطتك الإذاعية على الإنترنت">How to start your own internet radio station</h1>
-  <div class="meta"><span data-en="Updated November 2026 · 9 min read" data-ar="تحديث نونبر 2026 · قراءة 9 دقائق">Updated November 2026 · 9 min read</span></div>
+  <div class="meta"><span data-en="Updated 2026-11-06" data-ar="تحديث 2026-11-06">Updated 2026-11-06</span></div>
 
-  <div class="hero"><svg viewBox="0 0 800 190" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mixing desk faders and a signal going out">
-<defs><linearGradient id="s1" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#581c87"/><stop offset=".5" stop-color="#0e7490"/><stop offset="1" stop-color="#065f46"/></linearGradient></defs>
-<rect width="800" height="190" fill="url(#s1)"/>
-<g stroke="#a5f3fc" stroke-opacity=".55" stroke-width="3" stroke-linecap="round">
-<line x1="120" y1="56" x2="120" y2="150"/><line x1="170" y1="56" x2="170" y2="150"/><line x1="220" y1="56" x2="220" y2="150"/>
-<line x1="270" y1="56" x2="270" y2="150"/><line x1="320" y1="56" x2="320" y2="150"/><line x1="370" y1="56" x2="370" y2="150"/></g>
-<g fill="#fff"><rect x="110" y="104" width="20" height="11" rx="5"/><rect x="160" y="78" width="20" height="11" rx="5"/>
-<rect x="210" y="124" width="20" height="11" rx="5"/><rect x="260" y="92" width="20" height="11" rx="5"/>
-<rect x="310" y="136" width="20" height="11" rx="5"/><rect x="360" y="70" width="20" height="11" rx="5"/></g>
-<g fill="none" stroke="#fcd34d" stroke-opacity=".7" stroke-width="2.5" stroke-linecap="round">
-<path d="M470 100 a40 40 0 0 1 0 -0.1"/><path d="M470 70 a44 44 0 0 1 0 60"/><path d="M500 52 a70 70 0 0 1 0 96" stroke-opacity=".45"/>
-<path d="M530 34 a96 96 0 0 1 0 132" stroke-opacity=".25"/></g>
-<circle cx="462" cy="100" r="8" fill="#fcd34d"/>
-<g fill="#fff" fill-opacity=".18"><rect x="600" y="60" width="150" height="80" rx="10"/></g>
-<g stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none"><rect x="600" y="60" width="150" height="80" rx="10"/><line x1="600" y1="84" x2="750" y2="84"/></g>
-<g fill="#5eead4"><circle cx="616" cy="72" r="4"/><circle cx="630" cy="72" r="4"/><circle cx="644" cy="72" r="4"/></g></svg></div>
+  <div class="hero"><div class="wav"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
 
   <p data-en="Thirty years ago starting a radio station meant a transmitter, a licence and a lawyer. Today it means a laptop, a server and about the cost of a streaming subscription. The barrier collapsed so completely that most people have not noticed it happened. This is a practical guide to what is actually involved, written for someone who has never done it." data-ar="قبل ثلاثين عاماً كان إطلاق محطة إذاعية يعني مرسلاً ورخصةً ومحامياً. واليوم يعني حاسوباً محمولاً وخادماً وما يعادل كلفة اشتراك بثّ. انهار الحاجز انهياراً كاملاً حتى إن معظم الناس لم ينتبهوا إلى حدوث ذلك. وهذا دليل عملي لما يتطلبه الأمر فعلاً، مكتوب لمن لم يفعله من قبل.">Thirty years ago starting a radio station meant a transmitter, a licence and a lawyer. Today it means a laptop, a server and about the cost of a streaming subscription. The barrier collapsed so completely that most people have not noticed it happened. This is a practical guide to what is actually involved, written for someone who has never done it.</p>
   <h2 data-en="Step one: decide what the station is" data-ar="الخطوة الأولى: قرّر ما هي المحطة">Step one: decide what the station is</h2>
   <p data-en="This sounds like advice to skip. It is not. The single most common reason a new internet station fails is that it plays a bit of everything, which means nobody can describe it to a friend. The stations that survive are narrow: one city's music, one decade, one genre nobody else serves, one language. Narrow is not a limitation online — there is no local market to satisfy, only a global audience of people who want exactly that thing." data-ar="يبدو هذا نصيحة تُتجاوز. وليس كذلك. فالسبب الأشيع لفشل محطة إنترنت جديدة أنها تشغّل قليلاً من كل شيء، ما يعني أن لا أحد يستطيع وصفها لصديق. والمحطات التي تستمر ضيّقة: موسيقى مدينة واحدة، أو عقد واحد، أو نوع لا يخدمه غيرها، أو لغة واحدة. والضيق ليس قيداً على الإنترنت — فلا سوق محلية تُرضيها، بل جمهور عالمي ممن يريدون ذلك الشيء بالضبط.">This sounds like advice to skip. It is not. The single most common reason a new internet station fails is that it plays a bit of everything, which means nobody can describe it to a friend. The stations that survive are narrow: one city's music, one decade, one genre nobody else serves, one language. Narrow is not a limitation online — there is no local market to satisfy, only a global audience of people who want exactly that thing.</p>
   <h2 data-en="Step two: the technical chain" data-ar="الخطوة الثانية: السلسلة التقنية">Step two: the technical chain</h2>
   <p data-en="Every internet station, from a bedroom project to a national broadcaster, is the same four components in a row." data-ar="كل محطة إنترنت، من مشروع في غرفة نوم إلى هيئة بثّ وطنية، هي المكوّنات الأربعة نفسها متتاليةً.">Every internet station, from a bedroom project to a national broadcaster, is the same four components in a row.</p>
-  <ol>
+  <ul>
     <li data-en="<strong>A source.</strong> Software on your computer that assembles the audio — your playlist, your microphone, your jingles. Free options exist for every operating system; this is not where you spend money." data-ar="<strong>مصدر.</strong> برنامج على حاسوبك يجمع الصوت — قائمة تشغيلك وميكروفونك وجنغلاتك. وتوجد خيارات مجانية لكل نظام تشغيل؛ وليس هنا حيث تُنفق المال."><strong>A source.</strong> Software on your computer that assembles the audio — your playlist, your microphone, your jingles. Free options exist for every operating system; this is not where you spend money.</li>
+  </ul>
+  <ul>
     <li data-en="<strong>An encoder.</strong> This compresses your audio into a stream, usually MP3 or AAC. It is often built into the source software. The bitrate you choose here decides both your sound quality and your bandwidth bill — see <a href='./how-online-radio-works.html'>how online radio works</a> for the trade-off." data-ar="<strong>مرمِّز.</strong> يضغط صوتك إلى تيار بثّ، عادةً MP3 أو AAC. وغالباً ما يكون مدمجاً في برنامج المصدر. ومعدل البت الذي تختاره هنا يحدد جودة صوتك وفاتورة النطاق معاً — انظر <a href='./how-online-radio-works.html'>كيف يعمل راديو الإنترنت</a> لفهم المقايضة."><strong>An encoder.</strong> This compresses your audio into a stream, usually MP3 or AAC. It is often built into the source software. The bitrate you choose here decides both your sound quality and your bandwidth bill — see <a href='./how-online-radio-works.html'>how online radio works</a> for the trade-off.</li>
+  </ul>
+  <ul>
     <li data-en="<strong>A streaming server.</strong> This is the part that costs money. Icecast and SHOUTcast are the two standard server programs; you either rent a hosted service that runs one for you, or install it yourself on a cheap virtual server." data-ar="<strong>خادم بثّ.</strong> هذا هو الجزء الذي يكلّف مالاً. وIcecast وSHOUTcast هما برنامجا الخادم القياسيان؛ فإما أن تستأجر خدمة مستضافة تشغّل أحدهما لك، أو تثبّته بنفسك على خادم افتراضي رخيص."><strong>A streaming server.</strong> This is the part that costs money. Icecast and SHOUTcast are the two standard server programs; you either rent a hosted service that runs one for you, or install it yourself on a cheap virtual server.</li>
+  </ul>
+  <ul>
     <li data-en="<strong>A way for people to listen.</strong> A page with a player, an entry in the public directories, and ideally a link people can share. Without this step you have a stream nobody knows about." data-ar="<strong>وسيلة ليستمع الناس.</strong> صفحة فيها مشغّل، ومدخل في الأدلة العامة، ويُفضَّل رابط يستطيع الناس مشاركته. وبدون هذه الخطوة لديك بثّ لا يعرف به أحد."><strong>A way for people to listen.</strong> A page with a player, an entry in the public directories, and ideally a link people can share. Without this step you have a stream nobody knows about.</li>
-  </ol>
+  </ul>
   <h2 data-en="Step three: the costs nobody mentions first" data-ar="الخطوة الثالثة: التكاليف التي لا يذكرها أحد أولاً">Step three: the costs nobody mentions first</h2>
   <p data-en="Streaming is priced per listener, which is the crucial difference from FM. A transmitter costs the same whether one person or a million are tuned in; a stream costs you bandwidth for every single connection. The arithmetic is simple and worth doing before you start." data-ar="يُسعَّر البثّ لكل مستمع، وهذا هو الفارق الحاسم عن FM. فالمرسل يكلّف الشيء نفسه سواء استمع إليه شخص واحد أو مليون؛ أما البثّ فيكلّفك نطاقاً عن كل اتصال على حدة. والحساب بسيط ويستحق أن تجريه قبل أن تبدأ.">Streaming is priced per listener, which is the crucial difference from FM. A transmitter costs the same whether one person or a million are tuned in; a stream costs you bandwidth for every single connection. The arithmetic is simple and worth doing before you start.</p>
   <p data-en="A 128 kbps stream uses roughly 58 MB per listener per hour. Ten listeners for eight hours a day is about 139 GB a month. At 64 kbps AAC — which most people cannot distinguish on a phone — the same audience costs half that. This is why serious small stations stream at 64, not because they cannot afford better encoders." data-ar="بثّ بـ128 kbps يستهلك نحو 58 ميغابايت لكل مستمع في الساعة. وعشرة مستمعين لثماني ساعات يومياً يعني نحو 139 غيغابايت شهرياً. وعند 64 kbps بصيغة AAC — وهو ما لا يميّزه معظم الناس على هاتف — تكلّف الجمهور نفسه نصف ذلك. ولهذا تبثّ المحطات الصغيرة الجادة عند 64، لا لأنها لا تقدر على مرمّزات أفضل.">A 128 kbps stream uses roughly 58 MB per listener per hour. Ten listeners for eight hours a day is about 139 GB a month. At 64 kbps AAC — which most people cannot distinguish on a phone — the same audience costs half that. This is why serious small stations stream at 64, not because they cannot afford better encoders.</p>
@@ -265,30 +159,21 @@ footer nav a:hover{color:var(--acc)}
   <h2 data-en="Step five: getting heard" data-ar="الخطوة الخامسة: أن تُسمَع">Step five: getting heard</h2>
   <ul>
     <li data-en="<strong>Add yourself to the open directories.</strong> Radio Browser is community-maintained and free to submit to; most third-party apps and sites pull from it, including this one." data-ar="<strong>أضف نفسك إلى الأدلة المفتوحة.</strong> فـRadio Browser يصونه المجتمع والإضافة إليه مجانية؛ ومعظم التطبيقات والمواقع تسحب منه، ومنها هذا الموقع."><strong>Add yourself to the open directories.</strong> Radio Browser is community-maintained and free to submit to; most third-party apps and sites pull from it, including this one.</li>
+  </ul>
+  <ul>
     <li data-en="<strong>Publish an https stream.</strong> An insecure http link is blocked inside secure websites, which silently removes you from a large share of potential listeners." data-ar="<strong>انشر بثّاً بـhttps.</strong> فالرابط غير الآمن يُحجب داخل المواقع الآمنة، ما يزيلك بصمت من شريحة واسعة من المستمعين المحتملين."><strong>Publish an https stream.</strong> An insecure http link is blocked inside secure websites, which silently removes you from a large share of potential listeners.</li>
+  </ul>
+  <ul>
     <li data-en="<strong>Send correct metadata.</strong> Artist and title text costs nothing and is the difference between a player showing your station name and showing the record playing." data-ar="<strong>أرسل بيانات وصفية صحيحة.</strong> فنصّ الفنان والعنوان لا يكلّف شيئاً، وهو الفرق بين مشغّل يعرض اسم محطتك ومشغّل يعرض التسجيل العامل."><strong>Send correct metadata.</strong> Artist and title text costs nothing and is the difference between a player showing your station name and showing the record playing.</li>
+  </ul>
+  <ul>
     <li data-en="<strong>Be reliable before you are ambitious.</strong> A station that drops every twenty minutes loses listeners permanently; they do not come back to check whether you fixed it." data-ar="<strong>كن موثوقاً قبل أن تكون طموحاً.</strong> فالمحطة التي تنقطع كل عشرين دقيقة تفقد مستمعيها نهائياً؛ ولا يعودون ليتحققوا هل أصلحتها."><strong>Be reliable before you are ambitious.</strong> A station that drops every twenty minutes loses listeners permanently; they do not come back to check whether you fixed it.</li>
   </ul>
-  <div class="box">
-    <h3 data-en="A realistic first month" data-ar="شهر أول واقعي">A realistic first month</h3>
+  <h2 data-en="A realistic first month" data-ar="شهر أول واقعي">A realistic first month</h2>
   <p data-en="Week one: decide the format and gather enough material for twelve hours. Week two: get a stream running and listen to it yourself on a phone over mobile data, not on the same computer. Week three: fix everything that broke, because something will. Week four: submit to directories and tell people. Do not announce anything publicly until you have run the stream unattended for seventy-two hours without it stopping." data-ar="الأسبوع الأول: قرّر الصيغة واجمع مواد تكفي اثنتي عشرة ساعة. الأسبوع الثاني: شغّل بثّاً واستمع إليه بنفسك على هاتف عبر بيانات الجوال، لا على الحاسوب نفسه. الأسبوع الثالث: أصلح كل ما تعطّل، فشيء ما سيتعطّل. الأسبوع الرابع: أرسل إلى الأدلة وأخبر الناس. ولا تعلن شيئاً علناً حتى تُشغّل البثّ دون انتباه اثنتين وسبعين ساعة بلا توقّف.">Week one: decide the format and gather enough material for twelve hours. Week two: get a stream running and listen to it yourself on a phone over mobile data, not on the same computer. Week three: fix everything that broke, because something will. Week four: submit to directories and tell people. Do not announce anything publicly until you have run the stream unattended for seventy-two hours without it stopping.</p>
-  </div>
   <blockquote data-en="The hard part of running a station was never the transmitter. It was having something worth transmitting, and that part has not changed at all." data-ar="لم يكن الجزء الصعب في إدارة محطة هو المرسل قط. بل أن يكون لديك ما يستحق الإرسال، وهذا الجزء لم يتغير إطلاقاً.">The hard part of running a station was never the transmitter. It was having something worth transmitting, and that part has not changed at all.</blockquote>
 
-
-  <a class="cta" href="../" data-en="Hear what others are doing &rarr;" data-ar="اسمع ما يفعله الآخرون &larr;">Hear what others are doing &rarr;</a>
-
-  <div class="sharerow">
-    <button id="shNative" data-en="Share" data-ar="مشاركة">Share</button>
-    <button id="shWhats">WhatsApp</button>
-    <button id="shX">X</button>
-    <button id="shCopy" data-en="Copy link" data-ar="نسخ الرابط">Copy link</button>
-  </div>
-
-  <div class="related" id="relSec" style="display:none">
-    <h2 data-en="Related articles" data-ar="مقالات ذات صلة">Related articles</h2>
-    <div class="rgrid" id="relGrid"></div>
-  </div>
+  <a class="cta" href="../" data-en="Browse live stations &rarr;" data-ar="تصفّح المحطات المباشرة &larr;">Browse live stations &rarr;</a>
 </main>
 
 <footer>
@@ -299,7 +184,7 @@ footer nav a:hover{color:var(--acc)}
     <a href="../privacy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
     <a href="../contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>
   </nav>
-  <div>© <span id="yr"></span> LiveRadio</div>
+  <div>&copy; <span id="yr"></span> LiveRadio</div>
 </footer>
 
 <script>
@@ -315,81 +200,15 @@ function apply(){
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
   var els=document.querySelectorAll('[data-en]');
   for(var i=0;i<els.length;i++){var v=els[i].getAttribute('data-'+lang);if(v)els[i].innerHTML=v;}
-  document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';
+  var le=document.querySelectorAll('.lang-en'),la=document.querySelectorAll('.lang-ar');
+  for(var a=0;a<le.length;a++)le[a].style.display=(lang==='en')?'':'none';
+  for(var b=0;b<la.length;b++)la[b].style.display=(lang==='ar')?'':'none';
+  document.getElementById('langBtn').textContent=lang==='en'?'Arabic':'الإنجليزية';
   try{localStorage.setItem('lr_lang',lang);}catch(e){}
 }
 document.getElementById('langBtn').onclick=function(){lang=lang==='en'?'ar':'en';apply();};
 document.getElementById('yr').textContent=new Date().getFullYear();
 apply();
 </script>
-
-<script>
-/* ===== شريط التقدّم + حفظ موضع القراءة + المشاركة + مقالات ذات صلة ===== */
-(function(){
-  var SLUG='start-your-own-internet-radio';
-  var bar=document.getElementById('rprog');
-  function pct(){
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    return h>0?Math.min(100,Math.round((window.scrollY/h)*100)):0;
-  }
-  var save=null;
-  window.addEventListener('scroll',function(){
-    var p=pct();
-    if(bar)bar.style.width=p+'%';
-    clearTimeout(save);
-    save=setTimeout(function(){
-      try{
-        var o=JSON.parse(localStorage.getItem('lr_read')||'{}');
-        o[SLUG]=p;localStorage.setItem('lr_read',JSON.stringify(o));
-      }catch(e){}
-    },400);
-  });
-
-  var sh=document.getElementById('shWhats'),cp=document.getElementById('shCopy'),
-      na=document.getElementById('shNative'),tw=document.getElementById('shX');
-  var url=location.href.split('#')[0], ttl=document.title;
-  if(sh)sh.onclick=function(){
-    window.open('https://wa.me/?text='+encodeURIComponent(ttl+' '+url),'_blank');
-  };
-  if(tw)tw.onclick=function(){
-    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(ttl)+
-      '&url='+encodeURIComponent(url),'_blank');
-  };
-  if(cp)cp.onclick=function(){
-    if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){
-      cp.textContent=(document.documentElement.lang==='ar')?'تم النسخ':'Copied';
-    });
-  };
-  if(na)na.onclick=function(){
-    if(navigator.share)navigator.share({title:ttl,url:url}).catch(function(){});
-    else if(cp)cp.click();
-  };
-
-  /* مقالات ذات صلة من نفس التصنيف */
-  fetch('../articles.json').then(function(r){return r.json();}).then(function(all){
-    var me=null;
-    for(var i=0;i<all.length;i++)if(all[i].slug===SLUG){me=all[i];break;}
-    if(!me)return;
-    var lang=document.documentElement.lang==='ar'?'ar':'en';
-    var same=all.filter(function(p){return p.slug!==SLUG&&p.cat===me.cat;});
-    var rest=all.filter(function(p){return p.slug!==SLUG&&p.cat!==me.cat;});
-    var pick=same.concat(rest).slice(0,3);
-    if(!pick.length)return;
-    var box=document.getElementById('relGrid');
-    if(!box)return;
-    pick.forEach(function(p){
-      var a=document.createElement('a');a.className='rcard';a.href='./'+p.slug+'.html';
-      a.innerHTML='<div class="t"></div><div class="h"></div>';
-      a.querySelector('.t').textContent=(p.tag&&(p.tag[lang]||p.tag.en))||'';
-      a.querySelector('.h').textContent=p.title[lang]||p.title.en;
-      box.appendChild(a);
-    });
-    document.getElementById('relSec').style.display='block';
-  }).catch(function(){});
-})();
-</script>
-<script src="/ads.js" defer></script>
-<script src="/art.js" defer></script>
-<script src="/social.js" defer></script>
 </body>
 </html>
