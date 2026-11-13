@@ -5,7 +5,7 @@
     "en": "The United States Of America",
     "ar": "الولايات المتحدة",
     "date": "2026-11-11",
-    "n": 7084,
+    "n": 6917,
     "descEn": "American radio began as a hobby in a garage and became the most commercial broadcasting system on earth. It never had a national public broadcaster fu",
     "descAr": "بدأ الراديو الأمريكي هوايةً في مرآب، وصار أكثر أنظمة البثّ تجارية في العالم. لم تكن له قطّ هيئة عمومية وطنية تموّلها الرسوم؛ كان له سوق، وهذه السوق اخ"
   },
@@ -15,7 +15,7 @@
     "en": "Germany",
     "ar": "ألمانيا",
     "date": "2026-11-11",
-    "n": 5652,
+    "n": 5591,
     "descEn": "German radio is the only major broadcasting system in the world designed, quite deliberately, to be hard to control. To understand why, you have to st",
     "descAr": "الإذاعة الألمانية هي النظام الإذاعي الكبير الوحيد في العالم الذي صُمّم عمداً ليكون صعب السيطرة. ولفهم السبب يجب أن نبدأ من عليّة في برلين ومن جهاز است"
   },
@@ -25,7 +25,7 @@
     "en": "France",
     "ar": "فرنسا",
     "date": "2026-11-11",
-    "n": 2816,
+    "n": 2790,
     "descEn": "French radio is a story of listeners who kept finding ways around the state. For decades the government held a monopoly, and for decades the French tu",
     "descAr": "قصة الإذاعة الفرنسية قصة مستمعين ظلّوا يجدون طرقاً للالتفاف على الدولة. فلعقود احتكرت الحكومة البثّ، ولعقود ضبط الفرنسيون أجهزتهم على محطات تبثّ من خا"
   },
@@ -35,19 +35,9 @@
     "en": "The Russian Federation",
     "ar": "روسيا",
     "date": "2026-11-11",
-    "n": 2532,
+    "n": 2485,
     "descEn": "Few countries have asked as much of radio as Russia. It had to reach villages across eleven time zones, speak to dozens of nations in their own langua",
     "descAr": "قلّما طلب بلد من الراديو ما طلبته روسيا. فقد كان عليه أن يصل إلى قرى موزّعة على إحدى عشرة منطقة زمنية، وأن يخاطب عشرات الشعوب بلغاتها، وأن يحمل صوت ال"
-  },
-  {
-    "cc": "GB",
-    "slug": "the-united-kingdom-of-great-britain-and-northern-ireland",
-    "en": "The United Kingdom Of Great Britain And Northern Ireland",
-    "ar": "المملكة المتحدة",
-    "date": "2026-11-11",
-    "n": 1995,
-    "descEn": "Britain gave the world a model of public broadcasting, and then watched a group of pirates on ships in the North Sea force that model to change. Both ",
-    "descAr": "قدّمت بريطانيا للعالم نموذج البثّ العمومي، ثم شاهدت مجموعة من القراصنة على سفن في بحر الشمال يجبرون هذا النموذج على التغيّر. ونصفا القصة يفسّران التنو"
   },
   {
     "cc": "CN",
@@ -55,9 +45,19 @@
     "en": "China",
     "ar": "الصين",
     "date": "2026-11-11",
-    "n": 1979,
+    "n": 1964,
     "descEn": "Chinese radio has two histories that rarely meet in the same article. One is the story of a few foreign-run stations in 1920s Shanghai. The other is t",
     "descAr": "للإذاعة الصينية تاريخان نادراً ما يلتقيان في مقال واحد. الأول قصة بضع محطات يديرها أجانب في شنغهاي العشرينيات. والثاني قصة مرسل حُمل إلى بلدة كهوف في "
+  },
+  {
+    "cc": "GB",
+    "slug": "the-united-kingdom-of-great-britain-and-northern-ireland",
+    "en": "The United Kingdom Of Great Britain And Northern Ireland",
+    "ar": "المملكة المتحدة",
+    "date": "2026-11-11",
+    "n": 1939,
+    "descEn": "Britain gave the world a model of public broadcasting, and then watched a group of pirates on ships in the North Sea force that model to change. Both ",
+    "descAr": "قدّمت بريطانيا للعالم نموذج البثّ العمومي، ثم شاهدت مجموعة من القراصنة على سفن في بحر الشمال يجبرون هذا النموذج على التغيّر. ونصفا القصة يفسّران التنو"
   },
   {
     "cc": "GR",
@@ -65,7 +65,7 @@
     "en": "Greece",
     "ar": "اليونان",
     "date": "2026-11-11",
-    "n": 1899,
+    "n": 1880,
     "descEn": "Only twice in its history has Greece's national radio gone completely silent. The first time was in 1941, when German troops occupied the station in A",
     "descAr": "لم تصمت الإذاعة الوطنية اليونانية صمتاً تاماً إلا مرتين في تاريخها. الأولى سنة 1941، حين احتلت القوات الألمانية المحطة في أثينا. والثانية مساء 11 يوني"
   },
@@ -75,7 +75,7 @@
     "en": "Italy",
     "ar": "إيطاليا",
     "date": "2026-11-11",
-    "n": 1605,
+    "n": 1586,
     "descEn": "Italy has one of the most crowded radio dials in Europe, and the reason is a court ruling and a generation of young people with transmitters in their ",
     "descAr": "تملك إيطاليا واحداً من أكثر المؤشرات الإذاعية ازدحاماً في أوروبا، والسبب حكم قضائي وجيل من الشباب وضعوا مرسلات في مرائبهم. وما زالت تلك الطاقة تحدّد ش"
   },
@@ -85,7 +85,7 @@
     "en": "Mexico",
     "ar": "المكسيك",
     "date": "2026-11-11",
-    "n": 1563,
+    "n": 1529,
     "descEn": "For decades, one Mexican station opened its broadcasts with a slogan that described a whole continent: \"XEW, the voice of Latin America from Mexico.\" ",
     "descAr": "لعقود، كانت محطة مكسيكية واحدة تفتتح بثّها بشعار يصف قارة كاملة: «XEW، صوت أمريكا اللاتينية من المكسيك». لم يكتفِ الراديو المكسيكي بتسلية المكسيكيين؛ "
   },
@@ -95,7 +95,7 @@
     "en": "Brazil",
     "ar": "البرازيل",
     "date": "2026-11-11",
-    "n": 1434,
+    "n": 1397,
     "descEn": "Brazilian radio was born as a national show and grew into the country's great storyteller. Long before television, Brazilians followed radio soap oper",
     "descAr": "وُلد الراديو البرازيلي عرضاً وطنياً، ثم صار الراوي الأكبر في البلاد. فقبل التلفزيون بزمن طويل، تابع البرازيليون المسلسلات الإذاعية حلقة بحلقة، واستمر "
   },
@@ -105,7 +105,7 @@
     "en": "Canada",
     "ar": "كندا",
     "date": "2026-11-11",
-    "n": 1388,
+    "n": 1363,
     "descEn": "Canada has a strong claim to one of the very first scheduled radio broadcasts in the world, and it built a radio system shaped by two languages and a ",
     "descAr": "لكندا ادّعاء قوي بأنها قدّمت واحداً من أول البرامج الإذاعية المجدولة في العالم، وقد بنت نظاماً إذاعياً شكّلته لغتان وجار قوي. والأمران معاً يفسّران ما"
   },
@@ -115,7 +115,7 @@
     "en": "Spain",
     "ar": "إسبانيا",
     "date": "2026-11-11",
-    "n": 1235,
+    "n": 1197,
     "descEn": "In Spain, radio is where the country goes when something happens — a goal, an election night, or a crisis that stops everyone in their tracks. Spanish",
     "descAr": "في إسبانيا، الراديو هو المكان الذي تذهب إليه البلاد حين يحدث شيء — هدف، أو ليلة انتخابات، أو أزمة توقف الجميع. الإذاعة الإسبانية كثيرة الكلام، مهووسة "
   },
@@ -125,7 +125,7 @@
     "en": "The Netherlands",
     "ar": "هولندا",
     "date": "2026-11-11",
-    "n": 1220,
+    "n": 1179,
     "descEn": "On 5 November 1919, a Dutch newspaper carried a small advertisement: the next evening, music would be broadcast by wireless from The Hague. It was ann",
     "descAr": "في 5 نوفمبر 1919، نشرت صحيفة هولندية إعلاناً صغيراً: في مساء اليوم التالي ستُبثّ موسيقى لاسلكياً من لاهاي. أُعلن عن البثّ مسبقاً وبموعد محدد، ولهذا يع"
   },
@@ -135,7 +135,7 @@
     "en": "Argentina",
     "ar": "الأرجنتين",
     "date": "2026-11-11",
-    "n": 1056,
+    "n": 1030,
     "descEn": "Argentina celebrates a national Radio Day every 27 August, in honour of four young men who climbed onto a theatre roof in Buenos Aires in 1920 and put",
     "descAr": "تحتفل الأرجنتين بيوم وطني للراديو في 27 غشت من كل عام، تكريماً لأربعة شبان صعدوا إلى سطح مسرح في بوينس آيرس سنة 1920 وأذاعوا أوبرا على الأثير. ومغامرت"
   },
@@ -145,7 +145,7 @@
     "en": "Poland",
     "ar": "بولندا",
     "date": "2026-11-11",
-    "n": 910,
+    "n": 901,
     "descEn": "At five in the afternoon on 18 April 1926, a woman's voice in Warsaw spoke the words that every Pole of that generation would remember: \"Halo, halo, P",
     "descAr": "في الخامسة مساء 18 أبريل 1926، نطق صوت امرأة في وارسو بكلمات سيتذكرها كل بولندي من ذلك الجيل: «ألو، ألو، هنا الإذاعة البولندية وارسو، الموجة 480» . وج"
   },
@@ -155,7 +155,7 @@
     "en": "India",
     "ar": "الهند",
     "date": "2026-11-11",
-    "n": 750,
+    "n": 732,
     "descEn": "In India, the national broadcaster has a poetic name: Akashvani , \"the voice from the sky.\" Few countries have depended on radio as heavily to reach p",
     "descAr": "في الهند، للهيئة الإذاعية الوطنية اسم شاعري: «أكاشفاني»، أي «الصوت الآتي من السماء». وقليلة هي الدول التي اعتمدت على الراديو بهذا القدر للوصول إلى الن"
   },
@@ -165,7 +165,7 @@
     "en": "Türkiye",
     "ar": "تركيا",
     "date": "2026-11-11",
-    "n": 672,
+    "n": 664,
     "descEn": "Turkish radio began with a loudspeaker fixed above the door of a post office in Istanbul, so that people in the street could hear what the new machine",
     "descAr": "بدأ الراديو التركي بمكبّر صوت ثُبّت فوق باب مكتب بريد في إسطنبول، ليسمع المارّة في الشارع ما تستطيع الآلة الجديدة فعله. وبعد سبعة عقود، انتقل البلد نف"
   },
@@ -175,7 +175,7 @@
     "en": "The United Arab Emirates",
     "ar": "الإمارات",
     "date": "2026-11-11",
-    "n": 635,
+    "n": 634,
     "descEn": "Scan the FM band in Dubai and you will hear Arabic, English, Hindi, Urdu, Malayalam, Tamil, Tagalog, Persian and Russian within a few minutes. Few pla",
     "descAr": "أدِر موجة FM في دبي وستسمع العربية والإنجليزية والهندية والأردية والمالايالامية والتاميلية والتاغالوغية والفارسية والروسية في دقائق قليلة. قلّة من الأ"
   },
@@ -185,7 +185,7 @@
     "en": "Indonesia",
     "ar": "إندونيسيا",
     "date": "2026-11-11",
-    "n": 522,
+    "n": 506,
     "descEn": "In most countries radio arrived first and politics followed. In Indonesia the order was reversed: the national radio was founded in the weeks after in",
     "descAr": "في معظم البلدان وصل الراديو أولاً ثم تبعته السياسة. أما في إندونيسيا فانقلب الترتيب: فقد تأسست الإذاعة الوطنية في الأسابيع التي تلت إعلان الاستقلال، ع"
   },
@@ -195,7 +195,7 @@
     "en": "Portugal",
     "ar": "البرتغال",
     "date": "2026-11-11",
-    "n": 335,
+    "n": 330,
     "descEn": "At five to eleven on the night of 24 April 1974, a Lisbon radio station played a love song that had just represented Portugal at Eurovision. Most list",
     "descAr": "في الحادية عشرة إلا خمس دقائق من ليلة 24 أبريل 1974، بثّت محطة إذاعية في لشبونة أغنية حب كانت قد مثّلت البرتغال للتوّ في مسابقة الأغنية الأوروبية. ولم"
   },
@@ -215,19 +215,9 @@
     "en": "South Africa",
     "ar": "جنوب إفريقيا",
     "date": "2026-11-11",
-    "n": 198,
+    "n": 197,
     "descEn": "South African radio has served two opposite causes. For decades it was one of the most powerful tools of apartheid, broadcasting separate stations for",
     "descAr": "خدم الراديو في جنوب إفريقيا قضيتين متعاكستين. فلعقود كان من أقوى أدوات الفصل العنصري، يبثّ محطات منفصلة لمجموعات منفصلة. وفي الوقت نفسه، كانت حركة تحر"
-  },
-  {
-    "cc": "JP",
-    "slug": "japan",
-    "en": "Japan",
-    "ar": "اليابان",
-    "date": "2026-11-11",
-    "n": 120,
-    "descEn": "Japanese radio holds a moment no other country's radio can match: the day an entire nation heard its emperor's voice for the first time, announcing th",
-    "descAr": "تملك الإذاعة اليابانية لحظة لا يملكها راديو أي بلد آخر: اليوم الذي سمعت فيه أمة كاملة صوت إمبراطورها للمرة الأولى، وهو يعلن نهاية حرب. وتملك أيضاً واح"
   },
   {
     "cc": "LB",
@@ -235,19 +225,19 @@
     "en": "Lebanon",
     "ar": "لبنان",
     "date": "2026-11-11",
-    "n": 118,
+    "n": 116,
     "descEn": "Somewhere in the archives of Radio Liban in Beirut are some of the first recordings ever made by Fairuz, by Wadih El Safi and by other giants of Arab ",
     "descAr": "في مكان ما من أرشيف «إذاعة لبنان» في بيروت تقبع بعض أولى التسجيلات التي صنعتها فيروز ووديع الصافي وعمالقة آخرون من الغناء العربي. وقلّة من الإذاعات في"
   },
   {
-    "cc": "GH",
-    "slug": "ghana",
-    "en": "Ghana",
-    "ar": "غانا",
+    "cc": "JP",
+    "slug": "japan",
+    "en": "Japan",
+    "ar": "اليابان",
     "date": "2026-11-11",
-    "n": 92,
-    "descEn": "In Ghana, there is a building near the presidential palace in Accra that every coup plotter in the country's history wanted to reach first: Broadcasti",
-    "descAr": "في غانا، هناك مبنى قرب القصر الرئاسي في أكرا أراد كل قائد انقلاب في تاريخ البلاد أن يصل إليه أولاً: دار الإذاعة. فمن يمسك الميكروفون يستطيع أن يخاطب ا"
+    "n": 116,
+    "descEn": "Japanese radio holds a moment no other country's radio can match: the day an entire nation heard its emperor's voice for the first time, announcing th",
+    "descAr": "تملك الإذاعة اليابانية لحظة لا يملكها راديو أي بلد آخر: اليوم الذي سمعت فيه أمة كاملة صوت إمبراطورها للمرة الأولى، وهو يعلن نهاية حرب. وتملك أيضاً واح"
   },
   {
     "cc": "DZ",
@@ -260,12 +250,22 @@
     "descAr": "في الجزائر، يُذكر الراديو سلاحاً قبل أن يكون وسيلة تسلية. ففي أثناء حرب التحرير، حمل مرسل سري صوت الثورة إلى بيوت لم تستطع السلطات الاستعمارية الوصول "
   },
   {
+    "cc": "GH",
+    "slug": "ghana",
+    "en": "Ghana",
+    "ar": "غانا",
+    "date": "2026-11-11",
+    "n": 91,
+    "descEn": "In Ghana, there is a building near the presidential palace in Accra that every coup plotter in the country's history wanted to reach first: Broadcasti",
+    "descAr": "في غانا، هناك مبنى قرب القصر الرئاسي في أكرا أراد كل قائد انقلاب في تاريخ البلاد أن يصل إليه أولاً: دار الإذاعة. فمن يمسك الميكروفون يستطيع أن يخاطب ا"
+  },
+  {
     "cc": "NG",
     "slug": "nigeria",
     "en": "Nigeria",
     "ar": "نيجيريا",
     "date": "2026-11-11",
-    "n": 76,
+    "n": 70,
     "descEn": "Nigeria is Africa's most populous country and one of its loudest radio markets. Its broadcasting began as a wired relay of programmes from London, and",
     "descAr": "نيجيريا أكثر بلدان إفريقيا سكاناً، ومن أكثر أسواقها الإذاعية صخباً. بدأ البثّ فيها نقلاً سلكياً لبرامج قادمة من لندن، واليوم تتكلم أكثر محطاتها استماع"
   },
@@ -275,7 +275,7 @@
     "en": "Egypt",
     "ar": "مصر",
     "date": "2026-11-11",
-    "n": 60,
+    "n": 58,
     "descEn": "For much of the twentieth century, three words meant radio across the Arab world: Huna al-Qahira , \"This is Cairo.\" Egyptian radio did not just serve ",
     "descAr": "طوال معظم القرن العشرين، كانت ثلاث كلمات تعني الراديو في العالم العربي كله: «هنا القاهرة». لم تخدم الإذاعة المصرية بلداً واحداً، بل صنعت صوت المنطقة و"
   },
@@ -285,7 +285,7 @@
     "en": "Morocco",
     "ar": "المغرب",
     "date": "2026-11-11",
-    "n": 59,
+    "n": 57,
     "descEn": "Few countries change language as often on a single dial as Morocco. Turn the tuner slowly through Casablanca or Rabat and you will hear Moroccan Darij",
     "descAr": "قلّما تجد بلداً يتنقّل فيه مؤشر الراديو بين اللغات كما يحدث في المغرب. أدِر الموجة ببطء في الدار البيضاء أو الرباط وستسمع الدارجة والعربية الفصحى والف"
   },
@@ -295,7 +295,7 @@
     "en": "Kenya",
     "ar": "كينيا",
     "date": "2026-11-11",
-    "n": 57,
+    "n": 56,
     "descEn": "Kenyan radio is a story about who gets to speak, and in which language. It began as a service for colonial settlers, became a single state voice after",
     "descAr": "قصة الراديو الكيني قصة من يحقّ له الكلام، وبأي لغة. بدأ خدمةً للمستوطنين الاستعماريين، ثم صار صوت الدولة الوحيد بعد الاستقلال، وبعدها، في سنوات قليلة "
   },
@@ -305,7 +305,7 @@
     "en": "Tunisia",
     "ar": "تونس",
     "date": "2026-11-11",
-    "n": 56,
+    "n": 54,
     "descEn": "No North African country shows how closely radio follows politics as clearly as Tunisia. For decades the dial was narrow and controlled; after 2011 it",
     "descAr": "لا يُظهر بلد في شمال إفريقيا قرب الراديو من السياسة كما تُظهره تونس. فلعقود ظلّ المؤشر ضيقاً ومراقباً، وبعد 2011 انفتح بين ليلة وضحاها تقريباً. قصة ال"
   },
@@ -315,7 +315,7 @@
     "en": "Saudi Arabia",
     "ar": "السعودية",
     "date": "2026-11-11",
-    "n": 50,
+    "n": 47,
     "descEn": "Few radio services can say they were born for pilgrims. Saudi radio's first regular broadcast went on air from Jeddah on 1 October 1949, the Day of Ar",
     "descAr": "قلّة من الإذاعات في العالم يمكنها القول إنها وُلدت من أجل الحجاج. فقد انطلق أول بثّ منتظم للإذاعة السعودية من جدة في الأول من أكتوبر 1949، يوم عرفة، ب"
   },
@@ -325,7 +325,7 @@
     "en": "Senegal",
     "ar": "السنغال",
     "date": "2026-11-11",
-    "n": 32,
+    "n": 31,
     "descEn": "In March 2000, Senegal experienced its first change of power at the ballot box, and many Senegalese credit radio for helping to make it happen. That n",
     "descAr": "في مارس 2000 عرفت السنغال أول تداول للسلطة عبر صناديق الاقتراع، ويرى كثير من السنغاليين أن الراديو ساعد على تحقيقه. ففي تلك الليلة، بثّت المحطات الخاص"
   },
@@ -365,7 +365,7 @@
     "en": "Australia",
     "ar": "أستراليا",
     "date": "2026-11-11",
-    "n": 1614,
+    "n": 1607,
     "descEn": "",
     "descAr": ""
   },
@@ -375,7 +375,7 @@
     "en": "Romania",
     "ar": "رومانيا",
     "date": "2026-11-11",
-    "n": 860,
+    "n": 847,
     "descEn": "",
     "descAr": ""
   },
@@ -385,7 +385,7 @@
     "en": "The Philippines",
     "ar": "الفلبين",
     "date": "2026-11-11",
-    "n": 723,
+    "n": 706,
     "descEn": "",
     "descAr": ""
   },
@@ -395,7 +395,7 @@
     "en": "Colombia",
     "ar": "كولومبيا",
     "date": "2026-11-11",
-    "n": 678,
+    "n": 665,
     "descEn": "",
     "descAr": ""
   },
@@ -405,7 +405,7 @@
     "en": "Switzerland",
     "ar": "سويسرا",
     "date": "2026-11-11",
-    "n": 541,
+    "n": 537,
     "descEn": "",
     "descAr": ""
   },
@@ -415,7 +415,7 @@
     "en": "Chile",
     "ar": "تشيلي",
     "date": "2026-11-11",
-    "n": 507,
+    "n": 496,
     "descEn": "",
     "descAr": ""
   },
@@ -425,7 +425,7 @@
     "en": "Belgium",
     "ar": "بلجيكا",
     "date": "2026-11-11",
-    "n": 462,
+    "n": 450,
     "descEn": "",
     "descAr": ""
   },
@@ -435,17 +435,7 @@
     "en": "Serbia",
     "ar": "صربيا",
     "date": "2026-11-11",
-    "n": 373,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "HU",
-    "slug": "hungary",
-    "en": "Hungary",
-    "ar": "المجر",
-    "date": "2026-11-11",
-    "n": 345,
+    "n": 359,
     "descEn": "",
     "descAr": ""
   },
@@ -455,7 +445,17 @@
     "en": "Bulgaria",
     "ar": "بلغاريا",
     "date": "2026-11-11",
-    "n": 330,
+    "n": 326,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "HU",
+    "slug": "hungary",
+    "en": "Hungary",
+    "ar": "المجر",
+    "date": "2026-11-11",
+    "n": 326,
     "descEn": "",
     "descAr": ""
   },
@@ -465,7 +465,7 @@
     "en": "Austria",
     "ar": "النمسا",
     "date": "2026-11-11",
-    "n": 320,
+    "n": 309,
     "descEn": "",
     "descAr": ""
   },
@@ -475,7 +475,7 @@
     "en": "Ukraine",
     "ar": "أوكرانيا",
     "date": "2026-11-11",
-    "n": 285,
+    "n": 283,
     "descEn": "",
     "descAr": ""
   },
@@ -485,7 +485,7 @@
     "en": "Czechia",
     "ar": "التشيك",
     "date": "2026-11-11",
-    "n": 270,
+    "n": 264,
     "descEn": "",
     "descAr": ""
   },
@@ -495,7 +495,7 @@
     "en": "Croatia",
     "ar": "كرواتيا",
     "date": "2026-11-11",
-    "n": 265,
+    "n": 262,
     "descEn": "",
     "descAr": ""
   },
@@ -505,17 +505,7 @@
     "en": "Peru",
     "ar": "بيرو",
     "date": "2026-11-11",
-    "n": 255,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "SE",
-    "slug": "sweden",
-    "en": "Sweden",
-    "ar": "السويد",
-    "date": "2026-11-11",
-    "n": 239,
+    "n": 248,
     "descEn": "",
     "descAr": ""
   },
@@ -525,7 +515,7 @@
     "en": "Denmark",
     "ar": "الدنمارك",
     "date": "2026-11-11",
-    "n": 224,
+    "n": 220,
     "descEn": "",
     "descAr": ""
   },
@@ -535,7 +525,7 @@
     "en": "New Zealand",
     "ar": "نيوزيلندا",
     "date": "2026-11-11",
-    "n": 215,
+    "n": 211,
     "descEn": "",
     "descAr": ""
   },
@@ -545,7 +535,17 @@
     "en": "Ireland",
     "ar": "أيرلندا",
     "date": "2026-11-11",
-    "n": 204,
+    "n": 192,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "SE",
+    "slug": "sweden",
+    "en": "Sweden",
+    "ar": "السويد",
+    "date": "2026-11-11",
+    "n": 186,
     "descEn": "",
     "descAr": ""
   },
@@ -555,7 +555,7 @@
     "en": "Taiwan, Republic Of China",
     "ar": "تايوان",
     "date": "2026-11-11",
-    "n": 170,
+    "n": 168,
     "descEn": "",
     "descAr": ""
   },
@@ -565,17 +565,7 @@
     "en": "Bolivarian Republic Of Venezuela",
     "ar": "فنزويلا",
     "date": "2026-11-11",
-    "n": 169,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "EC",
-    "slug": "ecuador",
-    "en": "Ecuador",
-    "ar": "الإكوادور",
-    "date": "2026-11-11",
-    "n": 160,
+    "n": 162,
     "descEn": "",
     "descAr": ""
   },
@@ -590,12 +580,22 @@
     "descAr": ""
   },
   {
+    "cc": "EC",
+    "slug": "ecuador",
+    "en": "Ecuador",
+    "ar": "الإكوادور",
+    "date": "2026-11-11",
+    "n": 153,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "UG",
     "slug": "uganda",
     "en": "Uganda",
     "ar": "أوغندا",
     "date": "2026-11-11",
-    "n": 151,
+    "n": 149,
     "descEn": "",
     "descAr": ""
   },
@@ -605,7 +605,7 @@
     "en": "Nepal",
     "ar": "نيبال",
     "date": "2026-11-11",
-    "n": 148,
+    "n": 146,
     "descEn": "",
     "descAr": ""
   },
@@ -615,7 +615,7 @@
     "en": "Bosnia And Herzegovina",
     "ar": "البوسنة والهرسك",
     "date": "2026-11-11",
-    "n": 142,
+    "n": 139,
     "descEn": "",
     "descAr": ""
   },
@@ -625,7 +625,7 @@
     "en": "Slovakia",
     "ar": "سلوفاكيا",
     "date": "2026-11-11",
-    "n": 141,
+    "n": 136,
     "descEn": "",
     "descAr": ""
   },
@@ -635,27 +635,7 @@
     "en": "Finland",
     "ar": "فنلندا",
     "date": "2026-11-11",
-    "n": 136,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "EE",
-    "slug": "estonia",
-    "en": "Estonia",
-    "ar": "إستونيا",
-    "date": "2026-11-11",
     "n": 134,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "UY",
-    "slug": "uruguay",
-    "en": "Uruguay",
-    "ar": "أوروغواي",
-    "date": "2026-11-11",
-    "n": 132,
     "descEn": "",
     "descAr": ""
   },
@@ -665,7 +645,7 @@
     "en": "Israel",
     "ar": "إسرائيل",
     "date": "2026-11-11",
-    "n": 130,
+    "n": 129,
     "descEn": "",
     "descAr": ""
   },
@@ -675,7 +655,27 @@
     "en": "Slovenia",
     "ar": "سلوفينيا",
     "date": "2026-11-11",
-    "n": 128,
+    "n": 126,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "UY",
+    "slug": "uruguay",
+    "en": "Uruguay",
+    "ar": "أوروغواي",
+    "date": "2026-11-11",
+    "n": 125,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "EE",
+    "slug": "estonia",
+    "en": "Estonia",
+    "ar": "إستونيا",
+    "date": "2026-11-11",
+    "n": 125,
     "descEn": "",
     "descAr": ""
   },
@@ -685,7 +685,7 @@
     "en": "Norway",
     "ar": "النرويج",
     "date": "2026-11-11",
-    "n": 121,
+    "n": 120,
     "descEn": "",
     "descAr": ""
   },
@@ -695,7 +695,7 @@
     "en": "Lithuania",
     "ar": "ليتوانيا",
     "date": "2026-11-11",
-    "n": 113,
+    "n": 110,
     "descEn": "",
     "descAr": ""
   },
@@ -705,17 +705,7 @@
     "en": "The Dominican Republic",
     "ar": "الدومينيكان",
     "date": "2026-11-11",
-    "n": 113,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "TH",
-    "slug": "thailand",
-    "en": "Thailand",
-    "ar": "تايلاند",
-    "date": "2026-11-11",
-    "n": 104,
+    "n": 110,
     "descEn": "",
     "descAr": ""
   },
@@ -730,12 +720,12 @@
     "descAr": ""
   },
   {
-    "cc": "KR",
-    "slug": "the-republic-of-korea",
-    "en": "The Republic Of Korea",
-    "ar": "كوريا الجنوبية",
+    "cc": "TH",
+    "slug": "thailand",
+    "en": "Thailand",
+    "ar": "تايلاند",
     "date": "2026-11-11",
-    "n": 85,
+    "n": 97,
     "descEn": "",
     "descAr": ""
   },
@@ -745,7 +735,7 @@
     "en": "The Republic Of Moldova",
     "ar": "مولدوفا",
     "date": "2026-11-11",
-    "n": 84,
+    "n": 83,
     "descEn": "",
     "descAr": ""
   },
@@ -755,7 +745,7 @@
     "en": "Zambia",
     "ar": "زامبيا",
     "date": "2026-11-11",
-    "n": 82,
+    "n": 81,
     "descEn": "",
     "descAr": ""
   },
@@ -770,12 +760,22 @@
     "descAr": ""
   },
   {
+    "cc": "KR",
+    "slug": "the-republic-of-korea",
+    "en": "The Republic Of Korea",
+    "ar": "كوريا الجنوبية",
+    "date": "2026-11-11",
+    "n": 77,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "MY",
     "slug": "malaysia",
     "en": "Malaysia",
     "ar": "ماليزيا",
     "date": "2026-11-11",
-    "n": 77,
+    "n": 76,
     "descEn": "",
     "descAr": ""
   },
@@ -785,7 +785,7 @@
     "en": "Guatemala",
     "ar": "غواتيمالا",
     "date": "2026-11-11",
-    "n": 73,
+    "n": 69,
     "descEn": "",
     "descAr": ""
   },
@@ -795,17 +795,7 @@
     "en": "Bolivia",
     "ar": "بوليفيا",
     "date": "2026-11-11",
-    "n": 70,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "PY",
-    "slug": "paraguay",
-    "en": "Paraguay",
-    "ar": "باراغواي",
-    "date": "2026-11-11",
-    "n": 69,
+    "n": 66,
     "descEn": "",
     "descAr": ""
   },
@@ -815,7 +805,17 @@
     "en": "Hong Kong",
     "ar": "هونغ كونغ",
     "date": "2026-11-11",
-    "n": 68,
+    "n": 66,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PY",
+    "slug": "paraguay",
+    "en": "Paraguay",
+    "ar": "باراغواي",
+    "date": "2026-11-11",
+    "n": 65,
     "descEn": "",
     "descAr": ""
   },
@@ -825,7 +825,7 @@
     "en": "Angola",
     "ar": "أنغولا",
     "date": "2026-11-11",
-    "n": 64,
+    "n": 63,
     "descEn": "",
     "descAr": ""
   },
@@ -835,37 +835,7 @@
     "en": "Singapore",
     "ar": "سنغافورة",
     "date": "2026-11-11",
-    "n": 63,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "LK",
-    "slug": "sri-lanka",
-    "en": "Sri Lanka",
-    "ar": "سريلانكا",
-    "date": "2026-11-11",
-    "n": 63,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "SV",
-    "slug": "el-salvador",
-    "en": "El Salvador",
-    "ar": "السلفادور",
-    "date": "2026-11-11",
-    "n": 61,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "CI",
-    "slug": "coted-ivoire",
-    "en": "Coted Ivoire",
-    "ar": "ساحل العاج",
-    "date": "2026-11-11",
-    "n": 61,
+    "n": 62,
     "descEn": "",
     "descAr": ""
   },
@@ -880,12 +850,22 @@
     "descAr": ""
   },
   {
-    "cc": "MW",
-    "slug": "malawi",
-    "en": "Malawi",
-    "ar": "مالاوي",
+    "cc": "LK",
+    "slug": "sri-lanka",
+    "en": "Sri Lanka",
+    "ar": "سريلانكا",
     "date": "2026-11-11",
-    "n": 59,
+    "n": 61,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CI",
+    "slug": "coted-ivoire",
+    "en": "Coted Ivoire",
+    "ar": "ساحل العاج",
+    "date": "2026-11-11",
+    "n": 60,
     "descEn": "",
     "descAr": ""
   },
@@ -900,12 +880,32 @@
     "descAr": ""
   },
   {
+    "cc": "SV",
+    "slug": "el-salvador",
+    "en": "El Salvador",
+    "ar": "السلفادور",
+    "date": "2026-11-11",
+    "n": 58,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "BY",
     "slug": "belarus",
     "en": "Belarus",
     "ar": "بيلاروسيا",
     "date": "2026-11-11",
-    "n": 59,
+    "n": 58,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MW",
+    "slug": "malawi",
+    "en": "Malawi",
+    "ar": "مالاوي",
+    "date": "2026-11-11",
+    "n": 55,
     "descEn": "",
     "descAr": ""
   },
@@ -915,7 +915,7 @@
     "en": "Cameroon",
     "ar": "الكاميرون",
     "date": "2026-11-11",
-    "n": 55,
+    "n": 52,
     "descEn": "",
     "descAr": ""
   },
@@ -925,7 +925,7 @@
     "en": "Costa Rica",
     "ar": "كوستاريكا",
     "date": "2026-11-11",
-    "n": 53,
+    "n": 52,
     "descEn": "",
     "descAr": ""
   },
@@ -935,7 +935,7 @@
     "en": "Puerto Rico",
     "ar": "بورتوريكو",
     "date": "2026-11-11",
-    "n": 50,
+    "n": 49,
     "descEn": "",
     "descAr": ""
   },
@@ -965,7 +965,7 @@
     "en": "Jamaica",
     "ar": "جامايكا",
     "date": "2026-11-11",
-    "n": 41,
+    "n": 40,
     "descEn": "",
     "descAr": ""
   },
@@ -985,17 +985,7 @@
     "en": "Honduras",
     "ar": "هندوراس",
     "date": "2026-11-11",
-    "n": 39,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "AZ",
-    "slug": "azerbaijan",
-    "en": "Azerbaijan",
-    "ar": "أذربيجان",
-    "date": "2026-11-11",
-    "n": 36,
+    "n": 38,
     "descEn": "",
     "descAr": ""
   },
@@ -1006,6 +996,16 @@
     "ar": "Reunion",
     "date": "2026-11-11",
     "n": 35,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AZ",
+    "slug": "azerbaijan",
+    "en": "Azerbaijan",
+    "ar": "أذربيجان",
+    "date": "2026-11-11",
+    "n": 33,
     "descEn": "",
     "descAr": ""
   },
@@ -1050,26 +1050,6 @@
     "descAr": ""
   },
   {
-    "cc": "GE",
-    "slug": "georgia",
-    "en": "Georgia",
-    "ar": "جورجيا",
-    "date": "2026-11-11",
-    "n": 28,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "BD",
-    "slug": "bangladesh",
-    "en": "Bangladesh",
-    "ar": "بنغلاديش",
-    "date": "2026-11-11",
-    "n": 27,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "IS",
     "slug": "iceland",
     "en": "Iceland",
@@ -1080,10 +1060,20 @@
     "descAr": ""
   },
   {
-    "cc": "NI",
-    "slug": "nicaragua",
-    "en": "Nicaragua",
-    "ar": "نيكاراغوا",
+    "cc": "BD",
+    "slug": "bangladesh",
+    "en": "Bangladesh",
+    "ar": "بنغلاديش",
+    "date": "2026-11-11",
+    "n": 26,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GE",
+    "slug": "georgia",
+    "en": "Georgia",
+    "ar": "جورجيا",
     "date": "2026-11-11",
     "n": 26,
     "descEn": "",
@@ -1095,7 +1085,7 @@
     "en": "The United States Minor Outlying Islands",
     "ar": "The United States Minor Outlying Islands",
     "date": "2026-11-11",
-    "n": 26,
+    "n": 25,
     "descEn": "",
     "descAr": ""
   },
@@ -1106,26 +1096,6 @@
     "ar": "زيمبابوي",
     "date": "2026-11-11",
     "n": 25,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "CU",
-    "slug": "cuba",
-    "en": "Cuba",
-    "ar": "كوبا",
-    "date": "2026-11-11",
-    "n": 24,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "ET",
-    "slug": "ethiopia",
-    "en": "Ethiopia",
-    "ar": "إثيوبيا",
-    "date": "2026-11-11",
-    "n": 23,
     "descEn": "",
     "descAr": ""
   },
@@ -1150,6 +1120,16 @@
     "descAr": ""
   },
   {
+    "cc": "NI",
+    "slug": "nicaragua",
+    "en": "Nicaragua",
+    "ar": "نيكاراغوا",
+    "date": "2026-11-11",
+    "n": 22,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "SY",
     "slug": "syrian-arab-republic",
     "en": "Syrian Arab Republic",
@@ -1160,12 +1140,22 @@
     "descAr": ""
   },
   {
-    "cc": "CD",
-    "slug": "the-democratic-republic-of-the-congo",
-    "en": "The Democratic Republic Of The Congo",
-    "ar": "الكونغو الديمقراطية",
+    "cc": "CU",
+    "slug": "cuba",
+    "en": "Cuba",
+    "ar": "كوبا",
     "date": "2026-11-11",
-    "n": 21,
+    "n": 22,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "ET",
+    "slug": "ethiopia",
+    "en": "Ethiopia",
+    "ar": "إثيوبيا",
+    "date": "2026-11-11",
+    "n": 22,
     "descEn": "",
     "descAr": ""
   },
@@ -1190,22 +1180,22 @@
     "descAr": ""
   },
   {
+    "cc": "CD",
+    "slug": "the-democratic-republic-of-the-congo",
+    "en": "The Democratic Republic Of The Congo",
+    "ar": "الكونغو الديمقراطية",
+    "date": "2026-11-11",
+    "n": 20,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "TZ",
     "slug": "united-republic-of-tanzania",
     "en": "United Republic Of Tanzania",
     "ar": "تنزانيا",
     "date": "2026-11-11",
     "n": 18,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "MG",
-    "slug": "madagascar",
-    "en": "Madagascar",
-    "ar": "مدغشقر",
-    "date": "2026-11-11",
-    "n": 17,
     "descEn": "",
     "descAr": ""
   },
@@ -1220,22 +1210,22 @@
     "descAr": ""
   },
   {
-    "cc": "XK",
-    "slug": "kosovo",
-    "en": "Kosovo",
-    "ar": "Kosovo",
+    "cc": "MG",
+    "slug": "madagascar",
+    "en": "Madagascar",
+    "ar": "مدغشقر",
     "date": "2026-11-11",
     "n": 15,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "MT",
-    "slug": "malta",
-    "en": "Malta",
-    "ar": "مالطا",
+    "cc": "XK",
+    "slug": "kosovo",
+    "en": "Kosovo",
+    "ar": "Kosovo",
     "date": "2026-11-11",
-    "n": 14,
+    "n": 15,
     "descEn": "",
     "descAr": ""
   },
@@ -1270,20 +1260,10 @@
     "descAr": ""
   },
   {
-    "cc": "ML",
-    "slug": "mali",
-    "en": "Mali",
-    "ar": "مالي",
-    "date": "2026-11-11",
-    "n": 13,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "MU",
-    "slug": "mauritius",
-    "en": "Mauritius",
-    "ar": "موريشيوس",
+    "cc": "MT",
+    "slug": "malta",
+    "en": "Malta",
+    "ar": "مالطا",
     "date": "2026-11-11",
     "n": 13,
     "descEn": "",
@@ -1340,12 +1320,12 @@
     "descAr": ""
   },
   {
-    "cc": "UZ",
-    "slug": "uzbekistan",
-    "en": "Uzbekistan",
-    "ar": "أوزبكستان",
+    "cc": "ML",
+    "slug": "mali",
+    "en": "Mali",
+    "ar": "مالي",
     "date": "2026-11-11",
-    "n": 12,
+    "n": 13,
     "descEn": "",
     "descAr": ""
   },
@@ -1380,32 +1360,32 @@
     "descAr": ""
   },
   {
+    "cc": "MU",
+    "slug": "mauritius",
+    "en": "Mauritius",
+    "ar": "موريشيوس",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "UZ",
+    "slug": "uzbekistan",
+    "en": "Uzbekistan",
+    "ar": "أوزبكستان",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "BJ",
     "slug": "benin",
     "en": "Benin",
     "ar": "بنين",
     "date": "2026-11-11",
-    "n": 11,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "VC",
-    "slug": "saint-vincent-and-the-grenadines",
-    "en": "Saint Vincent And The Grenadines",
-    "ar": "Saint Vincent And The Grenadines",
-    "date": "2026-11-11",
-    "n": 11,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "AM",
-    "slug": "armenia",
-    "en": "Armenia",
-    "ar": "أرمينيا",
-    "date": "2026-11-11",
-    "n": 11,
+    "n": 10,
     "descEn": "",
     "descAr": ""
   },
@@ -1414,6 +1394,16 @@
     "slug": "bonaire",
     "en": "Bonaire",
     "ar": "Bonaire",
+    "date": "2026-11-11",
+    "n": 10,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "VC",
+    "slug": "saint-vincent-and-the-grenadines",
+    "en": "Saint Vincent And The Grenadines",
+    "ar": "Saint Vincent And The Grenadines",
     "date": "2026-11-11",
     "n": 10,
     "descEn": "",
@@ -1430,20 +1420,20 @@
     "descAr": ""
   },
   {
-    "cc": "GY",
-    "slug": "guyana",
-    "en": "Guyana",
-    "ar": "Guyana",
+    "cc": "AM",
+    "slug": "armenia",
+    "en": "Armenia",
+    "ar": "أرمينيا",
     "date": "2026-11-11",
-    "n": 9,
+    "n": 10,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "KY",
-    "slug": "the-cayman-islands",
-    "en": "The Cayman Islands",
-    "ar": "The Cayman Islands",
+    "cc": "GY",
+    "slug": "guyana",
+    "en": "Guyana",
+    "ar": "Guyana",
     "date": "2026-11-11",
     "n": 9,
     "descEn": "",
@@ -1480,16 +1470,6 @@
     "descAr": ""
   },
   {
-    "cc": "AW",
-    "slug": "aruba",
-    "en": "Aruba",
-    "ar": "Aruba",
-    "date": "2026-11-11",
-    "n": 8,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "PS",
     "slug": "state-of-palestine",
     "en": "State Of Palestine",
@@ -1510,6 +1490,16 @@
     "descAr": ""
   },
   {
+    "cc": "KY",
+    "slug": "the-cayman-islands",
+    "en": "The Cayman Islands",
+    "ar": "The Cayman Islands",
+    "date": "2026-11-11",
+    "n": 8,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "OM",
     "slug": "oman",
     "en": "Oman",
@@ -1520,20 +1510,10 @@
     "descAr": ""
   },
   {
-    "cc": "PF",
-    "slug": "french-polynesia",
-    "en": "French Polynesia",
-    "ar": "French Polynesia",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "IM",
-    "slug": "isle-of-man",
-    "en": "Isle Of Man",
-    "ar": "Isle Of Man",
+    "cc": "AW",
+    "slug": "aruba",
+    "en": "Aruba",
+    "ar": "Aruba",
     "date": "2026-11-11",
     "n": 7,
     "descEn": "",
@@ -1630,12 +1610,22 @@
     "descAr": ""
   },
   {
-    "cc": "GD",
-    "slug": "grenada",
-    "en": "Grenada",
-    "ar": "Grenada",
+    "cc": "PF",
+    "slug": "french-polynesia",
+    "en": "French Polynesia",
+    "ar": "French Polynesia",
     "date": "2026-11-11",
-    "n": 5,
+    "n": 6,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "IM",
+    "slug": "isle-of-man",
+    "en": "Isle Of Man",
+    "ar": "Isle Of Man",
+    "date": "2026-11-11",
+    "n": 6,
     "descEn": "",
     "descAr": ""
   },
@@ -1714,6 +1704,16 @@
     "slug": "anguilla",
     "en": "Anguilla",
     "ar": "Anguilla",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GD",
+    "slug": "grenada",
+    "en": "Grenada",
+    "ar": "Grenada",
     "date": "2026-11-11",
     "n": 5,
     "descEn": "",
