@@ -1,5 +1,41 @@
 [
   {
+    "slug": "kano-diphtheria-outbreak-girls-boarding-school",
+    "date": "2026-11-13",
+    "tag": {
+      "en": "Breaking news",
+      "ar": "أخبار عاجلة"
+    },
+    "title": {
+      "en": "Kano Diphtheria Outbreak: 12 Cases Confirmed at Girls' School",
+      "ar": "تفشي الدفتيريا في كانو: تأكيد 12 حالة في مدرسة بنات"
+    },
+    "desc": {
+      "en": "Kano State confirms 12 diphtheria cases at a girls' boarding school amid warnings from MSF over drug shortages in Nigeria.",
+      "ar": "تأكيد 12 حالة إصابة بالدفتيريا في مدرسة داخلية للبنات بولاية كانو وسط تحذيرات من نقص الأدوية في نيجيريا."
+    },
+    "cat": "breaking",
+    "cc": "NG",
+    "pub": "2026-11-13T22:56:04Z",
+    "kw": {
+      "en": [
+        "Kano diphtheria outbreak",
+        "Nigeria health news",
+        "Medecins Sans Frontieres",
+        "girls boarding school health",
+        "diphtheria antitoxin shortage"
+      ],
+      "ar": [
+        "تفشي الدفتيريا في كانو",
+        "أخبار الصحة في نيجيريا",
+        "أطباء بلا حدود نيجيريا",
+        "مدرسة داخلية للبنات كانو",
+        "نقص أدويـة الدفتيريا"
+      ]
+    },
+    "thumb": "https:\/\/worldliveradio.com\/assets\/kano-diphtheria-outbreak-girls-boarding-school-thumb.webp"
+  },
+  {
     "slug": "milei-alliana-paraguay-argentina-radio",
     "date": "2026-11-13",
     "tag": {
