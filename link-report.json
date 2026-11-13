@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13 08:16 UTC",
+ "built": "2026-11-13 08:17 UTC",
  "pages": 229,
  "internal": [
   {
@@ -8,29 +8,14 @@
   }
  ],
  "external": {
-  "checked": "2026-11-11 22:13 UTC",
-  "total": 95,
+  "checked": "2026-11-13 08:17 UTC",
+  "total": 148,
   "broken": [
    {
-    "url": "https://www.ensjsi.dz/sites/default/files/fichiers/fichier-838-.pdf",
-    "why": "404",
+    "url": "https://digitale-grundversorgung.de/blog/2013/07/30/ert-a-history-of-75-years/",
+    "why": "CERT_HAS_EXPIRED",
     "pages": [
-     "countries/algeria.html"
-    ]
-   },
-   {
-    "url": "https://www.mediadb.eu/en/data-base/international-media-corporations/nippon-hoso-kyokai.html",
-    "why": "404",
-    "pages": [
-     "countries/japan.html"
-    ]
-   },
-   {
-    "url": "https://digfir-published.macmillanusa.com/mediaculture10e/mediaculture10e_ch5_3.html",
-    "why": "ENOTFOUND",
-    "pages": [
-     "countries/the-united-states-of-america.html",
-     "countries/united-states.html"
+     "countries/greece.html"
     ]
    }
   ],
@@ -47,6 +32,27 @@
     "why": "403",
     "pages": [
      "countries/indonesia.html"
+    ]
+   },
+   {
+    "url": "https://iasj.rdd.edu.iq/journals/uploads/2026/06/05/75725237ea34674e0561bae6860707a4.pdf",
+    "why": "UND_ERR_CONNECT_TIMEOUT",
+    "pages": [
+     "countries/iraq.html"
+    ]
+   },
+   {
+    "url": "https://www.eurovision.com/stories/the-song-that-started-a-revolution-50-years-of-portugals-e-depois-do-adeus/",
+    "why": "403",
+    "pages": [
+     "countries/portugal.html"
+    ]
+   },
+   {
+    "url": "https://www.infopedia.pt/$rdp-radiodifusao-portuguesa",
+    "why": "403",
+    "pages": [
+     "countries/portugal.html"
     ]
    },
    {

@@ -1,18 +1,19 @@
 تقرير الروابط — LiveRadio
-آخر بناء: 2026-11-13 08:16 UTC  |  الصفحات المفحوصة: 229
+آخر بناء: 2026-11-13 08:17 UTC  |  الصفحات المفحوصة: 229
 
 == الروابط الداخلية المعطلة: 1 ==
   ✗ articles.html  ←  https://worldliveradio.com/assets/saudi-weather-warnings-rain-heavy-winds-thumb.webp
 
-== الروابط الخارجية (آخر فحص: 2026-11-11 22:13 UTC — 95 رابطاً) ==
+== الروابط الخارجية (آخر فحص: 2026-11-13 08:17 UTC — 148 رابطاً) ==
 
-معطلة فعلاً (3) — استبدلها:
-  ✗ https://www.ensjsi.dz/sites/default/files/fichiers/fichier-838-.pdf  [404]  في: countries/algeria.html
-  ✗ https://www.mediadb.eu/en/data-base/international-media-corporations/nippon-hoso-kyokai.html  [404]  في: countries/japan.html
-  ✗ https://digfir-published.macmillanusa.com/mediaculture10e/mediaculture10e_ch5_3.html  [ENOTFOUND]  في: countries/the-united-states-of-america.html، countries/united-states.html
+معطلة فعلاً (1) — استبدلها:
+  ✗ https://digitale-grundversorgung.de/blog/2013/07/30/ert-a-history-of-75-years/  [CERT_HAS_EXPIRED]  في: countries/greece.html
 
-لم يُتح فحصها (4) — غالباً تعمل، لكن الموقع يمنع البرامج الآلية. افتحها يدوياً إن شئت:
+لم يُتح فحصها (7) — غالباً تعمل، لكن الموقع يمنع البرامج الآلية. افتحها يدوياً إن شئت:
   ? https://www.goethe.de/ins/ca/en/kul/met/raw/24929619.html  [403]
   ? https://rri.co.id/en/national/2714877/the-first-radio-station-in-indonesia-how-bataviase-radio-vereniging-brv-began  [403]
+  ? https://iasj.rdd.edu.iq/journals/uploads/2026/06/05/75725237ea34674e0561bae6860707a4.pdf  [UND_ERR_CONNECT_TIMEOUT]
+  ? https://www.eurovision.com/stories/the-song-that-started-a-revolution-50-years-of-portugals-e-depois-do-adeus/  [403]
+  ? https://www.infopedia.pt/$rdp-radiodifusao-portuguesa  [403]
   ? https://www.ofcom.org.uk/tv-radio-and-on-demand/analogue-radio/100-years-of-radio  [403]
   ? https://www.npr.org/2005/11/30/3059095/conrads-garage  [AbortError]
