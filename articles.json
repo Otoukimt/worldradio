@@ -1,5 +1,41 @@
 [
   {
+    "slug": "uk-soldier-news-spying-sas-inquiry-radio",
+    "date": "2026-11-14",
+    "tag": {
+      "en": "Politics",
+      "ar": "سياسة"
+    },
+    "title": {
+      "en": "UK Soldier News: Spy Case and SAS Inquiry Debates on Radio",
+      "ar": "أخبار الجنود في بريطانيا: قضية تجسس وتحقيقات على الإذاعة"
+    },
+    "desc": {
+      "en": "Follow UK soldier news on 14 November 2026, from a US spying case in Britain to SAS inquiry debates, and hear live analysis on UK news radio.",
+      "ar": "تابع أخبار الجنود في بريطانيا يوم 14 نوفمبر 2026، من قضية تجسس جندي أمريكي إلى نقاشات تحقيقات القوات الخاصة، واستمع للتحليل المباشر عبر الإذاعة."
+    },
+    "cat": "politics",
+    "cc": "GB",
+    "pub": "2026-11-14T18:03:10Z",
+    "kw": {
+      "en": [
+        "UK soldier news",
+        "US spying suspect",
+        "SAS moral contract",
+        "Afghan inquiry AI",
+        "LBC News live"
+      ],
+      "ar": [
+        "أخبار الجنود بريطانيا",
+        "جندي أمريكي روسيا",
+        "تحقيقات القوات الخاصة",
+        "تحذير الذكاء الاصطناعي",
+        "بث إذاعة إل بي سي"
+      ]
+    },
+    "thumb": "https:\/\/worldliveradio.com\/assets\/uk-soldier-news-spying-sas-inquiry-radio-thumb.webp"
+  },
+  {
     "slug": "camille-combal-french-radio-media-spotlight",
     "date": "2026-11-14",
     "tag": {
