@@ -5,7 +5,7 @@
     "en": "The United States Of America",
     "ar": "الولايات المتحدة",
     "date": "2026-11-11",
-    "n": 6945,
+    "n": 6946,
     "descEn": "American radio began as a hobby in a garage and became the most commercial broadcasting system on earth. It never had a national public broadcaster fu",
     "descAr": "بدأ الراديو الأمريكي هوايةً في مرآب، وصار أكثر أنظمة البثّ تجارية في العالم. لم تكن له قطّ هيئة عمومية وطنية تموّلها الرسوم؛ كان له سوق، وهذه السوق اخ"
   },
@@ -440,20 +440,20 @@
     "descAr": ""
   },
   {
-    "cc": "BG",
-    "slug": "bulgaria",
-    "en": "Bulgaria",
-    "ar": "بلغاريا",
+    "cc": "HU",
+    "slug": "hungary",
+    "en": "Hungary",
+    "ar": "المجر",
     "date": "2026-11-11",
     "n": 326,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "HU",
-    "slug": "hungary",
-    "en": "Hungary",
-    "ar": "المجر",
+    "cc": "BG",
+    "slug": "bulgaria",
+    "en": "Bulgaria",
+    "ar": "بلغاريا",
     "date": "2026-11-11",
     "n": 326,
     "descEn": "",
@@ -485,7 +485,7 @@
     "en": "Czechia",
     "ar": "التشيك",
     "date": "2026-11-11",
-    "n": 265,
+    "n": 267,
     "descEn": "",
     "descAr": ""
   },
@@ -880,20 +880,20 @@
     "descAr": ""
   },
   {
-    "cc": "BY",
-    "slug": "belarus",
-    "en": "Belarus",
-    "ar": "بيلاروسيا",
+    "cc": "SV",
+    "slug": "el-salvador",
+    "en": "El Salvador",
+    "ar": "السلفادور",
     "date": "2026-11-11",
     "n": 58,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "SV",
-    "slug": "el-salvador",
-    "en": "El Salvador",
-    "ar": "السلفادور",
+    "cc": "BY",
+    "slug": "belarus",
+    "en": "Belarus",
+    "ar": "بيلاروسيا",
     "date": "2026-11-11",
     "n": 58,
     "descEn": "",
@@ -910,20 +910,20 @@
     "descAr": ""
   },
   {
-    "cc": "CM",
-    "slug": "cameroon",
-    "en": "Cameroon",
-    "ar": "الكاميرون",
+    "cc": "CR",
+    "slug": "costa-rica",
+    "en": "Costa Rica",
+    "ar": "كوستاريكا",
     "date": "2026-11-11",
     "n": 52,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "CR",
-    "slug": "costa-rica",
-    "en": "Costa Rica",
-    "ar": "كوستاريكا",
+    "cc": "CM",
+    "slug": "cameroon",
+    "en": "Cameroon",
+    "ar": "الكاميرون",
     "date": "2026-11-11",
     "n": 52,
     "descEn": "",
@@ -1020,20 +1020,20 @@
     "descAr": ""
   },
   {
-    "cc": "HT",
-    "slug": "haiti",
-    "en": "Haiti",
-    "ar": "هايتي",
+    "cc": "LU",
+    "slug": "luxembourg",
+    "en": "Luxembourg",
+    "ar": "لوكسمبورغ",
     "date": "2026-11-11",
     "n": 31,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "LU",
-    "slug": "luxembourg",
-    "en": "Luxembourg",
-    "ar": "لوكسمبورغ",
+    "cc": "HT",
+    "slug": "haiti",
+    "en": "Haiti",
+    "ar": "هايتي",
     "date": "2026-11-11",
     "n": 31,
     "descEn": "",
@@ -1046,16 +1046,6 @@
     "ar": "فيتنام",
     "date": "2026-11-11",
     "n": 30,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "BD",
-    "slug": "bangladesh",
-    "en": "Bangladesh",
-    "ar": "بنغلاديش",
-    "date": "2026-11-11",
-    "n": 26,
     "descEn": "",
     "descAr": ""
   },
@@ -1080,6 +1070,16 @@
     "descAr": ""
   },
   {
+    "cc": "BD",
+    "slug": "bangladesh",
+    "en": "Bangladesh",
+    "ar": "بنغلاديش",
+    "date": "2026-11-11",
+    "n": 26,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "UM",
     "slug": "the-united-states-minor-outlying-islands",
     "en": "The United States Minor Outlying Islands",
@@ -1096,6 +1096,16 @@
     "ar": "زيمبابوي",
     "date": "2026-11-11",
     "n": 25,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "ET",
+    "slug": "ethiopia",
+    "en": "Ethiopia",
+    "ar": "إثيوبيا",
+    "date": "2026-11-11",
+    "n": 22,
     "descEn": "",
     "descAr": ""
   },
@@ -1150,26 +1160,6 @@
     "descAr": ""
   },
   {
-    "cc": "ET",
-    "slug": "ethiopia",
-    "en": "Ethiopia",
-    "ar": "إثيوبيا",
-    "date": "2026-11-11",
-    "n": 22,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "CW",
-    "slug": "curacao",
-    "en": "Curacao",
-    "ar": "Curacao",
-    "date": "2026-11-11",
-    "n": 20,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "CD",
     "slug": "the-democratic-republic-of-the-congo",
     "en": "The Democratic Republic Of The Congo",
@@ -1184,6 +1174,16 @@
     "slug": "macao",
     "en": "Macao",
     "ar": "Macao",
+    "date": "2026-11-11",
+    "n": 20,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "CW",
+    "slug": "curacao",
+    "en": "Curacao",
+    "ar": "Curacao",
     "date": "2026-11-11",
     "n": 20,
     "descEn": "",
@@ -1270,36 +1270,6 @@
     "descAr": ""
   },
   {
-    "cc": "FO",
-    "slug": "the-faroe-islands",
-    "en": "The Faroe Islands",
-    "ar": "The Faroe Islands",
-    "date": "2026-11-11",
-    "n": 13,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "GP",
-    "slug": "guadeloupe",
-    "en": "Guadeloupe",
-    "ar": "Guadeloupe",
-    "date": "2026-11-11",
-    "n": 13,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "FJ",
-    "slug": "fiji",
-    "en": "Fiji",
-    "ar": "Fiji",
-    "date": "2026-11-11",
-    "n": 13,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "MQ",
     "slug": "martinique",
     "en": "Martinique",
@@ -1330,6 +1300,36 @@
     "descAr": ""
   },
   {
+    "cc": "FO",
+    "slug": "the-faroe-islands",
+    "en": "The Faroe Islands",
+    "ar": "The Faroe Islands",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GP",
+    "slug": "guadeloupe",
+    "en": "Guadeloupe",
+    "ar": "Guadeloupe",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "FJ",
+    "slug": "fiji",
+    "en": "Fiji",
+    "ar": "Fiji",
+    "date": "2026-11-11",
+    "n": 13,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
     "cc": "LC",
     "slug": "saint-lucia",
     "en": "Saint Lucia",
@@ -1346,6 +1346,26 @@
     "ar": "اليمن",
     "date": "2026-11-11",
     "n": 12,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "UZ",
+    "slug": "uzbekistan",
+    "en": "Uzbekistan",
+    "ar": "أوزبكستان",
+    "date": "2026-11-11",
+    "n": 11,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "BH",
+    "slug": "bahrain",
+    "en": "Bahrain",
+    "ar": "البحرين",
+    "date": "2026-11-11",
+    "n": 11,
     "descEn": "",
     "descAr": ""
   },
@@ -1370,22 +1390,22 @@
     "descAr": ""
   },
   {
-    "cc": "UZ",
-    "slug": "uzbekistan",
-    "en": "Uzbekistan",
-    "ar": "أوزبكستان",
+    "cc": "BJ",
+    "slug": "benin",
+    "en": "Benin",
+    "ar": "بنين",
     "date": "2026-11-11",
-    "n": 11,
+    "n": 10,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "BH",
-    "slug": "bahrain",
-    "en": "Bahrain",
-    "ar": "البحرين",
+    "cc": "BQ",
+    "slug": "bonaire",
+    "en": "Bonaire",
+    "ar": "Bonaire",
     "date": "2026-11-11",
-    "n": 11,
+    "n": 10,
     "descEn": "",
     "descAr": ""
   },
@@ -1420,36 +1440,6 @@
     "descAr": ""
   },
   {
-    "cc": "BJ",
-    "slug": "benin",
-    "en": "Benin",
-    "ar": "بنين",
-    "date": "2026-11-11",
-    "n": 10,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "BQ",
-    "slug": "bonaire",
-    "en": "Bonaire",
-    "ar": "Bonaire",
-    "date": "2026-11-11",
-    "n": 10,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "AQ",
-    "slug": "antarctica",
-    "en": "Antarctica",
-    "ar": "Antarctica",
-    "date": "2026-11-11",
-    "n": 9,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "MN",
     "slug": "mongolia",
     "en": "Mongolia",
@@ -1466,6 +1456,36 @@
     "ar": "Guyana",
     "date": "2026-11-11",
     "n": 9,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AQ",
+    "slug": "antarctica",
+    "en": "Antarctica",
+    "ar": "Antarctica",
+    "date": "2026-11-11",
+    "n": 9,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "PS",
+    "slug": "state-of-palestine",
+    "en": "State Of Palestine",
+    "ar": "فلسطين",
+    "date": "2026-11-11",
+    "n": 8,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "VI",
+    "slug": "us-virgin-islands",
+    "en": "US Virgin Islands",
+    "ar": "US Virgin Islands",
+    "date": "2026-11-11",
+    "n": 8,
     "descEn": "",
     "descAr": ""
   },
@@ -1490,22 +1510,22 @@
     "descAr": ""
   },
   {
-    "cc": "PS",
-    "slug": "state-of-palestine",
-    "en": "State Of Palestine",
-    "ar": "فلسطين",
+    "cc": "AW",
+    "slug": "aruba",
+    "en": "Aruba",
+    "ar": "Aruba",
     "date": "2026-11-11",
-    "n": 8,
+    "n": 7,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "VI",
-    "slug": "us-virgin-islands",
-    "en": "US Virgin Islands",
-    "ar": "US Virgin Islands",
+    "cc": "RW",
+    "slug": "rwanda",
+    "en": "Rwanda",
+    "ar": "رواندا",
     "date": "2026-11-11",
-    "n": 8,
+    "n": 7,
     "descEn": "",
     "descAr": ""
   },
@@ -1550,46 +1570,6 @@
     "descAr": ""
   },
   {
-    "cc": "AW",
-    "slug": "aruba",
-    "en": "Aruba",
-    "ar": "Aruba",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "RW",
-    "slug": "rwanda",
-    "en": "Rwanda",
-    "ar": "رواندا",
-    "date": "2026-11-11",
-    "n": 7,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "LY",
-    "slug": "libya",
-    "en": "Libya",
-    "ar": "ليبيا",
-    "date": "2026-11-11",
-    "n": 6,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "SR",
-    "slug": "suriname",
-    "en": "Suriname",
-    "ar": "Suriname",
-    "date": "2026-11-11",
-    "n": 6,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
     "cc": "GI",
     "slug": "gibraltar",
     "en": "Gibraltar",
@@ -1630,32 +1610,22 @@
     "descAr": ""
   },
   {
-    "cc": "GU",
-    "slug": "guam",
-    "en": "Guam",
-    "ar": "Guam",
+    "cc": "LY",
+    "slug": "libya",
+    "en": "Libya",
+    "ar": "ليبيا",
     "date": "2026-11-11",
-    "n": 5,
+    "n": 6,
     "descEn": "",
     "descAr": ""
   },
   {
-    "cc": "AD",
-    "slug": "andorra",
-    "en": "Andorra",
-    "ar": "أندورا",
+    "cc": "SR",
+    "slug": "suriname",
+    "en": "Suriname",
+    "ar": "Suriname",
     "date": "2026-11-11",
-    "n": 5,
-    "descEn": "",
-    "descAr": ""
-  },
-  {
-    "cc": "MC",
-    "slug": "monaco",
-    "en": "Monaco",
-    "ar": "Monaco",
-    "date": "2026-11-11",
-    "n": 5,
+    "n": 6,
     "descEn": "",
     "descAr": ""
   },
@@ -1714,6 +1684,36 @@
     "slug": "bermuda",
     "en": "Bermuda",
     "ar": "Bermuda",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "GU",
+    "slug": "guam",
+    "en": "Guam",
+    "ar": "Guam",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "AD",
+    "slug": "andorra",
+    "en": "Andorra",
+    "ar": "أندورا",
+    "date": "2026-11-11",
+    "n": 5,
+    "descEn": "",
+    "descAr": ""
+  },
+  {
+    "cc": "MC",
+    "slug": "monaco",
+    "en": "Monaco",
+    "ar": "Monaco",
     "date": "2026-11-11",
     "n": 5,
     "descEn": "",
