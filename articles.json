@@ -1,5 +1,41 @@
 [
   {
+    "slug": "pope-leo-xiv-peru-visit-radio-news",
+    "date": "2026-11-15",
+    "tag": {
+      "en": "Arts & culture",
+      "ar": "فن وثقافة"
+    },
+    "title": {
+      "en": "Pope Leo XIV in Peru: Andes Flight and Amazon Defense",
+      "ar": "البابا ليون الرابع عشر في بيرو: رحلة الأنديز ودفاع عن الأمازون"
+    },
+    "desc": {
+      "en": "Pope Leo XIV travels across Peru, visiting Cusco, flying over the Andes, and visiting indigenous Amazon communities.",
+      "ar": "البابا ليون الرابع عشر يقوم بجولة في بيرو تشمل كوسكو، جبال الأنديز، ومجتمعات سكانية في الأمازون."
+    },
+    "cat": "culture",
+    "cc": "IT",
+    "pub": "2026-11-15T19:20:05Z",
+    "kw": {
+      "en": [
+        "Pope Leo XIV",
+        "Peru trip",
+        "Cusco Angelus",
+        "Amazon rainforest defense",
+        "Andes flight"
+      ],
+      "ar": [
+        "البابا ليون الرابع عشر",
+        "زيارة بيرو",
+        "كوسكو التبشير الملائكي",
+        "حماية الأمازون",
+        "جبال الأنديز"
+      ]
+    },
+    "thumb": "https:\/\/worldliveradio.com\/assets\/pope-leo-xiv-peru-visit-radio-news-thumb.webp"
+  },
+  {
     "slug": "belgium-italy-nations-league-match-analysis",
     "date": "2026-11-15",
     "tag": {
