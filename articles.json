@@ -1,5 +1,35 @@
 [
   {
+    "slug": "russian-refineries-ukraine-attacks-radio",
+    "date": "2026-11-15",
+    "tag": {
+      "en": "Politics",
+      "ar": "سياسة"
+    },
+    "title": {
+      "en": "Russian Refineries Face Ukraine Attacks and Fuel Pressure",
+      "ar": "هجمات أوكرانية على المصافي الروسية وضغوط إمدادات الوقود"
+    },
+    "desc": {
+      "en": "Ukraine reports striking major Russian refineries as fuel supply pressures mount, tracked closely by international news and radio broadcasts.",
+      "ar": "تقارير عن ضربات أوكرانية تستهدف المصافي الروسية الكبرى وسط ضغوط متزايدة على إمدادات الوقود والأسواق العالمية."
+    },
+    "cat": "politics",
+    "cc": "NL",
+    "pub": "2026-11-15T12:51:58Z",
+    "kw": {
+      "en": [
+        "Russian refineries",
+        "Ukraine conflict",
+        "Zeeland Refinery",
+        "Curaçao oil",
+        "fuel supply"
+      ],
+      "ar": []
+    },
+    "thumb": "https:\/\/worldliveradio.com\/assets\/russian-refineries-ukraine-attacks-radio-thumb.webp"
+  },
+  {
     "slug": "uk-soldier-news-spying-sas-inquiry-radio",
     "date": "2026-11-14",
     "tag": {
