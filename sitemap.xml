@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://worldliveradio.com/</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://worldliveradio.com/articles.html</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -711,6 +711,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://worldliveradio.com/countries/bahrain.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://worldliveradio.com/countries/mauritius.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
@@ -726,7 +731,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/bahrain.html</loc>
+    <loc>https://worldliveradio.com/countries/benin.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -751,7 +756,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/benin.html</loc>
+    <loc>https://worldliveradio.com/countries/guyana.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -766,7 +771,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/guyana.html</loc>
+    <loc>https://worldliveradio.com/countries/state-of-palestine.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://worldliveradio.com/countries/us-virgin-islands.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -781,12 +791,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/state-of-palestine.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/us-virgin-islands.html</loc>
+    <loc>https://worldliveradio.com/countries/rwanda.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -812,11 +817,6 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/aruba.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/rwanda.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -856,6 +856,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://worldliveradio.com/countries/san-marino.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://worldliveradio.com/countries/dominica.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
@@ -891,9 +896,9 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/san-marino.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
+    <loc>https://worldliveradio.com/articles/ao3-returns-online-after-security-incident-and-outage.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://worldliveradio.com/articles/sean-duffy-transportation-secretary-ground-stop.html</loc>
