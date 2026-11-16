@@ -1,5 +1,41 @@
 [
   {
+    "slug": "irish-independent-news-m50-tech-funding-lukaku",
+    "date": "2026-11-16",
+    "tag": {
+      "en": "Stations",
+      "ar": "محطات"
+    },
+    "title": {
+      "en": "Irish News Highlights: M50 Safety, Tech Funding, and Lukaku",
+      "ar": "أبرز الأخبار الأيرلندية: سلامة الطريق M50 وتمويل التكنولوجيا ولوكاكو"
+    },
+    "desc": {
+      "en": "Coverage from the Irish Independent on 16 November 2026 highlights M50 road danger, tech funding trends, Romelu Lukaku, and Nicola Coughlan.",
+      "ar": "تغطية آيرش إندبندنت يوم 16 نوفمبر 2026 تسلط الضوء على سلامة طريق M50، تمويل التكنولوجيا، اعتزال لوكاكو، وأداء نيكولا كوفلان."
+    },
+    "cat": "stations",
+    "cc": "GB",
+    "pub": "2026-11-16T12:47:37Z",
+    "kw": {
+      "en": [
+        "M50 motorway safety",
+        "Irish tech venture funding",
+        "Romelu Lukaku retirement",
+        "Nicola Coughlan I Am Helen",
+        "Mississippi tanker lawsuit"
+      ],
+      "ar": [
+        "سلامة طريق M50",
+        "تمويل التكنولوجيا الأيرلندية",
+        "اعتزال روميلو لوكاكو",
+        "مسلسل أنا هيلين",
+        "دعوى ناقلة ميسيسيبي"
+      ]
+    },
+    "thumb": "https:\/\/worldliveradio.com\/assets\/irish-independent-news-m50-tech-funding-lukaku-thumb.webp"
+  },
+  {
     "slug": "ao3-returns-online-after-security-incident-and-outage",
     "date": "2026-11-16",
     "tag": {
