@@ -1,5 +1,41 @@
 [
   {
+    "slug": "van-gogh-sothebys-auction-dispute-paris-radio",
+    "date": "2026-11-16",
+    "tag": {
+      "en": "Arts & culture",
+      "ar": "فن وثقافة"
+    },
+    "title": {
+      "en": "Van Gogh Sotheby's Auction Sparks Legal Dispute in Paris",
+      "ar": "مزاد فان غوخ في سوتبيز يثير نزاعاً قانونياً في باريس"
+    },
+    "desc": {
+      "en": "Sotheby's prepares to auction a $180M Van Gogh painting while Jewish heirs claim forced sale under Nazi rule. Follow French art news live on radio.",
+      "ar": "سوتبيز تتهيأ لبيع لوحة لفان غوخ بقيمة 180 مليون دولار بينما يطالب ورثة يهود باستعادتها بسبب بيع قسري في العهد النازي. تابع الأخبار عبر الإذاعة."
+    },
+    "cat": "culture",
+    "cc": "FR",
+    "pub": "2026-11-16T12:51:24Z",
+    "kw": {
+      "en": [
+        "Vincent van Gogh",
+        "Sotheby's auction",
+        "art restitution claims",
+        "Paul Cezanne",
+        "Wingen-sur-Moder exhibition"
+      ],
+      "ar": [
+        "فينسنت فان غوخ",
+        "مزاد سوتبيز",
+        "استعادة الأعمال الفنية",
+        "بول سيزان",
+        "معرض وينجن سور مودير"
+      ]
+    },
+    "thumb": "https:\/\/worldliveradio.com\/assets\/van-gogh-sothebys-auction-dispute-paris-radio-thumb.webp"
+  },
+  {
     "slug": "irish-independent-news-m50-tech-funding-lukaku",
     "date": "2026-11-16",
     "tag": {
