@@ -1,12 +1,47 @@
 {
- "built": "2026-11-15 19:26 UTC",
+ "built": "2026-11-16 10:20 UTC",
  "pages": 243,
  "internal": [],
  "external": {
-  "checked": "2026-11-13 08:17 UTC",
-  "total": 148,
+  "checked": "2026-11-16 10:20 UTC",
+  "total": 237,
   "broken": [],
   "blocked": [
+   {
+    "url": "https://www.dazn.com/de-DE/news/fussball/belgien-gegen-italien-nations-league-heute-im-tv-und-live-stream-sehen/19pwx4yj0jnpw1sdq9cyzp8wgg",
+    "why": "403",
+    "pages": [
+     "articles/belgium-italy-nations-league-match-analysis.html"
+    ]
+   },
+   {
+    "url": "https://www.tvfanatic.com/days-of-our-lives-spoilers-for-the-week-of-11-16-26-hide-the-soaps-best-new-story-under-arrests-accusations-and-high-drama/",
+    "why": "403",
+    "pages": [
+     "articles/days-of-our-lives-spoilers-radio.html"
+    ]
+   },
+   {
+    "url": "https://www.bnr.nl/nieuws/internationaal/10615482/liveblog-oekraine-gezanten-vs-arriveren-in-moskou-voor-gesprekken-met-poetin",
+    "why": "403",
+    "pages": [
+     "articles/russian-refineries-ukraine-attacks-radio.html"
+    ]
+   },
+   {
+    "url": "https://news.sky.com/story/former-sas-chief-blames-state-for-breaking-moral-contract-with-soldiers-13612211",
+    "why": "403",
+    "pages": [
+     "articles/uk-soldier-news-spying-sas-inquiry-radio.html"
+    ]
+   },
+   {
+    "url": "https://www.al.sp.gov.br/noticia/?id=270030",
+    "why": "UND_ERR_CONNECT_TIMEOUT",
+    "pages": [
+     "countries/brazil.html"
+    ]
+   },
    {
     "url": "https://www.goethe.de/ins/ca/en/kul/met/raw/24929619.html",
     "why": "403",

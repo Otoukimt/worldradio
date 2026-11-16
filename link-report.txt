@@ -1,15 +1,20 @@
 تقرير الروابط — LiveRadio
-آخر بناء: 2026-11-15 19:26 UTC  |  الصفحات المفحوصة: 243
+آخر بناء: 2026-11-16 10:20 UTC  |  الصفحات المفحوصة: 243
 
 == الروابط الداخلية المعطلة: 0 ==
   ✓ لا شيء
 
-== الروابط الخارجية (آخر فحص: 2026-11-13 08:17 UTC — 148 رابطاً) ==
+== الروابط الخارجية (آخر فحص: 2026-11-16 10:20 UTC — 237 رابطاً) ==
 
 معطلة فعلاً (0) — استبدلها:
   ✓ لا شيء
 
-لم يُتح فحصها (7) — غالباً تعمل، لكن الموقع يمنع البرامج الآلية. افتحها يدوياً إن شئت:
+لم يُتح فحصها (12) — غالباً تعمل، لكن الموقع يمنع البرامج الآلية. افتحها يدوياً إن شئت:
+  ? https://www.dazn.com/de-DE/news/fussball/belgien-gegen-italien-nations-league-heute-im-tv-und-live-stream-sehen/19pwx4yj0jnpw1sdq9cyzp8wgg  [403]
+  ? https://www.tvfanatic.com/days-of-our-lives-spoilers-for-the-week-of-11-16-26-hide-the-soaps-best-new-story-under-arrests-accusations-and-high-drama/  [403]
+  ? https://www.bnr.nl/nieuws/internationaal/10615482/liveblog-oekraine-gezanten-vs-arriveren-in-moskou-voor-gesprekken-met-poetin  [403]
+  ? https://news.sky.com/story/former-sas-chief-blames-state-for-breaking-moral-contract-with-soldiers-13612211  [403]
+  ? https://www.al.sp.gov.br/noticia/?id=270030  [UND_ERR_CONNECT_TIMEOUT]
   ? https://www.goethe.de/ins/ca/en/kul/met/raw/24929619.html  [403]
   ? https://rri.co.id/en/national/2714877/the-first-radio-station-in-indonesia-how-bataviase-radio-vereniging-brv-began  [403]
   ? https://iasj.rdd.edu.iq/journals/uploads/2026/06/05/75725237ea34674e0561bae6860707a4.pdf  [UND_ERR_CONNECT_TIMEOUT]
