@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-15 12:30 UTC",
+ "updated": "2026-11-16 13:23 UTC",
  "search": {
   "site": "https://worldliveradio.com/",
   "range": {
-   "startDate": "2026-10-16",
-   "endDate": "2026-11-13"
+   "startDate": "2026-10-17",
+   "endDate": "2026-11-14"
   },
   "totals": {
-   "clicks": 29,
-   "impressions": 307
+   "clicks": 31,
+   "impressions": 362
   },
   "queries": [
    {
@@ -54,6 +54,24 @@
     "p": 74
    },
    {
+    "q": "british radio stations list",
+    "c": 0,
+    "i": 1,
+    "p": 71
+   },
+   {
+    "q": "broadcast radio stations",
+    "c": 0,
+    "i": 2,
+    "p": 89
+   },
+   {
+    "q": "canada radio",
+    "c": 0,
+    "i": 2,
+    "p": 27.5
+   },
+   {
     "q": "dab vs internet radio sound quality",
     "c": 0,
     "i": 2,
@@ -76,6 +94,12 @@
     "c": 0,
     "i": 2,
     "p": 70
+   },
+   {
+    "q": "good uk radio stations",
+    "c": 0,
+    "i": 1,
+    "p": 89
    },
    {
     "q": "how much does it cost to start an internet radio station",
@@ -126,10 +150,28 @@
     "p": 32
    },
    {
+    "q": "japanese radio live",
+    "c": 0,
+    "i": 1,
+    "p": 47
+   },
+   {
     "q": "licensing and requirements for an internet radio station",
     "c": 0,
     "i": 1,
     "p": 88
+   },
+   {
+    "q": "list of english radio stations",
+    "c": 0,
+    "i": 1,
+    "p": 81
+   },
+   {
+    "q": "listen to live radio",
+    "c": 0,
+    "i": 1,
+    "p": 82
    },
    {
     "q": "listen to world radio online",
@@ -172,6 +214,12 @@
     "c": 0,
     "i": 1,
     "p": 95
+   },
+   {
+    "q": "radio broadcasting",
+    "c": 0,
+    "i": 1,
+    "p": 6
    },
    {
     "q": "radio broadcasting stations",
@@ -228,10 +276,22 @@
     "p": 89
    },
    {
+    "q": "radio station in uk",
+    "c": 0,
+    "i": 1,
+    "p": 8
+   },
+   {
     "q": "radio stations in japan",
     "c": 0,
     "i": 1,
     "p": 80
+   },
+   {
+    "q": "radio stations list",
+    "c": 0,
+    "i": 1,
+    "p": 15
    },
    {
     "q": "radiodiffusion française",
@@ -292,26 +352,26 @@
    {
     "u": "/",
     "c": 17,
-    "i": 85,
-    "p": 4.8
+    "i": 90,
+    "p": 4.6
    },
    {
     "u": "/countries/morocco.html",
     "c": 3,
-    "i": 12,
-    "p": 2.1
+    "i": 17,
+    "p": 2.2
    },
    {
     "u": "/about.html",
     "c": 2,
-    "i": 44,
-    "p": 5
+    "i": 49,
+    "p": 4.9
    },
    {
     "u": "/articles.html",
     "c": 1,
-    "i": 41,
-    "p": 9
+    "i": 47,
+    "p": 8.4
    },
    {
     "u": "/articles/bbc-radio-1-guide.html",
@@ -322,8 +382,8 @@
    {
     "u": "/articles/best-radio-stations-world.html",
     "c": 1,
-    "i": 34,
-    "p": 4.8
+    "i": 39,
+    "p": 4.7
    },
    {
     "u": "/articles/egyptian-radio-guide.html",
@@ -350,6 +410,12 @@
     "p": 3.4
    },
    {
+    "u": "/articles/portugal-denmark-nations-league-radio.html",
+    "c": 1,
+    "i": 21,
+    "p": 8.2
+   },
+   {
     "u": "/articles/radio-in-the-car.html",
     "c": 1,
     "i": 14,
@@ -358,26 +424,26 @@
    {
     "u": "/articles/radio-stream-not-working.html",
     "c": 1,
-    "i": 42,
-    "p": 11.5
+    "i": 44,
+    "p": 12.4
    },
    {
     "u": "/broadcasters.html",
     "c": 1,
-    "i": 15,
+    "i": 20,
     "p": 8.1
    },
    {
     "u": "/contact.html",
     "c": 1,
-    "i": 19,
-    "p": 11.5
+    "i": 21,
+    "p": 12
    },
    {
     "u": "/countries/algeria.html",
     "c": 1,
-    "i": 16,
-    "p": 8.2
+    "i": 22,
+    "p": 8.7
    },
    {
     "u": "/countries/argentina.html",
@@ -388,14 +454,14 @@
    {
     "u": "/countries/france.html",
     "c": 1,
-    "i": 32,
-    "p": 10.8
+    "i": 34,
+    "p": 11.2
    },
    {
     "u": "/countries/germany.html",
     "c": 1,
-    "i": 16,
-    "p": 9.3
+    "i": 21,
+    "p": 8.8
    },
    {
     "u": "/countries/greece.html",
@@ -416,10 +482,16 @@
     "p": 23.5
    },
    {
+    "u": "/countries/mongolia.html",
+    "c": 1,
+    "i": 1,
+    "p": 184
+   },
+   {
     "u": "/countries/reunion.html",
     "c": 1,
-    "i": 16,
-    "p": 9.2
+    "i": 21,
+    "p": 9.1
    },
    {
     "u": "/countries/state-of-palestine.html",
@@ -436,7 +508,7 @@
    {
     "u": "/countries/the-netherlands.html",
     "c": 1,
-    "i": 12,
+    "i": 14,
     "p": 13.2
    },
    {
@@ -448,44 +520,44 @@
    {
     "u": "/countries/ukraine.html",
     "c": 1,
-    "i": 8,
-    "p": 14.5
+    "i": 9,
+    "p": 14.1
    },
    {
     "u": "/countries/united-states.html",
     "c": 1,
-    "i": 6,
-    "p": 15
+    "i": 7,
+    "p": 36.9
    },
    {
     "u": "/terms.html",
     "c": 1,
-    "i": 1,
-    "p": 16
+    "i": 3,
+    "p": 24.7
    },
    {
     "u": "/articles/colette-kress-nvidia-interim-ceo-us-radio.html",
     "c": 0,
-    "i": 3,
-    "p": 9.3
+    "i": 4,
+    "p": 8.8
    },
    {
     "u": "/articles/fm-dab-internet-radio.html",
     "c": 0,
-    "i": 26,
-    "p": 13.9
+    "i": 28,
+    "p": 13.4
    },
    {
     "u": "/articles/gulf-radio-stations-guide.html",
     "c": 0,
-    "i": 8,
-    "p": 10.9
+    "i": 9,
+    "p": 10.2
    },
    {
     "u": "/articles/history-of-radio-ten-stations.html",
     "c": 0,
-    "i": 9,
-    "p": 23.3
+    "i": 11,
+    "p": 40.5
    },
    {
     "u": "/articles/how-online-radio-works.html",
@@ -494,10 +566,16 @@
     "p": 8.5
    },
    {
+    "u": "/articles/jensen-huang-nvidia-exit-us-radio.html",
+    "c": 0,
+    "i": 1,
+    "p": 8
+   },
+   {
     "u": "/articles/npr-public-radio-guide.html",
     "c": 0,
-    "i": 2,
-    "p": 14.5
+    "i": 3,
+    "p": 25.3
    },
    {
     "u": "/articles/nrj-radio-france-guide.html",
@@ -514,32 +592,32 @@
    {
     "u": "/articles/radio-for-focus-and-work.html",
     "c": 0,
-    "i": 12,
-    "p": 14.7
+    "i": 13,
+    "p": 14.5
    },
    {
     "u": "/articles/radio-mirchi-india-guide.html",
     "c": 0,
-    "i": 25,
-    "p": 12.6
+    "i": 30,
+    "p": 11.5
    },
    {
     "u": "/articles/start-your-own-internet-radio.html",
     "c": 0,
-    "i": 19,
-    "p": 28.7
+    "i": 20,
+    "p": 28
    },
    {
     "u": "/articles/uk-radio-stations-guide.html",
     "c": 0,
-    "i": 46,
-    "p": 18.7
+    "i": 54,
+    "p": 24.9
    },
    {
     "u": "/countries/antarctica.html",
     "c": 0,
-    "i": 8,
-    "p": 14.1
+    "i": 10,
+    "p": 13.7
    },
    {
     "u": "/countries/bangladesh.html",
@@ -548,16 +626,34 @@
     "p": 2
    },
    {
+    "u": "/countries/barbados.html",
+    "c": 0,
+    "i": 1,
+    "p": 183
+   },
+   {
     "u": "/countries/benin.html",
     "c": 0,
     "i": 1,
     "p": 46
    },
    {
+    "u": "/countries/bonaire.html",
+    "c": 0,
+    "i": 1,
+    "p": 187
+   },
+   {
+    "u": "/countries/canada.html",
+    "c": 0,
+    "i": 2,
+    "p": 27.5
+   },
+   {
     "u": "/countries/costa-rica.html",
     "c": 0,
-    "i": 4,
-    "p": 22.8
+    "i": 5,
+    "p": 22.2
    },
    {
     "u": "/countries/el-salvador.html",
@@ -572,82 +668,46 @@
     "p": 18
    },
    {
+    "u": "/countries/ethiopia.html",
+    "c": 0,
+    "i": 1,
+    "p": 181
+   },
+   {
     "u": "/countries/georgia.html",
     "c": 0,
     "i": 1,
     "p": 35
    },
    {
+    "u": "/countries/guadeloupe.html",
+    "c": 0,
+    "i": 1,
+    "p": 169
+   },
+   {
     "u": "/countries/haiti.html",
     "c": 0,
-    "i": 6,
-    "p": 34.5
+    "i": 7,
+    "p": 32.3
+   },
+   {
+    "u": "/countries/hong-kong.html",
+    "c": 0,
+    "i": 1,
+    "p": 186
    },
    {
     "u": "/countries/hungary.html",
     "c": 0,
-    "i": 2,
-    "p": 56.5
+    "i": 3,
+    "p": 46.7
    },
    {
     "u": "/countries/iraq.html",
     "c": 0,
     "i": 1,
     "p": 11
-   },
-   {
-    "u": "/countries/ireland.html",
-    "c": 0,
-    "i": 2,
-    "p": 19
-   },
-   {
-    "u": "/countries/isle-of-man.html",
-    "c": 0,
-    "i": 5,
-    "p": 16.6
-   },
-   {
-    "u": "/countries/jamaica.html",
-    "c": 0,
-    "i": 1,
-    "p": 9
-   },
-   {
-    "u": "/countries/japan.html",
-    "c": 0,
-    "i": 3,
-    "p": 70
-   },
-   {
-    "u": "/countries/jordan.html",
-    "c": 0,
-    "i": 5,
-    "p": 12.4
-   },
-   {
-    "u": "/countries/lebanon.html",
-    "c": 0,
-    "i": 4,
-    "p": 27.8
-   },
-   {
-    "u": "/countries/mexico.html",
-    "c": 0,
-    "i": 1,
-    "p": 43
-   },
-   {
-    "u": "/countries/nigeria.html",
-    "c": 0,
-    "i": 4,
-    "p": 12
-   },
-   {
-    "u": "/countries/poland.html",
-    "c": 0,
-    "i": 4,
-    "p": 27.3
    }
   ]
  },
@@ -821,14 +881,14 @@
    "at": "2026-11-13"
   },
   {
-   "u": "/countries/lebanon.html",
+   "u": "/countries/japan.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/japan.html",
+   "u": "/countries/lebanon.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
@@ -919,6 +979,76 @@
    "at": "2026-11-12"
   },
   {
+   "u": "/articles/albert-rivera-ceuta-melilla-spain-morocco-debate.html",
+   "v": "NEUTRAL",
+   "st": "URL is unknown to Google",
+   "crawl": "",
+   "at": "2026-11-16"
+  },
+  {
+   "u": "/articles/van-gogh-sothebys-auction-dispute-paris-radio.html",
+   "v": "NEUTRAL",
+   "st": "URL is unknown to Google",
+   "crawl": "",
+   "at": "2026-11-16"
+  },
+  {
+   "u": "/articles/irish-independent-news-m50-tech-funding-lukaku.html",
+   "v": "NEUTRAL",
+   "st": "URL is unknown to Google",
+   "crawl": "",
+   "at": "2026-11-16"
+  },
+  {
+   "u": "/articles/ao3-returns-online-after-security-incident-and-outage.html",
+   "v": "NEUTRAL",
+   "st": "URL is unknown to Google",
+   "crawl": "",
+   "at": "2026-11-16"
+  },
+  {
+   "u": "/articles/sean-duffy-transportation-secretary-ground-stop.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-15",
+   "at": "2026-11-16"
+  },
+  {
+   "u": "/articles/pope-leo-xiv-peru-visit-radio-news.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-15",
+   "at": "2026-11-16"
+  },
+  {
+   "u": "/articles/belgium-italy-nations-league-match-analysis.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-15",
+   "at": "2026-11-16"
+  },
+  {
+   "u": "/articles/fukuoka-prefectural-assembly-scandal-investigation.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-15",
+   "at": "2026-11-16"
+  },
+  {
+   "u": "/articles/days-of-our-lives-spoilers-radio.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-16",
+   "at": "2026-11-16"
+  },
+  {
+   "u": "/articles/russian-refineries-ukraine-attacks-radio.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-15",
+   "at": "2026-11-16"
+  },
+  {
    "u": "/articles/uk-soldier-news-spying-sas-inquiry-radio.html",
    "v": "PASS",
    "st": "Submitted and indexed",
@@ -1007,7 +1137,7 @@
    "v": "NEUTRAL",
    "st": "Discovered - currently not indexed",
    "crawl": "",
-   "at": "2026-11-15"
+   "at": "2026-11-16"
   },
   {
    "u": "/articles/uk-radio-stations-guide.html",
@@ -1178,18 +1308,18 @@
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/hungary.html",
-   "v": "PASS",
-   "st": "Submitted and indexed",
-   "crawl": "2026-11-13",
-   "at": "2026-11-13"
-  },
-  {
    "u": "/countries/bulgaria.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
    "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/hungary.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-13",
+   "at": "2026-11-13"
   },
   {
    "u": "/countries/austria.html",
@@ -1332,18 +1462,18 @@
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/slovenia.html",
-   "v": "PASS",
-   "st": "Submitted and indexed",
-   "crawl": "2026-11-12",
-   "at": "2026-11-13"
-  },
-  {
    "u": "/countries/estonia.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
    "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/slovenia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-12",
+   "at": "2026-11-13"
   },
   {
    "u": "/countries/norway.html",
@@ -1423,17 +1553,17 @@
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/hong-kong.html",
-   "v": "PASS",
-   "st": "Submitted and indexed",
-   "crawl": "2026-11-12",
-   "at": "2026-11-13"
-  },
-  {
    "u": "/countries/bolivia.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-13",
+   "at": "2026-11-13"
+  },
+  {
+   "u": "/countries/hong-kong.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-12",
    "at": "2026-11-13"
   },
   {
@@ -1444,14 +1574,14 @@
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/angola.html",
+   "u": "/countries/singapore.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/singapore.html",
+   "u": "/countries/angola.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
@@ -1507,14 +1637,14 @@
    "at": "2026-11-13"
   },
   {
-   "u": "/countries/costa-rica.html",
+   "u": "/countries/cameroon.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/cameroon.html",
+   "u": "/countries/costa-rica.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
@@ -1577,18 +1707,18 @@
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/panama.html",
-   "v": "PASS",
-   "st": "Submitted and indexed",
-   "crawl": "2026-11-13",
-   "at": "2026-11-14"
-  },
-  {
    "u": "/countries/haiti.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
    "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/panama.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-13",
+   "at": "2026-11-14"
   },
   {
    "u": "/countries/luxembourg.html",
@@ -1605,6 +1735,13 @@
    "at": "2026-11-13"
   },
   {
+   "u": "/countries/iceland.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
    "u": "/countries/bangladesh.html",
    "v": "PASS",
    "st": "Submitted and indexed",
@@ -1613,13 +1750,6 @@
   },
   {
    "u": "/countries/georgia.html",
-   "v": "PASS",
-   "st": "Submitted and indexed",
-   "crawl": "2026-11-11",
-   "at": "2026-11-12"
-  },
-  {
-   "u": "/countries/iceland.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
@@ -1682,6 +1812,13 @@
    "at": "2026-11-12"
   },
   {
+   "u": "/countries/macao.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-12",
+   "at": "2026-11-13"
+  },
+  {
    "u": "/countries/curacao.html",
    "v": "PASS",
    "st": "Submitted and indexed",
@@ -1696,14 +1833,14 @@
    "at": "2026-11-13"
   },
   {
-   "u": "/countries/macao.html",
+   "u": "/countries/united-republic-of-tanzania.html",
    "v": "PASS",
    "st": "Submitted and indexed",
-   "crawl": "2026-11-12",
-   "at": "2026-11-13"
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
   },
   {
-   "u": "/countries/united-republic-of-tanzania.html",
+   "u": "/countries/malta.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
@@ -1725,13 +1862,6 @@
   },
   {
    "u": "/countries/kosovo.html",
-   "v": "PASS",
-   "st": "Submitted and indexed",
-   "crawl": "2026-11-11",
-   "at": "2026-11-12"
-  },
-  {
-   "u": "/countries/malta.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
@@ -1815,6 +1945,20 @@
    "at": "2026-11-14"
   },
   {
+   "u": "/countries/mauritius.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-13",
+   "at": "2026-11-14"
+  },
+  {
+   "u": "/countries/cambodia.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
    "u": "/countries/uzbekistan.html",
    "v": "PASS",
    "st": "Submitted and indexed",
@@ -1829,18 +1973,11 @@
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/mauritius.html",
+   "u": "/countries/bonaire.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-13",
-   "at": "2026-11-14"
-  },
-  {
-   "u": "/countries/cambodia.html",
-   "v": "PASS",
-   "st": "Submitted and indexed",
-   "crawl": "2026-11-11",
-   "at": "2026-11-12"
+   "at": "2026-11-13"
   },
   {
    "u": "/countries/saint-vincent-and-the-grenadines.html",
@@ -1871,13 +2008,6 @@
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/bonaire.html",
-   "v": "PASS",
-   "st": "Submitted and indexed",
-   "crawl": "2026-11-13",
-   "at": "2026-11-13"
-  },
-  {
    "u": "/countries/antarctica.html",
    "v": "PASS",
    "st": "Submitted and indexed",
@@ -1893,6 +2023,13 @@
   },
   {
    "u": "/countries/guyana.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/the-cayman-islands.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
@@ -1920,7 +2057,7 @@
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/the-cayman-islands.html",
+   "u": "/countries/kyrgyzstan.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
@@ -1962,7 +2099,7 @@
    "at": "2026-11-13"
   },
   {
-   "u": "/countries/kyrgyzstan.html",
+   "u": "/countries/libya.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
@@ -2004,7 +2141,21 @@
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/libya.html",
+   "u": "/countries/antigua-and-barbuda.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/dominica.html",
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-11",
+   "at": "2026-11-12"
+  },
+  {
+   "u": "/countries/bermuda.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
@@ -2046,28 +2197,7 @@
    "at": "2026-11-12"
   },
   {
-   "u": "/countries/antigua-and-barbuda.html",
-   "v": "PASS",
-   "st": "Submitted and indexed",
-   "crawl": "2026-11-11",
-   "at": "2026-11-12"
-  },
-  {
    "u": "/countries/san-marino.html",
-   "v": "PASS",
-   "st": "Submitted and indexed",
-   "crawl": "2026-11-11",
-   "at": "2026-11-12"
-  },
-  {
-   "u": "/countries/dominica.html",
-   "v": "PASS",
-   "st": "Submitted and indexed",
-   "crawl": "2026-11-11",
-   "at": "2026-11-12"
-  },
-  {
-   "u": "/countries/bermuda.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-11",
@@ -2149,23 +2279,23 @@
    },
    {
     "n": "Radio Mars",
-    "c": 18
+    "c": 19
+   },
+   {
+    "n": "ACHKID FM",
+    "c": 13
    },
    {
     "n": "Radio Plus Agadir FM 92.4",
     "c": 13
    },
    {
-    "n": "ACHKID FM",
-    "c": 12
+    "n": "MFM RADIO",
+    "c": 11
    },
    {
     "n": "radio yan plus",
     "c": 10
-   },
-   {
-    "n": "MFM RADIO",
-    "c": 8
    },
    {
     "n": "Al Arabiya FM",
@@ -2180,16 +2310,16 @@
     "c": 4
    },
    {
+    "n": "BR24",
+    "c": 4
+   },
+   {
     "n": "GoloFM",
     "c": 4
    },
    {
     "n": "MEDINA FM",
     "c": 4
-   },
-   {
-    "n": "BR24",
-    "c": 3
    },
    {
     "n": "MRC:-Sawt Al Amal",
@@ -2246,7 +2376,7 @@
   ]
  },
  "speed": {
-  "date": "2026-11-12",
+  "date": "2026-11-16",
   "pages": [
    {
     "u": "/",
@@ -2255,21 +2385,21 @@
     "bp": 100,
     "seo": 100,
     "lcp": "1.1 s",
-    "cls": "0.033"
+    "cls": "0.042"
    },
    {
     "u": "/articles.html",
-    "perf": 88,
+    "perf": 81,
     "a11y": 100,
     "bp": 100,
     "seo": 100,
-    "lcp": "3.9 s",
-    "cls": "0.003"
+    "lcp": "4.5 s",
+    "cls": "0.097"
    },
    {
-    "u": "/articles/saudi-weather-warnings-rain-heavy-winds.html",
+    "u": "/articles/albert-rivera-ceuta-melilla-spain-morocco-debate.html",
     "perf": 100,
-    "a11y": 96,
+    "a11y": 100,
     "bp": 100,
     "seo": 100,
     "lcp": "0.8 s",
