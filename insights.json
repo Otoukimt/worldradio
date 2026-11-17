@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-16 13:23 UTC",
+ "updated": "2026-11-17 14:08 UTC",
  "search": {
   "site": "https://worldliveradio.com/",
   "range": {
-   "startDate": "2026-10-17",
-   "endDate": "2026-11-14"
+   "startDate": "2026-10-18",
+   "endDate": "2026-11-15"
   },
   "totals": {
    "clicks": 31,
-   "impressions": 362
+   "impressions": 394
   },
   "queries": [
    {
@@ -28,6 +28,18 @@
     "c": 0,
     "i": 1,
     "p": 7
+   },
+   {
+    "q": "actor anthony",
+    "c": 0,
+    "i": 1,
+    "p": 39
+   },
+   {
+    "q": "anthony clark",
+    "c": 0,
+    "i": 5,
+    "p": 43.6
    },
    {
     "q": "bbc radio channels explained",
@@ -62,14 +74,20 @@
    {
     "q": "broadcast radio stations",
     "c": 0,
-    "i": 2,
-    "p": 89
+    "i": 3,
+    "p": 90.3
    },
    {
     "q": "canada radio",
     "c": 0,
     "i": 2,
     "p": 27.5
+   },
+   {
+    "q": "canadian radio",
+    "c": 0,
+    "i": 1,
+    "p": 56
    },
    {
     "q": "dab vs internet radio sound quality",
@@ -88,6 +106,12 @@
     "c": 0,
     "i": 2,
     "p": 10.5
+   },
+   {
+    "q": "difference fm et dab",
+    "c": 0,
+    "i": 1,
+    "p": 78
    },
    {
     "q": "free web radio",
@@ -150,6 +174,12 @@
     "p": 32
    },
    {
+    "q": "japan radio stations",
+    "c": 0,
+    "i": 1,
+    "p": 74
+   },
+   {
     "q": "japanese radio live",
     "c": 0,
     "i": 1,
@@ -200,8 +230,8 @@
    {
     "q": "liveradio",
     "c": 0,
-    "i": 3,
-    "p": 11.7
+    "i": 4,
+    "p": 27.5
    },
    {
     "q": "mirchi radio frequency",
@@ -276,6 +306,12 @@
     "p": 89
    },
    {
+    "q": "radio station in canada",
+    "c": 0,
+    "i": 1,
+    "p": 1
+   },
+   {
     "q": "radio station in uk",
     "c": 0,
     "i": 1,
@@ -294,10 +330,22 @@
     "p": 15
    },
    {
+    "q": "radio stations online",
+    "c": 0,
+    "i": 1,
+    "p": 45
+   },
+   {
     "q": "radiodiffusion française",
     "c": 0,
     "i": 1,
     "p": 89
+   },
+   {
+    "q": "romania live radio",
+    "c": 0,
+    "i": 1,
+    "p": 59
    },
    {
     "q": "sawt masr",
@@ -308,8 +356,8 @@
    {
     "q": "uk radio stations",
     "c": 0,
-    "i": 1,
-    "p": 54
+    "i": 2,
+    "p": 72
    },
    {
     "q": "what does each bbc radio station play",
@@ -352,26 +400,26 @@
    {
     "u": "/",
     "c": 17,
-    "i": 90,
-    "p": 4.6
+    "i": 95,
+    "p": 5.2
    },
    {
     "u": "/countries/morocco.html",
     "c": 3,
-    "i": 17,
-    "p": 2.2
+    "i": 21,
+    "p": 2.9
    },
    {
     "u": "/about.html",
     "c": 2,
-    "i": 49,
-    "p": 4.9
+    "i": 53,
+    "p": 4.7
    },
    {
     "u": "/articles.html",
     "c": 1,
-    "i": 47,
-    "p": 8.4
+    "i": 51,
+    "p": 8
    },
    {
     "u": "/articles/bbc-radio-1-guide.html",
@@ -466,8 +514,8 @@
    {
     "u": "/countries/greece.html",
     "c": 1,
-    "i": 1,
-    "p": 13
+    "i": 2,
+    "p": 14.5
    },
    {
     "u": "/countries/india.html",
@@ -490,8 +538,8 @@
    {
     "u": "/countries/reunion.html",
     "c": 1,
-    "i": 21,
-    "p": 9.1
+    "i": 22,
+    "p": 9.5
    },
    {
     "u": "/countries/state-of-palestine.html",
@@ -508,14 +556,14 @@
    {
     "u": "/countries/the-netherlands.html",
     "c": 1,
-    "i": 14,
-    "p": 13.2
+    "i": 15,
+    "p": 13.3
    },
    {
     "u": "/countries/the-republic-of-korea.html",
     "c": 1,
-    "i": 1,
-    "p": 15
+    "i": 2,
+    "p": 89.5
    },
    {
     "u": "/countries/ukraine.html",
@@ -532,8 +580,20 @@
    {
     "u": "/terms.html",
     "c": 1,
-    "i": 3,
-    "p": 24.7
+    "i": 4,
+    "p": 18.8
+   },
+   {
+    "u": "/articles/anthony-clark-actor-dies-us-radio.html",
+    "c": 0,
+    "i": 6,
+    "p": 42.8
+   },
+   {
+    "u": "/articles/belgium-italy-nations-league-match-analysis.html",
+    "c": 0,
+    "i": 1,
+    "p": 10
    },
    {
     "u": "/articles/colette-kress-nvidia-interim-ceo-us-radio.html",
@@ -544,8 +604,8 @@
    {
     "u": "/articles/fm-dab-internet-radio.html",
     "c": 0,
-    "i": 28,
-    "p": 13.4
+    "i": 30,
+    "p": 15.4
    },
    {
     "u": "/articles/gulf-radio-stations-guide.html",
@@ -556,8 +616,8 @@
    {
     "u": "/articles/history-of-radio-ten-stations.html",
     "c": 0,
-    "i": 11,
-    "p": 40.5
+    "i": 12,
+    "p": 37.8
    },
    {
     "u": "/articles/how-online-radio-works.html",
@@ -574,8 +634,8 @@
    {
     "u": "/articles/npr-public-radio-guide.html",
     "c": 0,
-    "i": 3,
-    "p": 25.3
+    "i": 4,
+    "p": 21.3
    },
    {
     "u": "/articles/nrj-radio-france-guide.html",
@@ -602,6 +662,12 @@
     "p": 11.5
    },
    {
+    "u": "/articles/sean-duffy-transportation-secretary-ground-stop.html",
+    "c": 0,
+    "i": 1,
+    "p": 10
+   },
+   {
     "u": "/articles/start-your-own-internet-radio.html",
     "c": 0,
     "i": 20,
@@ -610,8 +676,8 @@
    {
     "u": "/articles/uk-radio-stations-guide.html",
     "c": 0,
-    "i": 54,
-    "p": 24.9
+    "i": 57,
+    "p": 27.2
    },
    {
     "u": "/countries/antarctica.html",
@@ -632,10 +698,22 @@
     "p": 183
    },
    {
+    "u": "/countries/belgium.html",
+    "c": 0,
+    "i": 1,
+    "p": 7
+   },
+   {
     "u": "/countries/benin.html",
     "c": 0,
     "i": 1,
     "p": 46
+   },
+   {
+    "u": "/countries/bolivarian-republic-of-venezuela.html",
+    "c": 0,
+    "i": 1,
+    "p": 165
    },
    {
     "u": "/countries/bonaire.html",
@@ -644,16 +722,28 @@
     "p": 187
    },
    {
+    "u": "/countries/cameroon.html",
+    "c": 0,
+    "i": 1,
+    "p": 23
+   },
+   {
     "u": "/countries/canada.html",
     "c": 0,
-    "i": 2,
-    "p": 27.5
+    "i": 4,
+    "p": 28
    },
    {
     "u": "/countries/costa-rica.html",
     "c": 0,
     "i": 5,
     "p": 22.2
+   },
+   {
+    "u": "/countries/denmark.html",
+    "c": 0,
+    "i": 2,
+    "p": 6.5
    },
    {
     "u": "/countries/el-salvador.html",
@@ -666,48 +756,6 @@
     "c": 0,
     "i": 1,
     "p": 18
-   },
-   {
-    "u": "/countries/ethiopia.html",
-    "c": 0,
-    "i": 1,
-    "p": 181
-   },
-   {
-    "u": "/countries/georgia.html",
-    "c": 0,
-    "i": 1,
-    "p": 35
-   },
-   {
-    "u": "/countries/guadeloupe.html",
-    "c": 0,
-    "i": 1,
-    "p": 169
-   },
-   {
-    "u": "/countries/haiti.html",
-    "c": 0,
-    "i": 7,
-    "p": 32.3
-   },
-   {
-    "u": "/countries/hong-kong.html",
-    "c": 0,
-    "i": 1,
-    "p": 186
-   },
-   {
-    "u": "/countries/hungary.html",
-    "c": 0,
-    "i": 3,
-    "p": 46.7
-   },
-   {
-    "u": "/countries/iraq.html",
-    "c": 0,
-    "i": 1,
-    "p": 11
    }
   ]
  },
@@ -980,31 +1028,31 @@
   },
   {
    "u": "/articles/albert-rivera-ceuta-melilla-spain-morocco-debate.html",
-   "v": "NEUTRAL",
-   "st": "URL is unknown to Google",
-   "crawl": "",
-   "at": "2026-11-16"
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-16",
+   "at": "2026-11-17"
   },
   {
    "u": "/articles/van-gogh-sothebys-auction-dispute-paris-radio.html",
-   "v": "NEUTRAL",
-   "st": "URL is unknown to Google",
-   "crawl": "",
-   "at": "2026-11-16"
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-16",
+   "at": "2026-11-17"
   },
   {
    "u": "/articles/irish-independent-news-m50-tech-funding-lukaku.html",
-   "v": "NEUTRAL",
-   "st": "URL is unknown to Google",
-   "crawl": "",
-   "at": "2026-11-16"
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-16",
+   "at": "2026-11-17"
   },
   {
    "u": "/articles/ao3-returns-online-after-security-incident-and-outage.html",
    "v": "NEUTRAL",
    "st": "URL is unknown to Google",
    "crawl": "",
-   "at": "2026-11-16"
+   "at": "2026-11-17"
   },
   {
    "u": "/articles/sean-duffy-transportation-secretary-ground-stop.html",
@@ -1135,9 +1183,9 @@
   {
    "u": "/articles/radio-vs-streaming-services.html",
    "v": "NEUTRAL",
-   "st": "Discovered - currently not indexed",
+   "st": "URL is unknown to Google",
    "crawl": "",
-   "at": "2026-11-16"
+   "at": "2026-11-17"
   },
   {
    "u": "/articles/uk-radio-stations-guide.html",
