@@ -1,5 +1,41 @@
 [
   {
+    "slug": "nations-league-auslosung-deutschland-fussball",
+    "date": "2026-11-18",
+    "tag": {
+      "en": "Sport",
+      "ar": "رياضة"
+    },
+    "title": {
+      "en": "Nations League Draw and Quarterfinal Hopes on German Radio",
+      "ar": "قرعة دوري الأمم الأوروبية وآمال ربع النهائي على الإذاعات الألمانية"
+    },
+    "desc": {
+      "en": "Germany awaits the Nations League quarterfinal draw following a 5-0 win over Netherlands, with live radio broadcasts and coverage across the nation.",
+      "ar": "تنتظر ألمانيا قرعة ربع نهائي دوري الأمم الأوروبية بعد الفوز بخماسية على هولندا، وسط تغطية واسعة وبث مباشر عبر الإذاعات المحلية."
+    },
+    "cat": "sport",
+    "cc": "DE",
+    "pub": "2026-11-18T09:35:50Z",
+    "kw": {
+      "en": [
+        "Nations League draw",
+        "Juergen Klopp effect",
+        "Germany Netherlands match",
+        "quarterfinal opponents",
+        "sports radio coverage"
+      ],
+      "ar": [
+        "قرعة دوري الأمم",
+        "تثير يورغن كلوب",
+        "مباراة ألمانيا وهولندا",
+        "منافسو ربع النهائي",
+        "تغطية الإذاعة الرياضية"
+      ]
+    },
+    "thumb": "https:\/\/worldliveradio.com\/assets\/nations-league-auslosung-deutschland-fussball-thumb.webp"
+  },
+  {
     "slug": "nico-de-boinville-plumpton-security-threat-radio",
     "date": "2026-11-17",
     "tag": {
