@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-20 13:51 UTC",
+ "updated": "2026-11-21 13:15 UTC",
  "search": {
   "site": "https://worldliveradio.com/",
   "range": {
-   "startDate": "2026-10-21",
-   "endDate": "2026-11-18"
+   "startDate": "2026-10-22",
+   "endDate": "2026-11-19"
   },
   "totals": {
    "clicks": 31,
-   "impressions": 516
+   "impressions": 537
   },
   "queries": [
    {
@@ -66,6 +66,12 @@
     "p": 51.5
    },
    {
+    "q": "bd radio online",
+    "c": 0,
+    "i": 1,
+    "p": 10
+   },
+   {
     "q": "best british radio stations",
     "c": 0,
     "i": 1,
@@ -100,6 +106,12 @@
     "c": 0,
     "i": 1,
     "p": 94
+   },
+   {
+    "q": "dab station list",
+    "c": 0,
+    "i": 1,
+    "p": 2
    },
    {
     "q": "dab stations uk",
@@ -160,6 +172,12 @@
     "c": 0,
     "i": 1,
     "p": 59
+   },
+   {
+    "q": "estereo azul 100.9 panamá en vivo",
+    "c": 0,
+    "i": 1,
+    "p": 58
    },
    {
     "q": "fm radio vs dab",
@@ -294,6 +312,18 @@
     "p": 81
    },
    {
+    "q": "list of radio stations",
+    "c": 0,
+    "i": 1,
+    "p": 45
+   },
+   {
+    "q": "list of radio stations list",
+    "c": 0,
+    "i": 2,
+    "p": 48.5
+   },
+   {
     "q": "listen to live radio",
     "c": 0,
     "i": 1,
@@ -346,6 +376,12 @@
     "c": 0,
     "i": 1,
     "p": 95
+   },
+   {
+    "q": "portuguese radio",
+    "c": 0,
+    "i": 1,
+    "p": 84
    },
    {
     "q": "radio broadcast",
@@ -432,6 +468,12 @@
     "p": 48
    },
    {
+    "q": "radio online trinidad",
+    "c": 0,
+    "i": 1,
+    "p": 25
+   },
+   {
     "q": "radio station channels",
     "c": 0,
     "i": 1,
@@ -452,8 +494,8 @@
    {
     "q": "radio stations in japan",
     "c": 0,
-    "i": 1,
-    "p": 80
+    "i": 2,
+    "p": 75
    },
    {
     "q": "radio stations list",
@@ -484,6 +526,12 @@
     "c": 0,
     "i": 1,
     "p": 41
+   },
+   {
+    "q": "uk dab radio stations list",
+    "c": 0,
+    "i": 1,
+    "p": 47
    },
    {
     "q": "uk radio stations",
@@ -538,26 +586,26 @@
    {
     "u": "/",
     "c": 17,
-    "i": 99,
-    "p": 5.4
+    "i": 102,
+    "p": 7.5
    },
    {
     "u": "/countries/morocco.html",
     "c": 3,
-    "i": 24,
-    "p": 3
+    "i": 26,
+    "p": 3.3
    },
    {
     "u": "/about.html",
     "c": 2,
-    "i": 57,
+    "i": 59,
     "p": 4.6
    },
    {
     "u": "/articles.html",
     "c": 1,
-    "i": 54,
-    "p": 7.8
+    "i": 56,
+    "p": 7.6
    },
    {
     "u": "/articles/bbc-radio-1-guide.html",
@@ -622,7 +670,7 @@
    {
     "u": "/contact.html",
     "c": 1,
-    "i": 22,
+    "i": 23,
     "p": 11.9
    },
    {
@@ -718,8 +766,14 @@
    {
     "u": "/terms.html",
     "c": 1,
-    "i": 7,
-    "p": 14.1
+    "i": 8,
+    "p": 13.9
+   },
+   {
+    "u": "/articles/albert-rivera-ceuta-melilla-spain-morocco-debate.html",
+    "c": 0,
+    "i": 1,
+    "p": 1
    },
    {
     "u": "/articles/anthony-clark-actor-dies-us-radio.html",
@@ -754,8 +808,8 @@
    {
     "u": "/articles/history-of-radio-ten-stations.html",
     "c": 0,
-    "i": 13,
-    "p": 35.5
+    "i": 14,
+    "p": 34.1
    },
    {
     "u": "/articles/how-online-radio-works.html",
@@ -790,8 +844,8 @@
    {
     "u": "/articles/npr-public-radio-guide.html",
     "c": 0,
-    "i": 4,
-    "p": 21.3
+    "i": 6,
+    "p": 16.5
    },
    {
     "u": "/articles/nrj-radio-france-guide.html",
@@ -802,8 +856,8 @@
    {
     "u": "/articles/quran-radio-stations-guide.html",
     "c": 0,
-    "i": 18,
-    "p": 6.6
+    "i": 19,
+    "p": 6.4
    },
    {
     "u": "/articles/radio-for-focus-and-work.html",
@@ -816,6 +870,12 @@
     "c": 0,
     "i": 32,
     "p": 12.9
+   },
+   {
+    "u": "/articles/robert-pattinson-james-bond-casting-news-radio.html",
+    "c": 0,
+    "i": 1,
+    "p": 4
    },
    {
     "u": "/articles/sean-duffy-transportation-secretary-ground-stop.html",
@@ -832,14 +892,14 @@
    {
     "u": "/articles/uk-radio-stations-guide.html",
     "c": 0,
-    "i": 59,
-    "p": 27.5
+    "i": 64,
+    "p": 28.3
    },
    {
     "u": "/articles/van-gogh-sothebys-auction-dispute-paris-radio.html",
     "c": 0,
-    "i": 59,
-    "p": 8.2
+    "i": 60,
+    "p": 8.1
    },
    {
     "u": "/countries/antarctica.html",
@@ -850,8 +910,8 @@
    {
     "u": "/countries/bangladesh.html",
     "c": 0,
-    "i": 2,
-    "p": 10.5
+    "i": 3,
+    "p": 10.3
    },
    {
     "u": "/countries/barbados.html",
@@ -882,18 +942,6 @@
     "c": 0,
     "i": 1,
     "p": 165
-   },
-   {
-    "u": "/countries/bonaire.html",
-    "c": 0,
-    "i": 1,
-    "p": 187
-   },
-   {
-    "u": "/countries/cameroon.html",
-    "c": 0,
-    "i": 1,
-    "p": 23
    }
   ]
  },
@@ -1169,7 +1217,7 @@
    "v": "NEUTRAL",
    "st": "URL is unknown to Google",
    "crawl": "",
-   "at": "2026-11-20"
+   "at": "2026-11-21"
   },
   {
    "u": "/articles/nico-de-boinville-plumpton-security-threat-radio.html",
@@ -1211,7 +1259,7 @@
    "v": "NEUTRAL",
    "st": "Discovered - currently not indexed",
    "crawl": "",
-   "at": "2026-11-20"
+   "at": "2026-11-21"
   },
   {
    "u": "/articles/sean-duffy-transportation-secretary-ground-stop.html",
@@ -1342,9 +1390,9 @@
   {
    "u": "/articles/radio-vs-streaming-services.html",
    "v": "NEUTRAL",
-   "st": "Discovered - currently not indexed",
+   "st": "URL is unknown to Google",
    "crawl": "",
-   "at": "2026-11-20"
+   "at": "2026-11-21"
   },
   {
    "u": "/articles/uk-radio-stations-guide.html",
@@ -1645,7 +1693,7 @@
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-13",
-   "at": "2026-11-14"
+   "at": "2026-11-21"
   },
   {
    "u": "/countries/finland.html",
@@ -1925,7 +1973,7 @@
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-13",
-   "at": "2026-11-14"
+   "at": "2026-11-21"
   },
   {
    "u": "/countries/luxembourg.html",
@@ -2156,7 +2204,7 @@
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-13",
-   "at": "2026-11-14"
+   "at": "2026-11-21"
   },
   {
    "u": "/countries/uzbekistan.html",
@@ -2170,7 +2218,7 @@
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-13",
-   "at": "2026-11-14"
+   "at": "2026-11-21"
   },
   {
    "u": "/countries/cambodia.html",
@@ -2373,7 +2421,7 @@
    "v": "NEUTRAL",
    "st": "URL is unknown to Google",
    "crawl": "",
-   "at": "2026-11-20"
+   "at": "2026-11-21"
   },
   {
    "u": "/countries/san-marino.html",
@@ -2450,7 +2498,7 @@
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-13",
-   "at": "2026-11-14"
+   "at": "2026-11-21"
   }
  ],
  "stations": {
