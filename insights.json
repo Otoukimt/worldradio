@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-21 13:15 UTC",
+ "updated": "2026-11-22 13:06 UTC",
  "search": {
   "site": "https://worldliveradio.com/",
   "range": {
-   "startDate": "2026-10-22",
-   "endDate": "2026-11-19"
+   "startDate": "2026-10-23",
+   "endDate": "2026-11-20"
   },
   "totals": {
-   "clicks": 31,
-   "impressions": 537
+   "clicks": 32,
+   "impressions": 561
   },
   "queries": [
    {
@@ -102,6 +102,12 @@
     "p": 56
    },
    {
+    "q": "canadian radio stations",
+    "c": 0,
+    "i": 1,
+    "p": 13
+   },
+   {
     "q": "dab radio vs fm",
     "c": 0,
     "i": 1,
@@ -122,8 +128,8 @@
    {
     "q": "dab vs fm",
     "c": 0,
-    "i": 1,
-    "p": 84
+    "i": 3,
+    "p": 93.7
    },
    {
     "q": "dab vs fm radio",
@@ -168,6 +174,12 @@
     "p": 78
    },
    {
+    "q": "egyptian radio",
+    "c": 0,
+    "i": 1,
+    "p": 48
+   },
+   {
     "q": "estereo azul 100.9 en vivo",
     "c": 0,
     "i": 1,
@@ -202,6 +214,12 @@
     "c": 0,
     "i": 2,
     "p": 70
+   },
+   {
+    "q": "frequency of bbc radio 1",
+    "c": 0,
+    "i": 3,
+    "p": 61
    },
    {
     "q": "good uk radio stations",
@@ -306,6 +324,12 @@
     "p": 88
    },
    {
+    "q": "list of dab radio stations",
+    "c": 0,
+    "i": 1,
+    "p": 9
+   },
+   {
     "q": "list of english radio stations",
     "c": 0,
     "i": 1,
@@ -398,8 +422,8 @@
    {
     "q": "radio broadcasting",
     "c": 0,
-    "i": 1,
-    "p": 6
+    "i": 3,
+    "p": 32
    },
    {
     "q": "radio broadcasting stations",
@@ -422,8 +446,8 @@
    {
     "q": "radio georgia",
     "c": 0,
-    "i": 1,
-    "p": 35
+    "i": 2,
+    "p": 46
    },
    {
     "q": "radio hanau frequenz",
@@ -452,8 +476,8 @@
    {
     "q": "radio mirchi frequency",
     "c": 0,
-    "i": 3,
-    "p": 49.7
+    "i": 4,
+    "p": 54.3
    },
    {
     "q": "radio nepal live",
@@ -488,8 +512,8 @@
    {
     "q": "radio station in uk",
     "c": 0,
-    "i": 1,
-    "p": 8
+    "i": 2,
+    "p": 28.5
    },
    {
     "q": "radio stations in japan",
@@ -586,8 +610,8 @@
    {
     "u": "/",
     "c": 17,
-    "i": 102,
-    "p": 7.5
+    "i": 104,
+    "p": 7.7
    },
    {
     "u": "/countries/morocco.html",
@@ -610,8 +634,8 @@
    {
     "u": "/articles/bbc-radio-1-guide.html",
     "c": 1,
-    "i": 8,
-    "p": 18.4
+    "i": 11,
+    "p": 30
    },
    {
     "u": "/articles/best-radio-stations-world.html",
@@ -640,14 +664,14 @@
    {
     "u": "/articles/moroccan-radio-stations-guide.html",
     "c": 1,
-    "i": 22,
-    "p": 5.4
+    "i": 23,
+    "p": 5.6
    },
    {
     "u": "/articles/portugal-denmark-nations-league-radio.html",
     "c": 1,
-    "i": 21,
-    "p": 8.2
+    "i": 22,
+    "p": 8.1
    },
    {
     "u": "/articles/radio-in-the-car.html",
@@ -706,8 +730,8 @@
    {
     "u": "/countries/india.html",
     "c": 1,
-    "i": 4,
-    "p": 11
+    "i": 5,
+    "p": 13.6
    },
    {
     "u": "/countries/kenya.html",
@@ -750,6 +774,12 @@
     "c": 1,
     "i": 2,
     "p": 89.5
+   },
+   {
+    "u": "/countries/the-united-arab-emirates.html",
+    "c": 1,
+    "i": 6,
+    "p": 15.7
    },
    {
     "u": "/countries/ukraine.html",
@@ -796,8 +826,8 @@
    {
     "u": "/articles/fm-dab-internet-radio.html",
     "c": 0,
-    "i": 42,
-    "p": 34.8
+    "i": 45,
+    "p": 38.6
    },
    {
     "u": "/articles/gulf-radio-stations-guide.html",
@@ -868,14 +898,14 @@
    {
     "u": "/articles/radio-mirchi-india-guide.html",
     "c": 0,
-    "i": 32,
-    "p": 12.9
+    "i": 33,
+    "p": 14.5
    },
    {
     "u": "/articles/robert-pattinson-james-bond-casting-news-radio.html",
     "c": 0,
-    "i": 1,
-    "p": 4
+    "i": 2,
+    "p": 7
    },
    {
     "u": "/articles/sean-duffy-transportation-secretary-ground-stop.html",
@@ -892,7 +922,7 @@
    {
     "u": "/articles/uk-radio-stations-guide.html",
     "c": 0,
-    "i": 64,
+    "i": 66,
     "p": 28.3
    },
    {
@@ -910,8 +940,8 @@
    {
     "u": "/countries/bangladesh.html",
     "c": 0,
-    "i": 3,
-    "p": 10.3
+    "i": 4,
+    "p": 9.3
    },
    {
     "u": "/countries/barbados.html",
@@ -936,12 +966,6 @@
     "c": 0,
     "i": 1,
     "p": 46
-   },
-   {
-    "u": "/countries/bolivarian-republic-of-venezuela.html",
-    "c": 0,
-    "i": 1,
-    "p": 165
    }
   ]
  },
@@ -993,7 +1017,7 @@
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-14",
-   "at": "2026-11-15"
+   "at": "2026-11-22"
   },
   {
    "u": "/countries/the-united-kingdom-of-great-britain-and-northern-ireland.html",
@@ -1028,7 +1052,7 @@
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-14",
-   "at": "2026-11-15"
+   "at": "2026-11-22"
   },
   {
    "u": "/countries/canada.html",
@@ -1215,9 +1239,9 @@
   {
    "u": "/articles/nations-league-auslosung-deutschland-fussball.html",
    "v": "NEUTRAL",
-   "st": "URL is unknown to Google",
+   "st": "Discovered - currently not indexed",
    "crawl": "",
-   "at": "2026-11-21"
+   "at": "2026-11-22"
   },
   {
    "u": "/articles/nico-de-boinville-plumpton-security-threat-radio.html",
@@ -1259,7 +1283,7 @@
    "v": "NEUTRAL",
    "st": "Discovered - currently not indexed",
    "crawl": "",
-   "at": "2026-11-21"
+   "at": "2026-11-22"
   },
   {
    "u": "/articles/sean-duffy-transportation-secretary-ground-stop.html",
@@ -1308,42 +1332,42 @@
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-15",
-   "at": "2026-11-15"
+   "at": "2026-11-22"
   },
   {
    "u": "/articles/camille-combal-french-radio-media-spotlight.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-15",
-   "at": "2026-11-15"
+   "at": "2026-11-22"
   },
   {
    "u": "/articles/portugal-denmark-nations-league-radio.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-14",
-   "at": "2026-11-15"
+   "at": "2026-11-22"
   },
   {
    "u": "/articles/kano-diphtheria-outbreak-girls-boarding-school.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-14",
-   "at": "2026-11-15"
+   "at": "2026-11-22"
   },
   {
    "u": "/articles/milei-alliana-paraguay-argentina-radio.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-14",
-   "at": "2026-11-15"
+   "at": "2026-11-22"
   },
   {
    "u": "/articles/anthony-clark-actor-dies-us-radio.html",
    "v": "PASS",
    "st": "Submitted and indexed",
    "crawl": "2026-11-14",
-   "at": "2026-11-15"
+   "at": "2026-11-22"
   },
   {
    "u": "/articles/colette-kress-nvidia-interim-ceo-us-radio.html",
@@ -1390,9 +1414,9 @@
   {
    "u": "/articles/radio-vs-streaming-services.html",
    "v": "NEUTRAL",
-   "st": "URL is unknown to Google",
+   "st": "Discovered - currently not indexed",
    "crawl": "",
-   "at": "2026-11-21"
+   "at": "2026-11-22"
   },
   {
    "u": "/articles/uk-radio-stations-guide.html",
@@ -2418,10 +2442,10 @@
   },
   {
    "u": "/countries/the-sudan.html",
-   "v": "NEUTRAL",
-   "st": "URL is unknown to Google",
-   "crawl": "",
-   "at": "2026-11-21"
+   "v": "PASS",
+   "st": "Submitted and indexed",
+   "crawl": "2026-11-22",
+   "at": "2026-11-22"
   },
   {
    "u": "/countries/san-marino.html",
@@ -2544,16 +2568,16 @@
     "c": 19
    },
    {
+    "n": "Radio Plus Agadir FM 92.4",
+    "c": 14
+   },
+   {
     "n": "ACHKID FM",
     "c": 13
    },
    {
-    "n": "Radio Plus Agadir FM 92.4",
-    "c": 13
-   },
-   {
     "n": "MFM RADIO",
-    "c": 11
+    "c": 12
    },
    {
     "n": "radio yan plus",
