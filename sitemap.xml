@@ -276,12 +276,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/czechia.html</loc>
+    <loc>https://worldliveradio.com/countries/croatia.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://worldliveradio.com/countries/croatia.html</loc>
+    <loc>https://worldliveradio.com/countries/czechia.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
@@ -436,6 +436,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://worldliveradio.com/countries/sri-lanka.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://worldliveradio.com/countries/hong-kong.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
@@ -452,11 +457,6 @@
   </url>
   <url>
     <loc>https://worldliveradio.com/countries/singapore.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://worldliveradio.com/countries/sri-lanka.html</loc>
     <lastmod>2026-11-11</lastmod>
     <priority>0.6</priority>
   </url>
