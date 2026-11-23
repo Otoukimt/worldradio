@@ -1,11 +1,19 @@
 {
- "built": "2026-11-20 12:53 UTC",
+ "built": "2026-11-23 11:28 UTC",
  "pages": 250,
  "internal": [],
  "external": {
-  "checked": "2026-11-16 10:20 UTC",
-  "total": 237,
-  "broken": [],
+  "checked": "2026-11-23 11:28 UTC",
+  "total": 273,
+  "broken": [
+   {
+    "url": "https://news.yahoo.co.jp/articles/68e1e8c242390ab6368802263c0f7983971b99ea",
+    "why": "404",
+    "pages": [
+     "articles/fukuoka-prefectural-assembly-scandal-investigation.html"
+    ]
+   }
+  ],
   "blocked": [
    {
     "url": "https://www.dazn.com/de-DE/news/fussball/belgien-gegen-italien-nations-league-heute-im-tv-und-live-stream-sehen/19pwx4yj0jnpw1sdq9cyzp8wgg",
@@ -19,6 +27,20 @@
     "why": "403",
     "pages": [
      "articles/days-of-our-lives-spoilers-radio.html"
+    ]
+   },
+   {
+    "url": "https://www.independent.ie/irish-news/revealed-the-m50s-most-dangerous-stretch-and-the-worst-times-to-be-on-it/a/163838149.html",
+    "why": "403",
+    "pages": [
+     "articles/irish-independent-news-m50-tech-funding-lukaku.html"
+    ]
+   },
+   {
+    "url": "https://www.racingpost.com/news/jump-racing/nico-de-boinville-escorted-off-track-by-security-after-receiving-death-threat-ayoXe7v9Bb1S/",
+    "why": "406",
+    "pages": [
+     "articles/nico-de-boinville-plumpton-security-threat-radio.html"
     ]
    },
    {
@@ -36,10 +58,10 @@
     ]
    },
    {
-    "url": "https://www.al.sp.gov.br/noticia/?id=270030",
-    "why": "UND_ERR_CONNECT_TIMEOUT",
+    "url": "https://www.nytimes.com/2026/11/16/arts/design/auctions-new-york-fall-christies-sothebys-van-gogh.html",
+    "why": "403",
     "pages": [
-     "countries/brazil.html"
+     "articles/van-gogh-sothebys-auction-dispute-paris-radio.html"
     ]
    },
    {
